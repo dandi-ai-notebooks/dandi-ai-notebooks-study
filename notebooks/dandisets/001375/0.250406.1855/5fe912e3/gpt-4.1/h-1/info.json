@@ -1,0 +1,8 @@
+{
+  "model": "openai/gpt-4.1",
+  "dandiset_id": "001375",
+  "version": "0.250406.1855",
+  "prompt_tokens": 15574,
+  "completion_tokens": 1777,
+  "estimated_cost": 0.045364
+}
