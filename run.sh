@@ -2,75 +2,42 @@
 
 set -ex
 
-DANDISET_ID=001349
-DANDISET_VERSION=draft
-CHAT_ID=5afc0883f430b14ee8a901c92a7d295c0b65e1dd
-# MODEL="anthropic/claude-3.7-sonnet"
-# MODEL="openai/gpt-4.1-mini"
 MODEL="openai/gpt-4.1"
 PROMPT="h-1"
-
-CHAT_ID_2=${CHAT_ID:0:2}
-CHAT_ID_8=${CHAT_ID:0:8}
-CHAT_URL="https://neurosift.org/dandiset-explorer-chats/$DANDISET_ID/$DANDISET_VERSION/chats/$CHAT_ID_2/$CHAT_ID/chat.json"
+PROMPT_PATH="prompts/prompt-$PROMPT.txt"
 MODEL_SECOND_PART=${MODEL#*/}
-PROMPT_PATH=prompts/prompt-$PROMPT.txt
-OUTPUT="notebooks/dandisets/$DANDISET_ID/${DANDISET_VERSION}/$CHAT_ID_8/$MODEL_SECOND_PART/$PROMPT"
-python scripts/create_notebook.py --dandiset $DANDISET_ID --version $DANDISET_VERSION --model $MODEL --chat $CHAT_URL --prompt $PROMPT_PATH --output $OUTPUT
 
-DANDISET_ID=001354
-DANDISET_VERSION=draft
-CHAT_ID=72e0ecd3aa4ccf51f2775a40172cb879089dc222
-MODEL="openai/gpt-4.1"
-PROMPT="h-1"
+process_dandiset() {
+    local DANDISET_ID=$1
+    local DANDISET_VERSION=$2
+    local CHAT_ID=$3
 
-CHAT_ID_2=${CHAT_ID:0:2}
-CHAT_ID_8=${CHAT_ID:0:8}
-CHAT_URL="https://neurosift.org/dandiset-explorer-chats/$DANDISET_ID/$DANDISET_VERSION/chats/$CHAT_ID_2/$CHAT_ID/chat.json"
-MODEL_SECOND_PART=${MODEL#*/}
-PROMPT_PATH=prompts/prompt-$PROMPT.txt
-OUTPUT="notebooks/dandisets/$DANDISET_ID/${DANDISET_VERSION}/$CHAT_ID_8/$MODEL_SECOND_PART/$PROMPT"
-python scripts/create_notebook.py --dandiset $DANDISET_ID --version $DANDISET_VERSION --model $MODEL --chat $CHAT_URL --prompt $PROMPT_PATH --output $OUTPUT
+    local CHAT_ID_2=${CHAT_ID:0:2}
+    local CHAT_ID_8=${CHAT_ID:0:8}
+    local CHAT_URL="https://neurosift.org/dandiset-explorer-chats/$DANDISET_ID/$DANDISET_VERSION/chats/$CHAT_ID_2/$CHAT_ID/chat.json"
+    local OUTPUT="notebooks/dandisets/$DANDISET_ID/${DANDISET_VERSION}/$CHAT_ID_8/$MODEL_SECOND_PART/$PROMPT"
 
-DANDISET_ID=001433
-DANDISET_VERSION=draft
-CHAT_ID=0ef8339a2b5beef133a3e953e6de3da3ca554b1d
-MODEL="openai/gpt-4.1"
-PROMPT="h-1"
+    python scripts/create_notebook.py \
+        --dandiset "$DANDISET_ID" \
+        --version "$DANDISET_VERSION" \
+        --model "$MODEL" \
+        --chat "$CHAT_URL" \
+        --prompt "$PROMPT_PATH" \
+        --output "$OUTPUT"
+}
 
-CHAT_ID_2=${CHAT_ID:0:2}
-CHAT_ID_8=${CHAT_ID:0:8}
-CHAT_URL="https://neurosift.org/dandiset-explorer-chats/$DANDISET_ID/$DANDISET_VERSION/chats/$CHAT_ID_2/$CHAT_ID/chat.json"
-MODEL_SECOND_PART=${MODEL#*/}
-PROMPT_PATH=prompts/prompt-$PROMPT.txt
-OUTPUT="notebooks/dandisets/$DANDISET_ID/${DANDISET_VERSION}/$CHAT_ID_8/$MODEL_SECOND_PART/$PROMPT"
-python scripts/create_notebook.py --dandiset $DANDISET_ID --version $DANDISET_VERSION --model $MODEL --chat $CHAT_URL --prompt $PROMPT_PATH --output $OUTPUT
+# Array of dandiset configurations: [id version chat_id]
+declare -a DANDISETS=(
+    "001349 draft 5afc0883f430b14ee8a901c92a7d295c0b65e1dd"
+    "001354 draft 72e0ecd3aa4ccf51f2775a40172cb879089dc222"
+    "001433 draft 0ef8339a2b5beef133a3e953e6de3da3ca554b1d"
+    "000563 0.250311.2145 fff024797bef5d45054916026a539bdcd19c8771"
+    "001361 0.250406.0045 09466fb7ab663528a1893423a1804e7425ff6178"
+    "001366 0.250324.1603 6ee9f00b7aad91348568cbe0c5dae2cbcb21de2e"
+)
 
-DANDISET_ID=000563
-DANDISET_VERSION=0.250311.2145
-CHAT_ID=fff024797bef5d45054916026a539bdcd19c8771
-MODEL="openai/gpt-4.1"
-PROMPT="h-1"
-
-CHAT_ID_2=${CHAT_ID:0:2}
-CHAT_ID_8=${CHAT_ID:0:8}
-CHAT_URL="https://neurosift.org/dandiset-explorer-chats/$DANDISET_ID/$DANDISET_VERSION/chats/$CHAT_ID_2/$CHAT_ID/chat.json"
-MODEL_SECOND_PART=${MODEL#*/}
-PROMPT_PATH=prompts/prompt-$PROMPT.txt
-OUTPUT="notebooks/dandisets/$DANDISET_ID/${DANDISET_VERSION}/$CHAT_ID_8/$MODEL_SECOND_PART/$PROMPT"
-python scripts/create_notebook.py --dandiset $DANDISET_ID --version $DANDISET_VERSION --model $MODEL --chat $CHAT_URL --prompt $PROMPT_PATH --output $OUTPUT
-
-# https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001361&dandisetVersion=0.250406.0045&chatId=09466fb7ab663528a1893423a1804e7425ff6178
-DANDISET_ID=001361
-DANDISET_VERSION=0.250406.0045
-CHAT_ID=09466fb7ab663528a1893423a1804e7425ff6178
-MODEL="openai/gpt-4.1"
-PROMPT="h-1"
-
-CHAT_ID_2=${CHAT_ID:0:2}
-CHAT_ID_8=${CHAT_ID:0:8}
-CHAT_URL="https://neurosift.org/dandiset-explorer-chats/$DANDISET_ID/$DANDISET_VERSION/chats/$CHAT_ID_2/$CHAT_ID/chat.json"
-MODEL_SECOND_PART=${MODEL#*/}
-PROMPT_PATH=prompts/prompt-$PROMPT.txt
-OUTPUT="notebooks/dandisets/$DANDISET_ID/${DANDISET_VERSION}/$CHAT_ID_8/$MODEL_SECOND_PART/$PROMPT"
-python scripts/create_notebook.py --dandiset $DANDISET_ID --version $DANDISET_VERSION --model $MODEL --chat $CHAT_URL --prompt $PROMPT_PATH --output $OUTPUT
+# Process each dandiset
+for config in "${DANDISETS[@]}"; do
+    read -r id version chat_id <<< "$config"
+    process_dandiset "$id" "$version" "$chat_id"
+done
