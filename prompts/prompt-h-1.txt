@@ -1,0 +1,39 @@
+Please summarize the above chat in a jupytext notebook that introduces dandiset {{ DANDISET_ID }} using the format described below.
+
+The purpose of the notebook is to help researchers explore the dandiset and get started with a reanalysis.
+
+Start with an appropriate title for the notebook, such as "Exploring Dandiset {{ DANDISET_ID }}: ..." (that should be a markdown heading).
+
+Inform the user that the notebook was generated with the assistance of AI, and that they should be cautious when interpreting the code or results.
+
+Provide an overview of the Dandiset. Include a link to the Dandiset of the form https://dandiarchive.org/dandiset/{{ DANDISET_ID }}/{{ DANDISET_VERSION }}.
+
+Summarize what the notebook covers.
+
+List the packages that are required to run the notebook. Assume that these are already installed on the user's system. Do not include any pip install commands in the notebook.
+
+Show how to use the DANDI API to load assets.
+
+Show how to load and visualize data from the dandiset based on the above chat.
+
+Generate all the good quality plots (without being redundant).
+
+Load NWB data by streaming the remote file (as done in the chat) rather than downloading it.
+
+Do not use any functionality of pynwb or dandi that is not covered in the chat.
+
+You should stick to material that is covered in the chat and do not hallucinate.
+
+Throughout the notebook, include explanatory markdown cells that guide the user through the process.
+
+The notebook should be well-documented, and follow best practices Include comments in code cells to explain what each step does.
+
+The Jupytext should use `# %% [markdown]` for markdown cells and `# %%` delimiters for the code cells.
+
+Your output should be in the format:
+
+<notebook>
+The text of the jupytext notebook should appear here.
+</notebook>
+
+No other text should be included in the response.
