@@ -167,7 +167,22 @@ def main():
     print(f'Completion tokens used: {total_completion_tokens}')
     model_cost = get_model_cost(args.model)
     if model_cost[0] is not None and model_cost[1] is not None:
-        print(f'Estimated cost: ${model_cost[0] * total_prompt_tokens / 1e6 + model_cost[1] * total_completion_tokens / 1e6:.3f}')
+        estimated_cost = model_cost[0] * total_prompt_tokens / 1e6 + model_cost[1] * total_completion_tokens / 1e6
+    else:
+        estimated_cost = None
+    if estimated_cost is not None:
+        print(f'Estimated cost: ${estimated_cost:.3f}')
+
+    with open(f'{args.output}/info.json', 'w') as f:
+        json.dump({
+            'model': args.model,
+            'dandiset_id': args.dandiset,
+            'version': args.version,
+            'prompt_tokens': total_prompt_tokens,
+            'completion_tokens': total_completion_tokens,
+            'estimated_cost': estimated_cost
+        }, f, indent=2)
+    print(f"Notebook created and executed successfully. Output saved to {args.output}")
 
 def get_model_cost(model: str):
     if model == 'google/gemini-2.0-flash-001':
