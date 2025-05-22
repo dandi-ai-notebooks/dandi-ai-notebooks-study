@@ -28,7 +28,7 @@ process_dandiset() {
 
 # Array of dandiset configurations: [id version chat_id]
 declare -a DANDISETS=(
-    "001349 draft 5afc0883f430b14ee8a901c92a7d295c0b65e1dd"
+    "001349 0.250520.1729 90f7cc7c8af637c7bbef0bb8d031d904c6367e79"
     "001354 draft 72e0ecd3aa4ccf51f2775a40172cb879089dc222"
     "001433 draft 0ef8339a2b5beef133a3e953e6de3da3ca554b1d"
     "000563 0.250311.2145 fff024797bef5d45054916026a539bdcd19c8771"
