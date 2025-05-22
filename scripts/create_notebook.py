@@ -9,7 +9,7 @@ import requests
 from helpers.run_completion import run_completion
 
 
-def download_chat(url: str) -> str:
+def download_chat(url: str):
     """Download chat JSON from URL and return system message."""
     print(f"Downloading chat JSON from {url}...")
     response = requests.get(url)
@@ -92,7 +92,9 @@ def main():
     # We can't just put the chat in as json because it contains encoded images.
     # So we put the chat in one message at a time (which might be confusing, but oh well)
     chat = download_chat(args.chat)
-    chat_messages = chat['messages']  # type: ignore
+    if not chat.get('finalized', False):
+        raise Exception("Chat is not finalized. Please finalize the chat before using it.")
+    chat_messages = chat['messages']
     for message in chat_messages:
         messages.append(message)
 

@@ -1,0 +1,61 @@
+notebooks:
+  - dandiset_id: "001349"
+    dandiset_version: "0.250520.1729"
+    chat_id: 90f7cc7c8af637c7bbef0bb8d031d904c6367e79
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "001354"
+    dandiset_version: "0.250312.0036"
+    chat_id: 4fba179c5e91d523298cbec78993c2448eb15e1e
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "001433"
+    dandiset_version: "0.250507.2356"
+    chat_id: daf6f524d0a0c520ac0c3e856d5162ae0dcf7dd2
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "000563"
+    dandiset_version: "0.250311.2145"
+    chat_id: 75ecdb7baaa6e5334b161865b3df90150c2a1d3f
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "001361"
+    dandiset_version: "0.250406.0045"
+    chat_id: 5c7338bfd1c3632f146b7fa004d39328a790a4a3
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "001366"
+    dandiset_version: "0.250324.1603"
+    chat_id: cbe62122b7755e61a489a61c72ede7dbcfd63b48
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "001359"
+    dandiset_version: "0.250401.1603"
+    chat_id: 28668318a5283680bb2c5e48db13ae2b4031c10a
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "001375"
+    dandiset_version: "0.250406.1855"
+    chat_id: 5fe912e30a4a72bcc811998379756261432889bc
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "001174"
+    dandiset_version: "0.250331.2218"
+    chat_id: 8b5d2333dbafc85c105768f2773ed87b01466150
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "000690"
+    dandiset_version: "0.250326.0015"
+    chat_id: d8bfae1f2edb4521deb0445376279f1aabe65355
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "001195"
+    dandiset_version: "0.250408.1733"
+    chat_id: ae31fe05a7d09bd0797b31a0d7cae5a835a0959d
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "000617"
+    dandiset_version: "0.250311.1615"
+    chat_id: ca0caac9e3959f2601d73837a00ffb76968f780a
+    prompt: h-1
+    model: openai/gpt-4.1
