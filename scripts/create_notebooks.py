@@ -9,20 +9,24 @@ def run_create_notebook(notebook_config):
     """Run create_notebook.py with the given configuration."""
     dandiset_id = notebook_config['dandiset_id']
     version = notebook_config['dandiset_version']
-    chat_id = notebook_config['chat_id']
+    chat_id = notebook_config.get('chat_id', None)
     prompt = notebook_config['prompt']
     model = notebook_config['model']
+    skip_explore = notebook_config.get('skip_explore', False)
 
     # Construct the chat URL using the same pattern as in run.sh
-    chat_id_2 = chat_id[:2]
-    chat_id_8 = chat_id[:8]
-    chat_url = f"https://neurosift.org/dandiset-explorer-chats/{dandiset_id}/{version}/chats/{chat_id_2}/{chat_id}/chat.json"
+    chat_id_8_or_skip_explore = chat_id[:8] if not skip_explore else 'skip-explore'
+    if not skip_explore:
+        chat_id_2 = chat_id[:2]
+        chat_url = f"https://neurosift.org/dandiset-explorer-chats/{dandiset_id}/{version}/chats/{chat_id_2}/{chat_id}/chat.json"
+    else:
+        chat_url = None
 
     # Extract model name after '/' for output path
     model_second_part = model.split('/')[-1]
 
     # Construct output path using the same pattern as in run.sh
-    output_path = f"notebooks/dandisets/{dandiset_id}/{version}/{chat_id_8}/{model_second_part}/{prompt}"
+    output_path = f"notebooks/dandisets/{dandiset_id}/{version}/{chat_id_8_or_skip_explore}/{model_second_part}/{prompt}"
 
     # Construct prompt path
     prompt_path = f"prompts/prompt-{prompt}.txt"
@@ -34,16 +38,19 @@ def run_create_notebook(notebook_config):
         '--dandiset', str(dandiset_id),
         '--version', str(version),
         '--model', str(model),
-        '--chat', chat_url,
         '--prompt', prompt_path,
         '--output', output_path
     ]
+    if chat_url:
+        cmd.extend(['--chat', chat_url])
+
+    if skip_explore:
+        cmd.append('--skip-explore')
 
     print(f"\nProcessing notebook for dandiset {dandiset_id}...")
     try:
         # Run the command and capture output
-        result = subprocess.run(cmd, check=True, capture_output=True, text=True)
-        print(result.stdout)
+        subprocess.run(cmd, check=True, text=True)
         return True
     except subprocess.CalledProcessError as e:
         print(f"Error processing dandiset {dandiset_id}:")

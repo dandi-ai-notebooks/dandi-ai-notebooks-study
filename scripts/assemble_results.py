@@ -44,14 +44,14 @@ def load_info_data(info_file_path: str) -> dict:
 def construct_chat_url(dandiset_id: str, version: str, chat_id: str) -> str:
     return f"https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId={dandiset_id}&dandisetVersion={version}&chatId={chat_id}"
 
-def get_file_paths(dandiset_id: str, version: str, chat_id: str, model: str, prompt: str) -> tuple:
+def get_file_paths(dandiset_id: str, version: str, chat_id: str, model: str, prompt: str, skip_explore: bool) -> tuple:
     """Construct paths to chat.json and info.json files."""
-    chat_id_8 = chat_id[:8]
+    chat_id_8_or_skip_explore = chat_id[:8] if not skip_explore else 'skip-explore'
     model_name = model.split('/')[-1]
-    base_path = Path(f"notebooks/dandisets/{dandiset_id}/{version}/{chat_id_8}/{model_name}/{prompt}")
+    base_path = Path(f"notebooks/dandisets/{dandiset_id}/{version}/{chat_id_8_or_skip_explore}/{model_name}/{prompt}")
 
     return (
-        base_path / "chat.json",
+        base_path / "chat.json" if not skip_explore else None,
         base_path / "info.json"
     )
 
@@ -74,42 +74,49 @@ def main():
     for notebook in config['notebooks']:
         dandiset_id = notebook['dandiset_id']
         version = notebook['dandiset_version']
-        chat_id = notebook['chat_id']
+        chat_id = notebook.get('chat_id', None)
         model = notebook['model']
         prompt = notebook['prompt']
+        skip_explore = notebook.get('skip_explore', False)
 
         # Get file paths
         chat_file_path, info_file_path = get_file_paths(
-            dandiset_id, version, chat_id, model, prompt
+            dandiset_id, version, chat_id, model, prompt, skip_explore
         )
 
         # Load data from files
-        chat_data = load_chat_data(str(chat_file_path))
+        if chat_file_path:
+            chat_data = load_chat_data(str(chat_file_path))
+        else:
+            chat_data = None
         info_data = load_info_data(str(info_file_path))
 
         # Calculate derived values
-        chat_id_8 = chat_id[:8]
+        chat_id_8_or_skip_explore = chat_id[:8] if not skip_explore else 'skip-explore'
         model_name = model.split('/')[-1]
 
         # Construct notebook entry
         notebook_entry = {
             'dandisetId': dandiset_id,
             'dandisetVersion': version,
-            'chatId': chat_id,
-            'chat': {
-                'chatUrl': construct_chat_url(dandiset_id, version, chat_id),
-                'chatModel': model,
-                **chat_data
-            },
             'notebook': {
                 'notebookModel': model,
                 'notebookPrompt': prompt,
-                'notebookUrl': f"https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/{dandiset_id}/{version}/{chat_id_8}/{model_name}/{prompt}/notebook.ipynb",
+                'notebookUrl': f"https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/{dandiset_id}/{version}/{chat_id_8_or_skip_explore}/{model_name}/{prompt}/notebook.ipynb",
                 'promptTokens': info_data.get('promptTokens'),
                 'completionTokens': info_data.get('completionTokens'),
                 'estimatedCost': info_data.get('estimatedCost')
-            }
+            },
+            'skip_explore': skip_explore
         }
+        if chat_id:
+            notebook_entry['chatId'] = chat_id,
+            assert chat_data
+            notebook_entry['chat'] = {
+                'chatUrl': construct_chat_url(dandiset_id, version, chat_id),
+                'chatModel': model,
+                **chat_data
+            }
 
         results['notebooks'].append(notebook_entry)
 

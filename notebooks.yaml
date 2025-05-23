@@ -59,3 +59,65 @@ notebooks:
     chat_id: ca0caac9e3959f2601d73837a00ffb76968f780a
     prompt: h-1
     model: openai/gpt-4.1
+
+  - dandiset_id: "001349"
+    dandiset_version: "0.250520.1729"
+    skip_explore: True
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "001354"
+    dandiset_version: "0.250312.0036"
+    skip_explore: True
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "001433"
+    dandiset_version: "0.250507.2356"
+    skip_explore: True
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "000563"
+    dandiset_version: "0.250311.2145"
+    skip_explore: True
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "001361"
+    dandiset_version: "0.250406.0045"
+    skip_explore: True
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "001366"
+    dandiset_version: "0.250324.1603"
+    skip_explore: True
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "001359"
+    dandiset_version: "0.250401.1603"
+    skip_explore: True
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "001375"
+    dandiset_version: "0.250406.1855"
+    skip_explore: True
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "001174"
+    dandiset_version: "0.250331.2218"
+    skip_explore: True
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "000690"
+    dandiset_version: "0.250326.0015"
+    skip_explore: True
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "001195"
+    dandiset_version: "0.250408.1733"
+    skip_explore: True
+    prompt: h-1
+    model: openai/gpt-4.1
+  - dandiset_id: "000617"
+    dandiset_version: "0.250311.1615"
+    skip_explore: True
+    prompt: h-1
+    model: openai/gpt-4.1
+

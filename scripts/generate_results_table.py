@@ -13,16 +13,23 @@ def generate_markdown_table():
 
     # Add each row
     for notebook in data['notebooks']:
+        skip_explore = notebook.get('skip_explore', False)
         dandiset_id = notebook['dandisetId']
-        chat_model = notebook['chat']['chatModel'].split('/')[-1]
+        if not skip_explore:
+            chat_model = notebook['chat']['chatModel'].split('/')[-1]
+            chat_cost = f"${notebook['chat']['estimatedCost']:.2f}"
+            chat_url = notebook['chat']['chatUrl']
+        else:
+            chat_model = 'skip-explore'
+            chat_cost = 'N/A'
+            chat_url = None
         notebook_model = notebook['notebook']['notebookModel'].split('/')[-1]
-        chat_cost = f"${notebook['chat']['estimatedCost']:.2f}"
         notebook_cost = f"${notebook['notebook']['estimatedCost']:.2f}"
-        chat_url = notebook['chat']['chatUrl']
+
         notebook_url = notebook['notebook']['notebookUrl']
 
         # Format the row with the dandiset ID linking to the notebook URL
-        row = f"| [{dandiset_id}]({notebook_url}) | {chat_model} | {notebook_model} | {chat_cost} | {notebook_cost} | [link]({chat_url}) |\n"
+        row = f"| [{dandiset_id}]({notebook_url}) | {chat_model} | {notebook_model} | {chat_cost} | {notebook_cost} | {'[link](' + chat_url + ')' if chat_url else 'N/A'} |\n"
         markdown += row
 
     # Write to results.md

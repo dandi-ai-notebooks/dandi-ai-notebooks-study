@@ -1,12 +1,12 @@
-Please summarize the above {{ CHAT_OR_INFORMATION }} in a jupytext notebook that introduces dandiset {{ DANDISET_ID }} using the format described below.
+Please summarize the above information in a jupytext notebook that introduces dandiset 001375 using the format described below.
 
 The purpose of the notebook is to help researchers explore the dandiset and get started with a reanalysis.
 
-Start with an appropriate title for the notebook, such as "Exploring Dandiset {{ DANDISET_ID }}: ..." (that should be a markdown heading).
+Start with an appropriate title for the notebook, such as "Exploring Dandiset 001375: ..." (that should be a markdown heading).
 
 Inform the user that the notebook was generated with the assistance of AI, and that they should be cautious when interpreting the code or results.
 
-Provide an overview of the Dandiset. Include a link to the Dandiset of the form https://dandiarchive.org/dandiset/{{ DANDISET_ID }}/{{ DANDISET_VERSION }}.
+Provide an overview of the Dandiset. Include a link to the Dandiset of the form https://dandiarchive.org/dandiset/001375/0.250406.1855.
 
 Summarize what the notebook covers.
 
