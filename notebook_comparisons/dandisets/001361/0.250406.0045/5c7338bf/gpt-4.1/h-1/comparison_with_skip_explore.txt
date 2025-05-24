@@ -1,0 +1,125 @@
+<comparison>
+<question>1</question>
+<question_shortened>Understanding the purpose/content of the Dandiset</question_shortened>
+<rationale>
+Notebook 1 provides a thorough overview at the outset, including metadata such as dataset DOI, title, authors, and a concise summary of the Dandiset’s content and data modalities. The introduction gives context for what will be done and what is available in the dataset. Notebook 2 also offers a succinct overview and specifies both content and the Nature Neuroscience reference, but is slightly less detailed about the structure and richness of what is in the Dandiset. Notebook 1 more clearly links the science purpose with the data structure and session details, especially with the highlighted "What This Notebook Covers" and bullet points.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>2</question>
+<question_shortened>Confidence in accessing different data types</question_shortened>
+<rationale>
+Notebook 1 steps through detailed access of both behavioral and imaging data, showing how to load and extract specific fields (e.g., position, licks, reward, ROIs, fluorescence), and covers both behavioral and neural modalities in explicit code blocks. Notebook 2 does access both types of data, but presents access for each as part of relatively streamlined example blocks rather than showing the broader menu of possibilities in NWB. Thus, Notebook 1 provides a more granular and explicit demonstration of accessing the full range of data types available in the Dandiset, which may give the user more confidence about what else they can access and how.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>3</question>
+<question_shortened>Understanding NWB structure and usage</question_shortened>
+<rationale>
+Notebook 1 explicitly extracts metadata from various NWB fields (session, subject, imaging plane, device, etc.) and accesses different NWB groups (e.g., processing, behavioral, ophys/ImageSegmentation) using PyNWB, which mirrors standard NWB workflows. This helps users see the hierarchical nature and conventions of NWB files. Notebook 2 mostly accesses the file through h5py and focuses more on getting specific arrays for visualization without much exploration of NWB organization, field names, or subgroups. Thus, Notebook 1 is more helpful for a user wanting to understand NWB structure in general as well as its specifics for this dataset.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>4</question>
+<question_shortened>Did visualizations help understanding?</question_shortened>
+<rationale>
+Both notebooks provide visualizations that reveal key data aspects: behavioral track position, neural traces, and segmentation masks/ROIs. Notebook 1 plots behavioral position along with licks and rewards, integrating multiple modalities within one plot, and overlays them, providing a richer integrated perspective. Notebook 2 provides clear but more isolated visualizations of single behaviors or single neural modalities, and its plot of ROIs is novel (contours without background), but the context is a bit more fragmented compared to the integrated approach in Notebook 1. Overall, Notebook 1’s richer and more integrative plotting is slightly stronger for understanding.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>5</question>
+<question_shortened>Poor or confusing visualizations?</question_shortened>
+<rationale>
+Neither notebook contains outright misleading or poorly formatted visualizations. Notebook 1’s overlay of position/lick/reward could potentially be a little cluttered, but the legend and labeling prevent confusion. Notebook 2’s ROI plots omit anatomical background, which is acknowledged as a tradeoff, but the intention is clear and not misleading. Axes, legends, and titles are mostly appropriate in both cases. Thus, any drawbacks are minor and not impactful enough to clearly favor one over the other.
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>6</question>
+<question_shortened>Confidence in making own visualizations</question_shortened>
+<rationale>
+Notebook 1 includes examples of how to combine multiple data streams and use pandas to manipulate and inspect data, likely equipping a user with enough concrete examples to adapt to broader or custom exploratory visualizations. The use of PyNWB and stepwise data extraction is also instructive. Notebook 2’s visualizations are neat and concise but don’t demonstrate as much combination or flexible querying from the NWB. Notebook 1 thus gives a bit more confidence for more ambitious re-visualization.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>7</question>
+<question_shortened>Visualizations of structure/complexity</question_shortened>
+<rationale>
+Notebook 1’s integration of behavioral events with imaging, and summary of metadata (ROIs table), conveys more of the dataset’s complexity and interrelated parts. Notebook 2 does visualize ROIs in pixel space which is helpful for structure, but doesn't juxtapose the neural data as richly with behavioral context. Notebook 1’s summary visualizations thus better communicate the richness and multidimensionality of the data.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>8</question>
+<question_shortened>Unclear or unsupported interpretations</question_shortened>
+<rationale>
+Both notebooks are generally careful, mostly describing what is plotted rather than making claims. Notebook 1 maintains an appropriately cautious tone and does not overinterpret. Notebook 2 adds a little more interpretative commentary (e.g. re: lap structure, sparse events), but these are accurate, brief, and reasonable from the data. Neither notebook gives unclear or unsupported conclusions.
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>9</question>
+<question_shortened>Unnecessarily repetitive or redundant plots/examples?</question_shortened>
+<rationale>
+Notebook 1 is relatively concise, with each plot focusing on a different aspect (behavior, neural, or metadata summary). Notebook 2 also avoids redundancy; its plots focus on distinct modalities or views. There's no clear redundancy or wasted repetition in either notebook. Both keep a tight focus.
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>10</question>
+<question_shortened>Understanding next steps/possible analyses</question_shortened>
+<rationale>
+Notebook 1 explicitly highlights "Next Steps for Analysis" with bullet points and encourages exploration with links to related analysis code and publication. It points toward scientific directions (“reward-related and place cell activity”) and external resources. Notebook 2 summarizes the workflow but lacks explicit suggestions for next scientific questions or directions beyond “framework for further analysis.” Thus Notebook 1 is much stronger in orienting the user for follow-up analysis.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>11</question>
+<question_shortened>Clarity and ease of following</question_shortened>
+<rationale>
+Both notebooks are well-structured, but Notebook 1 uses more frequent section headers, bullet points, and clearly separates code, text, and outputs for each data type. It also walks through both metadata and data extraction in a logical order. Notebook 2 is neat and readable but has a slightly less guided, more script-like narrative. Thus, Notebook 1 is a bit easier for a first-time user to follow step-by-step.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>12</question>
+<question_shortened>Reusability/adaptability of code</question_shortened>
+<rationale>
+Notebook 1's code is modular, showing how to access specific fields and all key data types, and is more straightforwardly adaptable for other sessions or for extending to more/other data streams. It demonstrates a more generalizable workflow using PyNWB (standard for NWB data). Notebook 2's code is also reusable, but relies more on hardcoded paths and h5py, which are less robust or flexible than the NWBAPI workflow for more general access, especially for complex datasets. Notebook 1's approach is thus more reusable/adaptable.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>13</question>
+<question_shortened>Help with understanding future analyses</question_shortened>
+<rationale>
+This is closely related to question 10. Notebook 1 directly addresses future analysis directions and where to look for more (custom analysis scripts, publication), while Notebook 2 simply states that the notebook provides a "framework for further analysis" without concrete suggestions or pointers. Thus, preference is clearly for Notebook 1.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>14</question>
+<question_shortened>Overall helpfulness for getting started</question_shortened>
+<rationale>
+While both notebooks will help a new user, Notebook 1 is more detailed, more modular, covers richer metadata, more clearly describes each step, gives explicit orientation for next steps, and exemplifies best practices for working with complex NWB files. Notebook 2 is concise and visual but does not provide as extensive a foundation for scientific or technical re-use. Thus, overall, Notebook 1 is much stronger for onboarding a new user to this Dandiset.
+</rationale>
+<preference>1</preference>
+</comparison>

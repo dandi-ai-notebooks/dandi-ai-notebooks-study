@@ -1,0 +1,40 @@
+Based on the above two notebooks and the criteria below, please provide a detailed pairwise comparison to weighs the strengths and weaknesses of each notebook.
+
+Address the following questions, one by one, in your comparison:
+
+1. How well did the notebook help you understand the purpose and content of the Dandiset?
+2. After reviewing the notebook, do you feel confident in how to access the different types of data from this Dandiset?
+3. Did the notebook help you understand the structure of the NWB file(s) and how to work with them?
+4. Did the visualizations in the notebook generally help you understand key aspects of the data?
+5. Did any of the visualizations make it harder to understand the data (e.g., due to poor formatting, unclear axes, or misleading displays)?
+6. Do you feel more confident creating your own visualizations of the data after seeing the examples in the notebook?
+7. How well did the visualizations show the structure or complexity of the data?
+8. Were there any interpretations or conclusions in the notebook that felt unclear or not well supported by the data shown?
+9. Did any of the plots or examples feel unnecessarily repetitive or redundant?
+10. Did the notebook help you understand what kinds of questions or analyses you could do next with this Dandiset?
+11. How clear and easy was the notebook to follow?
+12. Did the notebook provide code you could easily reuse or adapt to explore the Dandiset yourself?
+13. Did the notebook help you understand what kinds of questions or analyses you could do next with this Dandiset?
+14. Overall, how helpful was this notebook for getting started with this Dandiset?
+
+For each question, you should respond with an XML block formatted exactly like the following:
+
+<comparison>
+<question>n</question>
+<question_shortened>Shortened text</question_shortened>
+
+<rationale>
+Your notes comparing the two notebooks
+</rationale>
+
+<preference>0|1|2</preference>
+</comparison>
+
+Here "n" is the number of the question (1-14)
+"Shortened text" is a shortened version of the question text, for reference
+"Your notes comparing the two notebooks" is your detailed notes comparing the two notebooks for this question.
+For preference, you should use 0, 1, or 2, where:
+1 means the first notebook is significantly better for this criterion
+2 means the second notebook is significantly better for this criterion
+0 means the notebooks are about the same for this criterion, with only minor differences.
+

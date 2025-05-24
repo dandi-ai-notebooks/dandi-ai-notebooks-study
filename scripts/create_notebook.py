@@ -114,6 +114,7 @@ def main():
         # skip-explore mode
         if args.chat:
             raise ValueError("Chat URL is not allowed in skip-explore mode.")
+        chat = None
         dandiset_metadata = _get_dandiset_metadata(args.dandiset, args.version)
         messages.append({
             "role": "system",
@@ -224,6 +225,11 @@ def main():
     # write messages.json
     with open(f'{args.output}/messages.json', 'w') as f:
         json.dump(messages, f, indent=2)
+
+    # write chat.json
+    if chat is not None:
+        with open(f'{args.output}/chat.json', 'w') as f:
+            json.dump(chat, f, indent=2)
 
     print(f'Prompt tokens used: {total_prompt_tokens}')
     print(f'Completion tokens used: {total_completion_tokens}')

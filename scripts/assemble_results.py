@@ -86,6 +86,16 @@ def main():
 
         # Load data from files
         if chat_file_path:
+            # if not os.path.exists(chat_file_path):
+            #     print('chat.json file not found. one off solution is to download it')
+            #     with open(info_file_path, 'r') as f:
+            #         info_data = json.load(f)
+            #     def _download_file(url, file_path):
+            #         import requests
+            #         response = requests.get(url)
+            #         with open(file_path, 'wb') as f:
+            #             f.write(response.content)
+            #     _download_file(info_data['chat_url'], chat_file_path)
             chat_data = load_chat_data(str(chat_file_path))
         else:
             chat_data = None
@@ -111,7 +121,7 @@ def main():
         }
         if chat_id:
             notebook_entry['chatId'] = chat_id,
-            assert chat_data
+            assert chat_data, f"No chat data found for {chat_id}"
             notebook_entry['chat'] = {
                 'chatUrl': construct_chat_url(dandiset_id, version, chat_id),
                 'chatModel': model,

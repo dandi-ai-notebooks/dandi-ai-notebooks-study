@@ -1,0 +1,11 @@
+{
+  "model": "openai/gpt-4.1",
+  "dandiset_id": "001354",
+  "version": "0.250312.0036",
+  "prompt": "prompts/prompt-h-2.txt",
+  "skip_explore": true,
+  "chat_url": "",
+  "prompt_tokens": 10857,
+  "completion_tokens": 2805,
+  "estimated_cost": 0.044154
+}
