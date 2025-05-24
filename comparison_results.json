@@ -94,6 +94,99 @@
       ]
     },
     {
+      "dandiset_id": "001349",
+      "version": "0.250520.1729",
+      "chat_id": "90f7cc7c",
+      "model": "gpt-4.1",
+      "prompt": "h-2",
+      "comparisons": [
+        {
+          "question_number": 1,
+          "question_shortened": "Understanding the Dandiset's purpose and content",
+          "rationale": "Notebook 1 provides a much more thorough introduction: it includes a Dandiset overview, experimental context, explanation of data types, and wraps with a detailed \"About the dataset\" section summarizing the biological and technical context. Notebook 2 offers a factual introduction (title, overview, high-level aims, and session layout), but the narrative is briefer and lacks the experimental context, design, or the biological/computational focus described in Notebook 1. Notebook 1 also offers a better-organized (\"what you'll find in this notebook\") preamble, priming the user for what's to follow.",
+          "preference": 1
+        },
+        {
+          "question_number": 2,
+          "question_shortened": "Confidence in accessing different types of data",
+          "rationale": "Both notebooks show how to connect to the DANDI API, list and select NWB files, and use remfile/pynwb/h5py to load the data. However, Notebook 1 provides a full listing of many file paths (not just the first 10), walks through key data modalities (fluorescence, dff, event, z-score), and connects these to both code and interpretation. It also demonstrates streaming, selection, and discusses data types and their structure. Notebook 2 only covers listing the first 10 NWB files and selecting one, and then mostly focuses on a single example ROI. Overall, Notebook 1 gives the reader greater confidence that they could access various data types in the dataset.",
+          "preference": 1
+        },
+        {
+          "question_number": 3,
+          "question_shortened": "Understanding structure of NWB files and working with them",
+          "rationale": "Notebook 1 systematically prints and interprets NWB metadata (institutions, experimenter, processing modules, etc.), lists and explains processing modules and data interfaces, and demonstrates navigation inside these modules. It also prints the available processing modules and discusses the types of signals, making the NWB structure very clear. Notebook 2 does describe where the relevant processed datasets are (ophys \u2192 Fluorescence), and lists the available series, but it doesn't show as much about the NWB structure overall (less metadata, no processing modules printout, less discussion of the NWB object model).",
+          "preference": 1
+        },
+        {
+          "question_number": 4,
+          "question_shortened": "Did visualizations help you understand key aspects?",
+          "rationale": "Notebook 1 provides a wider variety of visualizations: \n- Distribution scatter of all ROIs (for spatial context)\n- Multiple ROIs' dF/F traces\n- Multiple event traces\n- Progression through several data types for one ROI (raw, corrected, events, z-score)\nNotebook 2 focuses on single-ROI plots (dff, raw fluorescence, mask). While these are clear, they provide a narrower look at the dataset's structure. Notebook 1's multi-ROI plots and structured comparisons (Figure 7) help the user see both structure and variety in the data. However, Notebook 2's mask visualization is clearer for a single ROI; Notebook 1 does not plot individual mask images. On balance, the broader, contextualized plots in Notebook 1 are more helpful for understanding the dataset's content.",
+          "preference": 1
+        },
+        {
+          "question_number": 5,
+          "question_shortened": "Were any visualizations hard to understand?",
+          "rationale": "Notebook 1's scatter plot for spatial ROI locations failed to display data (the axes are empty, likely due to a code/data issue). Otherwise, all visualizations in both notebooks are clear, with labeled axes and context. Notebook 2's single-ROI mask plot provides clear spatial context for mask shape and values. While Notebook 1 provides more visual context for time series, the failure of the spatial ROI plot is confusing and could mislead a new user by suggesting there is no data.",
+          "preference": 2
+        },
+        {
+          "question_number": 6,
+          "question_shortened": "Confidence in making own visualizations",
+          "rationale": "Notebook 1 is more instructive for generalization: it shows both single-ROI and multi-ROI plots, demonstrates plotting from DataFrames, and provides more annotation and context on how different types of ROI and timeseries data can be visualized. Notebook 2's plotting code is clear, but more limited in scope/customizability (focused on ROI 0 only). Thus, after working through Notebook 1, a user would likely feel more confident in extending and adapting the code for their own visualization aims.",
+          "preference": 1
+        },
+        {
+          "question_number": 7,
+          "question_shortened": "Visualizations of data structure/complexity",
+          "rationale": "Notebook 1 presents the diversity of the data and its complexity: multi-ROI traces, contrasting raw/corrected/Z-score/event traces, and attempts to show spatial ROI locations (despite a bug). Notebook 2 only presents ROI 0 time-series and mask, which does not illustrate population structure or heterogeneity. Thus, Notebook 1 enables a much deeper appreciation of dataset structure and complexity.",
+          "preference": 1
+        },
+        {
+          "question_number": 8,
+          "question_shortened": "Unclear or unsupported conclusions?",
+          "rationale": "Both notebooks avoid making strong interpretations or drawing scientific conclusions; they are mostly descriptive. Notebook 1 makes a few summary/statements (\"These data are...\") and proposes next steps but does not overinterpret the data. Notebook 2 explicitly states absence of behavioral/stimulus data and highlights that no further events are present. No unclear or unsupported conclusions in either.",
+          "preference": 0
+        },
+        {
+          "question_number": 9,
+          "question_shortened": "Repetitiveness or redundancy in plots/examples",
+          "rationale": "Notebook 1 does not feel repetitive; it deliberately steps through different traces, multi-ROI and single-ROI visualizations, and image segmentation. Notebook 2\u2019s structure also avoids redundancy by shifting focus (list files, plot dff, plot raw, plot mask). Neither notebook is notably redundant or repetitive, though Notebook 2's single-ROI approach could be viewed as limited in scope, not repetitive.",
+          "preference": 0
+        },
+        {
+          "question_number": 10,
+          "question_shortened": "Did notebook suggest further questions/analyses?",
+          "rationale": "Notebook 1 provides a concrete \"Next steps and suggestions\" section that proposes practical follow-up analyses and links to further documentation and publications. Notebook 2 also suggests next steps, e.g., comparing ROIs, computing statistics, event-triggered averages, integrating behavioral data, etc. Both are helpful. Notebook 1's suggestions are slightly more detailed, including the possibility of synchronizing with behavioral video using available synchrony data\u2014which hints at multimodal analysis and the breadth of the Dandiset.",
+          "preference": 1
+        },
+        {
+          "question_number": 11,
+          "question_shortened": "Clarity and ease of following the notebook",
+          "rationale": "Both notebooks are clear, use headings, and offer stepwise progression. Notebook 1\u2019s structure is more detailed, with block-separated explanations and explicit sectioning; it also summarizes what the notebook covers right up front. Notebook 2 is concise and logical, but its single-ROI focus makes it easier to follow but potentially less informative for dataset-wide questions. Both are accessible, but Notebook 1's clarity, detailed stepping, and deeper context give it an edge.",
+          "preference": 1
+        },
+        {
+          "question_number": 12,
+          "question_shortened": "Reusability/adaptability of code",
+          "rationale": "Both notebooks provide code that could be reused with minor modifications. However, Notebook 1 covers more general tasks (listing all NWB files, handling multiple ROIs, working with DataFrames, various kinds of visualization), making its code easier to adapt for broader analysis. Notebook 2\u2019s code could also be reused but would require tweaking to extend beyond ROI 0 or to access more advanced features. Thus, Notebook 1's code is more adaptable.",
+          "preference": 1
+        },
+        {
+          "question_number": 13,
+          "question_shortened": "Did the notebook help you see next analysis steps?",
+          "rationale": "Both contain explicit \"Next steps\" or summary sections suggesting follow-up analyses (clustering, population comparison, linking to behavior, etc.). Notebook 1\u2019s suggestions are more detailed (synchrony, correlations, identifying developmental changes), whereas Notebook 2 is briefer but still adequate. On balance, Notebook 1 provides greater direction.",
+          "preference": 1
+        },
+        {
+          "question_number": 14,
+          "question_shortened": "Overall helpfulness for getting started",
+          "rationale": "Notebook 1 is more comprehensive, provides deeper context, more varied code and visualization examples, and offers stronger support for both basic and advanced users to get started with this Dandiset. Notebook 2 is easier for absolute beginners (simple, step-by-step for a single ROI) and has fewer bugs, but Notebook 1 overall offers more depth and breadth for an initial exploration.",
+          "preference": 1
+        }
+      ]
+    },
+    {
       "dandiset_id": "001354",
       "version": "0.250312.0036",
       "chat_id": "4fba179c",
@@ -187,6 +280,99 @@
       ]
     },
     {
+      "dandiset_id": "001354",
+      "version": "0.250312.0036",
+      "chat_id": "4fba179c",
+      "model": "gpt-4.1",
+      "prompt": "h-2",
+      "comparisons": [
+        {
+          "question_number": 1,
+          "question_shortened": "Understanding purpose and content",
+          "rationale": "Both notebooks open with a clear description of the Dandiset's purpose and content. Notebook 1 uses more targeted language and integrates specifics (e.g., \"programmable antigen-gated GPCRs\") early, then gives a bulleted summary and an overview of NWB metadata, effectively contextualizing both the science and the data format. Notebook 2 is similarly clear but a bit more general at first (refers to current clamps and engineered receptors, but less detail up front), only later specifying more about protocols and file structure. Notebook 1 also reinforces the link between scientific aims and data structure within NWB, which helps anchor the reader. Overall, Notebook 1 is slightly stronger for a first-time reader interested in purpose and scope.",
+          "preference": 1
+        },
+        {
+          "question_number": 2,
+          "question_shortened": "Confidence accessing data types",
+          "rationale": "Both notebooks equip users with the tools to list and access NWB files: they both utilize the DANDI API, show code for accessing assets, and describe the structure. Notebook 1, however, is somewhat more explicit in guiding users through (1) listing files, (2) explaining the content of the files, and (3) how to choose and stream a file for analysis. Notebook 2 presents this as well, but with slightly less stepwise explanation. Therefore, Notebook 1 provides a more thorough on-ramp for users seeking confidence accessing all data types within the Dandiset.",
+          "preference": 1
+        },
+        {
+          "question_number": 3,
+          "question_shortened": "Understanding NWB structure",
+          "rationale": "Both notebooks do a good job showing the NWB file hierarchy, listing acquisition and stimulus series, and discussing the intracellular recordings and sequential recording tables. Notebook 1 presents this sequence in a slightly more organized manner and explicitly references where data and metadata are found in the file, providing a brief, clear textual summary before and after the code. It also explicitly prints metadata and cell-specific details. Notebook 2 covers similar points, but the modular format is more code-focused and less structured in narrative, which may make it less easy for some users to grasp the NWB format. Notebook 1 wins here by a small margin.",
+          "preference": 1
+        },
+        {
+          "question_number": 4,
+          "question_shortened": "Usefulness of visualizations",
+          "rationale": "Both notebooks include key visualizations: a plot of the ramp stimulus and the corresponding membrane response for a single trial, and additional trials for broader comparison. Notebook 1 uses side-by-side (stacked) subplots for current and voltage, with clear labeling (pA, mV, time in seconds), while Notebook 2 overlays voltage and current using twin y-axes, plotting in V and nA. Both approaches are valid, but Notebook 1's stacking makes it trivial to compare shapes/timings without confusion over axes. Additionally, Notebook 1 shows multiple trials in a grid layout, which is especially useful for appreciating repeatability and trial-by-trial evolution; this is missing from Notebook 2. Therefore, Notebook 1 provides richer and slightly more accessible visualizations for the non-expert.",
+          "preference": 1
+        },
+        {
+          "question_number": 5,
+          "question_shortened": "Visualization clarity or pitfalls",
+          "rationale": "Both notebooks have good clarity, but Notebook 2's overlay with twin y-axes for voltage and current (in V and nA) could potentially confuse users due to different scaling and units on left/right y-axes. Notebook 1 avoids this confusion by plotting on separate axes (and using easily interpreted units: pA and mV). No visualization in Notebook 1 is misleading or unclear, whereas Notebook 2's overlay, while common practice, can cause misinterpretation for less familiar readers. Thus, Notebook 1 is less prone to pitfalls.",
+          "preference": 1
+        },
+        {
+          "question_number": 6,
+          "question_shortened": "Confidence in making own plots",
+          "rationale": "Both notebooks provide clear, reusable matplotlib examples for plotting time series electrophysiology data with proper units/scaling. Notebook 1 goes further by demonstrating batch plotting/iteration (multiple trials displayed as a grid), showing users how to generalize the approach for more data\u2014an essential aspect for exploratory data analysis in neuroscience. Notebook 2 sticks to a single sweep and overlay. The slight advantage goes to Notebook 1 for modelling batch plotting and flexible figure layouts.",
+          "preference": 1
+        },
+        {
+          "question_number": 7,
+          "question_shortened": "Visualizations show data complexity",
+          "rationale": "Notebook 1's display of four consecutive ramp trials gives a tangible sense of both the reproducibility and the variability in cellular responses, a crucial aspect of electrophysiology data complexity. Notebook 2 visualizes only one sweep, missing the opportunity to illustrate intra-cell or intra-experiment variability. Thus, Notebook 1's visualizations more completely convey data structure and complexity.",
+          "preference": 1
+        },
+        {
+          "question_number": 8,
+          "question_shortened": "Interpretations and supporting data",
+          "rationale": "Both notebooks offer reasonable, data-driven interpretation; e.g., explaining the meaning of the plotted traces and the relationship between stimulus and response. Notebook 2 tends to be more cautious (\"Interpretation:\" sections are brief and accurate, with little extrapolation), while Notebook 1 provides silkier transitions between what is shown and what it means. Neither makes unsupported claims. However, Notebook 1 also contextualizes the value of repeated trials and metadata for analysis, which feels slightly more integrated with the presented data.",
+          "preference": 1
+        },
+        {
+          "question_number": 9,
+          "question_shortened": "Repetitive/redundant plots/examples",
+          "rationale": "Neither notebook excessively repeats similar plots. Notebook 1's series of multiple trials is justified and adds value, showing variability and helping users understand data structure over redundant repetition. Notebook 2 remains concise. There is no unnecessary repetition in either case.",
+          "preference": 0
+        },
+        {
+          "question_number": 10,
+          "question_shortened": "Ideas for next steps/analyses",
+          "rationale": "Notebook 1 devotes a \"What Next?\" section with bullet points outlining how users could extend analyses, referencing both scientific aims and programmatic possibilities (batch processing, pharmacology, file-level metadata, etc.). Notebook 2 ends with high-level prompts under \"What next?,\" but the suggestions are not as varied or detailed. Thus, Notebook 1 provides a richer springboard for follow-up analyses.",
+          "preference": 1
+        },
+        {
+          "question_number": 11,
+          "question_shortened": "Overall clarity & ease of following",
+          "rationale": "Both notebooks are largely clear and logical, but Notebook 1's organization\u2014using explicit numbered sections and frequently inserting summary or explanatory text between code blocks\u2014makes it a bit more accessible for readers with varied backgrounds. Notebook 2's sections are split by markdown, but the narrative is choppier, with more code-focused transitions. Notebook 1 feels more \"literate notebook\" style, making it slightly easier to follow as an interactive tutorial.",
+          "preference": 1
+        },
+        {
+          "question_number": 12,
+          "question_shortened": "Reusability/adaptability of code",
+          "rationale": "Both notebooks provide mostly reusable code blocks for listing files, opening data, and plotting. Notebook 1's examples are more generic and parameterized\u2014clearly showing, for example, how to select any trial or loop over trials, and how to adapt visualizations for batch-processing. Notebook 2 contains similarly modular code, but focuses mostly on single sweeps and doesn\u2019t demonstrate as much iteration/generalization. Slight advantage: Notebook 1.",
+          "preference": 1
+        },
+        {
+          "question_number": 13,
+          "question_shortened": "Helpfulness for idea generation",
+          "rationale": "This is nearly a repeat of question 10. See rationale there: Notebook 1 provides not only code but also explicitly enumerates a diverse set of follow-up analysis ideas, rooted in both the data and neuroscience context. Notebook 2 is more general and brief. Notebook 1 is preferable for users seeking inspiration for next steps.",
+          "preference": 1
+        },
+        {
+          "question_number": 14,
+          "question_shortened": "Overall helpfulness for getting started",
+          "rationale": "Both notebooks fulfill their role, but Notebook 1 stands out for its balance of scientific background, detailed navigation of the Dandiset, careful explanation of NWB content, versatile and informative visualizations, and plentiful suggestions for further analysis. It serves as a slightly stronger template for first-time or intermediate users who wish to quickly understand and reuse code for effective data exploration. Notebook 2 is solid, but more minimal in scope and flexibility.",
+          "preference": 1
+        }
+      ]
+    },
+    {
       "dandiset_id": "001433",
       "version": "0.250507.2356",
       "chat_id": "daf6f524",
@@ -275,6 +461,99 @@
           "question_number": 14,
           "question_shortened": "Overall helpfulness for getting started",
           "rationale": "Overall, Notebook 1 is more comprehensive, better structured, and much more beginner friendly. It guides the user at each step\u2014not just with code, but also rationale, output inspection, and ideas for further work\u2014making it an ideal \"getting started\" resource. Notebook 2 is usable and covers the basic workflow, but is less thorough, especially regarding exploration of file structure, range of data types, and visualization breadth. Notebook 1 sets a positive standard for reproducible and instructive DANDI introductory notebooks.",
+          "preference": 1
+        }
+      ]
+    },
+    {
+      "dandiset_id": "001433",
+      "version": "0.250507.2356",
+      "chat_id": "daf6f524",
+      "model": "gpt-4.1",
+      "prompt": "h-2",
+      "comparisons": [
+        {
+          "question_number": 1,
+          "question_shortened": "Understanding purpose and content of the Dandiset",
+          "rationale": "Both notebooks present a clear summary of the Dandiset's general purpose and included data types in their overviews. Notebook 1 is slightly more detailed, explicitly itemizing data types and their storage, and referencing how data are organized within NWB format and DANDI. It also contextualizes the lack of task/stimulus and describes the intended use of metadata for linking signals to brain regions. Notebook 2 covers the essentials but is more succinct, offering less context about the structure and potential use implications of the dataset. However, both sufficiently convey what\u2019s available in the Dandiset and the type of experiment.",
+          "preference": 1
+        },
+        {
+          "question_number": 2,
+          "question_shortened": "Confidence in accessing different types of data",
+          "rationale": "Both notebooks walk the reader through programmatically browsing and streaming NWB files, accessing LFP and sniff signals, and behavioral event times using DANDI API, remfile, h5py, and pynwb. They both show code for selecting files, opening them remotely, and feature direct extraction of relevant data. Notebook 1 spends a bit more time explicitly showing DataFrame conversions (for electrodes) and discussing types of data in comments, offering a slightly broader sense of what you can access, but either notebook would leave a reader feeling equipped.",
+          "preference": 0
+        },
+        {
+          "question_number": 3,
+          "question_shortened": "Understanding NWB file structure and usage",
+          "rationale": "Notebook 1 summarizes the NWB file internal organization (acquisition group, processing modules) clearly, using both a written summary and code to list group contents. It shows structure (electrodes table, processing modules) and encourages interactive exploration, while also linking data arrays/fields to biological concepts. Notebook 2 has a quick textual summary but less interactive exploration of file structure; it is more direct and skips some metadata (e.g., electrode DataFrame). Thus, Notebook 1 is more instructive about NWB structure and best practices.",
+          "preference": 1
+        },
+        {
+          "question_number": 4,
+          "question_shortened": "Did visualizations help understand key aspects?",
+          "rationale": "Both notebooks provide clear visualizations of LFP and sniff signals, as well as overlaying behavioral events. Notebook 1 visualizes multiple LFP channels (first 4, offset for clarity), making the structure and multichannel nature more visually obvious, while Notebook 2 only shows LFP channel 0. For the sniff signal and event overlays, both approaches are understandable. Overall, Notebook 1's LFP visualization gives a deeper understanding of the recording's dimensionality.",
+          "preference": 1
+        },
+        {
+          "question_number": 5,
+          "question_shortened": "Did any visualizations hinder understanding?",
+          "rationale": "Neither notebook contains problematic or misleading plots; both follow clear plotting conventions and label axes/titles. However, in Notebook 2, the event overlay (many blue dashed/red dotted lines) could become visually crowded for long segments and is perhaps a little harder to parse at a glance for dense data. Both notebooks have good figure sizing and labeling. But this difference is minor.",
+          "preference": 0
+        },
+        {
+          "question_number": 6,
+          "question_shortened": "Confidence in creating own visualizations",
+          "rationale": "Both provide reproducible, standalone plotting code; Notebook 1 gives slightly more variety (multi-channel LFP, offset plotting, DataFrame scatter), while Notebook 2\u2019s visualizations are more basic. Both are clear exemplars, but Notebook 1 offers a better template for multi-dimensional data plotting. Either would leave a new user ready to adapt for their needs.",
+          "preference": 1
+        },
+        {
+          "question_number": 7,
+          "question_shortened": "Did visualizations convey data structure/complexity?",
+          "rationale": "Notebook 1\u2019s multi-channel LFP offset plot succeeds in illustrating the dimensionality and the nature of the recorded signals, whereas Notebook 2 (single LFP channel) does not demonstrate the multi-channel structure visually. For behavioral events, both are adequate, but Notebook 1\u2019s broader approach for LFP better reflects the recording setup\u2019s complexity and richness.",
+          "preference": 1
+        },
+        {
+          "question_number": 8,
+          "question_shortened": "Clarity and support for interpretations",
+          "rationale": "Neither notebook over-interprets or makes unsupported claims\u2014they are both exploratory/demonstrative in style. Notebook 1 offers slightly more narrative around interpreting what\u2019s seen (e.g., describing what is in the electrodes table), but neither presents questionable or misleading conclusions. Explanatory prose is concise and well-matched to code output in both.",
+          "preference": 0
+        },
+        {
+          "question_number": 9,
+          "question_shortened": "Any repetitive or redundant plots/examples?",
+          "rationale": "There is no notable redundancy in either notebook; each step advances a new aspect (file listing, data loading, LFP/sniff visualization, event overlay, metadata). Both avoid unnecessary repetition in code or figures\u2014each visualization is justified and non-redundant.",
+          "preference": 0
+        },
+        {
+          "question_number": 10,
+          "question_shortened": "Understanding next questions/analyses possible",
+          "rationale": "Both notebooks close with concrete suggestions for next analyses (LFP-periodicity, event-triggered averages, cross-session comparisons, LFP-sniff cycle analyses). Notebook 1\u2019s \u201cPotential reanalysis directions\u201d is explicit and includes a broader range of ideas (also included twice in the prompt), while Notebook 2 provides a concise set of prompts. Overall, both encourage next steps.",
+          "preference": 0
+        },
+        {
+          "question_number": 11,
+          "question_shortened": "Clarity and ease of following the notebook",
+          "rationale": "Both notebooks are well organized, sequential, and employ clear headings and markdown cells. Notebook 1 is just a little more verbose, possibly making it easier for a total newcomer, whereas Notebook 2 is slightly more compact and direct, which some users might appreciate but may skip details for a beginner. This difference is slight.",
+          "preference": 0
+        },
+        {
+          "question_number": 12,
+          "question_shortened": "Reusability/adaptability of code examples",
+          "rationale": "Both notebooks follow coding best practices\u2014parameters are defined, code is modular, and examples are easy to adapt to different files or channels by changing variable names/paths. Notebook 1 is slightly better in showing a variety of types (multi-channel, metadata via pandas DataFrame), which can be readily generalized. However, both are highly reusable and suitable for direct repurposing.",
+          "preference": 0
+        },
+        {
+          "question_number": 13,
+          "question_shortened": "Understanding next analysis/questions (duplicate)",
+          "rationale": "This is effectively the same as question 10; see reasoning above. Both notebooks provide future analysis directions; Notebook 1 is a little more explicit but the difference is minor.",
+          "preference": 0
+        },
+        {
+          "question_number": 14,
+          "question_shortened": "Overall helpfulness for getting started",
+          "rationale": "Both notebooks are strong introductions, but Notebook 1\u2019s extra detail (on NWB organization, multi-channel data, metadata table extraction) better prepares a new user for comprehensive Dandiset exploration. It is friendlier for someone unfamiliar with NWB or DANDI, while still not being overwhelming. Notebook 2 would serve as a great concise intro, but Notebook 1 is more thorough.",
           "preference": 1
         }
       ]
@@ -373,6 +652,99 @@
       ]
     },
     {
+      "dandiset_id": "000563",
+      "version": "0.250311.2145",
+      "chat_id": "75ecdb7b",
+      "model": "gpt-4.1",
+      "prompt": "h-2",
+      "comparisons": [
+        {
+          "question_number": 1,
+          "question_shortened": "Clarity of Dandiset purpose/content",
+          "rationale": "Notebook 1 opens with a crisp, structured overview of the Dandiset, explicitly listing key facts (species, data, format, stimulus) and summarizing the analysis steps (\"This notebook demonstrates...\"). The scope is narrow but focused on LFP/spike data and probe geometry. Notebook 2\u2019s overview is more narrative, listing broader aims (LFP, spikes, behavior, stimulus, optogenetics, guidance), and more clearly connects to multiple modalities, but arguably with a less itemized presentation of Dandiset details. The explicit bullet points in Notebook 1 make it easier for a new user to quickly understand what\u2019s inside the Dandiset, although Notebook 2 provides a broader perspective on potential analyses.",
+          "preference": 1
+        },
+        {
+          "question_number": 2,
+          "question_shortened": "Confidence in accessing the data types",
+          "rationale": "Both notebooks provide code and an example list of NWB file assets, explicitly demonstrating how to enumerate them via the DANDI API. Notebook 2 goes a step further by explicitly showing how to select both LFP (ecephys) and ogen (multi-modal) files, helping users recognize different file types within the archive. It offers a helpful explanation of file naming conventions and explains why each type is chosen, making it easier for a user to understand how to access the full range of data. Notebook 1 shows asset enumeration but focuses analysis on just one ecephys file, potentially leaving newcomers less clear about how to access other data modalities.",
+          "preference": 2
+        },
+        {
+          "question_number": 3,
+          "question_shortened": "Understanding NWB structure/workflow",
+          "rationale": "Notebook 1 carefully inspects basic NWB file metadata, device and electrode group tables, and provides detail on channel geometry\u2014thus building a stepwise understanding of NWB structure tied to this Dandiset (including inspection of the electrodes table with Pandas). Notebook 2, while showing how to use pynwb to access specific data (LFP, spikes, behavior), moves quickly to analysis and visualizations and does not present as comprehensive a check of NWB structure or metadata. For users needing to generalize the workflow, Notebook 1\u2019s attention to file organization, metadata fields, and how to extract and interpret tables is superior.",
+          "preference": 1
+        },
+        {
+          "question_number": 4,
+          "question_shortened": "Value of visualizations for data understanding",
+          "rationale": "Notebook 1 includes: 3D electrode geometry visualization, and an LFP snippet visualization, both of which illuminate the structure and basic signals. Notebook 2 offers more diverse visualizations: a 10s LFP trace (time series), spike raster plot, pupil area time series, a DataFrame summary (unit quality metrics), and a stimulus event raster. These richer visualizations, covering multiple modalities, give a much fuller illustration of what the Dandiset enables, and offer stronger intuition for users about the scientific richness of the data.",
+          "preference": 2
+        },
+        {
+          "question_number": 5,
+          "question_shortened": "Problems with visualization clarity or formatting",
+          "rationale": "Neither notebook contains major visualization formatting flaws. Notebook 1\u2019s LFP time series plot is clear and standard, and the 3D probe plot is helpful. Notebook 2\u2019s LFP and spike raster plots are clear; the pupil area and event raster plots also use appropriate axes/labels. There were no misleading or confusing plots in either notebook. If anything, Notebook 2\u2019s broader set of visualizations makes it slightly harder to maintain absolute clarity, but in practice, all are adequately formatted and accessible.",
+          "preference": 0
+        },
+        {
+          "question_number": 6,
+          "question_shortened": "Confidence in creating own visualizations",
+          "rationale": "Notebook 2 covers a wider range of data types, accesses them in canonical NWB ways (by group/hierarchy), and demonstrates good plotting patterns\u2014LFP, spike rasters, behavioral series, and event rasters. This breadth, especially the diversity of example access patterns, would make most users more confident in plotting their own data than the more specialized focus of Notebook 1, which (beyond the 3D geometry) is limited to LFP plots.",
+          "preference": 2
+        },
+        {
+          "question_number": 7,
+          "question_shortened": "Quality of visualizations for structure/complexity",
+          "rationale": "Notebook 2 excels here, showing not just the electrical recordings but also spike units, behavioral signals, and stimulus events\u2014all in clear, distinct formats that reflect the multidimensional structure of the dataset. Notebook 1\u2019s geometry plot helps show probe structure, but covers only LFPs from one file. Thus, understanding of the multi-modal, multi-level structure is much better developed in Notebook 2.",
+          "preference": 2
+        },
+        {
+          "question_number": 8,
+          "question_shortened": "Clarity/support for interpretations/conclusions",
+          "rationale": "Neither notebook draws misleading interpretations or presents unsupported claims. They both steer clear of deep interpretation, instead describing what is shown or suggesting possible next steps. Notebook 2 is careful to note what the visualizations show and avoids over-interpretation. Similarly, Notebook 1\u2019s narrative is cautious. Neither stands out as unclear or poorly supported.",
+          "preference": 0
+        },
+        {
+          "question_number": 9,
+          "question_shortened": "Repetition/redundancy in examples",
+          "rationale": "Both notebooks avoid unnecessary repetition. Notebook 1\u2019s workflow is linear and concise; Notebook 2, though longer, covers distinct types of data in unique visualizations. There is no meaningful redundancy in either.",
+          "preference": 0
+        },
+        {
+          "question_number": 10,
+          "question_shortened": "Understanding next analysis/questions to pursue",
+          "rationale": "Both notebooks\u2019 conclusion sections suggest next steps and potential analyses. However, Notebook 2 gives a more specific menu of possibilities\u2014overlaying signals, higher-dimensional analyses, and relates these to demonstrated visualizations. Notebook 1\u2019s suggestions are more general and not anchored to concrete examples as directly. Thus, Notebook 2 better orients the reader to the breadth of possible analyses.",
+          "preference": 2
+        },
+        {
+          "question_number": 11,
+          "question_shortened": "Overall clarity/ease of following",
+          "rationale": "Notebook 1 is short, methodical, and well structured, avoiding jargon and making incremental steps explicit. Notebook 2 is longer and a bit more ambitious in scope, which could present challenge for complete beginners, but its sectioning, in-notebook comments, and explicit workflow (from overview, through data types, to multi-modal visualizations) remain clear. Still, for absolute ease of following, Notebook 1\u2019s single-focus and stepwise approach edges out the more complex narrative of Notebook 2, especially for users brand new to NWB/DANDI.",
+          "preference": 1
+        },
+        {
+          "question_number": 12,
+          "question_shortened": "Reusability/adaptability of code",
+          "rationale": "Both notebooks provide code cells that are clean and modular. However, Notebook 2 includes more patterns (several types of signal access) and demonstrates compositional workflows with the DANDI API, pynwb, and the underlying data format. That gives users a greater toolbox of re-usable code fragments. Notebook 1\u2019s code\u2014while clean\u2014is narrower in scope.",
+          "preference": 2
+        },
+        {
+          "question_number": 13,
+          "question_shortened": "Understanding potential for further analysis",
+          "rationale": "(Note: This mostly duplicates Q10.) Again, Notebook 2 demonstrates and explicitly lists a wider set of candidate analyses (neural-behavioral overlays, multi-unit summaries, cross-modality work), better scaffolding for readers to launch their own next steps.",
+          "preference": 2
+        },
+        {
+          "question_number": 14,
+          "question_shortened": "Overall helpfulness for getting started",
+          "rationale": "Notebook 1 is methodical and great for an incremental, metadata-to-data, probe-centric intro focused on LFPs and probe geometry. However, Notebook 2, by spanning both LFP and multi-modal data (spikes, behavior, stimuli), and by showing more diverse access/visualization recipes, will be much more helpful for most new users who aim to work broadly with this rich dataset. The wider coverage and more practical demonstrations win out for \u201cgetting started\u201d in a general-use sense.",
+          "preference": 2
+        }
+      ]
+    },
+    {
       "dandiset_id": "001361",
       "version": "0.250406.0045",
       "chat_id": "5c7338bf",
@@ -461,6 +833,99 @@
           "question_number": 14,
           "question_shortened": "Overall helpfulness for getting started",
           "rationale": "While both notebooks will help a new user, Notebook 1 is more detailed, more modular, covers richer metadata, more clearly describes each step, gives explicit orientation for next steps, and exemplifies best practices for working with complex NWB files. Notebook 2 is concise and visual but does not provide as extensive a foundation for scientific or technical re-use. Thus, overall, Notebook 1 is much stronger for onboarding a new user to this Dandiset.",
+          "preference": 1
+        }
+      ]
+    },
+    {
+      "dandiset_id": "001361",
+      "version": "0.250406.0045",
+      "chat_id": "5c7338bf",
+      "model": "gpt-4.1",
+      "prompt": "h-2",
+      "comparisons": [
+        {
+          "question_number": 1,
+          "question_shortened": "Understanding Dandiset purpose and content",
+          "rationale": "Notebook 1 gives a very clear, structured introduction: a prominent title, Dandiset citation, a succinct but informative overview, and a bulleted summary of dataset types. The context (\"flexible hippocampal population code for experience...\") is well established, and the notebook explicitly states what it will cover. It also highlights the source publication and points users to NWB/dandi ecosystem documentation.\nNotebook 2 introduces the dataset effectively too, naming the dataset, summarizing its contents, and describing its purpose (learning reward locations in virtual reality). However, it is slightly less structured and a bit less detailed in the initial overview than Notebook 1 (fewer dataset modalities listed, e.g., doesn't mention ROI/segmentation metadata or explicitly list data branches up front). Both cite the Dandiset and paper, but Notebook 1 is a bit more complete and systematic in communicating data modalities and intended use.",
+          "preference": 1
+        },
+        {
+          "question_number": 2,
+          "question_shortened": "Confidence accessing different data types",
+          "rationale": "Notebook 1 systematically demonstrates accessing behavioral (position, speed, licks, rewards), imaging (fluorescence), and segmentation (metadata, masks, and mean/max images) data types. Code is provided to access these modalities, and summaries clarify what is being accessed. Notebook 2 provides clear code for accessing behavioral position, deconvolved neural activity, and segmentation masks for ROIs, but it omits some data streams shown in Notebook 1 (e.g., licks, reward zone, speed, mean/max images, ROI probabilities). Notebook 1 more thoroughly demonstrates access to a diversity of Dandiset data, building stronger confidence in accessing/using multiple modalities.",
+          "preference": 1
+        },
+        {
+          "question_number": 3,
+          "question_shortened": "Understanding NWB structure and usage",
+          "rationale": "Notebook 2 has a section dedicated to listing and printing the file structure using h5py, visually showing all top-level NWB groups/datasets and briefly describing their purpose. This is a didactic demonstration of NWB HDF5 navigation. Notebook 1, in contrast, assumes a bit more NWB familiarity (uses pynwb), and while it lists acquisition and processing modules and inspects a few branches, it doesn't print the overall file structure as clearly.",
+          "preference": 2
+        },
+        {
+          "question_number": 4,
+          "question_shortened": "Quality of visualizations for data understanding",
+          "rationale": "Notebook 1 includes diverse and informative visualizations: a stacked overview plot for multiple behavioral streams (position, speed, licks, reward zone with reward times marked), calcium imaging traces (10 randomly chosen cells, offset), a histogram of ROI probability, and mean/max imaging frames. These plots are well labeled, have reasonable axes, and offer deep insights into both experiment structure and data quality. Notebook 2 shows three main types of plots: positional trajectory (full session), spike-like neural activity for 10 cells (offset), and ROI scatter plots (segmentation masks in pixel space). Its visualizations are also clear and labeled, but less multifaceted: it shows fewer behavioral variables and lacks built-in interpretive overlays (e.g., reward events). Overall, Notebook 1 provides a richer, more informative set of visualizations.",
+          "preference": 1
+        },
+        {
+          "question_number": 5,
+          "question_shortened": "Any confusing or misleading visualizations?",
+          "rationale": "Neither notebook presents actively misleading or confusing visualizations. In Notebook 2, the mouse position plot for the full session could be a bit overwhelming for new users (many ramps/laps in a long continuous trace), but the axis labeling and legend are clear, and guidance is provided. Notebook 1\u2019s behavioral overview is well structured for short-term viewing, and axes/legends are clear on all plots. All visualizations are well formatted and clear in both, with minor improvements possible (notebook 2 could mask negative/artifact values or add overlays, but does flag this in text).",
+          "preference": 0
+        },
+        {
+          "question_number": 6,
+          "question_shortened": "Confidence to create own visualizations",
+          "rationale": "Both notebooks provide well-commented, modular code for making various plots; both access NWB/HDF5 structures directly or via pynwb and use matplotlib for customization. However, Notebook 1 offers a greater diversity of behavioral and imaging data plots, histogramming, and image display, and provides interpretive guidance for overlaying behavioral events (reward). This equips users slightly better to extend/adapt code for their own custom analyses.",
+          "preference": 1
+        },
+        {
+          "question_number": 7,
+          "question_shortened": "Visualizing structure/complexity of data",
+          "rationale": "Notebook 1 visualizes the complexity of the data by showing multi-modal structure: behavioral traces, reward overlays, calcium trace population dynamics, distributions of cell likelihoods, and example imaging fields of view. This multi-angle approach helps users grasp experimental richness and heterogeneity. Notebook 2\u2019s focus is more on core components (position, neural activity, ROI spatial masks), but does not show the full structure of all behavioral variables, event data, or ROI statistics. For complexity/structure, Notebook 1 sets a higher standard.",
+          "preference": 1
+        },
+        {
+          "question_number": 8,
+          "question_shortened": "Interpretations or conclusions unclear/unjustified?",
+          "rationale": "Both notebooks stick to descriptive interpretations, avoiding overreaching or misleading claims. Notebook 1 gives concise written interpretations under each plot (e.g., how reward events align to behavior or how the calcium signals appear), all well-supported by the presented data. Notebook 2 offers brief but accurate commentaries after each main plot. No interpretations in either notebook feel unclear or unsupported; both are careful and reserved in claims.",
+          "preference": 0
+        },
+        {
+          "question_number": 9,
+          "question_shortened": "Unnecessarily repetitive or redundant plots/examples?",
+          "rationale": "Neither notebook is overtly repetitive. Notebook 1 covers similar themes (behavior, neural, segmentation), but each plot explores a distinct dimension. Notebook 2 likewise does not repeat examples, though its coverage is somewhat more limited in scope (but not redundant). No unnecessary repetition is present in either.",
+          "preference": 0
+        },
+        {
+          "question_number": 10,
+          "question_shortened": "Help understanding potential next analyses",
+          "rationale": "Notebook 1 provides a \u201cSummary and Next Steps\u201d section with explicit prompts about follow-on analyses (population codes, linking cells to behavior, event-triggered averaging) and even links to original analysis code. Throughout, its comments and structure suggest avenues for further work (adapting the plots for other behavioral correlates, ROI analysis, etc). Notebook 2 provides a \u201cWhat\u2019s Next?\u201d summary encouraging exploration of additional variables, neural signals, and trialwise analyses, though with fewer specific suggestions. It suggests consulting documentation and the paper for more.\nOverall, Notebook 1 does a better job *within the notebook itself* at connecting the core demo to new analysis ideas and providing practical next steps.",
+          "preference": 1
+        },
+        {
+          "question_number": 11,
+          "question_shortened": "Clarity and ease of following notebook",
+          "rationale": "Both notebooks are well-organized and readable. Notebook 1 is notable for its explicit sectioning, clear markdown titles, and sequential building of complexity. Notebook 2 is also logical and stepwise but a bit briefer in some commentary and explanations; some users might prefer its conciseness, but it may leave more gaps for a novice. Both feature comments and inline rationales. Overall, both are clear, but Notebook 1\u2019s higher degree of pedagogical structure gives it a small edge.",
+          "preference": 1
+        },
+        {
+          "question_number": 12,
+          "question_shortened": "Reusable/adaptable code for exploration",
+          "rationale": "Both notebooks provide reusable code; Notebook 2\u2019s code is perhaps a little more \u201cbare-metal\u201d (HDF5 path navigation) while Notebook 1 uses pynwb and higher-level NWB semantics, including robust field extraction and safety checks (e.g., dealing with possible missing rates/timestamps). Notebook 1 presents more code pathways for behavioral, imaging, and segmentation data and is annotated for extension/adaptation. Both are solid, but Notebook 1 is more modular and thus slightly more reusable.",
+          "preference": 1
+        },
+        {
+          "question_number": 13,
+          "question_shortened": "Understanding further questions/analyses",
+          "rationale": "This is similar to question 10, but focusing on how well the notebook points users toward specific scientific/analytic questions (not just general \u201cexplore more!\u201d). Notebook 1\u2019s suggestions (\u201cidentifying place cells, event-triggered averaging, etc.\u201d) plus its link to the analysis code repository provide more concrete brainstorming. Notebook 2 discusses further exploration as \u201ctemplates to plot or analyze other variables/neural signals\u201d and encourages consulting documentation, but is less detailed. Notebook 1 is better at seeding scientific creativity for reanalysis.",
+          "preference": 1
+        },
+        {
+          "question_number": 14,
+          "question_shortened": "Overall helpfulness for getting started",
+          "rationale": "Notebook 1 stands out as a more comprehensive, pedagogically structured, and versatile resource for getting started with Dandiset 001361. It covers a broader diversity of data modalities, offers richer and more interpretive visualizations, directly supports next-step reanalysis, and points to further resources. Notebook 2 is clear, concise, and good for focused technical orientation (especially for users wanting a quick HDF5 structure overview), but feels slightly less supportive for scientific newcomers or for motivating investigative directions.",
           "preference": 1
         }
       ]
@@ -559,6 +1024,99 @@
       ]
     },
     {
+      "dandiset_id": "001366",
+      "version": "0.250324.1603",
+      "chat_id": "cbe62122",
+      "model": "gpt-4.1",
+      "prompt": "h-2",
+      "comparisons": [
+        {
+          "question_number": 1,
+          "question_shortened": "Understanding purpose and content of Dandiset",
+          "rationale": "Both notebooks provide an introductory overview, but Notebook 2 excels by immediately giving a tabular summary of both files, including frame sizes, frame rates, subjects, and notes, which gives a succinct sense of the Dandiset's contents. Notebook 1 gives a more context-rich description and links the study purpose to specific keywords, but is less explicit about the detailed contents and differences between the two NWB files.",
+          "preference": 2
+        },
+        {
+          "question_number": 2,
+          "question_shortened": "Confidence in accessing data from Dandiset",
+          "rationale": "Both notebooks demonstrate how to access files using the DANDI API and list asset filenames, but Notebook 2 goes further by printing file sizes and summarizing the two files right at the start. This makes it clearer what data types and volumes you can expect to access. However, both cover the basics well, and the difference is mostly in initial clarity/presentation.",
+          "preference": 2
+        },
+        {
+          "question_number": 3,
+          "question_shortened": "Understanding NWB file structure and usage",
+          "rationale": "Both notebooks cover the structure of the NWB file (\u201cacquisition\u201d, \u201cMovies\u201d ImageSeries). Notebook 1 is a bit more explicit in listing subject/session metadata, acquisition keys, and basic structure, whereas Notebook 2 lists the keys but focuses quickly on image data. Notebook 1\u2019s metadata inspection is slightly more comprehensive (relying on pprint and covering more subject fields).",
+          "preference": 1
+        },
+        {
+          "question_number": 4,
+          "question_shortened": "Visualizations helping understand data",
+          "rationale": "Notebook 1 visualizes three key images: first frame, middle frame, and mean projection\u2014giving a better sense of data consistency and structure. Notebook 2 only shows the first frame of each file. Notebook 1 also plots the mean intensity for all frames, Notebook 2 only for the first 500 frames, which could obscure slower phenomena. Overall, Notebook 1 helps the user appreciate image dynamics and variability more robustly.",
+          "preference": 1
+        },
+        {
+          "question_number": 5,
+          "question_shortened": "Any visualizations that hurt comprehension?",
+          "rationale": "Neither notebook has visualizations that are confusing or misleading. Both label axes clearly and use appropriate formatting. If anything, Notebook 2's intensity plot (just first 500 frames) could slightly mislead users about long-term drift or variability (not visible at this time scale), but it\u2019s not a significant drawback. Both are clear.",
+          "preference": 0
+        },
+        {
+          "question_number": 6,
+          "question_shortened": "Confidence in creating your own visualizations",
+          "rationale": "Both notebooks provide clear, well-commented code for generating basic visualizations, and either could be adapted. Notebook 1\u2019s sweep across more frames (and the mean projection) is a useful additional example, but Notebook 2\u2019s FWHM vessel width demonstration gives an example of basic measurement, which is practical. On balance, the two approaches are roughly equal for inspiring user adaptation.",
+          "preference": 0
+        },
+        {
+          "question_number": 7,
+          "question_shortened": "Visualizations showing structure/complexity of data",
+          "rationale": "Notebook 1\u2019s trio of images (beginning, middle, mean projection) much better illustrate both the stability and complexity of the vessel imaging over time, and its all-frames intensity plot gives a fuller picture of time series dynamics. Notebook 2\u2019s focus on a single frame and single-row time series underplays the potential richness of the time series.",
+          "preference": 1
+        },
+        {
+          "question_number": 8,
+          "question_shortened": "Unclear or unsupported interpretations?",
+          "rationale": "Both notebooks are cautious, with Notebook 2\u2019s FWHM demo being careful to present itself as a demonstration \u201cfor a single frame\u201d and explicitly notes its assumptions. Neither makes unsupported claims\u2014interpretations and conclusions are minimal and supported by what\u2019s shown.",
+          "preference": 0
+        },
+        {
+          "question_number": 9,
+          "question_shortened": "Any plots/examples unnecessarily redundant?",
+          "rationale": "Notebook 1 shows multiple frames and a mean image, but these are not redundant and together provide added insight. Notebook 2 avoids redundancy by only showing one frame/sample per visualization type. Neither notebook feels repetitive or padded.",
+          "preference": 0
+        },
+        {
+          "question_number": 10,
+          "question_shortened": "Clarity about next steps/questions/analyses",
+          "rationale": "Both notebooks provide useful suggestions for next steps at the end\u2014segmentation, pulsatility analysis, etc. However, Notebook 2 is more specific in indicating practical directions (\u201cautomate diameter or pulsatility extraction,\u201d \u201cphysiological signals,\u201d \u201cvessel segmentation,\u201d etc). It also demonstrates a sample diameter measurement method (FWHM), which implicitly points to concrete analysis paths.",
+          "preference": 2
+        },
+        {
+          "question_number": 11,
+          "question_shortened": "Clarity and ease of following notebook",
+          "rationale": "Both notebooks are logically structured with clear section headers and explanatory text, but Notebook 2 is slightly more modular, with a numbered section outline, an at-a-glance summary table at the beginning, and explicit \u201cwhat you\u2019ll find\u201d navigation. This may help new users, though both are generally easy to follow.",
+          "preference": 2
+        },
+        {
+          "question_number": 12,
+          "question_shortened": "Code reusability/adaptability",
+          "rationale": "Both notebooks provide reusable code for listing, accessing, and plotting the data. Notebook 2, with its explicit asset summary and FWHM calculation, is slightly more varied. Both show how to open remote files and extract metadata, and all code examples can be copy-pasted/modified easily.",
+          "preference": 0
+        },
+        {
+          "question_number": 13,
+          "question_shortened": "Understanding possible analyses/questions",
+          "rationale": "Notebook 2 shines slightly here, as it offers both concrete next steps and demonstrates a simple vessel diameter extraction. This roots further suggestions in code and shows one way to get started with vessel quantification, directly linking data access to possible analyses. Notebook 1 mentions similar ideas but doesn\u2019t demonstrate any measurement.",
+          "preference": 2
+        },
+        {
+          "question_number": 14,
+          "question_shortened": "Overall usefulness for getting started",
+          "rationale": "Both are strong notebooks, but Notebook 2\u2019s explicit initial summary, step-by-step progression, and practical measurement example make it more helpful overall. Notebook 1\u2019s visualizations are a bit stronger in showing longitudinal dynamics and structure, but Notebook 2\u2019s clarity, breadth, and practical direction outweigh that for most new users.",
+          "preference": 2
+        }
+      ]
+    },
+    {
       "dandiset_id": "001359",
       "version": "0.250401.1603",
       "chat_id": "28668318",
@@ -652,6 +1210,99 @@
       ]
     },
     {
+      "dandiset_id": "001359",
+      "version": "0.250401.1603",
+      "chat_id": "28668318",
+      "model": "gpt-4.1",
+      "prompt": "h-2",
+      "comparisons": [
+        {
+          "question_number": 1,
+          "question_shortened": "Understanding the Dandiset's purpose and content",
+          "rationale": "Notebook 1 provides a very thorough introduction, including a detailed project overview, links, bullet points on the key science, approaches, types of measurements, and explicit roadmap of the notebook. The prose is richer and gives context about the scientific goals and the structure of the Dandiset (e.g., multimodal Patch-seq, number of files/subjects/data size, measurements present, and why NWB is used). Notebook 2 presents a reasonable summary but in a more compact fashion, with less discussion of the science and structure, and focuses more on the immediate steps it will demonstrate. There is less about the dataset\u2019s size/diversity or experimental modalities. Overall, Notebook 1 makes the dataset\u2019s purpose and scope much clearer.",
+          "preference": 1
+        },
+        {
+          "question_number": 2,
+          "question_shortened": "Confidence in accessing different types of data",
+          "rationale": "Both notebooks demonstrate using the DANDI API to enumerate assets and stream NWB files. Notebook 1, however, goes a step further by explicitly walking through the listing of files, file naming conventions, and assets. Its tips and explicit code commentary reinforce user confidence. Notebook 2 is functional but less annotated and moves quickly to file loading without as much scaffolding/explanation. However, both provide working code and successfully model data access, so the difference is only in clarity/detail, not functionality.",
+          "preference": 1
+        },
+        {
+          "question_number": 3,
+          "question_shortened": "Understanding NWB file structure and usage",
+          "rationale": "Notebook 1 provides a structured, explicit step-by-step approach to exploring NWB structure: it inspects session/subject/device metadata, describes electrode organization, shows the sweep table, and distinguishes among electrode, acquisition, stimulus, spike, and epochs. It has specific narrative to orient users as they traverse the hierarchy. Notebook 2 accomplishes a similar structural exploration but is more condensed and less sequentially explained; the code reveals the structure but with less narrative about why this exploration matters. Notebook 1 is more pedagogical and supportive for learning NWB.",
+          "preference": 1
+        },
+        {
+          "question_number": 4,
+          "question_shortened": "Visualizations helping understand key data aspects",
+          "rationale": "Both notebooks provide informative visualizations: voltage/current traces, stimulus, spike detection, etc. Notebook 1\u2019s plots are more modular (reusable helper function), and the narrative before and after the plots makes clear the purpose behind each visualization. Notebook 2\u2019s main visualization is two stacked plots (acquisition/stimulus), which is readable but more generic, and the spike overlay plot includes a time offset with only brief commentary about the reason (+0.25s fudge factor). Notebook 1\u2019s single-sweep overlays and legends are arguably a bit clearer for didactic purposes. Still, both make the data structure understandable and are well-formatted.",
+          "preference": 1
+        },
+        {
+          "question_number": 5,
+          "question_shortened": "Problems with visualizations (format, clarity)",
+          "rationale": "Neither notebook produces misleading or confusing plots. Both have clear axis labels, legends, and adequate plot sizes. Notebook 1\u2019s helper function provides consistent formatting, clear titles, and robust axes. Notebook 2\u2019s subplot approach is also clear, though the offset for spike time alignment could confuse some new users without further explanation. There are no major formatting or clarity flaws in either.",
+          "preference": 0
+        },
+        {
+          "question_number": 6,
+          "question_shortened": "Confidence in creating own visualizations",
+          "rationale": "Notebook 1\u2019s approach (with the helper function `plot_sweep`, explicit demonstration of how to select/parse sweeps, repeated narrative about the file structure) better scaffolds users wanting to adapt the code for their own plotting. It is easy to envision modifying the provided functions for batch analysis, other series, or new overlays. Notebook 2 provides working but less modular code\u2014good for replication, but less obviously reusable for custom visualization generation.",
+          "preference": 1
+        },
+        {
+          "question_number": 7,
+          "question_shortened": "Visualizations show data structure/complexity",
+          "rationale": "Notebook 1 highlights the patch-clamp data organization (sweep table, sweep numbers, different clamp modes, and the explicit connection between series/metadata) and visually distinguishes between current and voltage clamp, stimuli, and spike times. Notebook 2 visualizes actual data and spikes clearly, and also discusses sweep mapping, but does not emphasize multimodal complexity (no explicit voltage/current clamp distinction). Both show complexity, but Notebook 1 is more explicit about organization.",
+          "preference": 1
+        },
+        {
+          "question_number": 8,
+          "question_shortened": "Clarity/support of interpretations/conclusions",
+          "rationale": "Neither notebook presents \u201cconclusions\u201d per se; both are exploratory. Notebook 1\u2019s final \u201cNext Steps\u201d and overall narrative provide well-supported commentary based on what was shown, making suggestions that are closely tied to the actual data structures. Notebook 2\u2019s suggestions are also logical, but a bit more generic and not as tightly linked to observations from the data examples. All commentary is supported, but Notebook 1\u2019s is deeper.",
+          "preference": 1
+        },
+        {
+          "question_number": 9,
+          "question_shortened": "Unnecessary repetition or redundancy",
+          "rationale": "Neither notebook is notably repetitive. Notebook 1 has a bit more detail, but the steps are non-redundant and serve different explanatory goals (no repeated code blocks doing the same thing, no excessive plotting). Notebook 2 is concise and direct. Any repeated content exists only to explicitly reinforce structure and concepts, not due to redundancy.",
+          "preference": 0
+        },
+        {
+          "question_number": 10,
+          "question_shortened": "Helping understand possible next analyses/questions",
+          "rationale": "Notebook 1 ends with an explicit, well-detailed section (\"Next Steps and Further Analysis\") including concrete suggestions for batch analysis, correlating with demographics, extracting epochs, etc., all directly tied to the notebook\u2019s demonstrations. Notebook 2 provides a summary and some brief ideas for \u201cnext steps\u201d, but these are less specific and actionable than Notebook 1\u2019s, and more generic. Notebook 1 is superior for inspiring further work.",
+          "preference": 1
+        },
+        {
+          "question_number": 11,
+          "question_shortened": "Clarity/ease of following the notebook",
+          "rationale": "Notebook 1 provides an ordered roadmap early on, has clearer section divisions, detailed narrative, and inline tips and structural summaries. The audience is never lost regarding why a section exists. Notebook 2, while clear, is more utilitarian, moves more quickly from one analysis step to another, and doesn't provide as much context for transitions. Both are well-formatted, but Notebook 1 is easier to digest and navigate for new users.",
+          "preference": 1
+        },
+        {
+          "question_number": 12,
+          "question_shortened": "Code reusability/adaptability for new exploration",
+          "rationale": "Notebook 1\u2019s modular code (notably the plotting helper, sweep handling, and careful structure traversal) is more easily adapted for new types of analyses or deeper dives. Its style models best practices for exploratory data analysis. Notebook 2\u2019s code is direct and could be copied, but lacks the extra layer of abstraction and explicit cues/advice for generalization.",
+          "preference": 1
+        },
+        {
+          "question_number": 13,
+          "question_shortened": "Understanding future analysis/questions (duplicate with 10)",
+          "rationale": "This is a repeat of question 10. As above, Notebook 1 gives a more detailed, actionable roadmap for further analyses directly related to the Dandiset\u2019s structure and potential.",
+          "preference": 1
+        },
+        {
+          "question_number": 14,
+          "question_shortened": "Overall helpfulness for getting started with the Dandiset",
+          "rationale": "Notebook 1 is overall the more helpful resource for users new to this Dandiset. It is more comprehensive, clearer in its stepwise discovery, goes deeper into the NWB and Dandiset structure, provides more adaptable and commented code, and finishes with practical ideas for further analysis. Notebook 2 is competent and effective but is best viewed as a quicker, less detailed alternative.",
+          "preference": 1
+        }
+      ]
+    },
+    {
       "dandiset_id": "001375",
       "version": "0.250406.1855",
       "chat_id": "5fe912e3",
@@ -740,6 +1391,99 @@
           "question_number": 14,
           "question_shortened": "Overall helpfulness for getting started",
           "rationale": "Both notebooks are strong, but Notebook 1 is more comprehensive: it offers a more detailed walkthrough of all major dataset dimensions (trials, electrodes, units, raw signals), provides multiple entry points for exploration, and gives more context and guidance for new users at each stage. Notebook 2 is efficient and clean but covers fewer facets and provides less narrative support. For a new user aiming to get started with this Dandiset, Notebook 1 is notably more helpful overall.",
+          "preference": 1
+        }
+      ]
+    },
+    {
+      "dandiset_id": "001375",
+      "version": "0.250406.1855",
+      "chat_id": "5fe912e3",
+      "model": "gpt-4.1",
+      "prompt": "h-2",
+      "comparisons": [
+        {
+          "question_number": 1,
+          "question_shortened": "Understanding purpose/content of Dandiset",
+          "rationale": "Notebook 1 opens with a detailed overview, introduces the dataset purpose, experimental manipulation, and animal task, and explicitly lists what the notebook will teach. It contextualizes the data, identifies the use of DREADDs in the medial septum, describes the available data modalities, and conveys higher-level goals for a new user. Notebook 2 provides a summary in its overview but is somewhat less detailed; it states what the data is, what manipulations were used, and what the notebook covers, but its description is less comprehensive and less \"narrative\" than Notebook 1. Both make the purpose clear, but Notebook 1 offers a stronger, more user-focused introduction and explicit learning objectives.",
+          "preference": 1
+        },
+        {
+          "question_number": 2,
+          "question_shortened": "Confidence accessing different data types",
+          "rationale": "Notebook 1 walks the user through asset listing, selecting a file, and then provides distinct sections for examining electrodes, trials, raw data, and units. Each step is clear, with code and context, making it easy to follow how each data type is accessed. Notebook 2 covers similar ground, but access to the data types is less modularized, and weaker at explicitly distinguishing how to access each part before the code. Both notebooks demonstrate code to access files, raw data, unit spikes, electrodes, and trials. However, Notebook 1's layout and signaling\u2014by separating out sections and making intentions explicit\u2014provide a stronger sense of how to access each major data type.",
+          "preference": 1
+        },
+        {
+          "question_number": 3,
+          "question_shortened": "Understanding NWB file structure and usage",
+          "rationale": "Notebook 1 guides the user through the NWB structure progressively: accessing metadata, then moving through electrodes, trials, raw aquisition, and units, and visually inspects each using DataFrames and code comments. Notebook 2 has a single summary printout giving a list of groups/fields and their contents, which provides a nice \"at a glance\" view, but doesn't elaborate much on what those groups mean. Both show how to access and work with the contents, but Notebook 1 gives more interpretative context around each file section as it is introduced, making the structure and rationale clearer\u2014particularly for users new to NWB.",
+          "preference": 1
+        },
+        {
+          "question_number": 4,
+          "question_shortened": "Did visualizations help understanding?",
+          "rationale": "Notebook 1 consistently provides visualizations at every data level (electrodes by shank, trial duration histograms, raw traces of several channels, histogram of spikes per unit, raster plot of subset of units). Notebook 2 shows a raw trace for a single channel, a raster for all units, but otherwise relies more on printed tables/summaries. The breadth and diversity of visualizations in Notebook 1 give the user more routes to understand the data's key features and structure, making it the stronger resource for visual learning.",
+          "preference": 1
+        },
+        {
+          "question_number": 5,
+          "question_shortened": "Were any visualizations unclear/confusing?",
+          "rationale": "Neither notebook has visualizations that are actively misleading or poorly formatted. Both use clear matplotlib code and appropriately labeled axes. Notebook 1's plots (e.g., the histogram of lap durations, spike histogram, multi-unit raster) are well-organized, with helpful titles and axes, and the offset for raw traces is appropriate. Notebook 2's raster plot\u2014using all 33 units across 60s\u2014may present an overwhelming view for some users. Otherwise, formatting is clear in both. Given this, any minor issues are balanced by both notebooks being generally clear, with Notebook 1 perhaps having a very slight edge in clarity of presentation by using more manageable visualizations (e.g., smaller rasters), but not enough to score as \u201csignificantly better.\u201d",
+          "preference": 0
+        },
+        {
+          "question_number": 6,
+          "question_shortened": "Confidence in creating own visualizations",
+          "rationale": "Notebook 1 demonstrates a wider variety of visualizations\u2014bar charts, histograms, raw waveform plots (with channel offsets), spike count distributions, and multi-unit raster plots. It sets up each visualization with explanation and shows how to prepare and reshape data prior to plotting. This diversity provides useful templates which can be more easily adapted to novel analyses or visualizations. Notebook 2 shows solid but more limited examples: a single-channel trace and a 33-unit raster. Overall, Notebook 1 would leave a user with more ideas about how to design their own figures.",
+          "preference": 1
+        },
+        {
+          "question_number": 7,
+          "question_shortened": "Visualizations: show structure/complexity?",
+          "rationale": "Notebook 1\u2019s visualizations map onto all main data complexities: shank/electrode organization, variations in trial/lap durations, the density of spike events across units, and trial organization. The user gets a clear picture of multiplicity/size in each data type. Notebook 2 covers overall structure with a summary printout and raster plot, but misses, for example, the histogrammed trial durations (useful for seeing behavioral variance), and doesn\u2019t visualize electrode shank/group distributions. Thus, Notebook 1 provides a fuller sense of the data\u2019s rich structure.",
+          "preference": 1
+        },
+        {
+          "question_number": 8,
+          "question_shortened": "Were interpretations/conclusions clear and supported?",
+          "rationale": "Neither notebook presents substantial, potentially unsupported, interpretations or strong scientific conclusions. Notebook 1, however, does a better job in supporting the overviews with plots and context, and provides very short \u201cinterpretive\u201d text before/after visualizations (e.g., noting the distribution of lap times, mentioning next-step analyses in the summary). Both are careful to avoid overinterpretation, but Notebook 1's slight contextualization edge makes its insights better aligned with evidenced data snippets.",
+          "preference": 1
+        },
+        {
+          "question_number": 9,
+          "question_shortened": "Repetitive/redundant examples?",
+          "rationale": "Neither notebook suffers from undue repetition or redundancy. Each visualization and code block serves a different facet of data exploration. Notebook 1's more numerous visualizations do not repeat content\u2014each illuminates a different aspect (electrodes, trials, raw data, units). Notebook 2, being more concise, also avoids redundancy. This is effectively a tie.",
+          "preference": 0
+        },
+        {
+          "question_number": 10,
+          "question_shortened": "Did notebook help suggest new analyses?",
+          "rationale": "Both notebooks have a \u201cnext steps\u201d or summary section at the end, each listing some potential downstream analyses (linking spikes to behavior, LFP analyses, trial alignment, etc.). Notebook 1 provides a slightly more detailed list, with a few more concrete suggestions (e.g., \"analyze spatial patterns across electrodes\"), and frames its workflow more as a \u2018starting point for advanced reanalysis.\u2019 Still, the difference is not large; both set the user up for the next stage.",
+          "preference": 0
+        },
+        {
+          "question_number": 11,
+          "question_shortened": "Clarity and ease of following",
+          "rationale": "Notebook 1 uses clear Markdown section headers, explanation before each code block, and walks linearly from context\u2192file selection\u2192data type by data type, with stepwise code and interpretive comments. Notebook 2 is also logical but often gives less narrative between code blocks, and at times jumps more abruptly between summary printouts and plots. For a newcomer, Notebook 1 is likely easier and clearer to follow due to its explicit stepwise approach, strong headings, and explanatory context.",
+          "preference": 1
+        },
+        {
+          "question_number": 12,
+          "question_shortened": "Code reusability/adaptability",
+          "rationale": "Both notebooks contain code that\u2019s well-structured and could be copied into another analysis with minimal changes. Notebook 1 often modularizes code by data section (electrodes, trials, acquisition, units), and tends to provide context that would help a user know what exactly to adapt. Notebook 2\u2019s code is solid and mostly reusable, but less segmented and less annotated for adaptation. Both are fine, but Notebook 1 is a little more user-friendly for repurposing fragments.",
+          "preference": 1
+        },
+        {
+          "question_number": 13,
+          "question_shortened": "Helpfulness for next research questions",
+          "rationale": "This is similar to Q10. Both notebooks enumerate plausible next scientific or analytical steps for a user. Notebook 1 gives just slightly more detail, such as population activity or spatial patterns; but overall both set up the user with logical, actionable next questions.",
+          "preference": 0
+        },
+        {
+          "question_number": 14,
+          "question_shortened": "Overall helpfulness for getting started",
+          "rationale": "Notebook 1 is more comprehensive, structured, and interpretatively supportive. It covers the same ground as Notebook 2 but adds contextualization, more diverse visualizations, and explicit guidance on how to navigate and analyze each part of the dataset. Its workflow orientation and interpretive pointers better assist a new user in getting started, understanding, and experimenting with the Dandiset.",
           "preference": 1
         }
       ]
@@ -838,6 +1582,99 @@
       ]
     },
     {
+      "dandiset_id": "001174",
+      "version": "0.250331.2218",
+      "chat_id": "8b5d2333",
+      "model": "gpt-4.1",
+      "prompt": "h-2",
+      "comparisons": [
+        {
+          "question_number": 1,
+          "question_shortened": "Understanding Dandiset purpose/content",
+          "rationale": "Both notebooks open with overviews and state the dataset's neuroscience context and main modalities. Notebook 1\u2019s overview is a bit more succinct but also more focused on the technical deliverables (\u201cwhat you get\u201d), making it clear the notebook is a practical, step-by-step guide. Notebook 2 provides more narrative, emphasizing context (SMA/M1, task/rest comparisons, GCaMP6f, etc.), and splits the overview into multiple blocks, which may help some readers. Notebook 2\u2019s explicit \u201cWhat this notebook covers\u201d section further structures expectations. Both mention the Dandiset link and dataset version.",
+          "preference": 0
+        },
+        {
+          "question_number": 2,
+          "question_shortened": "Confidence accessing data types",
+          "rationale": "Both notebooks demonstrate how to list NWB files and access asset URLs through the DANDI API, but Notebook 1 emphasizes up front that streaming is possible and then proceeds directly to selecting, streaming, and reading a specific file. Notebook 2 demonstrates file listing via a search for \u201c*.nwb\u201d and then clearly selects different session files for exploration, even distinguishing between rest and task sessions. Both teach the process but Notebook 2 gives the user slightly more of a general pattern for working with multiple types of sessions (spontaneous and task), thereby promoting transfer to other file types in the Dandiset.",
+          "preference": 2
+        },
+        {
+          "question_number": 3,
+          "question_shortened": "Understanding NWB structure & manipulation",
+          "rationale": "Notebook 1 systematically explains each NWB file's major elements (Acquisition, Processing\u2192Ophys, and the specific content of each). It starts with a high-level summary, then drills down: acquisition keys, OnePhotonSeries, and nuanced details like acquisition rate, units, and more. Notebook 2 provides a clear \"NWB File Structure\" section that describes major elements and then gives practical examples by condition but does less step-wise exploration of all elements in one go; instead, it splits into \u201crest\u201d and \u201ctask\u201d files, then demonstrates reading core components in each. Notebook 1 offers a bit more explicit structure mapping (esp. in code), while Notebook 2 highlights more about how to flexibly jump between session types.",
+          "preference": 1
+        },
+        {
+          "question_number": 4,
+          "question_shortened": "Effectiveness of visualizations",
+          "rationale": "Both notebooks generate relevant plots for each main data type (fluorescence traces, event amplitudes, spatial masks), and plotting is generally clear. Notebook 1 visualizes all traces in a single figure for the first five ROIs (stacked with vertical offsets), which allows a quick grasp of population temporal structure. It overlays all ROI masks on the movie frame, showing spatial coverage at a glance. Notebook 2 tends to plot only one ROI at a time (ROI 0), but also includes a histogram of all event amplitudes (addition not seen in Notebook 1). Both are effective, but Notebook 1 provides a broader \u201cjoint view\u201d of the data (e.g., all ROI masks, population traces), giving a stronger first impression of dataset richness.",
+          "preference": 1
+        },
+        {
+          "question_number": 5,
+          "question_shortened": "Any confusing/misleading visualizations?",
+          "rationale": "Generally, all figures in both notebooks use sensible color maps, axes labels, and figure sizes. Notebook 1\u2019s \u201cROI masks over thumbnail\u201d plot could be overwhelming if there were many ROIs, but with 11, it works well. In Notebook 2, several plots are repeated for single ROIs (which could underrepresent dataset complexity if the user doesn\u2019t realize how many cells exist); however, these are not misleading, just less informative for population properties. No obvious plot is poorly formatted or misleading in either notebook.",
+          "preference": 0
+        },
+        {
+          "question_number": 6,
+          "question_shortened": "Confidence making own visualizations",
+          "rationale": "Notebook 1\u2019s examples of stacked population traces and combined spatial/temporal visualizations are robust starting points for users who want to build on them. Notebook 2\u2019s plots focus on single-ROI visuals but are also practical and straightforward, and the histogram (for all ROIs) is a useful demonstration of how to summarize a population measure. Both teach how to extract data for individual ROIs and for many/all ROIs. Both give a confident launching point, but Notebook 1 gives slightly more \u201ctemplate\u201d code for population-level or spatial overlay plots.",
+          "preference": 1
+        },
+        {
+          "question_number": 7,
+          "question_shortened": "Visualizations show structure/complexity?",
+          "rationale": "Notebook 1 overlays spatial masks of all ROIs at once and stacks all traces for the first 5 ROIs, giving a sense of both spatial and temporal complexity. Notebook 2, while showing time traces and masks, does so for single ROIs only (except for the histogram of event amplitudes), so a user misses the overall complexity/scale of the data by default. Thus, visual communication of richness is more compelling in Notebook 1.",
+          "preference": 1
+        },
+        {
+          "question_number": 8,
+          "question_shortened": "Any unclear or unsupported interpretations?",
+          "rationale": "Both notebooks are careful to avoid over-interpreting the data or drawing biological conclusions from single plots. Notebook 1 gives some interpretation (e.g., \u201cEventAmplitude and RoiResponseSeries offer different approaches for analyzing activity\u201d) and poses questions for further exploration but is not misleading. Notebook 2 is similarly careful, tending to just report what is plotted. Neither reaches conclusions that are unsupported by evidence shown.",
+          "preference": 0
+        },
+        {
+          "question_number": 9,
+          "question_shortened": "Redundant/repetitive examples?",
+          "rationale": "Notebook 2 repeats the pattern of single-ROI trace plus single-ROI mask for two files, which, while useful for comparison, results in some redundancy. Notebook 1 demonstrates a broader range of plots (joint ROIs, joint masks) and avoids over-repetition. Notebook 2\u2019s repetition is useful for emphasizing differences between conditions but could have gone further to contrast them side-by-side or in aggregate. Slight tilt toward Notebook 1 for variation.",
+          "preference": 1
+        },
+        {
+          "question_number": 10,
+          "question_shortened": "Understanding analysis/questions that can be done",
+          "rationale": "Notebook 1 ends with an explicit section titled \u201cTips for Further Exploration,\u201d outlining follow-up questions, and explanations of how data types might be leveraged in new analyses. It poses research questions and gives practical advice (e.g., how to generalize code to other sessions). Notebook 2 also points to analysis possibilities and encourages working with more sessions or ROIs, but is less explicit than Notebook 1, which provides specific concrete next steps for reanalysis.",
+          "preference": 1
+        },
+        {
+          "question_number": 11,
+          "question_shortened": "Clarity and ease of following",
+          "rationale": "Both notebooks are clearly written and well structured, with stepwise progression and descriptive headers. Notebook 2 organizes sections by session/condition, which some users may prefer. Notebook 1\u2019s numbering and summary at the start make it easy to track progress and understand what\u2019s coming. Both are above average for clarity and navigation, but Notebook 2\u2019s structure-by-condition may slightly help conceptually for newcomers.",
+          "preference": 0
+        },
+        {
+          "question_number": 12,
+          "question_shortened": "Reusability/adaptability of code",
+          "rationale": "Both notebooks provide reusable code snippets for asset listing, NWB streaming, and plotting. In Notebook 1, code is often written for population data (all ROIs, joint traces), which may serve as a more powerful template for batch analyses. Notebook 2 makes it clearer how to switch among different files/conditions, and its code is broken into fine-grained steps (easier for copy-paste). Both are readily adaptable, but slight advantage to Notebook 2 for explicitly showing how to swap between rest/task sessions.",
+          "preference": 2
+        },
+        {
+          "question_number": 13,
+          "question_shortened": "Help for planning next analyses/questions",
+          "rationale": "(Repeated question\u2014see earlier.) Notebook 1 provides a detailed section with example questions for further exploration (e.g., comparing activity patterns, correlations, and population events), spelling out how to make use of the data. Notebook 2 makes general recommendations to iterate, cross-reference, or export data but is less specific about scientific or technical questions that could be addressed next.",
+          "preference": 1
+        },
+        {
+          "question_number": 14,
+          "question_shortened": "Overall helpfulness for getting started",
+          "rationale": "Both notebooks are strong introductions with clear prose and well-formatted plots. However, Notebook 1 provides a slightly richer set of entry-point visualizations (both cell-level and population-level), a robust tips section for further exploration, and a more thorough explanation of how to extend the code across the dataset. Notebook 2\u2019s distinction between different experimental conditions and emphasis on file swapping is highly practical, but overall, Notebook 1 offers a deeper and more confidence-building starting point for newcomers, especially for users wanting to jump quickly from loading to scientific visualization and reanalysis.",
+          "preference": 1
+        }
+      ]
+    },
+    {
       "dandiset_id": "000690",
       "version": "0.250326.0015",
       "chat_id": "d8bfae1f",
@@ -926,6 +1763,99 @@
           "question_number": 14,
           "question_shortened": "Overall helpfulness for getting started with this Dandiset",
           "rationale": "While both notebooks are clear and valid entry points, Notebook 2 offers a broader and deeper introduction\u2014including more data types, diverse visualizations, and more actionable pointers for next steps. Notebook 1 is great for probe/LFP-centric users and is especially clean and approachable for absolute beginners or electrophysiologists narrow in focus. However, Notebook 2 provides a richer, more empowering overview for most new users of this complex, multimodal Dandiset.",
+          "preference": 2
+        }
+      ]
+    },
+    {
+      "dandiset_id": "000690",
+      "version": "0.250326.0015",
+      "chat_id": "d8bfae1f",
+      "model": "gpt-4.1",
+      "prompt": "h-2",
+      "comparisons": [
+        {
+          "question_number": 1,
+          "question_shortened": "Understanding Dandiset purpose/content",
+          "rationale": "Notebook 1 provides a concise and clear overview section summarizing the project, data modalities, and scientific motivation. It explicitly lists the types of stimuli, recording techniques, data formats, and even scope of data (LFP, spikes, metadata) in an accessible bulleted format, linking directly to the Dandiset online. Notebook 2 also gives an informative overview, but is slightly more diffuse\u2014while it mentions multimodal data, scientific context, and the inclusion of behavior and intervals, it is a bit less focused in bullet form. Notebook 1's explicit list and breakdown helps a new user rapidly understand what to expect. Both are strong, but Notebook 1 is clearer and more direct.",
+          "preference": 1
+        },
+        {
+          "question_number": 2,
+          "question_shortened": "Confident in accessing Dandiset data types",
+          "rationale": "Notebook 2 covers more data modalities: LFP, spikes, running speed, eye tracking, and intervals, showing direct code for locating and extracting each, and making clear which files (e.g., *_image.nwb) contain which data types. Notebook 1 is excellent for LFP and electrode metadata, but does not demo spike or behavioral/stimulus data extraction or visualizations. If a user wants to be confident accessing all major Dandiset data, Notebook 2 covers this better.",
+          "preference": 2
+        },
+        {
+          "question_number": 3,
+          "question_shortened": "Understanding NWB format and structure",
+          "rationale": "Notebook 1 devotes clear code and discussion to displaying NWB file structure, especially for acquisition data, subject/session fields, electrode tables, etc. The printout of the NWBFile object and field breakdowns enhance structural understanding. Notebook 2 focuses more on directly extracting target data, providing less direct exploration of the file's full structure and organization, which could help orient new users to NWB. Therefore, for learning NWB's organization in the context of this Dandiset, Notebook 1 has a notable advantage.",
+          "preference": 1
+        },
+        {
+          "question_number": 4,
+          "question_shortened": "Visualization clarity and utility",
+          "rationale": "Both notebooks make helpful visualizations, but with somewhat different emphases. Notebook 1 shines in visualizing electrode locations and regional coverage, and LFP traces with regional annotation. Notebook 2 visualizes more modalities (LFP, spike raster, running, pupil, stimulus intervals), providing an integrated look at the experiment. Although some of Notebook 2's data (e.g., y-units on the LFP and pupil plots) could be clearer, the breadth of modalities visualized is a strength. Overall, Notebook 2 offers more examples of how the data are structured and how to visualize diverse aspects, which is more generally helpful for new users.",
+          "preference": 2
+        },
+        {
+          "question_number": 5,
+          "question_shortened": "Problems with visualizations",
+          "rationale": "Neither notebook presents visualizations that are actively misleading, but there are some issues: Notebook 2's LFP x-axis is in sample index rather than time, and the pupil diameter y-axis is labeled as meters (which seems unrealistic) and is likely a proxy unit. Notebook 1 uses clear axes, offsets, and annotations, especially in the electrode/region plots. While both are generally acceptable, Notebook 1's visualizations come with more careful axis labeling and annotation, avoiding potential confusion.",
+          "preference": 1
+        },
+        {
+          "question_number": 6,
+          "question_shortened": "Confidence in making own visualizations",
+          "rationale": "Notebook 2's range of visualization examples\u2014covering neural, behavioral, and stimulus-tabular data\u2014models a broad set of \"recipes\" for the user to adapt: event plots, rasters, time series for multiple modalities, and classic LFP line plots. While Notebook 1's examples are well-done for LFP and electrode spatial distributions, it covers only those domains. Therefore, Notebook 2 better builds confidence that a user could extend or remix the code for their own use cases across experimental dimensions.",
+          "preference": 2
+        },
+        {
+          "question_number": 7,
+          "question_shortened": "Visualizations show data complexity/structure",
+          "rationale": "Notebook 1 excels in showing channel organization\u2014region counts, spatial arrangement on probes, and annotated structure of the electrode table. Notebook 2 surpasses it by showing complexity across *multiple modalities*\u2014from spike trains, to behavior, to intervals, demonstrating the rich multimodal structure of the dataset. Therefore, while Notebook 1 shows complexity within LFP/electrode metadata, Notebook 2 better captures the overall breadth and complexity.",
+          "preference": 2
+        },
+        {
+          "question_number": 8,
+          "question_shortened": "Interpretations/conclusions clarity/support",
+          "rationale": "Both notebooks mostly limit themselves to \"observations\" immediately supported by plots or printed data, without making broad unsupported claims. There are no major interpretive leaps. Any issues are minor (e.g., possibly ambiguous pupil units in Notebook 2, but it is labeled as a proxy). Generally, both are cautious and responsible, so neither stands out significantly here.",
+          "preference": 0
+        },
+        {
+          "question_number": 9,
+          "question_shortened": "Redundant/repetitive plots or examples",
+          "rationale": "Neither notebook contains significant redundancy: each visualization and example reveals a distinct aspect of the data. Notebook 2 moves through different data modalities; Notebook 1 explores channel/region/metadata in more detail. No examples feel like unnecessary repetition in either.",
+          "preference": 0
+        },
+        {
+          "question_number": 10,
+          "question_shortened": "Understanding next steps/analyses",
+          "rationale": "Both notebooks provide a closing section summarizing possible next steps and analyses. Notebook 2, however, links the code examples to specific next analyses more tightly (e.g., peri-stimulus and cross-region analyses), and provides more context for \"where to go next\" with the dataset. Notebook 1's suggestions remain at a slightly higher level and are less informed by the hands-on diversity present in Notebook 2.",
+          "preference": 2
+        },
+        {
+          "question_number": 11,
+          "question_shortened": "Clarity and organization",
+          "rationale": "Both notebooks are well structured, use section headers, and clearly describe what each code block is doing. Notebook 1 is perhaps slightly more linear and clean, with explicit callouts before each major code block and direct labeling. Notebook 2, with its table of contents, internal section links, and broader scope, is slightly more complex, but this is mitigated by its organization. The differences are minor; both are clear and easy to follow, albeit with slight tradeoffs between simplicity and breadth.",
+          "preference": 0
+        },
+        {
+          "question_number": 12,
+          "question_shortened": "Code reusability/adaptability",
+          "rationale": "Notebook 2 contains more \"templates\" for accessing and plotting different types of data beyond LFPs (e.g., spike rasters, event intervals, behavior), making it more readily reusable for users who want to access the full richness of the Dandiset. Notebook 1's code is excellent for LFP/electrode exploration, and has clean code blocks, but would require the user to supplement it heavily for exploring spike, behavior, or stimulus event data. Thus, Notebook 2 is preferable for its broader and more copy-paste-ready code.",
+          "preference": 2
+        },
+        {
+          "question_number": 13,
+          "question_shortened": "Helpfulness for next questions/analyses",
+          "rationale": "This is nearly identical to Question 10. Both notebooks point to analysis avenues, but Notebook 2 more concretely links its code to analytic possibilities (peri-event analysis, cross-modalities, etc.). It also explicitly lists how the examples connect to potential user analyses.",
+          "preference": 2
+        },
+        {
+          "question_number": 14,
+          "question_shortened": "Overall helpfulness for getting started",
+          "rationale": "Notebook 2 provides a more comprehensive, practical, and example-rich introduction to Dandiset 000690 for a user who wants to rapidly get oriented across all main data modalities, with a wide variety of reusable code snippets and visualizations. Notebook 1 is especially strong for someone focusing only on LFP/electrode/metadata exploration, with excellent explanations and clean structure, but is less broad. Thus, while both are strong, Notebook 2 is overall more helpful for most new users.",
           "preference": 2
         }
       ]
@@ -1024,6 +1954,99 @@
       ]
     },
     {
+      "dandiset_id": "001195",
+      "version": "0.250408.1733",
+      "chat_id": "ae31fe05",
+      "model": "gpt-4.1",
+      "prompt": "h-2",
+      "comparisons": [
+        {
+          "question_number": 1,
+          "question_shortened": "Dandiset purpose/content clarity",
+          "rationale": "Both notebooks introduce Dandiset 001195 and provide a summary of its scientific context. Notebook 1 offers a clear sectioned overview, listing what is in the notebook and the dataset's experimental scope, and also includes author and project attribution up front. Notebook 2 also gives a good overview, with a focus on purpose, use case (who will use it and how), and key concepts, and starts with a summary before diving into metadata. Both set expectations well. However, Notebook 1 is slightly more explicit in detailing the scope and explicitly separates the types of data (electrophysiology focus) and directly states what will be addressed, making it more accessible for a new user.",
+          "preference": 1
+        },
+        {
+          "question_number": 2,
+          "question_shortened": "Confidence in accessing Dandiset data",
+          "rationale": "Notebook 1 provides a more detailed, stepwise demonstration of using the DANDI API, filtering for electrophysiology files, and then working through selection, streaming, and NWB inspection. It also notes that calcium and behavioral data are present (though not shown here), and gives practical advice for generalization. Notebook 2 shows how to list and stream files, and includes code for both current and voltage clamp, as well as instructions for how to find other data types (with a final note reminding users that only patch clamp is included in the chosen file). Both notebooks make it easy to understand the basics, but Notebook 1 is more explicit in its structure, generalizability, and hints for next steps.",
+          "preference": 1
+        },
+        {
+          "question_number": 3,
+          "question_shortened": "Understanding NWB structure",
+          "rationale": "Both notebooks cover the file structure, listing acquisitions, stimulus, and relevant metadata. Notebook 1's step-by-step examination of subject, device/electrode, acquisitions, and stimulus keys (with clear outputs) provides a slightly more thorough orientation to NWB structure, especially for new users. Notebook 2 covers similar ground but assumes a bit more familiarity and is less granular in metadata exploration (focuses less explicitly on electrodes).",
+          "preference": 1
+        },
+        {
+          "question_number": 4,
+          "question_shortened": "Visualization usefulness",
+          "rationale": "Both notebooks use visualizations to illustrate current clamp sweeps and, in Notebook 2, also voltage clamp sweeps. Notebook 1 plots multiple sweeps and overlays them with clear coloring, making step protocol effects very apparent; it also provides multiple types of summary visualizations (current steps, example stimuli). Notebook 2 focuses more on single-sweep examples (dual y-axis plots) and provides a good demonstration of matching stimulus/response, but is less comprehensive in showing protocol-wide variation. Therefore, while both are solid, Notebook 1 offers a slightly richer and more instructive visualization suite for understanding the data\u2019s richness.",
+          "preference": 1
+        },
+        {
+          "question_number": 5,
+          "question_shortened": "Visualization clarity/problems",
+          "rationale": "Both notebooks present clear and informative plots. Notebook 1 uses subplots for sweep overlays, making comparisons easy, though some axis labeling (especially units after conversion) could be improved. Notebook 2\u2019s dual-axis plots are standard for patch/voltage clamp and are well-labeled; however, no evidence suggests either caused major confusion. Neither notebook produced misleading plots, though Notebook 1's current step mean plot appears to have an outlier or axis scaling problem (likely an error in raw value conversion to pA). Overall, both are good, but due to that potential axis problem in Notebook 1, there is a very slight edge toward Notebook 2 for this criterion.",
+          "preference": 2
+        },
+        {
+          "question_number": 6,
+          "question_shortened": "Confidence for own visualizations",
+          "rationale": "Both notebooks provide code that would make a new user reasonably confident in generating their own visualizations based on these examples. Notebook 1 slightly exceeds Notebook 2 in this regard, as it offers visualization of both single and multiple sweeps, overlays, and step protocols\u2014suggesting more ways to think about visualizing experiment richness. Notebook 2 shows dual-axis plotting (useful for paired variables); overall, however, Notebook 1 covers greater breadth.",
+          "preference": 1
+        },
+        {
+          "question_number": 7,
+          "question_shortened": "Visualizations reveal structure/complexity",
+          "rationale": "Notebook 1 does a particularly good job visualizing data complexity by stacking all voltage sweep responses, showing sweep-to-sweep variation in action potentials and step protocols, and plotting stimulus commands in context. Notebook 2 focuses more narrowly on a small set of sweeps or single sweeps at a time, and only plots a single example for voltage clamp. Therefore, Notebook 1 better conveys the richness and diversity inherent in the patch clamp experiments.",
+          "preference": 1
+        },
+        {
+          "question_number": 8,
+          "question_shortened": "Interpretation/conclusion clarity/support",
+          "rationale": "Neither notebook draws strong scientific conclusions, focusing instead on exploratory guidance. Notebook 1 provides slightly more helpful commentary on what the plots mean (e.g., relating current steps to firing patterns, hints for interpreting diversity of responses) and offers clear \"notes for further exploration.\" Notebook 2 provides some interpretation, but less context for what the patterns in the data represent. No unsupported claims are apparent in either.",
+          "preference": 1
+        },
+        {
+          "question_number": 9,
+          "question_shortened": "Repetition/redundancy of examples",
+          "rationale": "Neither notebook is notably repetitive. Notebook 1's extra sweep-stacking and protocol visualizations are non-redundant and serve useful, distinct purposes. Notebook 2 avoids repetition by focusing on one example per protocol and additional metadata listing. Both are well-paced for an intro notebook.",
+          "preference": 0
+        },
+        {
+          "question_number": 10,
+          "question_shortened": "Next steps/analysis guidance",
+          "rationale": "Notebook 1 provides explicit suggestions for further analysis (e.g., firing pattern analysis, relating to anatomy, cell diversity, extending to imaging/behavior), which are collected at the end in a clearly labeled section. Notebook 2's final section is more general and focused on technical next steps but is less detailed about possible scientific analyses. Therefore, Notebook 1 is more helpful in supporting users envisioning broader analytical directions.",
+          "preference": 1
+        },
+        {
+          "question_number": 11,
+          "question_shortened": "Clarity and organization",
+          "rationale": "Both notebooks are well organized, use section headers, and provide strong logical flow. Notebook 1 makes use of a \"what you'll find\" and step-by-step structure with explicit transitions; Notebook 2 is also well-structured but with denser code and output blocks and less explicit \u201cnarration\u201d in some sections. Either would be easy for a reasonably technical user to follow, but Notebook 1 is slightly friendlier for a broader audience.",
+          "preference": 1
+        },
+        {
+          "question_number": 12,
+          "question_shortened": "Code reusability/adaptability",
+          "rationale": "Both notebooks are written with clear, adaptable code blocks demonstrating how to connect to DANDI, list files, stream NWB, and plot. Notebook 1, by showing more examples (multi-sweep handling, multiple plots), gives a slightly wider array of reusable code snippets and generalizations that could be directly copied for new analyses.",
+          "preference": 1
+        },
+        {
+          "question_number": 13,
+          "question_shortened": "Analysis ideas for Dandiset",
+          "rationale": "(Question repeated from 10; see above.) As with Q10, Notebook 1 gives a broader and more practically supported list of next-step analyses, clearly connecting code examples to downstream scientific/analytical ideas.",
+          "preference": 1
+        },
+        {
+          "question_number": 14,
+          "question_shortened": "Overall helpfulness for getting started",
+          "rationale": "Both notebooks would get a user started effectively; however, Notebook 1 provides more context, step-by-step instructions, a greater diversity of code and visualization strategies, and better guidance for follow-up. It is slightly more approachable for less experienced users but still rich enough for more advanced users. Notebook 2 adds voltage clamp examples (not in Notebook 1), which is valuable, but its coverage is a bit more technical and less \"onboarded\" overall.",
+          "preference": 1
+        }
+      ]
+    },
+    {
       "dandiset_id": "000617",
       "version": "0.250311.1615",
       "chat_id": "ca0caac9",
@@ -1113,6 +2136,99 @@
           "question_shortened": "Overall helpfulness for getting started",
           "rationale": "Notebook 2 provides a broader introduction to the modalities in the file, with code for motion-corrected frames, ROI masks, trace plots, running, stimulus, and eye tracking. These examples, coupled with stepwise explanations, make it more informative for a user wanting to understand the richness of the Dandiset and get started with custom exploration. Notebook 1 is clear, but less extensive in showing the full data variety. Thus, Notebook 2 is overall the more helpful starting point.",
           "preference": 2
+        }
+      ]
+    },
+    {
+      "dandiset_id": "000617",
+      "version": "0.250311.1615",
+      "chat_id": "ca0caac9",
+      "model": "gpt-4.1",
+      "prompt": "h-2",
+      "comparisons": [
+        {
+          "question_number": 1,
+          "question_shortened": "Understanding purpose/content of Dandiset",
+          "rationale": "Notebook 1 provides an in-depth project overview, bullet-pointed experiment details, and clear context on the modalities present in the Dandiset right at the start. It summarizes experimental aims, species, sample size, methodology, areas/layers, and refers users directly to the detailed Dandiset record. Notebook 2 offers a solid introduction, but while its summary is concise, some specific experimental details (e.g., genotype, brain areas, sample size) are less exhaustively itemized. Both include Dandiset links and context, but Notebook 1 gives a better, more structured, \u201cat a glance\u201d scientific summary for unfamiliar users.",
+          "preference": 1
+        },
+        {
+          "question_number": 2,
+          "question_shortened": "Confidence accessing Dandiset data",
+          "rationale": "Both notebooks demonstrate how to access data using the DANDI API and how to select a sample NWB file for exploration. However, Notebook 1 walks through asset listing for a specific subject and clarifies the file naming convention, which makes it easier for new users to orient themselves in the dataset. Notebook 2 is efficient but omits explanation of file naming; its code is less detailed in helping a user discover different asset types. Overall, Notebook 1 better supports user confidence in navigating and understanding the collection of files.",
+          "preference": 1
+        },
+        {
+          "question_number": 3,
+          "question_shortened": "Understanding NWB file structure/workflow",
+          "rationale": "Notebook 1 explicitly inspects and prints NWB session metadata, details subject/genotype fields, and provides step-by-step exploration of various NWB modules (ophys, intervals, behavioral interfaces, etc.) in a way that builds user understanding of NWB structure relevant to this experiment. Notebook 2 demonstrates how to open NWB with Pynwb and access data groups, but spends less effort explaining structure\u2014users see code that \u201cdoes the thing\u201d but may not connect the logical NWB organization to the data they are exploring. Notebook 1\u2019s approach is better for learning and interpretation.",
+          "preference": 1
+        },
+        {
+          "question_number": 4,
+          "question_shortened": "Visualization aids understanding",
+          "rationale": "Both notebooks offer a variety of relevant visualizations: imaging frames, traces, masks, running speed, stimuli, and eye data. Notebook 1 tends to contextualize each plot more (e.g., with axis labels, clear units, multiple supporting panels such as masks and statistics, and legends). It goes further, showing distributions and ROI summary stats, and provides code for more panels per topic, aiding interpretation. Notebook 2 is technically competent, but tends to present a single exemplar visual per data type, sometimes with less contextual explanation. Thus, Notebook 1\u2019s visualizations generally add more value to data comprehension.",
+          "preference": 1
+        },
+        {
+          "question_number": 5,
+          "question_shortened": "Poor visualizations/formatting?",
+          "rationale": "Neither notebook contains genuinely misleading or confusing visualizations. However, some of Notebook 2\u2019s plots (especially the ROI overlays and the stimulus raster) could be hard to decipher for users unfamiliar with the experiment, due to brief captions or axis suppression. In contrast, Notebook 1 provides more annotation, legends, and explanation, reducing ambiguity. Still, both are generally clear, with only minor weaknesses; the difference here is small, but Notebook 1 is a bit stronger in formatting/context.",
+          "preference": 1
+        },
+        {
+          "question_number": 6,
+          "question_shortened": "Confidence creating own visualizations",
+          "rationale": "Notebook 1 covers more data modalities, provides well-commented code, and includes several views for each type of signal (e.g., summary stats, distributions, mask displays, and multiple panels). It feels more like a practical template a user can extend for their own explorations, whereas Notebook 2 presents competent but sometimes less pedagogically motivated code (one figure per type). Notebook 1 is thus likely to leave readers more confident in adapting code for custom figures/analyses.",
+          "preference": 1
+        },
+        {
+          "question_number": 7,
+          "question_shortened": "Visualizing structure/complexity of data",
+          "rationale": "Notebook 1 provides explicit visualizations of the complexity of the data (e.g., histograms of ROI sizes, scatter of ROI locations, full-field mask overlay, distribution plots for stimulus timing and behavior) and highlights the diversity and organization of both neural and behavioral data streams. Notebook 2\u2019s visuals mostly offer single examples per modality, which does less to convey the scale and richness of the dataset. Notebook 1 thus better demonstrates the multidimensional structure and experimental design.",
+          "preference": 1
+        },
+        {
+          "question_number": 8,
+          "question_shortened": "Interpretations/conclusions clarity",
+          "rationale": "Neither notebook attempts strong statistical inference or claim conclusions from the plots; both largely stay descriptive. However, Notebook 1\u2019s running commentary provides context and rationale for each section\u2019s visualizations and what they reveal; instructions are closely tied to data shown. Notebook 2\u2019s narrative is more terse, leaving some panels without interpretive text or guidance (outside short code comments). Notebook 1 is slightly clearer and more informative, though both avoid unsupported conclusions.",
+          "preference": 1
+        },
+        {
+          "question_number": 9,
+          "question_shortened": "Redundancy/repetitiveness in plots",
+          "rationale": "Neither notebook is burdened by excessive repetition, but Notebook 1 does show several alternative views of some data (multiple plots of ROI geometry, masks, traces). This adds redundancy only in service of discovery/sensemaking. Notebook 2 is streamlined, but could feel sparse if a user is looking to see alternative perspectives on data. Neither is \u201cunnecessarily repetitive,\u201d but Notebook 1\u2019s approach might feel a little more drawn out. Still, this is a minor difference.",
+          "preference": 0
+        },
+        {
+          "question_number": 10,
+          "question_shortened": "Understanding next steps/analysis directions",
+          "rationale": "Notebook 1 includes a dedicated section listing concrete \u201cnext steps and further exploration\u201d (response alignment, comparison across conditions, reliability, sequence learning across sessions, etc.). This scaffolds new users\u2019 thinking on what they can do now that they\u2019re oriented in the data. Notebook 2\u2019s conclusion is more general/summative, without such a list of suggested analyses or next steps. Notebook 1 is therefore more helpful for users wanting research inspiration.",
+          "preference": 1
+        },
+        {
+          "question_number": 11,
+          "question_shortened": "Clarity and ease of following the notebook",
+          "rationale": "Notebook 1 is broken into clear, numbered sections, each with markdown summaries, comments, and rationale text. It proceeds in a logical, pedagogical order from summary to API connection, exploration, structure, and mapping modalities, and is interspersed with clear output comments and figures. Notebook 2 is also logically ordered and comprehensible, but omits some intermediary explanations and might be harder for total beginners. The differences are moderate but real.",
+          "preference": 1
+        },
+        {
+          "question_number": 12,
+          "question_shortened": "Code reusability/adaptability",
+          "rationale": "Both notebooks provide runnable code blocks, but Notebook 1\u2019s code is generally more modular, well-commented, and explicit in illustrating how to access, analyze, and visualize multiple data types. Its emphasis on pandas DataFrames for ROI tables and explicit file naming logic also aid adaptation. Notebook 2\u2019s code is clear, but more focused on \u201cgetting the plot\u201d rather than robust, general exploration, and has less commentary on why certain steps or groupings are used. Most users would find Notebook 1\u2019s code easier to copy and repurpose.",
+          "preference": 1
+        },
+        {
+          "question_number": 13,
+          "question_shortened": "Understanding possible analyses/questions",
+          "rationale": "Overlap with question 10: Notebook 1 lists several analytical directions explicitly, while Notebook 2 provides only a general suggestion that one can \"align responses,\" etc., but without examples. Repeating rationale from above: Notebook 1 actively scaffolds users toward likely analyses, aiding experiment design.",
+          "preference": 1
+        },
+        {
+          "question_number": 14,
+          "question_shortened": "Overall helpfulness getting started",
+          "rationale": "Summing across all criteria, Notebook 1 leads users through the process with more explicit explanations, richer visual and code examples, and guidance for continuing analysis. Its stepwise, annotated, and well-labeled approach makes it more helpful as both a template and a learning resource for new users of this Dandiset and similar multimodal NWB datasets. Notebook 2 is efficient and competent, but less informative for absolute beginners or those wanting to deeply understand scientific and technical context.",
+          "preference": 1
         }
       ]
     }

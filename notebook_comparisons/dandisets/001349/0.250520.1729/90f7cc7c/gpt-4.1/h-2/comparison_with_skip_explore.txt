@@ -1,0 +1,130 @@
+<comparison>
+<question>1</question>
+<question_shortened>Understanding the Dandiset's purpose and content</question_shortened>
+<rationale>
+Notebook 1 provides a much more thorough introduction: it includes a Dandiset overview, experimental context, explanation of data types, and wraps with a detailed "About the dataset" section summarizing the biological and technical context. Notebook 2 offers a factual introduction (title, overview, high-level aims, and session layout), but the narrative is briefer and lacks the experimental context, design, or the biological/computational focus described in Notebook 1. Notebook 1 also offers a better-organized ("what you'll find in this notebook") preamble, priming the user for what's to follow. 
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>2</question>
+<question_shortened>Confidence in accessing different types of data</question_shortened>
+<rationale>
+Both notebooks show how to connect to the DANDI API, list and select NWB files, and use remfile/pynwb/h5py to load the data. However, Notebook 1 provides a full listing of many file paths (not just the first 10), walks through key data modalities (fluorescence, dff, event, z-score), and connects these to both code and interpretation. It also demonstrates streaming, selection, and discusses data types and their structure. Notebook 2 only covers listing the first 10 NWB files and selecting one, and then mostly focuses on a single example ROI. Overall, Notebook 1 gives the reader greater confidence that they could access various data types in the dataset.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>3</question>
+<question_shortened>Understanding structure of NWB files and working with them</question_shortened>
+<rationale>
+Notebook 1 systematically prints and interprets NWB metadata (institutions, experimenter, processing modules, etc.), lists and explains processing modules and data interfaces, and demonstrates navigation inside these modules. It also prints the available processing modules and discusses the types of signals, making the NWB structure very clear. Notebook 2 does describe where the relevant processed datasets are (ophys → Fluorescence), and lists the available series, but it doesn't show as much about the NWB structure overall (less metadata, no processing modules printout, less discussion of the NWB object model). 
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>4</question>
+<question_shortened>Did visualizations help you understand key aspects?</question_shortened>
+<rationale>
+Notebook 1 provides a wider variety of visualizations: 
+- Distribution scatter of all ROIs (for spatial context)
+- Multiple ROIs' dF/F traces
+- Multiple event traces
+- Progression through several data types for one ROI (raw, corrected, events, z-score)
+Notebook 2 focuses on single-ROI plots (dff, raw fluorescence, mask). While these are clear, they provide a narrower look at the dataset's structure. Notebook 1's multi-ROI plots and structured comparisons (Figure 7) help the user see both structure and variety in the data. However, Notebook 2's mask visualization is clearer for a single ROI; Notebook 1 does not plot individual mask images. On balance, the broader, contextualized plots in Notebook 1 are more helpful for understanding the dataset's content.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>5</question>
+<question_shortened>Were any visualizations hard to understand?</question_shortened>
+<rationale>
+Notebook 1's scatter plot for spatial ROI locations failed to display data (the axes are empty, likely due to a code/data issue). Otherwise, all visualizations in both notebooks are clear, with labeled axes and context. Notebook 2's single-ROI mask plot provides clear spatial context for mask shape and values. While Notebook 1 provides more visual context for time series, the failure of the spatial ROI plot is confusing and could mislead a new user by suggesting there is no data.  
+</rationale>
+<preference>2</preference>
+</comparison>
+
+<comparison>
+<question>6</question>
+<question_shortened>Confidence in making own visualizations</question_shortened>
+<rationale>
+Notebook 1 is more instructive for generalization: it shows both single-ROI and multi-ROI plots, demonstrates plotting from DataFrames, and provides more annotation and context on how different types of ROI and timeseries data can be visualized. Notebook 2's plotting code is clear, but more limited in scope/customizability (focused on ROI 0 only). Thus, after working through Notebook 1, a user would likely feel more confident in extending and adapting the code for their own visualization aims.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>7</question>
+<question_shortened>Visualizations of data structure/complexity</question_shortened>
+<rationale>
+Notebook 1 presents the diversity of the data and its complexity: multi-ROI traces, contrasting raw/corrected/Z-score/event traces, and attempts to show spatial ROI locations (despite a bug). Notebook 2 only presents ROI 0 time-series and mask, which does not illustrate population structure or heterogeneity. Thus, Notebook 1 enables a much deeper appreciation of dataset structure and complexity.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>8</question>
+<question_shortened>Unclear or unsupported conclusions?</question_shortened>
+<rationale>
+Both notebooks avoid making strong interpretations or drawing scientific conclusions; they are mostly descriptive. Notebook 1 makes a few summary/statements ("These data are...") and proposes next steps but does not overinterpret the data. Notebook 2 explicitly states absence of behavioral/stimulus data and highlights that no further events are present. No unclear or unsupported conclusions in either.
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>9</question>
+<question_shortened>Repetitiveness or redundancy in plots/examples</question_shortened>
+<rationale>
+Notebook 1 does not feel repetitive; it deliberately steps through different traces, multi-ROI and single-ROI visualizations, and image segmentation. Notebook 2’s structure also avoids redundancy by shifting focus (list files, plot dff, plot raw, plot mask). Neither notebook is notably redundant or repetitive, though Notebook 2's single-ROI approach could be viewed as limited in scope, not repetitive.  
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>10</question>
+<question_shortened>Did notebook suggest further questions/analyses?</question_shortened>
+<rationale>
+Notebook 1 provides a concrete "Next steps and suggestions" section that proposes practical follow-up analyses and links to further documentation and publications. Notebook 2 also suggests next steps, e.g., comparing ROIs, computing statistics, event-triggered averages, integrating behavioral data, etc. Both are helpful. Notebook 1's suggestions are slightly more detailed, including the possibility of synchronizing with behavioral video using available synchrony data—which hints at multimodal analysis and the breadth of the Dandiset. 
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>11</question>
+<question_shortened>Clarity and ease of following the notebook</question_shortened>
+<rationale>
+Both notebooks are clear, use headings, and offer stepwise progression. Notebook 1’s structure is more detailed, with block-separated explanations and explicit sectioning; it also summarizes what the notebook covers right up front. Notebook 2 is concise and logical, but its single-ROI focus makes it easier to follow but potentially less informative for dataset-wide questions. Both are accessible, but Notebook 1's clarity, detailed stepping, and deeper context give it an edge.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>12</question>
+<question_shortened>Reusability/adaptability of code</question_shortened>
+<rationale>
+Both notebooks provide code that could be reused with minor modifications. However, Notebook 1 covers more general tasks (listing all NWB files, handling multiple ROIs, working with DataFrames, various kinds of visualization), making its code easier to adapt for broader analysis. Notebook 2’s code could also be reused but would require tweaking to extend beyond ROI 0 or to access more advanced features. Thus, Notebook 1's code is more adaptable.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>13</question>
+<question_shortened>Did the notebook help you see next analysis steps?</question_shortened>
+<rationale>
+Both contain explicit "Next steps" or summary sections suggesting follow-up analyses (clustering, population comparison, linking to behavior, etc.). Notebook 1’s suggestions are more detailed (synchrony, correlations, identifying developmental changes), whereas Notebook 2 is briefer but still adequate. On balance, Notebook 1 provides greater direction.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>14</question>
+<question_shortened>Overall helpfulness for getting started</question_shortened>
+<rationale>
+Notebook 1 is more comprehensive, provides deeper context, more varied code and visualization examples, and offers stronger support for both basic and advanced users to get started with this Dandiset. Notebook 2 is easier for absolute beginners (simple, step-by-step for a single ROI) and has fewer bugs, but Notebook 1 overall offers more depth and breadth for an initial exploration.
+</rationale>
+<preference>1</preference>
+</comparison>

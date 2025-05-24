@@ -1,0 +1,125 @@
+<comparison>
+<question>1</question>
+<question_shortened>Understanding Dandiset purpose/content</question_shortened>
+<rationale>
+Both notebooks open with overviews and state the dataset's neuroscience context and main modalities. Notebook 1’s overview is a bit more succinct but also more focused on the technical deliverables (“what you get”), making it clear the notebook is a practical, step-by-step guide. Notebook 2 provides more narrative, emphasizing context (SMA/M1, task/rest comparisons, GCaMP6f, etc.), and splits the overview into multiple blocks, which may help some readers. Notebook 2’s explicit “What this notebook covers” section further structures expectations. Both mention the Dandiset link and dataset version.
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>2</question>
+<question_shortened>Confidence accessing data types</question_shortened>
+<rationale>
+Both notebooks demonstrate how to list NWB files and access asset URLs through the DANDI API, but Notebook 1 emphasizes up front that streaming is possible and then proceeds directly to selecting, streaming, and reading a specific file. Notebook 2 demonstrates file listing via a search for “*.nwb” and then clearly selects different session files for exploration, even distinguishing between rest and task sessions. Both teach the process but Notebook 2 gives the user slightly more of a general pattern for working with multiple types of sessions (spontaneous and task), thereby promoting transfer to other file types in the Dandiset.
+</rationale>
+<preference>2</preference>
+</comparison>
+
+<comparison>
+<question>3</question>
+<question_shortened>Understanding NWB structure & manipulation</question_shortened>
+<rationale>
+Notebook 1 systematically explains each NWB file's major elements (Acquisition, Processing→Ophys, and the specific content of each). It starts with a high-level summary, then drills down: acquisition keys, OnePhotonSeries, and nuanced details like acquisition rate, units, and more. Notebook 2 provides a clear "NWB File Structure" section that describes major elements and then gives practical examples by condition but does less step-wise exploration of all elements in one go; instead, it splits into “rest” and “task” files, then demonstrates reading core components in each. Notebook 1 offers a bit more explicit structure mapping (esp. in code), while Notebook 2 highlights more about how to flexibly jump between session types.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>4</question>
+<question_shortened>Effectiveness of visualizations</question_shortened>
+<rationale>
+Both notebooks generate relevant plots for each main data type (fluorescence traces, event amplitudes, spatial masks), and plotting is generally clear. Notebook 1 visualizes all traces in a single figure for the first five ROIs (stacked with vertical offsets), which allows a quick grasp of population temporal structure. It overlays all ROI masks on the movie frame, showing spatial coverage at a glance. Notebook 2 tends to plot only one ROI at a time (ROI 0), but also includes a histogram of all event amplitudes (addition not seen in Notebook 1). Both are effective, but Notebook 1 provides a broader “joint view” of the data (e.g., all ROI masks, population traces), giving a stronger first impression of dataset richness.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>5</question>
+<question_shortened>Any confusing/misleading visualizations?</question_shortened>
+<rationale>
+Generally, all figures in both notebooks use sensible color maps, axes labels, and figure sizes. Notebook 1’s “ROI masks over thumbnail” plot could be overwhelming if there were many ROIs, but with 11, it works well. In Notebook 2, several plots are repeated for single ROIs (which could underrepresent dataset complexity if the user doesn’t realize how many cells exist); however, these are not misleading, just less informative for population properties. No obvious plot is poorly formatted or misleading in either notebook.
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>6</question>
+<question_shortened>Confidence making own visualizations</question_shortened>
+<rationale>
+Notebook 1’s examples of stacked population traces and combined spatial/temporal visualizations are robust starting points for users who want to build on them. Notebook 2’s plots focus on single-ROI visuals but are also practical and straightforward, and the histogram (for all ROIs) is a useful demonstration of how to summarize a population measure. Both teach how to extract data for individual ROIs and for many/all ROIs. Both give a confident launching point, but Notebook 1 gives slightly more “template” code for population-level or spatial overlay plots.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>7</question>
+<question_shortened>Visualizations show structure/complexity?</question_shortened>
+<rationale>
+Notebook 1 overlays spatial masks of all ROIs at once and stacks all traces for the first 5 ROIs, giving a sense of both spatial and temporal complexity. Notebook 2, while showing time traces and masks, does so for single ROIs only (except for the histogram of event amplitudes), so a user misses the overall complexity/scale of the data by default. Thus, visual communication of richness is more compelling in Notebook 1.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>8</question>
+<question_shortened>Any unclear or unsupported interpretations?</question_shortened>
+<rationale>
+Both notebooks are careful to avoid over-interpreting the data or drawing biological conclusions from single plots. Notebook 1 gives some interpretation (e.g., “EventAmplitude and RoiResponseSeries offer different approaches for analyzing activity”) and poses questions for further exploration but is not misleading. Notebook 2 is similarly careful, tending to just report what is plotted. Neither reaches conclusions that are unsupported by evidence shown.
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>9</question>
+<question_shortened>Redundant/repetitive examples?</question_shortened>
+<rationale>
+Notebook 2 repeats the pattern of single-ROI trace plus single-ROI mask for two files, which, while useful for comparison, results in some redundancy. Notebook 1 demonstrates a broader range of plots (joint ROIs, joint masks) and avoids over-repetition. Notebook 2’s repetition is useful for emphasizing differences between conditions but could have gone further to contrast them side-by-side or in aggregate. Slight tilt toward Notebook 1 for variation.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>10</question>
+<question_shortened>Understanding analysis/questions that can be done</question_shortened>
+<rationale>
+Notebook 1 ends with an explicit section titled “Tips for Further Exploration,” outlining follow-up questions, and explanations of how data types might be leveraged in new analyses. It poses research questions and gives practical advice (e.g., how to generalize code to other sessions). Notebook 2 also points to analysis possibilities and encourages working with more sessions or ROIs, but is less explicit than Notebook 1, which provides specific concrete next steps for reanalysis.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>11</question>
+<question_shortened>Clarity and ease of following</question_shortened>
+<rationale>
+Both notebooks are clearly written and well structured, with stepwise progression and descriptive headers. Notebook 2 organizes sections by session/condition, which some users may prefer. Notebook 1’s numbering and summary at the start make it easy to track progress and understand what’s coming. Both are above average for clarity and navigation, but Notebook 2’s structure-by-condition may slightly help conceptually for newcomers.
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>12</question>
+<question_shortened>Reusability/adaptability of code</question_shortened>
+<rationale>
+Both notebooks provide reusable code snippets for asset listing, NWB streaming, and plotting. In Notebook 1, code is often written for population data (all ROIs, joint traces), which may serve as a more powerful template for batch analyses. Notebook 2 makes it clearer how to switch among different files/conditions, and its code is broken into fine-grained steps (easier for copy-paste). Both are readily adaptable, but slight advantage to Notebook 2 for explicitly showing how to swap between rest/task sessions.
+</rationale>
+<preference>2</preference>
+</comparison>
+
+<comparison>
+<question>13</question>
+<question_shortened>Help for planning next analyses/questions</question_shortened>
+<rationale>
+(Repeated question—see earlier.) Notebook 1 provides a detailed section with example questions for further exploration (e.g., comparing activity patterns, correlations, and population events), spelling out how to make use of the data. Notebook 2 makes general recommendations to iterate, cross-reference, or export data but is less specific about scientific or technical questions that could be addressed next.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>14</question>
+<question_shortened>Overall helpfulness for getting started</question_shortened>
+<rationale>
+Both notebooks are strong introductions with clear prose and well-formatted plots. However, Notebook 1 provides a slightly richer set of entry-point visualizations (both cell-level and population-level), a robust tips section for further exploration, and a more thorough explanation of how to extend the code across the dataset. Notebook 2’s distinction between different experimental conditions and emphasis on file swapping is highly practical, but overall, Notebook 1 offers a deeper and more confidence-building starting point for newcomers, especially for users wanting to jump quickly from loading to scientific visualization and reanalysis.
+</rationale>
+<preference>1</preference>
+</comparison>
