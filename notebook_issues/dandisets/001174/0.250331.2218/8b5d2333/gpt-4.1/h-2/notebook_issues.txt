@@ -1,0 +1,7 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>Section 3.3 ("Fluorescence Trace Example: First ROI, First 5 Timepoints") outputs all zeros for the first 5 points in ROI 0, suggesting that initial transient data is missing, incorrectly aligned, or the ROI does not contain signal at the start. This could confuse users, as it may suggest a data issue or improper slicing.</description>
+<severity>minor</severity>
+</issue>
+</issues>

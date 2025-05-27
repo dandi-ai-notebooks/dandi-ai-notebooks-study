@@ -1,0 +1,178 @@
+<comparison>
+<question>1</question>
+<question_shortened>Clarity of Dandiset purpose and content</question_shortened>
+<rationale>
+Notebook 1 introduces the dataset with high-level, concise bullet points describing the types of data (2-photon calcium imaging, behavior, etc.), and lists precisely what the notebook covers. However, it is slightly more technical, focusing quickly on what will be done in the notebook.
+
+Notebook 2 offers a more narrative overview with structured bullets, adding more context: listing the number of mice, sessions, and giving a clear dataset summary ("cellular-resolution imaging and behavior", session/file size, etc.) including key identifiers and general use-case. It more explicitly describes the broader goals and possibilities with the dataset, such as spatial, reward, and sequence coding. The overview in Notebook 2 is more engaging and does a better job setting the scene for someone new to the dataset.
+</rationale>
+<preference>2</preference>
+</comparison>
+
+<comparison>
+<question>2</question>
+<question_shortened>Confidence in accessing data types from Dandiset</question_shortened>
+<rationale>
+Both notebooks provide code using the DANDI API to list and access files, but their emphasis is slightly different. Notebook 1 demonstrates listing and filtering files by subject, giving immediate code+output to identify NWB assets by mouse/session. It explains asset selection logic (e.g., mouse 'sub-m11'), helping users know how to customize access.
+
+Notebook 2 shows how to list files, displaying filenames, size, and URLs for the first 10 NWB files, including a DataFrame with readable file info. While it doesn’t filter by subject in the first listing, it gives a good demo for exploring file structure at a glance.
+
+Overall, both are solid; Notebook 1's filtering approach is immediately more specific for "accessing different types", but Notebook 2's DataFrame makes it easier to browse/sort. Neither stands out dramatically over the other—both help users get started.
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>3</question>
+<question_shortened>Understanding NWB file structure and usage</question_shortened>
+<rationale>
+Notebook 1 explicitly walks through file structure: showing how to access acquisition, processing modules, and describes where behavioral, ophys, and segmentation data live. It highlights the organization (acquisition vs processed, modules like 'ophys', 'behavior'). It provides clear "inspection" steps and prints top-level and subject/session info.
+
+Notebook 2 gives a similar exploration, retrieving and printing session and subject metadata, and then tabulates the structure of behavioral and optical physiology (ophys) data, listing time series, their descriptions, and shape/unit, further supported by DataFrames. It also lists more detail for behavioral variables (unit, description).
+
+Both do well, but Notebook 2's tabular summaries (for both behavior and ophys, and ROI table) provide a clearer at-a-glance structural understanding, especially for someone less familiar with NWB.  
+</rationale>
+<preference>2</preference>
+</comparison>
+
+<comparison>
+<question>4</question>
+<question_shortened>Usefulness of visualizations for understanding data</question_shortened>
+<rationale>
+Notebook 1 provides:
+- Multi-panel behavioral plots: position, speed, licks, reward zone (with lines for rewards).
+- Calcium trace plots for random ROIs (offset, 0–120s).
+- Distribution histograms for ROI classification.
+- Imaging fields (mean/max projection).
+
+Notebook 2 offers:
+- Time-aligned plots: position, speed, and both dF/F and deconvolved signals for 3 ROIs.
+- Cell mask (ROI) visualizations for 10 ROIs.
+- Single-cell activity vs. position correlation plots.
+
+Notebook 1's behavioral plots are somewhat higher-level/aggregated (multi-panel for 2 minutes), while Notebook 2's visualizations are more focused on showing how the behavioral and neural time series align for the first 1000 frames, plus a good ROI mask panel and scatter plots connecting neural to behavioral variables. Notebook 2's cell mask visualization is especially strong in showing spatial structure of ROIs.
+
+Both have informative plots, but Notebook 2’s “neural/behavioral time series” subplot and the explicit linking of cell activity vs. position gives more clear and direct examples of interpreting/connecting data, and the ROI masks are easier to interpret.
+</rationale>
+<preference>2</preference>
+</comparison>
+
+<comparison>
+<question>5</question>
+<question_shortened>Any visualizations that hindered understanding?</question_shortened>
+<rationale>
+Notebook 1's visualizations are generally clear, but the offset calcium traces (10 random ROIs) could be overwhelming for beginners: there are many overlapping noisy traces and no summary statistic or cell ID structure. However, legend and axes are labeled and time span is clear. The multiple-axis panel for behavior is busy but interpretable; all axes are labeled. The ROI probability histogram is clear.
+
+Notebook 2’s cell mask plots, while clear in structure, show only small isolated blobs (perhaps due to low mask weight or plotting, or because ROIs really are sparse), and they may seem underwhelming but not misleading. The neural/behavioral traces and scatter plots are easy to read.
+
+Neither notebook presents a visualization that is misleading or poorly labeled to the extent that it actively "hinders" understanding, though Notebook 1's “raw calcium traces” plot would be tough to interpret without experience.
+
+Overall, minor weakness in readability for Notebook 1's offset traces—but not sufficient to tip the balance clearly.
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>6</question>
+<question_shortened>Confidence in creating your own visualizations</question_shortened>
+<rationale>
+Both notebooks offer reusable code for time series plotting; Notebook 1: behavior traces, random cell activity; Notebook 2: several types (aligned multi-pane, ROI masks, scatter with behavior, single-cell/behavior alignment). Notebook 2's code feels more generalizable (downsamples, shows different data modalities, plots masks in modular way), and provides several different styles—which promotes confidence in reusing or adapting the code for your own visualizations (time series, masks, cross-modality).
+
+Overall, Notebook 2 is a bit stronger for this criterion.
+</rationale>
+<preference>2</preference>
+</comparison>
+
+<comparison>
+<question>7</question>
+<question_shortened>Visualizing structure/complexity of data</question_shortened>
+<rationale>
+Notebook 1 handles structure by showing multi-faceted behavioral plots (temporal overlaps) and histograms of ROI quality, with mean/max projection images that highlight data dimensionality. However, its neural trace plot (10 offset raw traces) makes the data look visually chaotic/noisy without helping the reader see the structure (e.g., place coding, temporal alignment).
+
+Notebook 2 exposes:  
+- The full field-by-field DataFrames (behavior, ROI table—seeing richness of time series),
+- Neural+behavioral temporal alignment (multi-trace, multi-modal),  
+- Per-cell mask structure (showing anatomy of 10 cells),  
+- Example analysis linking activity and position both in time series and scatter, which more clearly communicates data complexity and possible approaches to analysis.
+
+Thus, Notebook 2 better demonstrates both the variety and potential complexity of the data.
+</rationale>
+<preference>2</preference>
+</comparison>
+
+<comparison>
+<question>8</question>
+<question_shortened>Interpretations/conclusions unclear or unsupported?</question_shortened>
+<rationale>
+Both notebooks offer light interpretation; neither overstates. Notebook 1 adds explicit interpretive comments after visualizations ("Observe licking and speed relative to rewards," "Signals reflect neural population activity..."), but these are not quantitative conclusions—more observational/suggestive, aligned with what is shown. Notebook 2 is similar, with comments such as “You can substitute any ROI…” or “These analyses illustrate how to…".
+
+Neither notebook misleads or makes claims unsupported by plots, and both support their statements with relevant displays.  
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>9</question>
+<question_shortened>Redundant or repetitive plots/examples?</question_shortened>
+<rationale>
+Neither notebook feels repetitive. Each visualization in both notebooks serves a distinct purpose (behavior summary, individual traces, ROI masks/metadata, etc.). Notebook 1 sometimes shows overlapping information (e.g., multi-panel behavior plots and sessions) but never in a way that's unjustified or redundant to the user exploring a new dataset.
+
+Notebook 2's sequence is well paced and each plot advances a new point (file structure, masks, cell-behavior links, etc.).  
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>10</question>
+<question_shortened>Understanding directions for further analysis</question_shortened>
+<rationale>
+Both notebooks contain final sections with suggestions for next analyses, pointing explicitly to custom analysis code and describing possible future directions. Notebook 1 is slightly more focused on the "groundwork" (e.g., "event-triggered averaging, identifying place/reward cells"), while Notebook 2 includes “see the analysis code for advanced tools and published figures” and demonstrates how to plot cell activity vs. position—providing a direct springboard for e.g., place cell analysis.
+
+Notebook 2’s “you can substitute any ROI/variable…” guidance gives more concrete hints about what to try next, and the structure of the notebook credits reusability and adaptation.  
+</rationale>
+<preference>2</preference>
+</comparison>
+
+<comparison>
+<question>11</question>
+<question_shortened>Clarity and ease of following the notebook</question_shortened>
+<rationale>
+Notebook 2 is better organized, with descriptive markdown, summary tables, and clearly titled sections outlining the logic and flow of analysis (metadata, processing, ROI exploration, usage demo, next steps). Its text is concise, introductory, and avoids jargon. The tables for variable names and modular coding style increase readability.
+
+Notebook 1 is methodical and clear but uses slightly denser text and more technical phrasing, with some sections feeling more like code walkthrough than a story; some jump between code and markdown with less "signposting".
+
+Overall, Notebook 2 reads more like a user guide and is easier for most readers to follow.
+</rationale>
+<preference>2</preference>
+</comparison>
+
+<comparison>
+<question>12</question>
+<question_shortened>Ease of reusing/adapting code</question_shortened>
+<rationale>
+Both notebooks provide well-structured, modular code and clear data-access patterns. Notebook 2, however, organizes example code in self-contained chunks (lists, DataFrames, plotting functions for ROI masks, modular behaviors) and provides variable names/descriptions, which aids reusability. 
+
+Notebook 1 has code that filters files by subject and session, providing direct examples for common needs (good for someone wanting to filter assets programmatically). Notebook 2’s code is a bit more general-purpose and expands visualizations (ROI mask code, scatter plots), which is valuable for adaptation.
+
+Notebook 2 is marginally more helpful and modular in this regard.
+</rationale>
+<preference>2</preference>
+</comparison>
+
+<comparison>
+<question>13</question>
+<question_shortened>Notebook guidance for next questions/analyses</question_shortened>
+<rationale>
+This is nearly a duplicate of question 10. Per above, both notebooks provide actionable next steps and point to analysis code, but Notebook 2’s demonstration of aligning cell activity and behavior, as well as its textual prompts to the user to explore other ROIs, variables, and trial segmentation, are slightly more explicit and instructive for taking the next step.
+</rationale>
+<preference>2</preference>
+</comparison>
+
+<comparison>
+<question>14</question>
+<question_shortened>Overall helpfulness for getting started</question_shortened>
+<rationale>
+Both notebooks are strong, but Notebook 2 is notably more approachable, better structured, and displays more accessible code and visualizations that map directly to the sorts of analyses users may want to perform with this dataset. Its graphical summaries, ROI mask plots, and cell-behavior link analyses—paired with readable, organized markdown—make it a better starting point, especially for those new to DANDI/NWB or this dataset.
+</rationale>
+<preference>2</preference>
+</comparison>

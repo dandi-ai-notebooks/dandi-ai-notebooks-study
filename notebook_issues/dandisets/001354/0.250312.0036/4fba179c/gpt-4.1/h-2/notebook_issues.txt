@@ -1,0 +1,32 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The units for the voltage trace in the plot are shown as "V" (Volts) on the y-axis, but intracellular electrophysiology is almost always displayed in millivolts (mV) for interpretability. Plotting in volts makes the values appear small and may confuse users, especially in the context of neuroscience.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The injected current trace is shown in nanoamperes (nA), but the code multiplies by 1e9, which is only appropriate if the units stored in NWB are in amperes. If the .conversion or .data already return nA, this could make the actual plotted values incorrect (e.g., too large by repeatedly applying the scale). This should be clarified to avoid misinterpretation or erroneous scaling.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The interpretation section draws explicit conclusions about action potentials and subthreshold activity in the neuron. However, because voltage is plotted in volts and its scale is not converted to a standard neurophysiological unit (mV), it may be unclear (without inspection in mV and review of the axis scale) whether the spiking truly represents action potentials or if the scale is misrepresented.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The plot overlays two signals with very different y-axis scales (voltage in volts, current in nA), which can confuse interpretation. While dual y-axes are commonly used, clearer labeling and appropriate tick marks or a more neurophysiologically standard presentation (mV, pA) would improve readability.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>No legend is included in the plot, making it harder to visually identify which line corresponds to voltage or current without examining the axis labels in detail. This is a best-practice issue for clarity.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The NWB subject printout uses vars(nwbfile.subject), which in practice may produce a verbose and non-informative output that includes non-user-facing internal NWB structures. For concise metadata reporting, subject-specific attributes (age, species, genotype, etc.) should be extracted directly if present. Also, if nwbfile.subject is None, this will raise an error.</description>
+<severity>minor</severity>
+</issue>
+</issues>

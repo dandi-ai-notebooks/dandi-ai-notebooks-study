@@ -1,0 +1,32 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The x-axis on the LFP plot is labeled "Time (s)", but the tick values appear to go up to ~14000, which suggests that the variable used is sample index or not properly converted to seconds. This could confuse users interpreting the plot's timescale.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The LFP plot's y-axis label "LFP (mV, offset by ch)" is potentially misleading because the data appears to have been multiplied by 1e3 to convert to mV, but there is no check or handling for the LFP unit possibly being "uV" or other units in some NWB files. This could result in incorrect scaling if a different dataset is loaded.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The offset variable in the LFP plotting code is defined but not used. The actual channel offset is implemented as "i*2", which may not be sufficiently explained, potentially making the visual separation of traces unclear for arbitrary data ranges.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>If the NWB file does not contain the exact dataset name "probe_1_lfp_data" in its acquisition group, the cell loading LFP data will fail. This code does not check for the existence or offer a way to list available acquisitions, which may cause execution errors for other files in this Dandiset.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The 'age_in_days' attribute is accessed using 'nwb.subject.age_in_days', but the standard NWB Subject type does not mandate this attribute, and it may not be present, causing an AttributeError in some cases.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The 3D electrode plot uses x/y/z axis labels as "posterior", "inferior", "right" without clarifying the anatomical reference frame used or verifying that these axes correspond to the Allen CCF orientation, which can be confusing to users unfamiliar with the registration scheme.</description>
+<severity>minor</severity>
+</issue>
+</issues>

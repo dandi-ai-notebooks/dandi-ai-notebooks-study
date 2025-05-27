@@ -1,0 +1,22 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The spike times are plotted with an ad-hoc +0.25s offset ("spike_times_rel = spike_ts.data[:] + 0.25") for alignment with trace data, but this shift is not properly justified or explained in the text. This introduces potential confusion or misinterpretation regarding true spike timing and alignment.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The y-axis label for the spike visualization plot (Section 5) is "volts", but the acquisition trace is often current or voltage depending on clamp configuration. The unit is taken directly from "acq.unit", but the key used refers to "AD0" which can be either VoltageClampSeries (current, usually "amperes") or CurrentClampSeries ("volts"). This may mislead or confuse users about the signal type in the plot.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>minor_incorrect_code</type>
+<description>Section 5 uses a simplistic method to map spike interface names (e.g., "Sweep_19") to acquisition series names by extracting digits and assuming a one-to-one correspondence with data_XXXXX_AD0. This may not always be correct if the sweep numbering/naming or sweep_table mappings are more complex (e.g., multiple series per sweep, nonmatching indices).</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The claim that "Sweep metadata provide robust data management and cross-referencing for larger analyses" may overstate the robustness given the simplistic mapping and potential ambiguities demonstrated in the spike/acquisition series analysis. The limitations (such as possible ambiguities with mapping sweep numbers/names) are not clearly acknowledged.</description>
+<severity>minor</severity>
+</issue>
+</issues>

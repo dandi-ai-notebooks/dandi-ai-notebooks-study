@@ -1,0 +1,17 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The ΔF/F (dff) traces plotted in section 2 for the first 10 cells display highly sparse and spiky activity, which may be expected for calcium imaging but the magnitude of the peaks (up to 5) seems unusually high and baseline values appear close to zero or slightly negative. There is no check for NaNs or extremely sparse traces, and no baseline adjustment/normalization is described, which may make the example less informative for a new user.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The running speed plot (section 4) includes negative values, which is possible for bidirectional wheel data but is neither described nor justified in the text. For unidirectional running, negative speed may not make sense, and clarification is needed. A naive user could misinterpret the meaning or quality of the speed data.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The overlay of ROI masks on the average image (section 3) may obscure underlying cell structures due to the fixed transparency (alpha=0.5 for both gray and color overlays). For denser or overlapping masks, this could result in low contrast or misleading visualization. Adjusting the overlay method or adding ROI outlines could improve interpretability.</description>
+<severity>minor</severity>
+</issue>
+</issues>

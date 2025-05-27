@@ -1,0 +1,19 @@
+<issues>
+<issue>
+<type>code_efficiency</type>
+<description>Redundant import: The cell for segmentation masks starts with 'from dandi.dandiapi import DandiAPIClient' even though DandiAPIClient is not actually used in the code block.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The y-axis labels on the deconvolved activity traces plot ("Deconvolved Activity Traces for 10 Example Cells") are removed (empty) for 'clarity', but this may make it unclear to some users which trace corresponds to which neuron, especially as lines overlap due to high event density. Using offset values or line labels alongside the plot would help guide interpretation.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The mouse position plot includes large negative values at the session start, potentially reflecting artifacts or setup values. Not filtering these or at least optionally excluding them in the demonstration code might be confusing or misleading to some users and might obscure the main features of the behavioral data.</description>
+<severity>minor</severity>
+</issue>
+</issues>

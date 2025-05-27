@@ -81,23 +81,23 @@
       "notebook": {
         "notebookModel": "openai/gpt-4.1",
         "notebookPrompt": "h-2",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/000563/0.250311.2145/75ecdb7b/gpt-4.1/h-2/notebook.ipynb",
-        "promptTokens": 41441,
-        "completionTokens": 2366,
-        "estimatedCost": 0.10181
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/000563/0.250311.2145/08a695fc/gpt-4.1/h-2/notebook.ipynb",
+        "promptTokens": 38630,
+        "completionTokens": 3070,
+        "estimatedCost": 0.10182
       },
       "skip_explore": false,
       "chatId": [
-        "75ecdb7baaa6e5334b161865b3df90150c2a1d3f"
+        "08a695fc39a7a3cf001c3872ddfa141eb02ed21a"
       ],
       "chat": {
-        "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=000563&dandisetVersion=0.250311.2145&chatId=75ecdb7baaa6e5334b161865b3df90150c2a1d3f",
+        "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=000563&dandisetVersion=0.250311.2145&chatId=08a695fc39a7a3cf001c3872ddfa141eb02ed21a",
         "chatModel": "openai/gpt-4.1",
-        "timestampCreated": 1747924551412,
-        "timestampUpdated": 1747927418292,
-        "promptTokens": 969411,
-        "completionTokens": 9601,
-        "estimatedCost": 2.0156300000000003
+        "timestampCreated": 1748352863976,
+        "timestampUpdated": 1748355008064,
+        "promptTokens": 799891,
+        "completionTokens": 13791,
+        "estimatedCost": 1.71011
       }
     },
     {

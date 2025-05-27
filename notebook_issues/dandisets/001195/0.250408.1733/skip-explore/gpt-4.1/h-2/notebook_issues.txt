@@ -1,0 +1,32 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The mean injected current values in Section 7 ("Stimulus protocol: Current clamp steps across sweeps") are displayed at extremely large values (~1e13 to 1e14 pA), which is many orders of magnitude above physiologically reasonable current clamp injection values (typically -200 to 1000 pA). This likely indicates incorrect units or a misinterpretation of the data field in the NWB file (e.g., units might not be A, or the 'conversion' factor or digitizer scaling may be missing).</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The individual stimulus (current) waveforms in Section 7 are plotted at extremely large pA values (e.g., y-axis limits up to 2.5e14 pA), suggesting the same units/scaling issue as above. This may confuse readers and undermine the scientific integrity of the illustration.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The y-axis label for stimulus plots in Section 5 is "Stimulus (A)", whereas the underlying current step values are likely meant to be interpreted in picoamperes (pA), not amperes (A). This mismatch could lead to confusion about the magnitude of the stimulation protocol.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The y-axis labels for response (membrane voltage) in Section 5 and Section 6 are "Membrane voltage (V)", but the displayed voltages are in the -0.08 to +0.04 V range (i.e., -80mV to +40mV), which is biologically plausible, but labeling as "V" may make it seem less accessible. Using "mV" would be more conventional for such data and match expected ranges.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The current step protocol plots in Section 7 show sharp, step-like transitions but the absolute values are far outside expected physiological ranges, reinforcing suspicions of a units/scaling bug. This could lead to significant misinterpretation by users unfamiliar with raw signal ranges or NWB file conventions.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The code in Section 3 retrieves the download URL with `asset.download_url`, but as of recent DANDI API releases, the correct field is `asset.get_content_url(follow_redirects=1, strip_query=True)` or similar, and `download_url` may be deprecated or missing. The code may break for some users if the DANDI client version does not support `download_url` directly.</description>
+<severity>minor</severity>
+</issue>
+</issues>

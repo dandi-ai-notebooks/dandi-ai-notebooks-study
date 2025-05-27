@@ -1,0 +1,12 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The raster plot for spike times uses nwbfile.units.spike_times_index[i], but this is the spike time index (end index for the ith unit in the spike_times vector), not the spike times themselves. This will lead to incorrect plotting of spike rasters, potentially drawing nothing or a meaningless pattern.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The spike count histogram uses len(nwbfile.units.spike_times_index[i]) for spike counts per unit, but spike_times_index[i] is an integer index (not a list or array), so this gives the wrong spike counts for each unit; the code will likely error or produce incorrect results.</description>
+<severity>major</severity>
+</issue>
+</issues>

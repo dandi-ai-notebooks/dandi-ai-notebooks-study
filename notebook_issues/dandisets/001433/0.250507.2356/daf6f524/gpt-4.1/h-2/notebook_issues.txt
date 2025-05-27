@@ -1,0 +1,22 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The y-axis label for both the LFP and sniffing plots uses "Voltage (V)", but the values shown (e.g., in the sniff signal) are several thousand units, which suggests the data might not be in volts but in microvolts or another unit. This could mislead users regarding the scale of the data.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The sniff signal plot (section 3 and 4) shows discontinuities or artifacts (e.g., sharp jumps or flatlines) that likely reflect recording issues, missing data, or artifacts. While not a notebook bug, this should be highlighted in the notebook to prevent misinterpretation by users.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>In step 4, the notebook assumes event times (inhalation/exhalation) are in milliseconds and performs a conversion to seconds. However, the time format should be confirmed directly from the NWB metadata (TimeSeries 'timestamps' unit), since not all NWB files guarantee milliseconds by convention. Making assumptions here could cause errors for users if the data changes.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The summary claims "This structure is typical for all files in this Dandiset," but this generalization may not be valid unless programmatically confirmed (not shown in the notebook). Users should be cautioned that file structure could differ across sessions or future versions.</description>
+<severity>minor</severity>
+</issue>
+</issues>

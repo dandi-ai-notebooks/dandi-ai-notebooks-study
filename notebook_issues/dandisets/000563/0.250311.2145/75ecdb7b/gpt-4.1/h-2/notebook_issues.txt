@@ -1,0 +1,45 @@
+<issues>
+
+<issue>
+<type>plot_problem</type>
+<description>The spike raster plot code uses `units.spike_times_index[i]`, which does not return spike times. In PyNWB, `units.spike_times_index[i]` gives the index in the flat spike times array where the spikes for unit i end, not the spike times themselves. The actual spike times should be extracted from the underlying `spike_times` vector using the indices. As written, the code will not display the correct spike raster, resulting in a misleading or empty plot if the arrays are not as expected.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>In section 5, pupil area is plotted for "the first 30 seconds of recording," but the x-axis time does not start at 0. Instead, it uses the first available timestamp, which may be much greater than zero. The markdown text should clarify that the window is the first 30 seconds of available eye tracking data, not the session.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>unsupported_conclusion</type>
+<description>In the summary table for unit quality metrics, the statistical summary for "isolation_distance" shows extremely large and potentially invalid values (e.g. max in trillions). This result likely reflects a data quality or metadata issue. The notebook does not address or warn about this, and presenting these statistics without comment may be misleading.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The LFP data plot multiplies the signal by 1e3, assuming a conversion from V to mV, but it is not verified from metadata that the units are volts; some NWB files provide data already in microvolts or millivolts. This assumption may lead to incorrect scaling on the plot. The code should check or clarify the physical units.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The stimulus event raster extracts timestamps from `processing['stimulus'].data_interfaces['timestamps'].data[:]`. Stimulus timing can vary by session/dataset and may not always be stored in this manner/layout in all NWB or DANDI datasets. The code assumes a specific structure and does not check or explain alternatives. This may confuse users if the structure differs.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The raster plot for spikes lacks unit labels or IDs on the y-axis (just numbers 1 to 10). This makes it more difficult to interpret which specific units are being plotted and to cross-reference with metadata like firing rate or quality.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>cell_execution_error</type>
+<description>Remote file handles opened with RemFile and NWBHDF5IO in previous cells are not explicitly closed after reading. While not strictly an execution-blocking error, this can lead to resource warnings, especially when accessing multiple files in production scripts.</description>
+<severity>minor</severity>
+</issue>
+
+</issues>

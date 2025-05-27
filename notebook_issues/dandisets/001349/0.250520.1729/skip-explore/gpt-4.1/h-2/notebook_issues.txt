@@ -1,0 +1,12 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The plot in Section 5 ("Spatial distribution of segmented ROIs (cells)") is blank; the axes span only a tiny range (likely [0, 0] for both axes), showing no ROI pixel coordinates. This suggests that the ROI pixel_mask coordinate data is either empty or not processed correctly for plotting.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The plots in Section 6 ("ΔF/F Traces for 5 Example ROIs" and "Event-Detected Traces") display only flat, offset lines with no noticeable signal or variation, suggesting the dff and ca_events arrays are constant or filled with zeros. This makes the plots uninformative and may indicate an issue with how the data are accessed or an unexpected data format.</description>
+<severity>major</severity>
+</issue>
+</issues>

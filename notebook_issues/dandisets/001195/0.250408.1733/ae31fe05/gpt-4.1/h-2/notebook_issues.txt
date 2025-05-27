@@ -1,0 +1,17 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>In the current clamp sweep plot (Section 4), the y-axis for injected current shows values on the order of 1e-10 A, suggesting either an unexpectedly small current or potential unit mismatch with the stimulus conversion factor. Typically, patch clamp protocols use injected currents in the picoampere to nanoampere range (1e-12 to 1e-9 A). This may confuse users regarding the magnitude of stimulation applied.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>In the voltage clamp sweep plot (Section 5), the command voltage is essentially a flat line at zero, with y-axis range approximately -0.05 to 0.05 V. The lack of visible step or protocol structure may be a true feature of the protocol, but the plot's interpretability is limited: users may wonder if the sweep or stimulus was chosen appropriately, or if different stimulus/protocols should be plotted for clearer illustration.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>Section 5 Observation states "In some voltage clamp protocols, the command waveform may be flat (no voltage step), depending on the experimental design." This interpretation is plausible but not cross-validated in the notebook—without showing a contrasting example or explicitly noting that this protocol is designed to have a flat command, readers may be left uncertain if this is an error or intentional.</description>
+<severity>minor</severity>
+</issue>
+</issues>

@@ -1,0 +1,7 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The time axis in the multi-trial plot (Section 5) appears to increase for each subsequent trial, implying concatenated rather than trial-aligned time bases. This results in misleading visualizations, since each trial generally starts at t=0 but the plots show progressively increasing x-axes. This may make it difficult to compare trials directly and could confuse interpretation.</description>
+<severity>major</severity>
+</issue>
+</issues>

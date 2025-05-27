@@ -1,0 +1,27 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The y-axis label for the "Lick Count" subplot in the behavioral visualization is misleading. The plotted data appears to be raw lick signal per frame, but the label implies it is a cumulative lick count.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The y-axis label for "Reward Zone" in the behavioral visualization does not clarify that the plot shows a binary property (in/out of reward zone) rather than a continuous variable.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The description for the fluorescence traces states "Raw Calcium Traces from 10 Random ROIs", but the data appear to be raw fluorescence, not deltaF/F or otherwise normalized signals, which may confuse those expecting typical "calcium traces" conventionally used.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The fluorescence plot uses random cell indices and labels them only as "Cell {index}", which may make downstream interpretation and reproducibility harder, especially if cell properties (e.g., iscell/probcell) are not linked.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The summary and next steps section suggests that users can use this notebook to "link cell activity to behavior or position" or identify "reward-responsive cells", but the current content only provides basic visualization and does not demonstrate these analyses directly.</description>
+<severity>minor</severity>
+</issue>
+</issues>

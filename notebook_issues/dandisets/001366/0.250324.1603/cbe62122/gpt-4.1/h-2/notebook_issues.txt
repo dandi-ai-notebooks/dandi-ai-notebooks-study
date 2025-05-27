@@ -1,0 +1,22 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The FWHM-based vessel diameter extraction (Section 6) does not account for pixel size or physical calibration, so the reported diameter is in pixels without a physical unit. It may be misleading for users expecting micrometers or another real-world unit.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The variable naming (`frame0`, `frame`, `frames`) may cause confusion because in some cases it is re-used for different images/frames, reducing code clarity and possibly leading a reader to plot or analyze the wrong frame.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>There is no check to ensure that the row selected for diameter measurement actually passes through the vessel of interest; if the vessel is not centered or highly angled, the measurement could be inaccurate or meaningless.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The color contrast in some plots (especially in the FWHM extraction) may be suboptimal for color vision deficiencies, such as using orange on blue and red. This could affect accessibility.</description>
+<severity>minor</severity>
+</issue>
+</issues>

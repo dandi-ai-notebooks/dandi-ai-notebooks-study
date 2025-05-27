@@ -1,0 +1,27 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The Y-axis label for the sniff signal plots indicates "Thermistor (V)", but the plotted values reach extremely large and negative values (down to -10,000), which is unusual for voltages from a thermistor. This may confuse users about the physical units or data preprocessing, and could indicate a metadata or scaling issue.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The summary section claims that users can use "metadata tables to relate signal channels to brain regions, groups, and filtering patterns." However, in the displayed electrode metadata table, all electrodes have the same group ("LFPGroup"), location ("olfactory bulb"), and filtering ("none"), which limits the extent to which channel-to-region analyses can be demonstrated in this specific session. The statement could be misleading.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>In the subject metadata cell, the code attempts to access 'subject.age__reference', which is not defined in NWB; the correct NWB Subject property is 'subject.age'. This will likely throw an AttributeError on execution if 'age__reference' does not exist.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The event lines for inhalations and exhalations in the "Sniff signal with inhalation/exhalation events" plot may be difficult to distinguish due to overlapping vlines, alpha transparency, and small linewidth, making breath events hard to visually inspect in dense regions. This reduces interpretability.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The LFP plot scales the data by 1e3 to plot in mV, but the LFP data in NWB is often already in microvolts or another unit, and the scaling may not be appropriate without confirming the units. This can misrepresent the true signal values.</description>
+<severity>minor</severity>
+</issue>
+</issues>

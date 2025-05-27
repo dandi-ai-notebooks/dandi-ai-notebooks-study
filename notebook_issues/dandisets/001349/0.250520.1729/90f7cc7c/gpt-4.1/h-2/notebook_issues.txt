@@ -1,0 +1,22 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The spatial footprint (mask) plot for ROI 0 appears to be highly sparse, with the ROI located at the upper-right corner and much of the mask empty. This may indicate that either the inferred mask shape is too large or the pixel mask coordinates are not being mapped properly for visualization. This could confuse users or obscure the real extent/location of the ROI.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The mask plotting infers shape as (max(y)+1, max(x)+1), while typically ROI masks are overlaid on the parent image shape or full field of view. As a result, the mask visualization may not represent the actual ROI location relative to the field of view, and multiple ROIs plotted separately may appear inconsistent or have different reference frames.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The fluorescence and ΔF/F traces are plotted for ROI 0 without verifying if ROI 0 actually has nontrivial data or providing summary statistics (such as label of number of ROIs, or if ROI 0 is typical). If ROI 0 is empty or low quality, users might misinterpret the trace and results.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The statement "no behavioral or stimulus-related TimeSeries are present outside the ophys processing module" is based on inspection, but no code is shown to demonstrate that inspection of `nwb.acquisition` or other processing modules actually occurs. This could be misleading if behavioral or stimulus timeseries exist in other modules/types.</description>
+<severity>minor</severity>
+</issue>
+</issues>

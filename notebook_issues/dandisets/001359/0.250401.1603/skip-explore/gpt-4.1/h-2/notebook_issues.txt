@@ -1,0 +1,22 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The units for the plotted traces in the voltage clamp and current clamp sweep plots are not user-friendly: the current is displayed in amperes (A), and the voltage in volts (V), which is not typical for this data type (usually plotted in pA and mV, respectively). This may confuse users unfamiliar with the scale, and the traces may appear flat or uninterpretable due to small amplitudes in those units.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The x-axis of the voltage clamp and current clamp plots is zoomed to only 0.1s (`tmax=0.1`) without context or additional explanation. Depending on where the sweep is, this risks missing relevant events or confusing users who expect a full sweep view. The result can be a plot that does not meaningfully represent the data, especially as the absolute time axis values appear large and not starting at zero.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The current clamp example plot shows very little change in the membrane voltage trace (appears almost flat at -60 V), and the stimulus waveform has little structure, suggesting either unit confusion, lack of actual stimulus, or a possibly uninformative sweep selection. This may mislead users about the nature of the data or make the plot uninformative.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The text refers to "Plot a current clamp sweep and its stimulus" and labels the plot as "voltage in blue, injected current in orange," but no explanation or verification is given that the plotted sweep is a truly informative example (e.g., contains spikes or interesting responses), and the plot shown is essentially flat. This does not represent the full potential of the data.</description>
+<severity>minor</severity>
+</issue>
+</issues>

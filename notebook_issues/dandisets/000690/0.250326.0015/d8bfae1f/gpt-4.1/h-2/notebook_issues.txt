@@ -1,0 +1,22 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The LFP plot in Section 2 has a mislabeled x-axis: the units displayed are very large (in the tens or hundreds of thousands) and cannot represent seconds as labeled ("Time (s)"). It appears that either the `timestamp_segment` does not have seconds or the wrong array was used for the x-axis. This could confuse interpretation of the data.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>In Section 3, the code comments and markdown instruct to use `units.spike_times_index[i]` and state "do not use units.spike_times". However, `spike_times_index` is an index into the concatenated `spike_times` array, not the times themselves. Proper extraction of spike times per unit requires slicing `units['spike_times']` appropriately using `spike_times_index` boundaries, not using `spike_times_index` as the spike times. As coded, the raster plot does not display true spike times and thus the plot and its conclusion are unreliable.</description>
+<severity>critical</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The spike raster plot (Section 3) shows a range of spike times that are quite limited and clustered, and y-axis ticks do not clearly denote which unit is which, making it less interpretable. This is partly a result of the data extraction error described above, but also the plotting could be more clearly labeled.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>Section 3's observation – that the raster "illustrates single-unit and multi-unit spiking dynamics" – is not supported by the data as plotted since the spike times shown are not correct (because spike_times_index is misused).</description>
+<severity>major</severity>
+</issue>
+</issues>

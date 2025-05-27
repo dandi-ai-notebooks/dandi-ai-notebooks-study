@@ -1,0 +1,7 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The spike raster plot is produced using nwb.units.spike_times_index[i], which is incorrect. This returns indices into the spike_times array, not the actual spike times. The correct access is nwb.units['spike_times'][i] for each unit i, or nwb.units.spike_times[i]. The current plot may show meaningless values on the time axis.</description>
+<severity>major</severity>
+</issue>
+</issues>

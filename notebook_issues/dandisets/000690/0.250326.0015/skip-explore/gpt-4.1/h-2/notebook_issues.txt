@@ -1,0 +1,7 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The x-axis for the LFP trace plot is labeled as "Time (s)", but the values used are taken directly from `lfp_es.timestamps[:num_samples]`, which appear to be in seconds. However, the range of the x-axis extends to around 30000, which does not match the expected 2 seconds given a sampling rate of 625 Hz (should be approximately 0 to 2). This suggests either the wrong variable is being used for the x-axis, or there is a misinterpretation in how time/fancy indexing is being handled. This may confuse users regarding the true time scale of the plotted data.</description>
+<severity>major</severity>
+</issue>
+</issues>

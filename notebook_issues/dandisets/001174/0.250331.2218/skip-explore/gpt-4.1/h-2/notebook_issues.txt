@@ -1,0 +1,47 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The labeling in the figure legend for ROI masks overlays only the first ROI (ROI 0); all others are unlabeled, which may cause confusion when visually inspecting overlays, especially if there are more than a few ROIs or when ROI 0 isn't representative.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>In the fluorescence and event amplitude plots, offsetting by i*np.nanmax(fluor[:, :n_plot]) and i*np.nanmax(event_amp[:, :n_plot]) can lead to overlapping or excessive separation between traces if there are large differences in signal scale across ROIs, making the plots less interpretable, especially with more variable data.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The ROI 0 fluorescence trace appears consistently near zero, and event amplitude for ROI 0 and ROI 4 is shown as a flat line, suggesting these ROIs may be empty or artifactual, potentially misleading users about the quality of the data or segmentation. This is not mentioned or qualified in the text.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The scatter points used to visualize ROI masks are difficult to interpret as they do not outline the shapes of the ROIs, but rather highlight all mask pixels, which is visually cluttered and does not clearly convey spatial ROI contours.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The fluorescence and event amplitude traces are plotted for the "first" five ROIs (by index), but there is no check or note that these ROIs are representative or biologically meaningful—many are flat or uninformative, reducing the value of the plots as illustrative examples.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The axis labels and tick locations are not fully controlled; for example, "Fluorescence (offset for clarity)" and "Event Amplitude (offset for clarity)" may be confusing as the units and scaling are unclear due to the arbitrary vertical offset, and this is not explained in the notebook text.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The ROI masks plot overlays red points for every mask pixel and includes only a single legend entry (ROI 0). This can result in cluttered legends and does not help user identify the different ROIs.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The call to read all fluorescence/event data using .data[:] and .data[:] will load all data into memory, which could cause memory issues for larger datasets or more ROIs, potentially making the notebook unusable on memory-constrained environments.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The notebook assumes that the EventAmplitude and RoiResponseSeries are suitable for comparative analysis without any mention of data preprocessing, normalization, or noise removal, which are typically required for calcium imaging data.</description>
+<severity>minor</severity>
+</issue>
+</issues>

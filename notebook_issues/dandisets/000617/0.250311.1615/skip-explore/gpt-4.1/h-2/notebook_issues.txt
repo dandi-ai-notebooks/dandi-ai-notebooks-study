@@ -1,0 +1,17 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>In the "Distribution of ROI Widths and Heights" plot, the histograms for 'width' and 'height' are overlaid without transparency, making it hard to distinguish the two distributions where they overlap. The use of color alone (without alpha blending) and absence of clear legends/labels can make the plot difficult to interpret, especially with small sample sizes.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>In the "ΔF/F Traces for All ROIs (first 120 seconds)" plot, all traces are plotted together without offsets or separation, resulting in a visually cluttered plot that makes it difficult to discern activity of individual cells. This reduces interpretability, especially for users trying to distinguish patterns in individual traces.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>In the "Detected Event Traces (first 1000 frames, 6 ROIs, vertically offset)" plot, the first 1000 time points are plotted, but the x-axis starts at around 20s. This is likely because event_timestamps does not start at 0, which may confuse users expecting data from the session start. Adding further explanation, or truncating to exclude the time offset, would improve clarity.</description>
+<severity>minor</severity>
+</issue>
+</issues>

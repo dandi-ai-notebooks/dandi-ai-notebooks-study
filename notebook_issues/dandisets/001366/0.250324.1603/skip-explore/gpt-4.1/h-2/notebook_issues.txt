@@ -1,0 +1,32 @@
+<issues>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The notebook states that changes in mean pixel intensity over time can be used as a "proxy for vessel area" or "proxy for vessel dynamics," which is likely inaccurate or misleading for the type of data shown. Mean pixel intensity does not reliably represent vessel diameter or area in most vessel imaging settings, where vessels are typically darker/lighter than background and changes arise from motion, photobleaching, or global illumination changes rather than true diameter changes. More robust vessel segmentation or edge-detection is required to estimate diameter/pulsatility.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The plot labeled "Mean Image Intensity Over Time (Proxy for Vessel Dynamics)" could be misinterpreted as showing vessel dynamics, when in reality, mean intensity is affected by numerous factors unrelated to vessel diameter (e.g., movement artifacts, photobleaching). Additionally, without normalization or context, its interpretation is ambiguous for users unfamiliar with this type of data.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The images shown in the frame and mean projection plots do not have scale bars or annotated axes, which would be beneficial for biomedical interpretation (e.g., pixel size, spatial scale).</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The NWB file is streamed using remfile and passed directly as an h5py.File object into pynwb.NWBHDF5IO, but according to pynwb documentation, NWBHDF5IO expects a file path or file-like object opened in binary mode. While this may work with this combination of libraries, there is risk of compatibility issues or confusion for new users if this interface changes. This pattern may not be robust across all environments.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>There is no explicit image normalization (e.g., rescaling or contrast adjustment) in the plotting code for the frames/mean image, which may result in plots that are too dark or lack contrast on some displays, as uint16 images cover a wide dynamic range.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The summary and next steps section implies condition or age comparisons are available, but only one session/file is demonstrated, and it is not shown how to identify or compare multiple subjects/conditions/ages from the dataset programmatically.</description>
+<severity>minor</severity>
+</issue>
+</issues>
