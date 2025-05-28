@@ -29,7 +29,7 @@ def generate_markdown_table():
         notebook_url = notebook['notebook']['notebookUrl']
 
         # Format the row with the dandiset ID linking to the notebook URL
-        row = f"| [{dandiset_id}]({notebook_url}) | {chat_model} | {notebook_model} | {chat_cost} | {notebook_cost} | {'[link](' + chat_url + ')' if chat_url else 'N/A'} |\n"
+        row = f"| [{dandiset_id}]({notebook_url}) | {chat_model} | {notebook_model} | {chat_cost} | {notebook_cost} | {'[chat](' + chat_url + ')' if chat_url else 'N/A'} |\n"
         markdown += row
 
     # Write to results.md

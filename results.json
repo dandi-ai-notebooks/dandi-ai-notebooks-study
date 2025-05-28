@@ -251,31 +251,6 @@
       }
     },
     {
-      "dandisetId": "000690",
-      "dandisetVersion": "0.250326.0015",
-      "notebook": {
-        "notebookModel": "openai/gpt-4.1",
-        "notebookPrompt": "h-2",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/000690/0.250326.0015/d8bfae1f/gpt-4.1/h-2/notebook.ipynb",
-        "promptTokens": 54979,
-        "completionTokens": 3073,
-        "estimatedCost": 0.134542
-      },
-      "skip_explore": false,
-      "chatId": [
-        "d8bfae1f2edb4521deb0445376279f1aabe65355"
-      ],
-      "chat": {
-        "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=000690&dandisetVersion=0.250326.0015&chatId=d8bfae1f2edb4521deb0445376279f1aabe65355",
-        "chatModel": "openai/gpt-4.1",
-        "timestampCreated": 1747856245587,
-        "timestampUpdated": 1747858284091,
-        "promptTokens": 1404312,
-        "completionTokens": 12218,
-        "estimatedCost": 2.9063679999999996
-      }
-    },
-    {
       "dandisetId": "001195",
       "dandisetVersion": "0.250408.1733",
       "notebook": {
