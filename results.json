@@ -431,6 +431,438 @@
         "estimatedCost": 0.143612
       },
       "skip_explore": true
+    },
+    {
+      "dandisetId": "001349",
+      "dandisetVersion": "0.250520.1729",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001349/0.250520.1729/4befc0a1/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 29634,
+        "completionTokens": 1873,
+        "estimatedCost": 0.11699699999999999
+      },
+      "skip_explore": false,
+      "chatId": "4befc0a18914642a190ce4e68047fc8c0b7321d1",
+      "chat": {
+        "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001349&dandisetVersion=0.250520.1729&chatId=4befc0a18914642a190ce4e68047fc8c0b7321d1",
+        "chatModel": "anthropic/claude-3.5-sonnet",
+        "timestampCreated": 1748448413905,
+        "timestampUpdated": 1748449685323,
+        "promptTokens": 397182,
+        "completionTokens": 9460,
+        "estimatedCost": 0.8700439999999999
+      }
+    },
+    {
+      "dandisetId": "001354",
+      "dandisetVersion": "0.250312.0036",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001354/0.250312.0036/1b55f1ff/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 57457,
+        "completionTokens": 2332,
+        "estimatedCost": 0.207351
+      },
+      "skip_explore": false,
+      "chatId": "1b55f1ffc7caac28284d1914869055ee48e2ff2e",
+      "chat": {
+        "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001354&dandisetVersion=0.250312.0036&chatId=1b55f1ffc7caac28284d1914869055ee48e2ff2e",
+        "chatModel": "anthropic/claude-3.5-sonnet",
+        "timestampCreated": 1748447388189,
+        "timestampUpdated": 1748449722291,
+        "promptTokens": 636136,
+        "completionTokens": 9197,
+        "estimatedCost": 1.3458480000000002
+      }
+    },
+    {
+      "dandisetId": "001433",
+      "dandisetVersion": "0.250507.2356",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001433/0.250507.2356/6e10365d/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 17709,
+        "completionTokens": 2198,
+        "estimatedCost": 0.086097
+      },
+      "skip_explore": false,
+      "chatId": "6e10365d8ae3a08f0b42b768b49f27e4867111ee",
+      "chat": {
+        "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001433&dandisetVersion=0.250507.2356&chatId=6e10365d8ae3a08f0b42b768b49f27e4867111ee",
+        "chatModel": "anthropic/claude-3.5-sonnet",
+        "timestampCreated": 1748446484626,
+        "timestampUpdated": 1748447623755,
+        "promptTokens": 164637,
+        "completionTokens": 7846,
+        "estimatedCost": 0.39204199999999995
+      }
+    },
+    {
+      "dandisetId": "000563",
+      "dandisetVersion": "0.250311.2145",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/000563/0.250311.2145/57dc3608/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 45601,
+        "completionTokens": 1995,
+        "estimatedCost": 0.16672800000000002
+      },
+      "skip_explore": false,
+      "chatId": "57dc3608c92c02a718fce268d39f51a012286ded",
+      "chat": {
+        "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=000563&dandisetVersion=0.250311.2145&chatId=57dc3608c92c02a718fce268d39f51a012286ded",
+        "chatModel": "anthropic/claude-3.5-sonnet",
+        "timestampCreated": 1748446159502,
+        "timestampUpdated": 1748448231308,
+        "promptTokens": 732272,
+        "completionTokens": 12053,
+        "estimatedCost": 1.560968
+      }
+    },
+    {
+      "dandisetId": "001361",
+      "dandisetVersion": "0.250406.0045",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001361/0.250406.0045/d36c4584/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 26958,
+        "completionTokens": 2185,
+        "estimatedCost": 0.113649
+      },
+      "skip_explore": false,
+      "chatId": "d36c45846a750d0a5c3b85d4f6e0f95f91a2d922",
+      "chat": {
+        "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001361&dandisetVersion=0.250406.0045&chatId=d36c45846a750d0a5c3b85d4f6e0f95f91a2d922",
+        "chatModel": "anthropic/claude-3.5-sonnet",
+        "timestampCreated": 1748444915602,
+        "timestampUpdated": 1748445760882,
+        "promptTokens": 355686,
+        "completionTokens": 9751,
+        "estimatedCost": 0.78938
+      }
+    },
+    {
+      "dandisetId": "001366",
+      "dandisetVersion": "0.250324.1603",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001366/0.250324.1603/e83e5f10/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 14767,
+        "completionTokens": 1868,
+        "estimatedCost": 0.072321
+      },
+      "skip_explore": false,
+      "chatId": "e83e5f1045ccfe5f278935fc866d4de2cf23adcd",
+      "chat": {
+        "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001366&dandisetVersion=0.250324.1603&chatId=e83e5f1045ccfe5f278935fc866d4de2cf23adcd",
+        "chatModel": "anthropic/claude-3.5-sonnet",
+        "timestampCreated": 1748445051593,
+        "timestampUpdated": 1748445939382,
+        "promptTokens": 163454,
+        "completionTokens": 7077,
+        "estimatedCost": 0.383524
+      }
+    },
+    {
+      "dandisetId": "001359",
+      "dandisetVersion": "0.250401.1603",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001359/0.250401.1603/38566171/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 48373,
+        "completionTokens": 2256,
+        "estimatedCost": 0.178959
+      },
+      "skip_explore": false,
+      "chatId": "38566171206fa29239cf454865e741770433d98d",
+      "chat": {
+        "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001359&dandisetVersion=0.250401.1603&chatId=38566171206fa29239cf454865e741770433d98d",
+        "chatModel": "anthropic/claude-3.5-sonnet",
+        "timestampCreated": 1748452370433,
+        "timestampUpdated": 1748454296203,
+        "promptTokens": 774203,
+        "completionTokens": 11667,
+        "estimatedCost": 1.641742
+      }
+    },
+    {
+      "dandisetId": "001375",
+      "dandisetVersion": "0.250406.1855",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001375/0.250406.1855/b9d830b7/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 15226,
+        "completionTokens": 1980,
+        "estimatedCost": 0.075378
+      },
+      "skip_explore": false,
+      "chatId": "b9d830b7038c8f2b609b5498cf779b7866a60d17",
+      "chat": {
+        "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001375&dandisetVersion=0.250406.1855&chatId=b9d830b7038c8f2b609b5498cf779b7866a60d17",
+        "chatModel": "anthropic/claude-3.5-sonnet",
+        "timestampCreated": 1748452160149,
+        "timestampUpdated": 1748453003533,
+        "promptTokens": 157834,
+        "completionTokens": 7115,
+        "estimatedCost": 0.37258800000000003
+      }
+    },
+    {
+      "dandisetId": "001174",
+      "dandisetVersion": "0.250331.2218",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001174/0.250331.2218/553b9186/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 19341,
+        "completionTokens": 2173,
+        "estimatedCost": 0.090618
+      },
+      "skip_explore": false,
+      "chatId": "553b9186b1844d6fa99166d5aa46c55c9346f070",
+      "chat": {
+        "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001174&dandisetVersion=0.250331.2218&chatId=553b9186b1844d6fa99166d5aa46c55c9346f070",
+        "chatModel": "anthropic/claude-3.5-sonnet",
+        "timestampCreated": 1748451488521,
+        "timestampUpdated": 1748452510626,
+        "promptTokens": 169392,
+        "completionTokens": 7313,
+        "estimatedCost": 0.397288
+      }
+    },
+    {
+      "dandisetId": "000690",
+      "dandisetVersion": "0.250326.0015",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/000690/0.250326.0015/78e86504/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 59798,
+        "completionTokens": 1953,
+        "estimatedCost": 0.208689
+      },
+      "skip_explore": false,
+      "chatId": "78e86504e7a8d48d31764b0b585d8bd318a87695",
+      "chat": {
+        "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=000690&dandisetVersion=0.250326.0015&chatId=78e86504e7a8d48d31764b0b585d8bd318a87695",
+        "chatModel": "anthropic/claude-3.5-sonnet",
+        "timestampCreated": 1748453114486,
+        "timestampUpdated": 1748455853389,
+        "promptTokens": 874199,
+        "completionTokens": 11088,
+        "estimatedCost": 1.8371019999999998
+      }
+    },
+    {
+      "dandisetId": "001195",
+      "dandisetVersion": "0.250408.1733",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001195/0.250408.1733/cd3c6c58/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 35428,
+        "completionTokens": 2270,
+        "estimatedCost": 0.14033400000000001
+      },
+      "skip_explore": false,
+      "chatId": "cd3c6c58c8e1bc62f2223e9eed98507c1c3f4d3e",
+      "chat": {
+        "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001195&dandisetVersion=0.250408.1733&chatId=cd3c6c58c8e1bc62f2223e9eed98507c1c3f4d3e",
+        "chatModel": "anthropic/claude-3.5-sonnet",
+        "timestampCreated": 1748450709134,
+        "timestampUpdated": 1748451560839,
+        "promptTokens": 479692,
+        "completionTokens": 8546,
+        "estimatedCost": 1.027752
+      }
+    },
+    {
+      "dandisetId": "000617",
+      "dandisetVersion": "0.250312.0130",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/000617/0.250312.0130/d69e75e7/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 40019,
+        "completionTokens": 1948,
+        "estimatedCost": 0.149277
+      },
+      "skip_explore": false,
+      "chatId": "d69e75e79b89a61c03d814ece9f55e4bfc45ed56",
+      "chat": {
+        "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=000617&dandisetVersion=0.250312.0130&chatId=d69e75e79b89a61c03d814ece9f55e4bfc45ed56",
+        "chatModel": "anthropic/claude-3.5-sonnet",
+        "timestampCreated": 1748450583365,
+        "timestampUpdated": 1748451951968,
+        "promptTokens": 539145,
+        "completionTokens": 9162,
+        "estimatedCost": 1.151586
+      }
+    },
+    {
+      "dandisetId": "001349",
+      "dandisetVersion": "0.250520.1729",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001349/0.250520.1729/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 13067,
+        "completionTokens": 1323,
+        "estimatedCost": 0.059046
+      },
+      "skip_explore": true
+    },
+    {
+      "dandisetId": "001354",
+      "dandisetVersion": "0.250312.0036",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001354/0.250312.0036/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 12834,
+        "completionTokens": 1303,
+        "estimatedCost": 0.058047
+      },
+      "skip_explore": true
+    },
+    {
+      "dandisetId": "001433",
+      "dandisetVersion": "0.250507.2356",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001433/0.250507.2356/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 5078,
+        "completionTokens": 1260,
+        "estimatedCost": 0.034134
+      },
+      "skip_explore": true
+    },
+    {
+      "dandisetId": "000563",
+      "dandisetVersion": "0.250311.2145",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/000563/0.250311.2145/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 8662,
+        "completionTokens": 1389,
+        "estimatedCost": 0.046821
+      },
+      "skip_explore": true
+    },
+    {
+      "dandisetId": "001361",
+      "dandisetVersion": "0.250406.0045",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001361/0.250406.0045/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 11031,
+        "completionTokens": 1636,
+        "estimatedCost": 0.057633
+      },
+      "skip_explore": true
+    },
+    {
+      "dandisetId": "001366",
+      "dandisetVersion": "0.250324.1603",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001366/0.250324.1603/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 3858,
+        "completionTokens": 1328,
+        "estimatedCost": 0.031494
+      },
+      "skip_explore": true
+    },
+    {
+      "dandisetId": "001359",
+      "dandisetVersion": "0.250401.1603",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001359/0.250401.1603/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 15907,
+        "completionTokens": 1267,
+        "estimatedCost": 0.06672600000000001
+      },
+      "skip_explore": true
+    },
+    {
+      "dandisetId": "001375",
+      "dandisetVersion": "0.250406.1855",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001375/0.250406.1855/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 4495,
+        "completionTokens": 1369,
+        "estimatedCost": 0.03402
+      },
+      "skip_explore": true
+    },
+    {
+      "dandisetId": "001174",
+      "dandisetVersion": "0.250331.2218",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001174/0.250331.2218/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 18512,
+        "completionTokens": 3139,
+        "estimatedCost": 0.102621
+      },
+      "skip_explore": true
+    },
+    {
+      "dandisetId": "000690",
+      "dandisetVersion": "0.250326.0015",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/000690/0.250326.0015/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 8977,
+        "completionTokens": 1531,
+        "estimatedCost": 0.049895999999999996
+      },
+      "skip_explore": true
+    },
+    {
+      "dandisetId": "001195",
+      "dandisetVersion": "0.250408.1733",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001195/0.250408.1733/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 36032,
+        "completionTokens": 3125,
+        "estimatedCost": 0.154971
+      },
+      "skip_explore": true
+    },
+    {
+      "dandisetId": "000617",
+      "dandisetVersion": "0.250311.1615",
+      "notebook": {
+        "notebookModel": "anthropic/claude-3.5-sonnet",
+        "notebookPrompt": "h-3",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/000617/0.250311.1615/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 85421,
+        "completionTokens": 5208,
+        "estimatedCost": 0.334383
+      },
+      "skip_explore": true
     }
   ]
 }

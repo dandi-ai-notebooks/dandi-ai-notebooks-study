@@ -1,0 +1,11 @@
+{
+  "model": "anthropic/claude-3.5-sonnet",
+  "dandiset_id": "001349",
+  "version": "0.250520.1729",
+  "prompt": "prompts/prompt-h-3.txt",
+  "skip_explore": true,
+  "chat_url": "",
+  "prompt_tokens": 13067,
+  "completion_tokens": 1323,
+  "estimated_cost": 0.059046
+}
