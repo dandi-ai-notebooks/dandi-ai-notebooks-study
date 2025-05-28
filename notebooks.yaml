@@ -55,7 +55,7 @@ notebooks:
     prompt: h-2
     model: openai/gpt-4.1
   - dandiset_id: "000617"
-    dandiset_version: "0.250311.1615"
+    dandiset_version: "0.250312.0130"
     chat_id: d69e75e79b89a61c03d814ece9f55e4bfc45ed56
     prompt: h-2
     model: openai/gpt-4.1
