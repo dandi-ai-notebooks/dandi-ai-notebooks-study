@@ -36,12 +36,12 @@ notebooks:
     model: openai/gpt-4.1
   - dandiset_id: "001375"
     dandiset_version: "0.250406.1855"
-    chat_id: 665309455341f30d186380db2d6de399e184dcd1
+    chat_id: b9d830b7038c8f2b609b5498cf779b7866a60d17
     prompt: h-2
     model: openai/gpt-4.1
   - dandiset_id: "001174"
     dandiset_version: "0.250331.2218"
-    chat_id: eb57b440c9f46681d5f1a3f70854e0caf46ac32e
+    chat_id: 553b9186b1844d6fa99166d5aa46c55c9346f070
     prompt: h-2
     model: openai/gpt-4.1
   - dandiset_id: "000690"
