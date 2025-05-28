@@ -199,6 +199,8 @@ def main():
                 "content": f"Error: {error}. Please provide the notebook content between <notebook> tags."
             })
             attempt += 1
+            if attempt > 5:
+                raise RuntimeError("Failed to create notebook after 5 attempts.")
             continue
         content = response[i1 + len('<notebook>'):i2].strip()
 
@@ -218,8 +220,8 @@ def main():
         })
 
         attempt += 1
-        if attempt > 8:
-            raise RuntimeError("Failed to create and execute notebook after 8 attempts.")
+        if attempt > 5:
+            raise RuntimeError("Failed to create and execute notebook after 5 attempts.")
 
     # write prompt.txt
     with open(f'{args.output}/prompt.txt', 'w') as f:
