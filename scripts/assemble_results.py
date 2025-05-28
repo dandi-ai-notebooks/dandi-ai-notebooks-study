@@ -120,7 +120,7 @@ def main():
             'skip_explore': skip_explore
         }
         if chat_id:
-            notebook_entry['chatId'] = chat_id,
+            notebook_entry['chatId'] = chat_id
             assert chat_data, f"No chat data found for {chat_id}"
             notebook_entry['chat'] = {
                 'chatUrl': construct_chat_url(dandiset_id, version, chat_id),

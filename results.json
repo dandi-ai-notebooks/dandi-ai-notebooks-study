@@ -12,9 +12,7 @@
         "estimatedCost": 0.07159399999999999
       },
       "skip_explore": false,
-      "chatId": [
-        "4befc0a18914642a190ce4e68047fc8c0b7321d1"
-      ],
+      "chatId": "4befc0a18914642a190ce4e68047fc8c0b7321d1",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001349&dandisetVersion=0.250520.1729&chatId=4befc0a18914642a190ce4e68047fc8c0b7321d1",
         "chatModel": "openai/gpt-4.1",
@@ -37,9 +35,7 @@
         "estimatedCost": 0.121532
       },
       "skip_explore": false,
-      "chatId": [
-        "1b55f1ffc7caac28284d1914869055ee48e2ff2e"
-      ],
+      "chatId": "1b55f1ffc7caac28284d1914869055ee48e2ff2e",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001354&dandisetVersion=0.250312.0036&chatId=1b55f1ffc7caac28284d1914869055ee48e2ff2e",
         "chatModel": "openai/gpt-4.1",
@@ -62,9 +58,7 @@
         "estimatedCost": 0.056404
       },
       "skip_explore": false,
-      "chatId": [
-        "6e10365d8ae3a08f0b42b768b49f27e4867111ee"
-      ],
+      "chatId": "6e10365d8ae3a08f0b42b768b49f27e4867111ee",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001433&dandisetVersion=0.250507.2356&chatId=6e10365d8ae3a08f0b42b768b49f27e4867111ee",
         "chatModel": "openai/gpt-4.1",
@@ -87,9 +81,7 @@
         "estimatedCost": 0.098484
       },
       "skip_explore": false,
-      "chatId": [
-        "57dc3608c92c02a718fce268d39f51a012286ded"
-      ],
+      "chatId": "57dc3608c92c02a718fce268d39f51a012286ded",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=000563&dandisetVersion=0.250311.2145&chatId=57dc3608c92c02a718fce268d39f51a012286ded",
         "chatModel": "openai/gpt-4.1",
@@ -112,9 +104,7 @@
         "estimatedCost": 0.069566
       },
       "skip_explore": false,
-      "chatId": [
-        "d36c45846a750d0a5c3b85d4f6e0f95f91a2d922"
-      ],
+      "chatId": "d36c45846a750d0a5c3b85d4f6e0f95f91a2d922",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001361&dandisetVersion=0.250406.0045&chatId=d36c45846a750d0a5c3b85d4f6e0f95f91a2d922",
         "chatModel": "openai/gpt-4.1",
@@ -137,9 +127,7 @@
         "estimatedCost": 0.044148
       },
       "skip_explore": false,
-      "chatId": [
-        "e83e5f1045ccfe5f278935fc866d4de2cf23adcd"
-      ],
+      "chatId": "e83e5f1045ccfe5f278935fc866d4de2cf23adcd",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001366&dandisetVersion=0.250324.1603&chatId=e83e5f1045ccfe5f278935fc866d4de2cf23adcd",
         "chatModel": "openai/gpt-4.1",
@@ -162,9 +150,7 @@
         "estimatedCost": 0.105724
       },
       "skip_explore": false,
-      "chatId": [
-        "38566171206fa29239cf454865e741770433d98d"
-      ],
+      "chatId": "38566171206fa29239cf454865e741770433d98d",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001359&dandisetVersion=0.250401.1603&chatId=38566171206fa29239cf454865e741770433d98d",
         "chatModel": "openai/gpt-4.1",
@@ -187,9 +173,7 @@
         "estimatedCost": 0.101978
       },
       "skip_explore": false,
-      "chatId": [
-        "b9d830b7038c8f2b609b5498cf779b7866a60d17"
-      ],
+      "chatId": "b9d830b7038c8f2b609b5498cf779b7866a60d17",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001375&dandisetVersion=0.250406.1855&chatId=b9d830b7038c8f2b609b5498cf779b7866a60d17",
         "chatModel": "openai/gpt-4.1",
@@ -212,9 +196,7 @@
         "estimatedCost": 0.057367999999999995
       },
       "skip_explore": false,
-      "chatId": [
-        "553b9186b1844d6fa99166d5aa46c55c9346f070"
-      ],
+      "chatId": "553b9186b1844d6fa99166d5aa46c55c9346f070",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001174&dandisetVersion=0.250331.2218&chatId=553b9186b1844d6fa99166d5aa46c55c9346f070",
         "chatModel": "openai/gpt-4.1",
@@ -237,9 +219,7 @@
         "estimatedCost": 0.116652
       },
       "skip_explore": false,
-      "chatId": [
-        "78e86504e7a8d48d31764b0b585d8bd318a87695"
-      ],
+      "chatId": "78e86504e7a8d48d31764b0b585d8bd318a87695",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=000690&dandisetVersion=0.250326.0015&chatId=78e86504e7a8d48d31764b0b585d8bd318a87695",
         "chatModel": "openai/gpt-4.1",
@@ -262,9 +242,7 @@
         "estimatedCost": 0.079994
       },
       "skip_explore": false,
-      "chatId": [
-        "cd3c6c58c8e1bc62f2223e9eed98507c1c3f4d3e"
-      ],
+      "chatId": "cd3c6c58c8e1bc62f2223e9eed98507c1c3f4d3e",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001195&dandisetVersion=0.250408.1733&chatId=cd3c6c58c8e1bc62f2223e9eed98507c1c3f4d3e",
         "chatModel": "openai/gpt-4.1",
@@ -287,9 +265,7 @@
         "estimatedCost": 0.084912
       },
       "skip_explore": false,
-      "chatId": [
-        "d69e75e79b89a61c03d814ece9f55e4bfc45ed56"
-      ],
+      "chatId": "d69e75e79b89a61c03d814ece9f55e4bfc45ed56",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=000617&dandisetVersion=0.250312.0130&chatId=d69e75e79b89a61c03d814ece9f55e4bfc45ed56",
         "chatModel": "openai/gpt-4.1",
