@@ -15,7 +15,7 @@
       "chatId": "4befc0a18914642a190ce4e68047fc8c0b7321d1",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001349&dandisetVersion=0.250520.1729&chatId=4befc0a18914642a190ce4e68047fc8c0b7321d1",
-        "chatModel": "anthropic/claude-3.5-sonnet",
+        "chatModel": "openai/gpt-4.1",
         "timestampCreated": 1748448413905,
         "timestampUpdated": 1748449685323,
         "promptTokens": 397182,
@@ -38,7 +38,7 @@
       "chatId": "1b55f1ffc7caac28284d1914869055ee48e2ff2e",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001354&dandisetVersion=0.250312.0036&chatId=1b55f1ffc7caac28284d1914869055ee48e2ff2e",
-        "chatModel": "anthropic/claude-3.5-sonnet",
+        "chatModel": "openai/gpt-4.1",
         "timestampCreated": 1748447388189,
         "timestampUpdated": 1748449722291,
         "promptTokens": 636136,
@@ -61,7 +61,7 @@
       "chatId": "6e10365d8ae3a08f0b42b768b49f27e4867111ee",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001433&dandisetVersion=0.250507.2356&chatId=6e10365d8ae3a08f0b42b768b49f27e4867111ee",
-        "chatModel": "anthropic/claude-3.5-sonnet",
+        "chatModel": "openai/gpt-4.1",
         "timestampCreated": 1748446484626,
         "timestampUpdated": 1748447623755,
         "promptTokens": 164637,
@@ -84,7 +84,7 @@
       "chatId": "57dc3608c92c02a718fce268d39f51a012286ded",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=000563&dandisetVersion=0.250311.2145&chatId=57dc3608c92c02a718fce268d39f51a012286ded",
-        "chatModel": "anthropic/claude-3.5-sonnet",
+        "chatModel": "openai/gpt-4.1",
         "timestampCreated": 1748446159502,
         "timestampUpdated": 1748448231308,
         "promptTokens": 732272,
@@ -107,7 +107,7 @@
       "chatId": "d36c45846a750d0a5c3b85d4f6e0f95f91a2d922",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001361&dandisetVersion=0.250406.0045&chatId=d36c45846a750d0a5c3b85d4f6e0f95f91a2d922",
-        "chatModel": "anthropic/claude-3.5-sonnet",
+        "chatModel": "openai/gpt-4.1",
         "timestampCreated": 1748444915602,
         "timestampUpdated": 1748445760882,
         "promptTokens": 355686,
@@ -130,7 +130,7 @@
       "chatId": "e83e5f1045ccfe5f278935fc866d4de2cf23adcd",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001366&dandisetVersion=0.250324.1603&chatId=e83e5f1045ccfe5f278935fc866d4de2cf23adcd",
-        "chatModel": "anthropic/claude-3.5-sonnet",
+        "chatModel": "openai/gpt-4.1",
         "timestampCreated": 1748445051593,
         "timestampUpdated": 1748445939382,
         "promptTokens": 163454,
@@ -153,7 +153,7 @@
       "chatId": "38566171206fa29239cf454865e741770433d98d",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001359&dandisetVersion=0.250401.1603&chatId=38566171206fa29239cf454865e741770433d98d",
-        "chatModel": "anthropic/claude-3.5-sonnet",
+        "chatModel": "openai/gpt-4.1",
         "timestampCreated": 1748452370433,
         "timestampUpdated": 1748454296203,
         "promptTokens": 774203,
@@ -176,7 +176,7 @@
       "chatId": "b9d830b7038c8f2b609b5498cf779b7866a60d17",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001375&dandisetVersion=0.250406.1855&chatId=b9d830b7038c8f2b609b5498cf779b7866a60d17",
-        "chatModel": "anthropic/claude-3.5-sonnet",
+        "chatModel": "openai/gpt-4.1",
         "timestampCreated": 1748452160149,
         "timestampUpdated": 1748453003533,
         "promptTokens": 157834,
@@ -199,7 +199,7 @@
       "chatId": "553b9186b1844d6fa99166d5aa46c55c9346f070",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001174&dandisetVersion=0.250331.2218&chatId=553b9186b1844d6fa99166d5aa46c55c9346f070",
-        "chatModel": "anthropic/claude-3.5-sonnet",
+        "chatModel": "openai/gpt-4.1",
         "timestampCreated": 1748451488521,
         "timestampUpdated": 1748452510626,
         "promptTokens": 169392,
@@ -222,7 +222,7 @@
       "chatId": "78e86504e7a8d48d31764b0b585d8bd318a87695",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=000690&dandisetVersion=0.250326.0015&chatId=78e86504e7a8d48d31764b0b585d8bd318a87695",
-        "chatModel": "anthropic/claude-3.5-sonnet",
+        "chatModel": "openai/gpt-4.1",
         "timestampCreated": 1748453114486,
         "timestampUpdated": 1748455853389,
         "promptTokens": 874199,
@@ -245,7 +245,7 @@
       "chatId": "cd3c6c58c8e1bc62f2223e9eed98507c1c3f4d3e",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001195&dandisetVersion=0.250408.1733&chatId=cd3c6c58c8e1bc62f2223e9eed98507c1c3f4d3e",
-        "chatModel": "anthropic/claude-3.5-sonnet",
+        "chatModel": "openai/gpt-4.1",
         "timestampCreated": 1748450709134,
         "timestampUpdated": 1748451560839,
         "promptTokens": 479692,
@@ -268,7 +268,7 @@
       "chatId": "d69e75e79b89a61c03d814ece9f55e4bfc45ed56",
       "chat": {
         "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=000617&dandisetVersion=0.250312.0130&chatId=d69e75e79b89a61c03d814ece9f55e4bfc45ed56",
-        "chatModel": "anthropic/claude-3.5-sonnet",
+        "chatModel": "openai/gpt-4.1",
         "timestampCreated": 1748450583365,
         "timestampUpdated": 1748451951968,
         "promptTokens": 539145,

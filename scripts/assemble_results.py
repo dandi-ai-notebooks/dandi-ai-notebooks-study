@@ -15,7 +15,8 @@ def load_chat_data(chat_file_path: str) -> dict:
                 'timestampUpdated': data.get('timestampUpdated'),
                 'promptTokens': data.get('promptTokens'),
                 'completionTokens': data.get('completionTokens'),
-                'estimatedCost': data.get('estimatedCost')
+                'estimatedCost': data.get('estimatedCost'),
+                'chatModel': data.get('messageMetadata')[-1].get('model', 'unknown'),
             }
     except FileNotFoundError:
         print(f"Warning: Chat file not found: {chat_file_path}")
@@ -122,9 +123,10 @@ def main():
         if chat_id:
             notebook_entry['chatId'] = chat_id
             assert chat_data, f"No chat data found for {chat_id}"
+            chat_model = chat_data['chatModel']
             notebook_entry['chat'] = {
                 'chatUrl': construct_chat_url(dandiset_id, version, chat_id),
-                'chatModel': model,
+                'chatModel': chat_model,
                 **chat_data
             }
 
