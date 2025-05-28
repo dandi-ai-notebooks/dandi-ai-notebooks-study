@@ -186,10 +186,12 @@ def main():
         print(f'Prompt tokens used so far: {total_prompt_tokens}')
         print(f'Completion tokens used so far: {total_completion_tokens}')
 
-        # Extract notebook content from between tags, assuming tags are on their own lines
-        match = re.search(r'<notebook>\n(.*?)\n</notebook>', response, re.DOTALL)
-        if not match:
-            error = "Response must include <notebook> tags on their own lines"
+        # Extract notebook content from between tags
+        i1 = response.find('<notebook>')
+        i2 = response.find('</notebook>')
+        if i1 == -1 or i2 == -1 or i2 <= i1:
+            error = "Response must include <notebook> tags"
+            print(response[:100] + "...")
             print(f"\nError: {error}")
             print("Adding error message and retrying...")
             messages.append({
@@ -198,8 +200,7 @@ def main():
             })
             attempt += 1
             continue
-
-        content = match.group(1)
+        content = response[i1 + len('<notebook>'):i2].strip()
 
         # Write notebook and attempt execution
         py_path = write_notebook(content, args.output)
