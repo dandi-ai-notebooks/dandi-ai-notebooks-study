@@ -1,0 +1,11 @@
+{
+  "model": "openai/gpt-4.1",
+  "dandiset_id": "001174",
+  "version": "0.250331.2218",
+  "prompt": "prompts/prompt-h-2.txt",
+  "skip_explore": false,
+  "chat_url": "https://neurosift.org/dandiset-explorer-chats/001174/0.250331.2218/chats/55/553b9186b1844d6fa99166d5aa46c55c9346f070/chat.json",
+  "prompt_tokens": 16272,
+  "completion_tokens": 3103,
+  "estimated_cost": 0.057367999999999995
+}
