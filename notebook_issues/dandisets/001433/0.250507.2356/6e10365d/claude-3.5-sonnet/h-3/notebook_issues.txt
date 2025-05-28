@@ -1,0 +1,27 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The LFP plot offsets channels by 2000 units, but the LFP amplitudes appear extremely large (hundreds of thousands), potentially due to lack of unit conversion or improper scaling, making the plot difficult to interpret and potentially misleading.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The "Sniffing Signal with Breathing Events" plot displays vertical event lines (inhalation/exhalation) where exhalation intervals are computed as all zeros (see downstream stats cell), suggesting a possible indexing or timestamp problem, or lack of exhalation event separation. This may confuse the interpretation of the breathing cycles in the plot.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>Exhalation event lines are colored red and drawn very close together or possibly all at zero time in the plot, which is visually misleading and possibly indicates a data or indexing issue.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The summary of breathing event statistics reports a mean exhalation interval of -0.0 ms with an enormous standard deviation (355222.2 ms), indicating a calculation error or incorrect interpretation of the exhalation_times data. Reporting these "statistics" is misleading and could confuse users.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The y-axis labels for LFP and sniffing signal plots do not specify the true physical units (e.g., "Amplitude (V)") which is potentially inaccurate given the likely digital units or conversion factors needed for NWB datasets.</description>
+<severity>minor</severity>
+</issue>
+</issues>

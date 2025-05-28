@@ -1,0 +1,42 @@
+<issues>
+<issue>
+<type>cell_execution_error</type>
+<description>Use of remfile and h5py with pynwb.NWBHDF5IO is incorrect; NWBHDF5IO expects a file path or an HDF5 file handle, but the code passes an h5py.File object. As written, this cell is very likely to fail to load the NWB file (TypeError expected), making the notebook unusable without code changes. The correct usage is to provide a file object or URL directly to NWBHDF5IO with load_namespaces=True, or to load via an in-memory buffer.</description>
+<severity>critical</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The axis labels for the ROI heatmap (imshow) use "extent" which may not map the y-axis (ROI #) as intended. This could cause confusion, as the yticks do not necessarily match ROI indices; the y-axis will be a continuous variable from 0 to the number of ROIs, not discrete. This can be visually misleading for users seeking to relate color map values to ROI indices.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>Accessing keys like 'dff_chn0', 'z_score_chn0', or 'ca_events_chn0' in fluorescence.roi_response_series without verifying their presence can lead to KeyError if the file structure changes between versions or not all keys exist. The notebook assumes all expected signals are present for all datasets, which may not generalize.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>Accessing "ImagingPlane_1_chn1" without verifying its existence may lead to KeyError if the imaging plane has a different name or is not present in another file.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>Accessing the plane segmentation with fixed key 'PlaneSegmentation_1' can result in KeyError on other NWB files or future versions if the naming differs.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The calcium events trace (third subplot in neural activity visualization) uses a continuous line plot, which may not be the most appropriate for depicting sparse/thresholded events. A stem or bar plot might be more visually clear.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>Calling nwb.close() or io.close() is missing (or del io), which can result in open file handles. Good practice suggests closing the NWB file after use, especially with remote or large files.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>Use of DandiAPIClient without a context manager (with DandiAPIClient() as client:) may lead to unclosed HTTP sessions/warnings.</description>
+<severity>minor</severity>
+</issue>
+</issues>

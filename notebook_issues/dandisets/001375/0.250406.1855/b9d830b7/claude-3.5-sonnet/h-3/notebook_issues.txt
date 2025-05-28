@@ -1,0 +1,37 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The spike raster plot for units (under "Spike Activity Across Units") is created for 'first 30 s' but includes all spike times available for each unit, which may extend beyond 30 seconds. The use of spike_times directly without restricting them to the first 30 seconds could result in spikes being plotted outside the intended range, causing visual inconsistencies and overcrowding of data on the plot.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>When plotting spike rasters (both for units and trial-aligned), the code does not check if the relevant arrays are empty, which could cause errors or confusing empty plots if units or trials have no spikes in the analyzed interval. This reduces robustness for other NWB files or units.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The voltage trace y-axis label says 'Voltage + offset (μV)', but the code does not verify whether the time series is in microvolts; many NWB datasets store raw values (ints or floats) where units are stored in the metadata, but this notebook assumes μV. This could mislead readers regarding the true scale of the data.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The assignment 'ts = nwb.acquisition['time_series']' expects the acquisition key to be 'time_series', which may not be universally true for all NWB files, including others in this Dandiset. If the key is named differently in some files (e.g., 'ElectricalSeries'), this will cause a KeyError and the cell will fail.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The code attempting to open the NWB file with 'remfile', 'h5py', and 'pynwb.NWBHDF5IO' may cause resource warnings or compatibility issues between h5py and remfile, potentially resulting in subtle bugs or errors for some files or platforms.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The notebook suggests that "The code shown here can be adapted for any of the three NWB files in the Dandiset by modifying the asset path", but this is only true if data structures and key names are identical across files. No check or guideline is provided for handling variations, which may mislead users when faced with differently structured NWB files.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>Overlaying all spike rasters for each trial or unit without transparency or limiting the density can make the plots difficult to interpret if a unit fires at high rates, potentially obscuring temporal structure or individual spikes.</description>
+<severity>minor</severity>
+</issue>
+</issues>

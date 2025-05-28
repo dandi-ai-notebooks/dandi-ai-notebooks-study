@@ -1,0 +1,27 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The intensity trace over time is described as a "proxy for diameter/pulsation dynamics," but this is potentially misleading, as mean intensity of a line or region is not a direct proxy for vessel diameter or pulsatility without additional image processing to find vessel walls. A more accurate wording or additional clarification on the proxy relationship would be appropriate.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The plot of the intensity trace does not clearly indicate which vessel or spatial location is being analyzed (i.e., the exact placement of the "center vertical line" is not shown on any image). This makes interpretation of the result difficult for users unfamiliar with the data.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The notebook suggests that the mean intensity along a central line is a usable "proxy for diameter/pulsation dynamics," but without segmentation or explicit identification of vessel boundaries, this statement is not strongly supported by the provided analysis.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>Frames shown in the movie montage are selected using `linspace` (even spacing), which is reasonable, but the large number of frames (9553) and showing spaced frames makes it difficult to see temporal context. Including a first, middle, and last frame explicitly (and/or providing playback) might be more interpretable for users.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The current usage of `remfile.File(asset.download_url)` and then `h5py.File(remote_file)` works in many environments, but it assumes that streaming access through the `remfile` URL will function without authentication or network issues. Many users may require error handling for network or permission errors (e.g., temporary connection loss, download limits, authentication changes on DANDI). No error handling is included.</description>
+<severity>minor</severity>
+</issue>
+</issues>

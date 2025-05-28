@@ -1,0 +1,22 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The y-axis units in the voltage response plots and baseline membrane potential analysis are labeled as 'Voltage (V)', but the plotted values are in the tens of millivolts (mV) range, suggesting that units should be millivolts rather than volts. This can confuse interpretation.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The y-axis for the stimulus (Current) is labeled as 'Current (A)' but the signal is likely on the order of pA or nA, given the typical current clamp protocols in electrophysiology. The scale should be clarified and units corrected if appropriate.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The 'time' variable is only initialized if it is None, but when 'time' already exists from a previous cell, its sampling rate and length may mismatch in subsequent analyses (e.g., when sweep length changes). This can cause subtle errors or inconsistent plots if different .nwb files or protocols are loaded.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>Multiple calls to 'io = pynwb.NWBHDF5IO(...)' and 'io.close()' are made without properly closing the prior open HDF5 file or context management. This may lead to resource leaks or file locking issues when running the notebook with different datasets or multiple times in a session.</description>
+<severity>minor</severity>
+</issue>
+</issues>

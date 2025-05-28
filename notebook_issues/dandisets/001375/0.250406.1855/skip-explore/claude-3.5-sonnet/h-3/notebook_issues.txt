@@ -1,0 +1,42 @@
+<issues>
+<issue>
+<type>cell_execution_error</type>
+<description>The code cell intended to plot a raster of spike times uses nwb.units.spike_times_index, but this NWB property contains indices for spike times rather than the spike times themselves (which are usually in nwb.units["spike_times"]). The actual code will likely either error or plot meaningless data.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The spike raster plot uses np.ones_like(spike_times[mask]) * unit_idx for y values, but spike_times_index does not contain spike times. This likely results in the plot being empty or incorrect unless the structure happens to be similar, which is not standard for NWB files. This will confuse users about neural activity.</description>
+<severity>critical</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>In the neural data visualization cell, the code assumes that nwb.acquisition['time_series'] is a valid key, but this may not always exist or may not conform to 'TimeSeries' expectations in NWB. If 'time_series' is not present, this cell will cause an error.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>In the neural data visualization cell, time_series.data[:n_samples, i] assumes 2D access over the data field, but if data is not stored as a 2D array or has a different structure (as is sometimes the case in NWB, especially if only a single channel or a time series per channel is present), this line will raise an exception. There is no check for the data shape.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The code that opens the NWB file with pynwb.NWBHDF5IO(file=h5_file) is incorrect usage. NWBHDF5IO expects a file path or a file-like object with read() and seek() methods, and h5py.File is not directly compatible. This may cause an error or exception depending on package versions.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The code uses remfile.File(url) for streaming, but does not specify mode='r' or check for compatibility of remfile with h5py, which could cause issues if underlying versions have changed or if the DANDI asset is not public or accessible. No error handling is present.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The y-axis offset for plotted voltage traces uses i*200 arbitrarily, which may not reflect the correct scaling needed for the data. If signal amplitudes are variable, traces could overlap or be too far apart, reducing plot clarity. There is no normalization or channel-appropriate offset scaling.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The histogram of trial durations does not handle or display outliers clearly (e.g., the long tail, possible extreme outlier at 160s), which may mislead users. It could be improved by using log scale or showing inset for zoom.</description>
+<severity>minor</severity>
+</issue>
+</issues>

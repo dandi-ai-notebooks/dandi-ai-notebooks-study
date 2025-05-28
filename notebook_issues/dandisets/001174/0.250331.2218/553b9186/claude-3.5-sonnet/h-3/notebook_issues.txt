@@ -1,0 +1,32 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The colorbar in the "Spatial distribution of all cell ROIs" plot is misleading because all ROI masks are binary, so the maximum projection should result in values 0 or 1 only (no overlaps as suggested by the colorbar label "Number of overlapping ROIs"). The colorbar scale is also always 0–1, which doesn't accurately reflect the number of overlaps if they existed.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The event plots in the "Analyzing Cellular Activity" section use only the first 3000 timepoints, which is described as "First 5 minutes", but given a 10 Hz sampling rate, this corresponds to only 5 minutes (not stated explicitly), and it is unclear if this time window is meaningfully representative, especially since the event rates are calculated over the whole session.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>In the code for accessing ROI masks, the usage of plane_seg['image_mask'].data[i][:] assumes that 'image_mask' exists and is indexed this way. In NWB with PyNWB, ImageSegmentation plane segmentations may or may not have an 'image_mask' data field accessible in this fashion, potentially leading to an execution error depending on the NWB schema version and file structure.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The object 'onphs' is defined as 'onphs = nwb.acquisition['OnePhotonSeries']', but is never used. Instead, 'onphs' should be referenced as 'ophys = nwb.acquisition['OnePhotonSeries']' to maintain consistency with previous code sections, or the variable name should be aligned/used as intended. This could cause confusion or errors if variables aren't consistently referenced.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>There is a missing import for pandas, which is listed in the "Required Packages" but never actually imported or used. This does not cause an execution error in the current code, but might confuse users expecting to use pandas functionality based on the requirements.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The code for closing remote files uses "io.close(), h5_file.close(), remote_file.close()". The remfile.File object does not have a "close" method (as of remfile v0.0.9), which can cause an AttributeError. Standard usage requires closing the h5py.File object, not the underlying remfile.File.</description>
+<severity>minor</severity>
+</issue>
+</issues>

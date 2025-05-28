@@ -1,0 +1,27 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The "Spatial Activity Map (First 50 Neurons)" plot shows a large block of all-zero values in its heatmap for many position bins. This either indicates misaligned or missing data for most position bins, or a bug in the binning logic, and may confuse users about the neural activity distribution.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The calcium trace plot offsets traces with "i*5", but the signal amplitude variation is ~10,000 a.u., so traces can overlap and be visually cluttered, making it hard to distinguish individual neurons' dynamics.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The ROI properties histogram assumes "iscell" contains probability values as the second column (`iscell[:, 1]`), but the format of "iscell" can vary, and this assumption could lead to a misleading or incorrect plot if the array is not as expected; the code lacks format checking for robustness.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The reward event plot uses "np.ones_like(reward_times)" for the y-value of reward delivery, which causes all reward events to be drawn at y=1 regardless of the actual reward_zone value at those timestamps, potentially misleading about the timing or context of rewards versus zone entry.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The notebook section for ROI properties is labeled as showing the "Distribution of Cell Classification Probabilities", but the "iscell" array may not contain actual probability values—commonly it is a boolean or a binary mask, unless confirmed by dataset documentation.</description>
+<severity>minor</severity>
+</issue>
+</issues>

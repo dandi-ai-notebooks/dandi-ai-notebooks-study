@@ -1,0 +1,27 @@
+<issues>
+<issue>
+<type>cell_execution_error</type>
+<description>The code that opens the NWB file using pynwb.NWBHDF5IO(file=h5_file) is incorrect: NWBHDF5IO expects a file path or file-like object with a specific API, not an h5py.File object. This code may result in an error or unexpected behavior, preventing NWB file loading and all downstream analysis.</description>
+<severity>critical</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The code for reading remote NWB files assumes that remfile.File(url) is compatible with h5py.File and pynwb.NWBHDF5IO. Not all versions or server setups support this directly, and this combination may raise errors depending on the versions of remfile, h5py, and pynwb. No explicit version checking or error handling is provided.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>For larger NWB files, directly reading data such as nwb.acquisition['OnePhotonSeries'].data[frame_number] (or fluorescence.data[:1000]) may cause memory issues and/or slow performance, especially with remote files. No chunked loading, dask, or lazy evaluation is used or mentioned.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>ROI event amplitude plots may result in flat lines at zero for some ROIs. This could be a data property, but the notebook does not comment on or explain the presence of all-zero traces, which might confuse users.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>No explicit closing of the NWB IO object (io.close()) is done after reading the NWB file. This may cause file handle/resource leaks, especially in remote or non-local settings.</description>
+<severity>minor</severity>
+</issue>
+</issues>

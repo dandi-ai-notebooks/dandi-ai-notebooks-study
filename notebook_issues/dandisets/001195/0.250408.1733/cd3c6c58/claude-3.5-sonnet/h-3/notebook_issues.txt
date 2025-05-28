@@ -1,0 +1,27 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The membrane potential (Vm) y-axis in the current clamp recordings is labeled as 'Vm (V)', but typical physiological values are in millivolts (mV), resulting in small and potentially confusing axis scaling for intracellular recordings. The unit conversion may not be performed, making the plot harder to interpret for the actual voltage deflections.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>There is no check in the plotting code for whether the requested sweep numbers and channel ('current_clamp-response-{n:02d}-ch-{ch}') exist for the selected file, potentially resulting in a KeyError if the acquisition data structure differs between files. This may cause runtime errors for other datasets or files outside the example.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>All output from the batch processing cell ("Example Code for Batch Processing") is collected as separate OUTPUT-TEXT blocks instead of as a single bundled printed output, which can confuse the user as to what constitutes a separate function run. It suggests possible issues if the cell is copy-pasted or re-run.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>None of the pynwb.NWBHDF5IO objects are explicitly closed with io.close() after reading, creating the risk of resource/data leak, especially inside the batch processing function when processing many files.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The color schemes for membrane potential and injected current in the plots are very similar in some environments, which can make the lines hard to distinguish for users with color vision deficiencies.</description>
+<severity>minor</severity>
+</issue>
+</issues>

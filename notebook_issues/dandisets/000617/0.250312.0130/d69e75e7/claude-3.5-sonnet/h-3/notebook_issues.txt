@@ -1,0 +1,37 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The plot in the "Stimulus Presentation Structure" cell only shows a few intervals among the first 100, rather than 100 segments as implied. Large gaps are visible, and the color legend is not displayed. This could confuse users about stimulus timing and alignment.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>No indication is given in the behavioral data plot (mouse running speed) regarding periods of stimulus presentations. This limits understanding of how behavioral data align with experimental conditions.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The code assumes the existence of certain processing modules and fields, such as 'dff' and 'speed', within the NWB file. If these fields are missing, the notebook will raise a KeyError, which could prevent users from running cells successfully on other NWB files within the Dandiset.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The code uses h5py.File together with pynwb.NWBHDF5IO(file=...), passing an h5py.File object as the 'file'. This is not standard usage and may break in some versions of pynwb/h5py, leading to IO errors. pynwb.NWBHDF5IO expects a file path or a file-like object opened in binary mode.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The remote file is not closed after reading with pynwb, which may lead to resource leakage, especially for large files or when running the notebook multiple times.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The 'remfile.File' is being used to access remote data via URL, but there is no error handling in case the asset is unavailable or the download URL is inaccessible.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The fluorescence trace plot in "Visualizing Neural Activity" uses overlapping colors for multiple traces (although offset), and no grid or visual aid is provided to help distinguish traces, which may hinder interpretability for users working with more cells.</description>
+<severity>minor</severity>
+</issue>
+</issues>

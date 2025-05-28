@@ -1,0 +1,25 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The plotting code in the section "Visualizing Neural Activity" uses <code>time_sec</code> as the x-axis, which is defined as <code>np.arange(N) / 15.5</code> with N=3000, while the traces (<code>flu_traces</code> and <code>dec_traces</code>) are sliced as <code>[:N, i]</code> without checking if they contain at least N timepoints. If the number of frames in these traces is less than N, this will lead to an indexing error.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The "Reward Zone Entry" plot is showing values up to ~6 rather than binary (0/1) or logical entries, which is unexpected for a reward zone indicator. This may indicate an issue with signal extraction or misinterpretation of this variable.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>In the "Trial Progression" plot, the y-axis appears to be continuous and potentially non-integer, which is inconsistent with trial numbers that should increment in whole numbers. This could indicate that the 'trial number' signal is not properly stored or interpreted.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>cell_execution_error</type>
+<description>The notebook uses <code>nwb.processing['behavior'].data_interfaces['BehavioralTimeSeries']</code> and expects specific keys. If any key such as 'reward_zone' or 'trial number' is missing or not spelled exactly as provided, this will cause a KeyError and prevent the cell from running as intended.</description>
+<severity>major</severity>
+</issue>
+</issues>

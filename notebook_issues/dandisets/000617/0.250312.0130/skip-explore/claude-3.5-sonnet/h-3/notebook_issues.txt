@@ -1,0 +1,37 @@
+<issues>
+<issue>
+<type>cell_execution_error</type>
+<description>The code for loading the NWB file with pynwb.NWBHDF5IO uses an h5py.File object, but NWBHDF5IO expects a file path, file object, or fsspec-compatible file, not an h5py.File. This may raise a TypeError or similar error in some environments.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The NWB I/O should be closed after reading (io.close()), but this is not done, which can lead to memory/resource leaks if running on multiple files.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>In the 'Stimulus Presentation Timeline' plot, plt.legend() is called after eventplot with line labels, but eventplot does not create legend handles, so the legend will not display items for the stimuli, leading to confusion.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The offsets for the eventplot lines in the stimulus raster are not matched to the ytick labels ('Movie A' is offset 3, 'Movie B' is 2, 'Movie C' is 1), which is the opposite of the vertical order on most plots, potentially making interpretation less intuitive for users expecting A at the bottom and C at the top; documentation should clarify this or reordering is recommended.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>Calcium traces are plotted with fixed offset (i*2), but there is no check that scale across neurons is appropriate, which may cause overlap or misleading visualization if the traces vary in amplitude.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>If the NWB file does not contain 'ophys_motion_correction_x' or 'ophys_motion_correction_y' in the expected location, the motion correction cell will raise a KeyError. The notebook assumes these names and structures exist without validation.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>Access to data via 'nwb.processing['running'].data_interfaces['speed']' and similar accesses (e.g., eye tracking acquisition) assumes a specific NWB file structure, which may not generalize or be robust to schema variations.</description>
+<severity>minor</severity>
+</issue>
+</issues>

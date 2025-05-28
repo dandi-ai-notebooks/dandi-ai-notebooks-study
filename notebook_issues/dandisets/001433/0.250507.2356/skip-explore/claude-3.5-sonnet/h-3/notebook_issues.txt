@@ -1,0 +1,27 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The histogram of breathing intervals in the "Analyzing Breathing Events" section has x-axis label "Interval between inhalations (s)", but the intervals appear to span from ~0 to 900, which is suspiciously long for mouse breathing intervals (normally expected to be <2s). This likely indicates a units problem (possibly milliseconds, or misinterpreted timestamps).</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The code cell that loads the NWB file mixes direct h5py usage and pynwb.NWBHDF5IO on the same file object (h5_file), which is not supported and may lead to unpredictable behavior or errors in some environments.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The notebook asserts the LFP units as volts ("LFP (V)"), but this is not explicitly checked or extracted from NWB file metadata; NWB LFP data is sometimes stored in microvolts or other units. This could mislead users if actual units differ.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The code assumes a sampling rate of 1000 Hz for plotting and analysis without verifying this value from the NWB file's metadata. Using a hardcoded sampling rate may result in incorrect time axes and potentially misleading visualizations if the true sampling rate differs.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>No explicit NWBHDF5IO.close() or remote_file.close() calls are made after reading the NWB file. While not critical for all environments, this may cause resource leaks or file lock issues in environments where file handles persist.</description>
+<severity>minor</severity>
+</issue>
+</issues>

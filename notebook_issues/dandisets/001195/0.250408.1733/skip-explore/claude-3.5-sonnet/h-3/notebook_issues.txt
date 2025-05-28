@@ -1,0 +1,32 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The y-axis units for the stimulus plot are extremely large ("1e14" pA), which is not physiologically plausible for current injection in an intracellular recording. This suggests either a unit conversion error, scaling problem, or reading of incorrect values from the file. This may cause users to misinterpret the data visualization.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The current clamp response data are multiplied by `response_series.conversion * 1000`. It is not verified that this consistently yields units of mV for all NWB files of this dataset. Explicit checking of original units is good practice to avoid incorrect scaling, especially since similar issues occur for the stimulus series.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The h5py.File invocation with a remfile.File and its use with pynwb.NWBHDF5IO is unconventional and could cause compatibility or runtime errors depending on the environment and package versions. Proper usage is to stream via pynwb.NWBHDF5IO directly, or with fsspec support. This may break execution in some commonly used Python/NWB setups.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The notebook assumes hardcoded stimulus start and duration indices (`stim_start_idx=1000`, `stim_duration_idx=500`) for all sweeps without verifying these values are appropriate based on sweep metadata. If sweeps vary in length or timing, this may yield inaccurate or meaningless steady-state response calculations.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The notebook assumes that acquisition keys and stimulus keys follow a strict naming pattern (e.g., `'current_clamp-response-{i:02d}-ch-0'`), but does not check for their existence, risking KeyError if files are missing or follow a different naming convention.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>There is no check or indication whether the number of sweeps in the file actually matches n_sweeps=10; if fewer sweeps are present, this will cause a cell execution error.</description>
+<severity>minor</severity>
+</issue>
+</issues>

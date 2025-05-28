@@ -1,0 +1,32 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The y-axis units for both the membrane potential and stimulus in the electrophysiology plots are displayed as 'volts' and 'amperes', but these are likely to be in millivolts and picoamperes (or other subunits), making the plot misleading or difficult to interpret correctly without clarification.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The stimulus trace in the "Visualizing Electrophysiology Data" plot appears to be a constant with a single large downward deflection, which may indicate either a data selection issue or a non-informative example sweep was auto-selected, reducing the value of the plot for understanding experimental traces.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>In the "Spike Detection Analysis" section, a constant offset (0.25 s) is added to all spike times without explanation, which could misalign spikes with the corresponding trace data and isn't justified in the code or markdown.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The histogram of epoch durations in the "Experimental Intervals Analysis" section is heavily skewed, with the vast majority of intervals clustered at low values and little contextualization in the notebook, which may make interpretation difficult for users unfamiliar with the experimental design.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>Some plots do not set y-axis limits based on the data range, which can sometimes lead to clipped or cramped visualizations, especially when overlaying spikes as vertical lines on broad traces.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The notebook overview suggests "Cell-type classification based on electrophysiological features" and "Cross-modal correlation with transcriptomics" are possible, but no transcriptomic data or features are shown or extracted to substantiate these workflow claims within the current content.</description>
+<severity>minor</severity>
+</issue>
+</issues>

@@ -1,30 +1,331 @@
 {
   "results": [
     {
-      "dandiset_id": "000690",
-      "version": "0.250326.0015",
-      "chat_id": "d8bfae1f2edb4521deb0445376279f1aabe65355",
-      "model": "openai/gpt-4.1",
-      "prompt": "h-2",
+      "dandiset_id": "001349",
+      "version": "0.250520.1729",
+      "chat_id": "4befc0a18914642a190ce4e68047fc8c0b7321d1",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
+      "issues": [
+        {
+          "type": "cell_execution_error",
+          "description": "The NWB file is opened using a custom remfile.File object, which returns an object that is not a standard file path or binary file object. While some versions of h5py can handle file-like objects, compatibility may not be universal, possibly causing an error at \"h5py.File(remote_file)\". This may prevent the notebook from running in some user environments.",
+          "severity": "major"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The NWB file is opened with pynwb.NWBHDF5IO(file=h5_file), but the recommended usage is to provide a file path or file-like object directly, and the use of h5_file (an h5py File object) as input may cause compatibility issues or errors in some environments, especially when streaming remotely.",
+          "severity": "major"
+        },
+        {
+          "type": "plot_problem",
+          "description": "Plots use similar colors for different cells, making them difficult to distinguish, especially when plotting multiple traces (e.g., 10 cells).",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "dF/F and calcium event plots lack a legend, which may make it difficult to identify which trace corresponds to which cell if the user wants to look up individual cells.",
+          "severity": "minor"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "No explicit closing of NWB file IO or context manager usage. Not using \"with pynwb.NWBHDF5IO(...) as io:\" could lead to open file handles and resource leaks, especially if many files are opened in a larger workflow.",
+          "severity": "minor"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The code assumes the existence of data_interfaces['Fluorescence'] and roi_response_series['dff_chn0'] and ['ca_events_chn0'] without checking if these keys are present, which could cause a KeyError if the file structure changes or if the names differ between datasets or over updates.",
+          "severity": "minor"
+        }
+      ]
+    },
+    {
+      "dandiset_id": "001354",
+      "version": "0.250312.0036",
+      "chat_id": "1b55f1ffc7caac28284d1914869055ee48e2ff2e",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
       "issues": [
         {
           "type": "plot_problem",
-          "description": "The LFP plot in Section 2 has a mislabeled x-axis: the units displayed are very large (in the tens or hundreds of thousands) and cannot represent seconds as labeled (\"Time (s)\"). It appears that either the `timestamp_segment` does not have seconds or the wrong array was used for the x-axis. This could confuse interpretation of the data.",
+          "description": "The y-axis units in the voltage response plots and baseline membrane potential analysis are labeled as 'Voltage (V)', but the plotted values are in the tens of millivolts (mV) range, suggesting that units should be millivolts rather than volts. This can confuse interpretation.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The y-axis for the stimulus (Current) is labeled as 'Current (A)' but the signal is likely on the order of pA or nA, given the typical current clamp protocols in electrophysiology. The scale should be clarified and units corrected if appropriate.",
+          "severity": "minor"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The 'time' variable is only initialized if it is None, but when 'time' already exists from a previous cell, its sampling rate and length may mismatch in subsequent analyses (e.g., when sweep length changes). This can cause subtle errors or inconsistent plots if different .nwb files or protocols are loaded.",
+          "severity": "major"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "Multiple calls to 'io = pynwb.NWBHDF5IO(...)' and 'io.close()' are made without properly closing the prior open HDF5 file or context management. This may lead to resource leaks or file locking issues when running the notebook with different datasets or multiple times in a session.",
+          "severity": "minor"
+        }
+      ]
+    },
+    {
+      "dandiset_id": "001433",
+      "version": "0.250507.2356",
+      "chat_id": "6e10365d8ae3a08f0b42b768b49f27e4867111ee",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
+      "issues": [
+        {
+          "type": "plot_problem",
+          "description": "The LFP plot offsets channels by 2000 units, but the LFP amplitudes appear extremely large (hundreds of thousands), potentially due to lack of unit conversion or improper scaling, making the plot difficult to interpret and potentially misleading.",
+          "severity": "major"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The \"Sniffing Signal with Breathing Events\" plot displays vertical event lines (inhalation/exhalation) where exhalation intervals are computed as all zeros (see downstream stats cell), suggesting a possible indexing or timestamp problem, or lack of exhalation event separation. This may confuse the interpretation of the breathing cycles in the plot.",
+          "severity": "major"
+        },
+        {
+          "type": "plot_problem",
+          "description": "Exhalation event lines are colored red and drawn very close together or possibly all at zero time in the plot, which is visually misleading and possibly indicates a data or indexing issue.",
           "severity": "major"
         },
         {
           "type": "unsupported_conclusion",
-          "description": "In Section 3, the code comments and markdown instruct to use `units.spike_times_index[i]` and state \"do not use units.spike_times\". However, `spike_times_index` is an index into the concatenated `spike_times` array, not the times themselves. Proper extraction of spike times per unit requires slicing `units['spike_times']` appropriately using `spike_times_index` boundaries, not using `spike_times_index` as the spike times. As coded, the raster plot does not display true spike times and thus the plot and its conclusion are unreliable.",
-          "severity": "critical"
+          "description": "The summary of breathing event statistics reports a mean exhalation interval of -0.0 ms with an enormous standard deviation (355222.2 ms), indicating a calculation error or incorrect interpretation of the exhalation_times data. Reporting these \"statistics\" is misleading and could confuse users.",
+          "severity": "major"
         },
         {
           "type": "plot_problem",
-          "description": "The spike raster plot (Section 3) shows a range of spike times that are quite limited and clustered, and y-axis ticks do not clearly denote which unit is which, making it less interpretable. This is partly a result of the data extraction error described above, but also the plotting could be more clearly labeled.",
+          "description": "The y-axis labels for LFP and sniffing signal plots do not specify the true physical units (e.g., \"Amplitude (V)\") which is potentially inaccurate given the likely digital units or conversion factors needed for NWB datasets.",
+          "severity": "minor"
+        }
+      ]
+    },
+    {
+      "dandiset_id": "000563",
+      "version": "0.250311.2145",
+      "chat_id": "57dc3608c92c02a718fce268d39f51a012286ded",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
+      "issues": [
+        {
+          "type": "plot_problem",
+          "description": "The spike train visualization uses nwb.units.spike_times_index[unit_idx], which provides the index boundaries of the spike_times for the unit, but not the spike times themselves. This results in the plotted spike train showing potentially incorrect data that does not represent actual spike times.",
+          "severity": "major"
+        },
+        {
+          "type": "plot_problem",
+          "description": "Y-axis label in the spike raster plot is simply 'Unit' and the y-range is 0.5\u20131.5 for a single unit; this is misleading since it is not a true raster (it shows all spikes for the first \"good\" unit on a single horizontal line rather than a conventional raster across trials or units).",
+          "severity": "minor"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "No context manager is used for NWBHDF5IO, which can lead to file handle/resource leakage. The call to io.read() should ideally be used in a 'with' statement to ensure proper cleanup.",
+          "severity": "minor"
+        }
+      ]
+    },
+    {
+      "dandiset_id": "001361",
+      "version": "0.250406.0045",
+      "chat_id": "d36c45846a750d0a5c3b85d4f6e0f95f91a2d922",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
+      "issues": [
+        {
+          "type": "plot_problem",
+          "description": "The plotting code in the section \"Visualizing Neural Activity\" uses <code>time_sec</code> as the x-axis, which is defined as <code>np.arange(N) / 15.5</code> with N=3000, while the traces (<code>flu_traces</code> and <code>dec_traces</code>) are sliced as <code>[:N, i]</code> without checking if they contain at least N timepoints. If the number of frames in these traces is less than N, this will lead to an indexing error.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The \"Reward Zone Entry\" plot is showing values up to ~6 rather than binary (0/1) or logical entries, which is unexpected for a reward zone indicator. This may indicate an issue with signal extraction or misinterpretation of this variable.",
+          "severity": "major"
+        },
+        {
+          "type": "plot_problem",
+          "description": "In the \"Trial Progression\" plot, the y-axis appears to be continuous and potentially non-integer, which is inconsistent with trial numbers that should increment in whole numbers. This could indicate that the 'trial number' signal is not properly stored or interpreted.",
+          "severity": "minor"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The notebook uses <code>nwb.processing['behavior'].data_interfaces['BehavioralTimeSeries']</code> and expects specific keys. If any key such as 'reward_zone' or 'trial number' is missing or not spelled exactly as provided, this will cause a KeyError and prevent the cell from running as intended.",
+          "severity": "major"
+        }
+      ]
+    },
+    {
+      "dandiset_id": "001366",
+      "version": "0.250324.1603",
+      "chat_id": "e83e5f1045ccfe5f278935fc866d4de2cf23adcd",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
+      "issues": [
+        {
+          "type": "plot_problem",
+          "description": "The intensity trace over time is described as a \"proxy for diameter/pulsation dynamics,\" but this is potentially misleading, as mean intensity of a line or region is not a direct proxy for vessel diameter or pulsatility without additional image processing to find vessel walls. A more accurate wording or additional clarification on the proxy relationship would be appropriate.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The plot of the intensity trace does not clearly indicate which vessel or spatial location is being analyzed (i.e., the exact placement of the \"center vertical line\" is not shown on any image). This makes interpretation of the result difficult for users unfamiliar with the data.",
           "severity": "minor"
         },
         {
           "type": "unsupported_conclusion",
-          "description": "Section 3's observation \u2013 that the raster \"illustrates single-unit and multi-unit spiking dynamics\" \u2013 is not supported by the data as plotted since the spike times shown are not correct (because spike_times_index is misused).",
+          "description": "The notebook suggests that the mean intensity along a central line is a usable \"proxy for diameter/pulsation dynamics,\" but without segmentation or explicit identification of vessel boundaries, this statement is not strongly supported by the provided analysis.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "Frames shown in the movie montage are selected using `linspace` (even spacing), which is reasonable, but the large number of frames (9553) and showing spaced frames makes it difficult to see temporal context. Including a first, middle, and last frame explicitly (and/or providing playback) might be more interpretable for users.",
+          "severity": "minor"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The current usage of `remfile.File(asset.download_url)` and then `h5py.File(remote_file)` works in many environments, but it assumes that streaming access through the `remfile` URL will function without authentication or network issues. Many users may require error handling for network or permission errors (e.g., temporary connection loss, download limits, authentication changes on DANDI). No error handling is included.",
+          "severity": "minor"
+        }
+      ]
+    },
+    {
+      "dandiset_id": "001359",
+      "version": "0.250401.1603",
+      "chat_id": "38566171206fa29239cf454865e741770433d98d",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
+      "issues": [
+        {
+          "type": "plot_problem",
+          "description": "The y-axis units for both the membrane potential and stimulus in the electrophysiology plots are displayed as 'volts' and 'amperes', but these are likely to be in millivolts and picoamperes (or other subunits), making the plot misleading or difficult to interpret correctly without clarification.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The stimulus trace in the \"Visualizing Electrophysiology Data\" plot appears to be a constant with a single large downward deflection, which may indicate either a data selection issue or a non-informative example sweep was auto-selected, reducing the value of the plot for understanding experimental traces.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "In the \"Spike Detection Analysis\" section, a constant offset (0.25 s) is added to all spike times without explanation, which could misalign spikes with the corresponding trace data and isn't justified in the code or markdown.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The histogram of epoch durations in the \"Experimental Intervals Analysis\" section is heavily skewed, with the vast majority of intervals clustered at low values and little contextualization in the notebook, which may make interpretation difficult for users unfamiliar with the experimental design.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "Some plots do not set y-axis limits based on the data range, which can sometimes lead to clipped or cramped visualizations, especially when overlaying spikes as vertical lines on broad traces.",
+          "severity": "minor"
+        },
+        {
+          "type": "unsupported_conclusion",
+          "description": "The notebook overview suggests \"Cell-type classification based on electrophysiological features\" and \"Cross-modal correlation with transcriptomics\" are possible, but no transcriptomic data or features are shown or extracted to substantiate these workflow claims within the current content.",
+          "severity": "minor"
+        }
+      ]
+    },
+    {
+      "dandiset_id": "001375",
+      "version": "0.250406.1855",
+      "chat_id": "b9d830b7038c8f2b609b5498cf779b7866a60d17",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
+      "issues": [
+        {
+          "type": "plot_problem",
+          "description": "The spike raster plot for units (under \"Spike Activity Across Units\") is created for 'first 30 s' but includes all spike times available for each unit, which may extend beyond 30 seconds. The use of spike_times directly without restricting them to the first 30 seconds could result in spikes being plotted outside the intended range, causing visual inconsistencies and overcrowding of data on the plot.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "When plotting spike rasters (both for units and trial-aligned), the code does not check if the relevant arrays are empty, which could cause errors or confusing empty plots if units or trials have no spikes in the analyzed interval. This reduces robustness for other NWB files or units.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The voltage trace y-axis label says 'Voltage + offset (\u03bcV)', but the code does not verify whether the time series is in microvolts; many NWB datasets store raw values (ints or floats) where units are stored in the metadata, but this notebook assumes \u03bcV. This could mislead readers regarding the true scale of the data.",
+          "severity": "minor"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The assignment 'ts = nwb.acquisition['time_series']' expects the acquisition key to be 'time_series', which may not be universally true for all NWB files, including others in this Dandiset. If the key is named differently in some files (e.g., 'ElectricalSeries'), this will cause a KeyError and the cell will fail.",
+          "severity": "major"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The code attempting to open the NWB file with 'remfile', 'h5py', and 'pynwb.NWBHDF5IO' may cause resource warnings or compatibility issues between h5py and remfile, potentially resulting in subtle bugs or errors for some files or platforms.",
+          "severity": "minor"
+        },
+        {
+          "type": "unsupported_conclusion",
+          "description": "The notebook suggests that \"The code shown here can be adapted for any of the three NWB files in the Dandiset by modifying the asset path\", but this is only true if data structures and key names are identical across files. No check or guideline is provided for handling variations, which may mislead users when faced with differently structured NWB files.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "Overlaying all spike rasters for each trial or unit without transparency or limiting the density can make the plots difficult to interpret if a unit fires at high rates, potentially obscuring temporal structure or individual spikes.",
+          "severity": "minor"
+        }
+      ]
+    },
+    {
+      "dandiset_id": "001174",
+      "version": "0.250331.2218",
+      "chat_id": "553b9186b1844d6fa99166d5aa46c55c9346f070",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
+      "issues": [
+        {
+          "type": "plot_problem",
+          "description": "The colorbar in the \"Spatial distribution of all cell ROIs\" plot is misleading because all ROI masks are binary, so the maximum projection should result in values 0 or 1 only (no overlaps as suggested by the colorbar label \"Number of overlapping ROIs\"). The colorbar scale is also always 0\u20131, which doesn't accurately reflect the number of overlaps if they existed.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The event plots in the \"Analyzing Cellular Activity\" section use only the first 3000 timepoints, which is described as \"First 5 minutes\", but given a 10 Hz sampling rate, this corresponds to only 5 minutes (not stated explicitly), and it is unclear if this time window is meaningfully representative, especially since the event rates are calculated over the whole session.",
+          "severity": "minor"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "In the code for accessing ROI masks, the usage of plane_seg['image_mask'].data[i][:] assumes that 'image_mask' exists and is indexed this way. In NWB with PyNWB, ImageSegmentation plane segmentations may or may not have an 'image_mask' data field accessible in this fashion, potentially leading to an execution error depending on the NWB schema version and file structure.",
+          "severity": "major"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The object 'onphs' is defined as 'onphs = nwb.acquisition['OnePhotonSeries']', but is never used. Instead, 'onphs' should be referenced as 'ophys = nwb.acquisition['OnePhotonSeries']' to maintain consistency with previous code sections, or the variable name should be aligned/used as intended. This could cause confusion or errors if variables aren't consistently referenced.",
+          "severity": "minor"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "There is a missing import for pandas, which is listed in the \"Required Packages\" but never actually imported or used. This does not cause an execution error in the current code, but might confuse users expecting to use pandas functionality based on the requirements.",
+          "severity": "minor"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The code for closing remote files uses \"io.close(), h5_file.close(), remote_file.close()\". The remfile.File object does not have a \"close\" method (as of remfile v0.0.9), which can cause an AttributeError. Standard usage requires closing the h5py.File object, not the underlying remfile.File.",
+          "severity": "minor"
+        }
+      ]
+    },
+    {
+      "dandiset_id": "000690",
+      "version": "0.250326.0015",
+      "chat_id": "78e86504e7a8d48d31764b0b585d8bd318a87695",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
+      "issues": [
+        {
+          "type": "plot_problem",
+          "description": "The spike count analysis cell uses `nwb.units.spike_times_index[i]` under the assumption that this object directly gives the spike times for the i-th unit. However, in NWB, `spike_times_index` is usually an index array, not the spike times themselves, so treating it as spike times is likely incorrect, leading to wrong spike counts or a misleading plot. The code should use `spike_times` and `spike_times_index` together to segment the full spike times array for each unit.",
+          "severity": "major"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The \"Aligning Spikes to Stimulus\" cell also uses `nwb.units.spike_times_index[0]` as if it contains spike times, which is not correct for typical NWB structures. This will not retrieve the spikes' times, so the stimulus alignment analysis will fail or produce incorrect/empty results.",
           "severity": "major"
         }
       ]
@@ -32,47 +333,77 @@
     {
       "dandiset_id": "001195",
       "version": "0.250408.1733",
-      "chat_id": "ae31fe05a7d09bd0797b31a0d7cae5a835a0959d",
-      "model": "openai/gpt-4.1",
-      "prompt": "h-2",
+      "chat_id": "cd3c6c58c8e1bc62f2223e9eed98507c1c3f4d3e",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
       "issues": [
         {
           "type": "plot_problem",
-          "description": "In the current clamp sweep plot (Section 4), the y-axis for injected current shows values on the order of 1e-10 A, suggesting either an unexpectedly small current or potential unit mismatch with the stimulus conversion factor. Typically, patch clamp protocols use injected currents in the picoampere to nanoampere range (1e-12 to 1e-9 A). This may confuse users regarding the magnitude of stimulation applied.",
+          "description": "The membrane potential (Vm) y-axis in the current clamp recordings is labeled as 'Vm (V)', but typical physiological values are in millivolts (mV), resulting in small and potentially confusing axis scaling for intracellular recordings. The unit conversion may not be performed, making the plot harder to interpret for the actual voltage deflections.",
           "severity": "minor"
         },
         {
           "type": "plot_problem",
-          "description": "In the voltage clamp sweep plot (Section 5), the command voltage is essentially a flat line at zero, with y-axis range approximately -0.05 to 0.05 V. The lack of visible step or protocol structure may be a true feature of the protocol, but the plot's interpretability is limited: users may wonder if the sweep or stimulus was chosen appropriately, or if different stimulus/protocols should be plotted for clearer illustration.",
+          "description": "There is no check in the plotting code for whether the requested sweep numbers and channel ('current_clamp-response-{n:02d}-ch-{ch}') exist for the selected file, potentially resulting in a KeyError if the acquisition data structure differs between files. This may cause runtime errors for other datasets or files outside the example.",
+          "severity": "major"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "All output from the batch processing cell (\"Example Code for Batch Processing\") is collected as separate OUTPUT-TEXT blocks instead of as a single bundled printed output, which can confuse the user as to what constitutes a separate function run. It suggests possible issues if the cell is copy-pasted or re-run.",
           "severity": "minor"
         },
         {
-          "type": "unsupported_conclusion",
-          "description": "Section 5 Observation states \"In some voltage clamp protocols, the command waveform may be flat (no voltage step), depending on the experimental design.\" This interpretation is plausible but not cross-validated in the notebook\u2014without showing a contrasting example or explicitly noting that this protocol is designed to have a flat command, readers may be left uncertain if this is an error or intentional.",
+          "type": "cell_execution_error",
+          "description": "None of the pynwb.NWBHDF5IO objects are explicitly closed with io.close() after reading, creating the risk of resource/data leak, especially inside the batch processing function when processing many files.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The color schemes for membrane potential and injected current in the plots are very similar in some environments, which can make the lines hard to distinguish for users with color vision deficiencies.",
           "severity": "minor"
         }
       ]
     },
     {
       "dandiset_id": "000617",
-      "version": "0.250311.1615",
-      "chat_id": "ca0caac9e3959f2601d73837a00ffb76968f780a",
-      "model": "openai/gpt-4.1",
-      "prompt": "h-2",
+      "version": "0.250312.0130",
+      "chat_id": "d69e75e79b89a61c03d814ece9f55e4bfc45ed56",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
       "issues": [
         {
           "type": "plot_problem",
-          "description": "The \u0394F/F (dff) traces plotted in section 2 for the first 10 cells display highly sparse and spiky activity, which may be expected for calcium imaging but the magnitude of the peaks (up to 5) seems unusually high and baseline values appear close to zero or slightly negative. There is no check for NaNs or extremely sparse traces, and no baseline adjustment/normalization is described, which may make the example less informative for a new user.",
+          "description": "The plot in the \"Stimulus Presentation Structure\" cell only shows a few intervals among the first 100, rather than 100 segments as implied. Large gaps are visible, and the color legend is not displayed. This could confuse users about stimulus timing and alignment.",
           "severity": "minor"
         },
         {
           "type": "plot_problem",
-          "description": "The running speed plot (section 4) includes negative values, which is possible for bidirectional wheel data but is neither described nor justified in the text. For unidirectional running, negative speed may not make sense, and clarification is needed. A naive user could misinterpret the meaning or quality of the speed data.",
+          "description": "No indication is given in the behavioral data plot (mouse running speed) regarding periods of stimulus presentations. This limits understanding of how behavioral data align with experimental conditions.",
+          "severity": "minor"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The code assumes the existence of certain processing modules and fields, such as 'dff' and 'speed', within the NWB file. If these fields are missing, the notebook will raise a KeyError, which could prevent users from running cells successfully on other NWB files within the Dandiset.",
+          "severity": "major"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The code uses h5py.File together with pynwb.NWBHDF5IO(file=...), passing an h5py.File object as the 'file'. This is not standard usage and may break in some versions of pynwb/h5py, leading to IO errors. pynwb.NWBHDF5IO expects a file path or a file-like object opened in binary mode.",
+          "severity": "major"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The remote file is not closed after reading with pynwb, which may lead to resource leakage, especially for large files or when running the notebook multiple times.",
+          "severity": "minor"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The 'remfile.File' is being used to access remote data via URL, but there is no error handling in case the asset is unavailable or the download URL is inaccessible.",
           "severity": "minor"
         },
         {
           "type": "plot_problem",
-          "description": "The overlay of ROI masks on the average image (section 3) may obscure underlying cell structures due to the fixed transparency (alpha=0.5 for both gray and color overlays). For denser or overlapping masks, this could result in low contrast or misleading visualization. Adjusting the overlay method or adding ROI outlines could improve interpretability.",
+          "description": "The fluorescence trace plot in \"Visualizing Neural Activity\" uses overlapping colors for multiple traces (although offset), and no grid or visual aid is provided to help distinguish traces, which may hinder interpretability for users working with more cells.",
           "severity": "minor"
         }
       ]
@@ -81,18 +412,48 @@
       "dandiset_id": "001349",
       "version": "0.250520.1729",
       "chat_id": "skip-explore",
-      "model": "openai/gpt-4.1",
-      "prompt": "h-2",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
       "issues": [
         {
+          "type": "cell_execution_error",
+          "description": "Use of remfile and h5py with pynwb.NWBHDF5IO is incorrect; NWBHDF5IO expects a file path or an HDF5 file handle, but the code passes an h5py.File object. As written, this cell is very likely to fail to load the NWB file (TypeError expected), making the notebook unusable without code changes. The correct usage is to provide a file object or URL directly to NWBHDF5IO with load_namespaces=True, or to load via an in-memory buffer.",
+          "severity": "critical"
+        },
+        {
           "type": "plot_problem",
-          "description": "The plot in Section 5 (\"Spatial distribution of segmented ROIs (cells)\") is blank; the axes span only a tiny range (likely [0, 0] for both axes), showing no ROI pixel coordinates. This suggests that the ROI pixel_mask coordinate data is either empty or not processed correctly for plotting.",
+          "description": "The axis labels for the ROI heatmap (imshow) use \"extent\" which may not map the y-axis (ROI #) as intended. This could cause confusion, as the yticks do not necessarily match ROI indices; the y-axis will be a continuous variable from 0 to the number of ROIs, not discrete. This can be visually misleading for users seeking to relate color map values to ROI indices.",
+          "severity": "minor"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "Accessing keys like 'dff_chn0', 'z_score_chn0', or 'ca_events_chn0' in fluorescence.roi_response_series without verifying their presence can lead to KeyError if the file structure changes between versions or not all keys exist. The notebook assumes all expected signals are present for all datasets, which may not generalize.",
+          "severity": "major"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "Accessing \"ImagingPlane_1_chn1\" without verifying its existence may lead to KeyError if the imaging plane has a different name or is not present in another file.",
+          "severity": "major"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "Accessing the plane segmentation with fixed key 'PlaneSegmentation_1' can result in KeyError on other NWB files or future versions if the naming differs.",
           "severity": "major"
         },
         {
           "type": "plot_problem",
-          "description": "The plots in Section 6 (\"\u0394F/F Traces for 5 Example ROIs\" and \"Event-Detected Traces\") display only flat, offset lines with no noticeable signal or variation, suggesting the dff and ca_events arrays are constant or filled with zeros. This makes the plots uninformative and may indicate an issue with how the data are accessed or an unexpected data format.",
-          "severity": "major"
+          "description": "The calcium events trace (third subplot in neural activity visualization) uses a continuous line plot, which may not be the most appropriate for depicting sparse/thresholded events. A stem or bar plot might be more visually clear.",
+          "severity": "minor"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "Calling nwb.close() or io.close() is missing (or del io), which can result in open file handles. Good practice suggests closing the NWB file after use, especially with remote or large files.",
+          "severity": "minor"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "Use of DandiAPIClient without a context manager (with DandiAPIClient() as client:) may lead to unclosed HTTP sessions/warnings.",
+          "severity": "minor"
         }
       ]
     },
@@ -100,13 +461,28 @@
       "dandiset_id": "001354",
       "version": "0.250312.0036",
       "chat_id": "skip-explore",
-      "model": "openai/gpt-4.1",
-      "prompt": "h-2",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
       "issues": [
         {
           "type": "plot_problem",
-          "description": "The time axis in the multi-trial plot (Section 5) appears to increase for each subsequent trial, implying concatenated rather than trial-aligned time bases. This results in misleading visualizations, since each trial generally starts at t=0 but the plots show progressively increasing x-axes. This may make it difficult to compare trials directly and could confuse interpretation.",
-          "severity": "major"
+          "description": "The plotted units for membrane potential and current are given as Volts (V) and Amperes (A), respectively. This can be confusing given that most electrophysiological data conventionally present membrane potential in millivolts (mV) and current in picoamperes (pA) or nanoamperes (nA). The y-axis labels and values should be rescaled accordingly for improved interpretability.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The time axis in the plots uses an array indexed by the data length and divided by response.rate, but it assumes a starting time of zero for every sweep. However, according to the later cell, each sweep may have a distinct starting time. This could result in misaligned representations if overlaying or comparing sweeps directly.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "There are duplicated plot outputs in the plot cell. This may confuse users as to whether the same plot was created and displayed twice intentionally or accidentally.",
+          "severity": "minor"
+        },
+        {
+          "type": "unsupported_conclusion",
+          "description": "The \"Data Organization\" section prints the number of sequential recordings as 1 but does not explain what that means in this context or relate it back to the previously noted multiple sweeps/recordings; this could cause confusion regarding trial organization in the dataset.",
+          "severity": "minor"
         }
       ]
     },
@@ -114,32 +490,32 @@
       "dandiset_id": "001433",
       "version": "0.250507.2356",
       "chat_id": "skip-explore",
-      "model": "openai/gpt-4.1",
-      "prompt": "h-2",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
       "issues": [
         {
           "type": "plot_problem",
-          "description": "The Y-axis label for the sniff signal plots indicates \"Thermistor (V)\", but the plotted values reach extremely large and negative values (down to -10,000), which is unusual for voltages from a thermistor. This may confuse users about the physical units or data preprocessing, and could indicate a metadata or scaling issue.",
-          "severity": "minor"
-        },
-        {
-          "type": "unsupported_conclusion",
-          "description": "The summary section claims that users can use \"metadata tables to relate signal channels to brain regions, groups, and filtering patterns.\" However, in the displayed electrode metadata table, all electrodes have the same group (\"LFPGroup\"), location (\"olfactory bulb\"), and filtering (\"none\"), which limits the extent to which channel-to-region analyses can be demonstrated in this specific session. The statement could be misleading.",
-          "severity": "minor"
+          "description": "The histogram of breathing intervals in the \"Analyzing Breathing Events\" section has x-axis label \"Interval between inhalations (s)\", but the intervals appear to span from ~0 to 900, which is suspiciously long for mouse breathing intervals (normally expected to be <2s). This likely indicates a units problem (possibly milliseconds, or misinterpreted timestamps).",
+          "severity": "major"
         },
         {
           "type": "cell_execution_error",
-          "description": "In the subject metadata cell, the code attempts to access 'subject.age__reference', which is not defined in NWB; the correct NWB Subject property is 'subject.age'. This will likely throw an AttributeError on execution if 'age__reference' does not exist.",
+          "description": "The code cell that loads the NWB file mixes direct h5py usage and pynwb.NWBHDF5IO on the same file object (h5_file), which is not supported and may lead to unpredictable behavior or errors in some environments.",
+          "severity": "major"
+        },
+        {
+          "type": "unsupported_conclusion",
+          "description": "The notebook asserts the LFP units as volts (\"LFP (V)\"), but this is not explicitly checked or extracted from NWB file metadata; NWB LFP data is sometimes stored in microvolts or other units. This could mislead users if actual units differ.",
           "severity": "minor"
         },
         {
           "type": "plot_problem",
-          "description": "The event lines for inhalations and exhalations in the \"Sniff signal with inhalation/exhalation events\" plot may be difficult to distinguish due to overlapping vlines, alpha transparency, and small linewidth, making breath events hard to visually inspect in dense regions. This reduces interpretability.",
-          "severity": "minor"
+          "description": "The code assumes a sampling rate of 1000 Hz for plotting and analysis without verifying this value from the NWB file's metadata. Using a hardcoded sampling rate may result in incorrect time axes and potentially misleading visualizations if the true sampling rate differs.",
+          "severity": "major"
         },
         {
-          "type": "plot_problem",
-          "description": "The LFP plot scales the data by 1e3 to plot in mV, but the LFP data in NWB is often already in microvolts or another unit, and the scaling may not be appropriate without confirming the units. This can misrepresent the true signal values.",
+          "type": "cell_execution_error",
+          "description": "No explicit NWBHDF5IO.close() or remote_file.close() calls are made after reading the NWB file. While not critical for all environments, this may cause resource leaks or file lock issues in environments where file handles persist.",
           "severity": "minor"
         }
       ]
@@ -148,37 +524,17 @@
       "dandiset_id": "000563",
       "version": "0.250311.2145",
       "chat_id": "skip-explore",
-      "model": "openai/gpt-4.1",
-      "prompt": "h-2",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
       "issues": [
         {
           "type": "plot_problem",
-          "description": "The x-axis on the LFP plot is labeled \"Time (s)\", but the tick values appear to go up to ~14000, which suggests that the variable used is sample index or not properly converted to seconds. This could confuse users interpreting the plot's timescale.",
-          "severity": "major"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The LFP plot's y-axis label \"LFP (mV, offset by ch)\" is potentially misleading because the data appears to have been multiplied by 1e3 to convert to mV, but there is no check or handling for the LFP unit possibly being \"uV\" or other units in some NWB files. This could result in incorrect scaling if a different dataset is loaded.",
+          "description": "The x-axis of the LFP plot is labeled as \"Time (s)\", but the time vector appears to be showing sample indices, not seconds. This can lead to confusion regarding the timescale of the LFP traces.",
           "severity": "minor"
         },
         {
           "type": "plot_problem",
-          "description": "The offset variable in the LFP plotting code is defined but not used. The actual channel offset is implemented as \"i*2\", which may not be sufficiently explained, potentially making the visual separation of traces unclear for arbitrary data ranges.",
-          "severity": "minor"
-        },
-        {
-          "type": "cell_execution_error",
-          "description": "If the NWB file does not contain the exact dataset name \"probe_1_lfp_data\" in its acquisition group, the cell loading LFP data will fail. This code does not check for the existence or offer a way to list available acquisitions, which may cause execution errors for other files in this Dandiset.",
-          "severity": "major"
-        },
-        {
-          "type": "cell_execution_error",
-          "description": "The 'age_in_days' attribute is accessed using 'nwb.subject.age_in_days', but the standard NWB Subject type does not mandate this attribute, and it may not be present, causing an AttributeError in some cases.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The 3D electrode plot uses x/y/z axis labels as \"posterior\", \"inferior\", \"right\" without clarifying the anatomical reference frame used or verifying that these axes correspond to the Allen CCF orientation, which can be confusing to users unfamiliar with the registration scheme.",
+          "description": "The offset applied to each LFP channel for visualization (i*0.001) is arbitrary and not explained. The y-axis is labeled \"Voltage (V)\", but the offset may mislead readers regarding the amplitude of the signals.",
           "severity": "minor"
         }
       ]
@@ -187,32 +543,32 @@
       "dandiset_id": "001361",
       "version": "0.250406.0045",
       "chat_id": "skip-explore",
-      "model": "openai/gpt-4.1",
-      "prompt": "h-2",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
       "issues": [
         {
           "type": "plot_problem",
-          "description": "The y-axis label for the \"Lick Count\" subplot in the behavioral visualization is misleading. The plotted data appears to be raw lick signal per frame, but the label implies it is a cumulative lick count.",
+          "description": "The \"Spatial Activity Map (First 50 Neurons)\" plot shows a large block of all-zero values in its heatmap for many position bins. This either indicates misaligned or missing data for most position bins, or a bug in the binning logic, and may confuse users about the neural activity distribution.",
+          "severity": "major"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The calcium trace plot offsets traces with \"i*5\", but the signal amplitude variation is ~10,000 a.u., so traces can overlap and be visually cluttered, making it hard to distinguish individual neurons' dynamics.",
           "severity": "minor"
         },
         {
           "type": "plot_problem",
-          "description": "The y-axis label for \"Reward Zone\" in the behavioral visualization does not clarify that the plot shows a binary property (in/out of reward zone) rather than a continuous variable.",
-          "severity": "minor"
-        },
-        {
-          "type": "unsupported_conclusion",
-          "description": "The description for the fluorescence traces states \"Raw Calcium Traces from 10 Random ROIs\", but the data appear to be raw fluorescence, not deltaF/F or otherwise normalized signals, which may confuse those expecting typical \"calcium traces\" conventionally used.",
+          "description": "The ROI properties histogram assumes \"iscell\" contains probability values as the second column (`iscell[:, 1]`), but the format of \"iscell\" can vary, and this assumption could lead to a misleading or incorrect plot if the array is not as expected; the code lacks format checking for robustness.",
           "severity": "minor"
         },
         {
           "type": "plot_problem",
-          "description": "The fluorescence plot uses random cell indices and labels them only as \"Cell {index}\", which may make downstream interpretation and reproducibility harder, especially if cell properties (e.g., iscell/probcell) are not linked.",
+          "description": "The reward event plot uses \"np.ones_like(reward_times)\" for the y-value of reward delivery, which causes all reward events to be drawn at y=1 regardless of the actual reward_zone value at those timestamps, potentially misleading about the timing or context of rewards versus zone entry.",
           "severity": "minor"
         },
         {
           "type": "unsupported_conclusion",
-          "description": "The summary and next steps section suggests that users can use this notebook to \"link cell activity to behavior or position\" or identify \"reward-responsive cells\", but the current content only provides basic visualization and does not demonstrate these analyses directly.",
+          "description": "The notebook section for ROI properties is labeled as showing the \"Distribution of Cell Classification Probabilities\", but the \"iscell\" array may not contain actual probability values\u2014commonly it is a boolean or a binary mask, unless confirmed by dataset documentation.",
           "severity": "minor"
         }
       ]
@@ -221,37 +577,42 @@
       "dandiset_id": "001366",
       "version": "0.250324.1603",
       "chat_id": "skip-explore",
-      "model": "openai/gpt-4.1",
-      "prompt": "h-2",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
       "issues": [
         {
-          "type": "unsupported_conclusion",
-          "description": "The notebook states that changes in mean pixel intensity over time can be used as a \"proxy for vessel area\" or \"proxy for vessel dynamics,\" which is likely inaccurate or misleading for the type of data shown. Mean pixel intensity does not reliably represent vessel diameter or area in most vessel imaging settings, where vessels are typically darker/lighter than background and changes arise from motion, photobleaching, or global illumination changes rather than true diameter changes. More robust vessel segmentation or edge-detection is required to estimate diameter/pulsatility.",
-          "severity": "major"
-        },
-        {
           "type": "plot_problem",
-          "description": "The plot labeled \"Mean Image Intensity Over Time (Proxy for Vessel Dynamics)\" could be misinterpreted as showing vessel dynamics, when in reality, mean intensity is affected by numerous factors unrelated to vessel diameter (e.g., movement artifacts, photobleaching). Additionally, without normalization or context, its interpretation is ambiguous for users unfamiliar with this type of data.",
+          "description": "The region of interest (ROI) used to compute the mean intensity over time in the temporal dynamics plot is not clearly specified or visualized, making it difficult to interpret exactly what part of the vessel or background is being analyzed.",
           "severity": "minor"
         },
         {
           "type": "plot_problem",
-          "description": "The images shown in the frame and mean projection plots do not have scale bars or annotated axes, which would be beneficial for biomedical interpretation (e.g., pixel size, spatial scale).",
+          "description": "The colorbars in the image frame visualizations may not be necessary since the data range and scaling are not discussed. This can be confusing if users are not familiar with the grayscale value interpretation.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The x- and y-axes in the frame visualizations are not labeled, so the user does not know what the axis values represent (e.g., pixel position).",
+          "severity": "minor"
+        },
+        {
+          "type": "unsupported_conclusion",
+          "description": "The notebook mentions the dataset enables \"comparison of different measurement approaches\" and \"Radon transform analysis\", but provides no code or analysis relevant to these techniques. This may be misleading about what the notebook demonstrates.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The background and context for the temporal intensity drop around 145 seconds in the mean intensity plot is not addressed. This could indicate an artifact or experimental event and should be commented on or flagged for further review.",
           "severity": "minor"
         },
         {
           "type": "cell_execution_error",
-          "description": "The NWB file is streamed using remfile and passed directly as an h5py.File object into pynwb.NWBHDF5IO, but according to pynwb documentation, NWBHDF5IO expects a file path or file-like object opened in binary mode. While this may work with this combination of libraries, there is risk of compatibility issues or confusion for new users if this interface changes. This pattern may not be robust across all environments.",
-          "severity": "minor"
+          "description": "The NWBHDF5IO is used with the 'file' argument set to an h5py.File, but NWBHDF5IO expects a file path or a file-like object. While it may work in this context with remfile and h5py, this usage is not standard and may cause reproducibility or compatibility issues in other environments. There is a risk of execution error depending on NWB/HDMF library versions.",
+          "severity": "major"
         },
         {
           "type": "plot_problem",
-          "description": "There is no explicit image normalization (e.g., rescaling or contrast adjustment) in the plotting code for the frames/mean image, which may result in plots that are too dark or lack contrast on some displays, as uint16 images cover a wide dynamic range.",
-          "severity": "minor"
-        },
-        {
-          "type": "unsupported_conclusion",
-          "description": "The summary and next steps section implies condition or age comparisons are available, but only one session/file is demonstrated, and it is not shown how to identify or compare multiple subjects/conditions/ages from the dataset programmatically.",
+          "description": "The visualization of movie frames accesses data by direct (potentially remote) indexing into movies.data, which may result in slow performance or errors if the backing storage is not optimized for random access.",
           "severity": "minor"
         }
       ]
@@ -260,27 +621,32 @@
       "dandiset_id": "001359",
       "version": "0.250401.1603",
       "chat_id": "skip-explore",
-      "model": "openai/gpt-4.1",
-      "prompt": "h-2",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
       "issues": [
         {
-          "type": "plot_problem",
-          "description": "The units for the plotted traces in the voltage clamp and current clamp sweep plots are not user-friendly: the current is displayed in amperes (A), and the voltage in volts (V), which is not typical for this data type (usually plotted in pA and mV, respectively). This may confuse users unfamiliar with the scale, and the traces may appear flat or uninterpretable due to small amplitudes in those units.",
+          "type": "cell_execution_error",
+          "description": "The NWBHDF5IO constructor is being called with 'file=h5_file', but according to the PyNWB API, the 'file' argument should be a file path or file-like object, and the use of h5py.File as the file argument is not supported directly. This could lead to an error or unexpected behavior in other environments.",
+          "severity": "major"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The h5py.File is being constructed from a remfile.File object, which may or may not behave like a standard file object compatible with all h5py and PyNWB versions. This could work in some environments and fail in others, so it's not fully robust nor explained.",
           "severity": "minor"
         },
         {
           "type": "plot_problem",
-          "description": "The x-axis of the voltage clamp and current clamp plots is zoomed to only 0.1s (`tmax=0.1`) without context or additional explanation. Depending on where the sweep is, this risks missing relevant events or confusing users who expect a full sweep view. The result can be a plot that does not meaningfully represent the data, especially as the absolute time axis values appear large and not starting at zero.",
+          "description": "The y-axis unit of the voltage-clamp plot is labeled as 'Current (amperes)' which is technically correct, but displayed currents in electrophysiology are often in picoamperes (pA), not the default 'amperes', which could be misleading due to the magnitude of the plotted values.",
           "severity": "minor"
         },
         {
           "type": "plot_problem",
-          "description": "The current clamp example plot shows very little change in the membrane voltage trace (appears almost flat at -60 V), and the stimulus waveform has little structure, suggesting either unit confusion, lack of actual stimulus, or a possibly uninformative sweep selection. This may mislead users about the nature of the data or make the plot uninformative.",
+          "description": "The histogram of epoch durations shows a highly skewed distribution with most epochs of very short duration, but no log-scale or axis adjustment is made to enable better visualization of the spread, limiting interpretability.",
           "severity": "minor"
         },
         {
-          "type": "unsupported_conclusion",
-          "description": "The text refers to \"Plot a current clamp sweep and its stimulus\" and labels the plot as \"voltage in blue, injected current in orange,\" but no explanation or verification is given that the plotted sweep is a truly informative example (e.g., contains spikes or interesting responses), and the plot shown is essentially flat. This does not represent the full potential of the data.",
+          "type": "plot_problem",
+          "description": "The spike raster uses symmetric y limits of [-1, 1] for line placement, although this is not problematic, a 1D raster (default MATLAB style) or tighter y-axis may improve interpretability.",
           "severity": "minor"
         }
       ]
@@ -289,18 +655,48 @@
       "dandiset_id": "001375",
       "version": "0.250406.1855",
       "chat_id": "skip-explore",
-      "model": "openai/gpt-4.1",
-      "prompt": "h-2",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
       "issues": [
         {
-          "type": "plot_problem",
-          "description": "The raster plot for spike times uses nwbfile.units.spike_times_index[i], but this is the spike time index (end index for the ith unit in the spike_times vector), not the spike times themselves. This will lead to incorrect plotting of spike rasters, potentially drawing nothing or a meaningless pattern.",
+          "type": "cell_execution_error",
+          "description": "The code cell intended to plot a raster of spike times uses nwb.units.spike_times_index, but this NWB property contains indices for spike times rather than the spike times themselves (which are usually in nwb.units[\"spike_times\"]). The actual code will likely either error or plot meaningless data.",
           "severity": "major"
         },
         {
           "type": "plot_problem",
-          "description": "The spike count histogram uses len(nwbfile.units.spike_times_index[i]) for spike counts per unit, but spike_times_index[i] is an integer index (not a list or array), so this gives the wrong spike counts for each unit; the code will likely error or produce incorrect results.",
+          "description": "The spike raster plot uses np.ones_like(spike_times[mask]) * unit_idx for y values, but spike_times_index does not contain spike times. This likely results in the plot being empty or incorrect unless the structure happens to be similar, which is not standard for NWB files. This will confuse users about neural activity.",
+          "severity": "critical"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "In the neural data visualization cell, the code assumes that nwb.acquisition['time_series'] is a valid key, but this may not always exist or may not conform to 'TimeSeries' expectations in NWB. If 'time_series' is not present, this cell will cause an error.",
           "severity": "major"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "In the neural data visualization cell, time_series.data[:n_samples, i] assumes 2D access over the data field, but if data is not stored as a 2D array or has a different structure (as is sometimes the case in NWB, especially if only a single channel or a time series per channel is present), this line will raise an exception. There is no check for the data shape.",
+          "severity": "major"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The code that opens the NWB file with pynwb.NWBHDF5IO(file=h5_file) is incorrect usage. NWBHDF5IO expects a file path or a file-like object with read() and seek() methods, and h5py.File is not directly compatible. This may cause an error or exception depending on package versions.",
+          "severity": "major"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The code uses remfile.File(url) for streaming, but does not specify mode='r' or check for compatibility of remfile with h5py, which could cause issues if underlying versions have changed or if the DANDI asset is not public or accessible. No error handling is present.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The y-axis offset for plotted voltage traces uses i*200 arbitrarily, which may not reflect the correct scaling needed for the data. If signal amplitudes are variable, traces could overlap or be too far apart, reducing plot clarity. There is no normalization or channel-appropriate offset scaling.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The histogram of trial durations does not handle or display outliers clearly (e.g., the long tail, possible extreme outlier at 160s), which may mislead users. It could be improved by using log scale or showing inset for zoom.",
+          "severity": "minor"
         }
       ]
     },
@@ -308,52 +704,32 @@
       "dandiset_id": "001174",
       "version": "0.250331.2218",
       "chat_id": "skip-explore",
-      "model": "openai/gpt-4.1",
-      "prompt": "h-2",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
       "issues": [
         {
+          "type": "cell_execution_error",
+          "description": "The code that opens the NWB file using pynwb.NWBHDF5IO(file=h5_file) is incorrect: NWBHDF5IO expects a file path or file-like object with a specific API, not an h5py.File object. This code may result in an error or unexpected behavior, preventing NWB file loading and all downstream analysis.",
+          "severity": "critical"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The code for reading remote NWB files assumes that remfile.File(url) is compatible with h5py.File and pynwb.NWBHDF5IO. Not all versions or server setups support this directly, and this combination may raise errors depending on the versions of remfile, h5py, and pynwb. No explicit version checking or error handling is provided.",
+          "severity": "major"
+        },
+        {
           "type": "plot_problem",
-          "description": "The labeling in the figure legend for ROI masks overlays only the first ROI (ROI 0); all others are unlabeled, which may cause confusion when visually inspecting overlays, especially if there are more than a few ROIs or when ROI 0 isn't representative.",
+          "description": "For larger NWB files, directly reading data such as nwb.acquisition['OnePhotonSeries'].data[frame_number] (or fluorescence.data[:1000]) may cause memory issues and/or slow performance, especially with remote files. No chunked loading, dask, or lazy evaluation is used or mentioned.",
           "severity": "minor"
         },
         {
           "type": "plot_problem",
-          "description": "In the fluorescence and event amplitude plots, offsetting by i*np.nanmax(fluor[:, :n_plot]) and i*np.nanmax(event_amp[:, :n_plot]) can lead to overlapping or excessive separation between traces if there are large differences in signal scale across ROIs, making the plots less interpretable, especially with more variable data.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The ROI 0 fluorescence trace appears consistently near zero, and event amplitude for ROI 0 and ROI 4 is shown as a flat line, suggesting these ROIs may be empty or artifactual, potentially misleading users about the quality of the data or segmentation. This is not mentioned or qualified in the text.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The scatter points used to visualize ROI masks are difficult to interpret as they do not outline the shapes of the ROIs, but rather highlight all mask pixels, which is visually cluttered and does not clearly convey spatial ROI contours.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The fluorescence and event amplitude traces are plotted for the \"first\" five ROIs (by index), but there is no check or note that these ROIs are representative or biologically meaningful\u2014many are flat or uninformative, reducing the value of the plots as illustrative examples.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The axis labels and tick locations are not fully controlled; for example, \"Fluorescence (offset for clarity)\" and \"Event Amplitude (offset for clarity)\" may be confusing as the units and scaling are unclear due to the arbitrary vertical offset, and this is not explained in the notebook text.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The ROI masks plot overlays red points for every mask pixel and includes only a single legend entry (ROI 0). This can result in cluttered legends and does not help user identify the different ROIs.",
+          "description": "ROI event amplitude plots may result in flat lines at zero for some ROIs. This could be a data property, but the notebook does not comment on or explain the presence of all-zero traces, which might confuse users.",
           "severity": "minor"
         },
         {
           "type": "cell_execution_error",
-          "description": "The call to read all fluorescence/event data using .data[:] and .data[:] will load all data into memory, which could cause memory issues for larger datasets or more ROIs, potentially making the notebook unusable on memory-constrained environments.",
-          "severity": "minor"
-        },
-        {
-          "type": "unsupported_conclusion",
-          "description": "The notebook assumes that the EventAmplitude and RoiResponseSeries are suitable for comparative analysis without any mention of data preprocessing, normalization, or noise removal, which are typically required for calcium imaging data.",
+          "description": "No explicit closing of the NWB IO object (io.close()) is done after reading the NWB file. This may cause file handle/resource leaks, especially in remote or non-local settings.",
           "severity": "minor"
         }
       ]
@@ -362,13 +738,18 @@
       "dandiset_id": "000690",
       "version": "0.250326.0015",
       "chat_id": "skip-explore",
-      "model": "openai/gpt-4.1",
-      "prompt": "h-2",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
       "issues": [
         {
           "type": "plot_problem",
-          "description": "The x-axis for the LFP trace plot is labeled as \"Time (s)\", but the values used are taken directly from `lfp_es.timestamps[:num_samples]`, which appear to be in seconds. However, the range of the x-axis extends to around 30000, which does not match the expected 2 seconds given a sampling rate of 625 Hz (should be approximately 0 to 2). This suggests either the wrong variable is being used for the x-axis, or there is a misinterpretation in how time/fancy indexing is being handled. This may confuse users regarding the true time scale of the plotted data.",
-          "severity": "major"
+          "description": "The LFP traces plot (Anaylzing LFP Data section) likely displays time in units of sample index rather than seconds because lfp.timestamps appears to be very large (values into the hundreds of thousands for \"time\"), much larger than the expected number of seconds for 10,000 samples at 625 Hz. This makes the X-axis labeling misleading.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The vertical offsets used for plotting LFP traces in the \"Analyzing LFP Data\" section (i*0.001) are hardcoded and may not be dynamically scaled to the amplitude of the data, potentially leading to overlapping traces or excessive gaps if the signal scale is different across datasets.",
+          "severity": "minor"
         }
       ]
     },
@@ -376,61 +757,81 @@
       "dandiset_id": "001195",
       "version": "0.250408.1733",
       "chat_id": "skip-explore",
-      "model": "openai/gpt-4.1",
-      "prompt": "h-2",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
       "issues": [
         {
           "type": "plot_problem",
-          "description": "The mean injected current values in Section 7 (\"Stimulus protocol: Current clamp steps across sweeps\") are displayed at extremely large values (~1e13 to 1e14 pA), which is many orders of magnitude above physiologically reasonable current clamp injection values (typically -200 to 1000 pA). This likely indicates incorrect units or a misinterpretation of the data field in the NWB file (e.g., units might not be A, or the 'conversion' factor or digitizer scaling may be missing).",
+          "description": "The y-axis units for the stimulus plot are extremely large (\"1e14\" pA), which is not physiologically plausible for current injection in an intracellular recording. This suggests either a unit conversion error, scaling problem, or reading of incorrect values from the file. This may cause users to misinterpret the data visualization.",
           "severity": "major"
         },
         {
           "type": "plot_problem",
-          "description": "The individual stimulus (current) waveforms in Section 7 are plotted at extremely large pA values (e.g., y-axis limits up to 2.5e14 pA), suggesting the same units/scaling issue as above. This may confuse readers and undermine the scientific integrity of the illustration.",
+          "description": "The current clamp response data are multiplied by `response_series.conversion * 1000`. It is not verified that this consistently yields units of mV for all NWB files of this dataset. Explicit checking of original units is good practice to avoid incorrect scaling, especially since similar issues occur for the stimulus series.",
+          "severity": "minor"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The h5py.File invocation with a remfile.File and its use with pynwb.NWBHDF5IO is unconventional and could cause compatibility or runtime errors depending on the environment and package versions. Proper usage is to stream via pynwb.NWBHDF5IO directly, or with fsspec support. This may break execution in some commonly used Python/NWB setups.",
           "severity": "major"
         },
         {
           "type": "plot_problem",
-          "description": "The y-axis label for stimulus plots in Section 5 is \"Stimulus (A)\", whereas the underlying current step values are likely meant to be interpreted in picoamperes (pA), not amperes (A). This mismatch could lead to confusion about the magnitude of the stimulation protocol.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The y-axis labels for response (membrane voltage) in Section 5 and Section 6 are \"Membrane voltage (V)\", but the displayed voltages are in the -0.08 to +0.04 V range (i.e., -80mV to +40mV), which is biologically plausible, but labeling as \"V\" may make it seem less accessible. Using \"mV\" would be more conventional for such data and match expected ranges.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The current step protocol plots in Section 7 show sharp, step-like transitions but the absolute values are far outside expected physiological ranges, reinforcing suspicions of a units/scaling bug. This could lead to significant misinterpretation by users unfamiliar with raw signal ranges or NWB file conventions.",
+          "description": "The notebook assumes hardcoded stimulus start and duration indices (`stim_start_idx=1000`, `stim_duration_idx=500`) for all sweeps without verifying these values are appropriate based on sweep metadata. If sweeps vary in length or timing, this may yield inaccurate or meaningless steady-state response calculations.",
           "severity": "major"
         },
         {
           "type": "cell_execution_error",
-          "description": "The code in Section 3 retrieves the download URL with `asset.download_url`, but as of recent DANDI API releases, the correct field is `asset.get_content_url(follow_redirects=1, strip_query=True)` or similar, and `download_url` may be deprecated or missing. The code may break for some users if the DANDI client version does not support `download_url` directly.",
+          "description": "The notebook assumes that acquisition keys and stimulus keys follow a strict naming pattern (e.g., `'current_clamp-response-{i:02d}-ch-0'`), but does not check for their existence, risking KeyError if files are missing or follow a different naming convention.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "There is no check or indication whether the number of sweeps in the file actually matches n_sweeps=10; if fewer sweeps are present, this will cause a cell execution error.",
           "severity": "minor"
         }
       ]
     },
     {
       "dandiset_id": "000617",
-      "version": "0.250311.1615",
+      "version": "0.250312.0130",
       "chat_id": "skip-explore",
-      "model": "openai/gpt-4.1",
-      "prompt": "h-2",
+      "model": "anthropic/claude-3.5-sonnet",
+      "prompt": "h-3",
       "issues": [
         {
-          "type": "plot_problem",
-          "description": "In the \"Distribution of ROI Widths and Heights\" plot, the histograms for 'width' and 'height' are overlaid without transparency, making it hard to distinguish the two distributions where they overlap. The use of color alone (without alpha blending) and absence of clear legends/labels can make the plot difficult to interpret, especially with small sample sizes.",
+          "type": "cell_execution_error",
+          "description": "The code for loading the NWB file with pynwb.NWBHDF5IO uses an h5py.File object, but NWBHDF5IO expects a file path, file object, or fsspec-compatible file, not an h5py.File. This may raise a TypeError or similar error in some environments.",
+          "severity": "major"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "The NWB I/O should be closed after reading (io.close()), but this is not done, which can lead to memory/resource leaks if running on multiple files.",
           "severity": "minor"
         },
         {
           "type": "plot_problem",
-          "description": "In the \"\u0394F/F Traces for All ROIs (first 120 seconds)\" plot, all traces are plotted together without offsets or separation, resulting in a visually cluttered plot that makes it difficult to discern activity of individual cells. This reduces interpretability, especially for users trying to distinguish patterns in individual traces.",
+          "description": "In the 'Stimulus Presentation Timeline' plot, plt.legend() is called after eventplot with line labels, but eventplot does not create legend handles, so the legend will not display items for the stimuli, leading to confusion.",
           "severity": "minor"
         },
         {
           "type": "plot_problem",
-          "description": "In the \"Detected Event Traces (first 1000 frames, 6 ROIs, vertically offset)\" plot, the first 1000 time points are plotted, but the x-axis starts at around 20s. This is likely because event_timestamps does not start at 0, which may confuse users expecting data from the session start. Adding further explanation, or truncating to exclude the time offset, would improve clarity.",
+          "description": "The offsets for the eventplot lines in the stimulus raster are not matched to the ytick labels ('Movie A' is offset 3, 'Movie B' is 2, 'Movie C' is 1), which is the opposite of the vertical order on most plots, potentially making interpretation less intuitive for users expecting A at the bottom and C at the top; documentation should clarify this or reordering is recommended.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "Calcium traces are plotted with fixed offset (i*2), but there is no check that scale across neurons is appropriate, which may cause overlap or misleading visualization if the traces vary in amplitude.",
+          "severity": "minor"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "If the NWB file does not contain 'ophys_motion_correction_x' or 'ophys_motion_correction_y' in the expected location, the motion correction cell will raise a KeyError. The notebook assumes these names and structures exist without validation.",
+          "severity": "major"
+        },
+        {
+          "type": "cell_execution_error",
+          "description": "Access to data via 'nwb.processing['running'].data_interfaces['speed']' and similar accesses (e.g., eye tracking acquisition) assumes a specific NWB file structure, which may not generalize or be robust to schema variations.",
           "severity": "minor"
         }
       ]

@@ -1,0 +1,37 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The region of interest (ROI) used to compute the mean intensity over time in the temporal dynamics plot is not clearly specified or visualized, making it difficult to interpret exactly what part of the vessel or background is being analyzed.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The colorbars in the image frame visualizations may not be necessary since the data range and scaling are not discussed. This can be confusing if users are not familiar with the grayscale value interpretation.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The x- and y-axes in the frame visualizations are not labeled, so the user does not know what the axis values represent (e.g., pixel position).</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The notebook mentions the dataset enables "comparison of different measurement approaches" and "Radon transform analysis", but provides no code or analysis relevant to these techniques. This may be misleading about what the notebook demonstrates.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The background and context for the temporal intensity drop around 145 seconds in the mean intensity plot is not addressed. This could indicate an artifact or experimental event and should be commented on or flagged for further review.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The NWBHDF5IO is used with the 'file' argument set to an h5py.File, but NWBHDF5IO expects a file path or a file-like object. While it may work in this context with remfile and h5py, this usage is not standard and may cause reproducibility or compatibility issues in other environments. There is a risk of execution error depending on NWB/HDMF library versions.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The visualization of movie frames accesses data by direct (potentially remote) indexing into movies.data, which may result in slow performance or errors if the backing storage is not optimized for random access.</description>
+<severity>minor</severity>
+</issue>
+</issues>

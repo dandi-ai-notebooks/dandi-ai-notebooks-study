@@ -1,0 +1,17 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The spike train visualization uses nwb.units.spike_times_index[unit_idx], which provides the index boundaries of the spike_times for the unit, but not the spike times themselves. This results in the plotted spike train showing potentially incorrect data that does not represent actual spike times.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>Y-axis label in the spike raster plot is simply 'Unit' and the y-range is 0.5–1.5 for a single unit; this is misleading since it is not a true raster (it shows all spikes for the first "good" unit on a single horizontal line rather than a conventional raster across trials or units).</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>No context manager is used for NWBHDF5IO, which can lead to file handle/resource leakage. The call to io.read() should ideally be used in a 'with' statement to ensure proper cleanup.</description>
+<severity>minor</severity>
+</issue>
+</issues>

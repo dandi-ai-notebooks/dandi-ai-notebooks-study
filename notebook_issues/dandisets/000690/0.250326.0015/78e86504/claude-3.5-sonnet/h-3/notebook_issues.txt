@@ -1,0 +1,12 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The spike count analysis cell uses `nwb.units.spike_times_index[i]` under the assumption that this object directly gives the spike times for the i-th unit. However, in NWB, `spike_times_index` is usually an index array, not the spike times themselves, so treating it as spike times is likely incorrect, leading to wrong spike counts or a misleading plot. The code should use `spike_times` and `spike_times_index` together to segment the full spike times array for each unit.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The "Aligning Spikes to Stimulus" cell also uses `nwb.units.spike_times_index[0]` as if it contains spike times, which is not correct for typical NWB structures. This will not retrieve the spikes' times, so the stimulus alignment analysis will fail or produce incorrect/empty results.</description>
+<severity>major</severity>
+</issue>
+</issues>

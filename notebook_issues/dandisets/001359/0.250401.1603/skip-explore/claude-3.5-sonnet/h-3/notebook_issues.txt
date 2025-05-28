@@ -1,0 +1,27 @@
+<issues>
+<issue>
+<type>cell_execution_error</type>
+<description>The NWBHDF5IO constructor is being called with 'file=h5_file', but according to the PyNWB API, the 'file' argument should be a file path or file-like object, and the use of h5py.File as the file argument is not supported directly. This could lead to an error or unexpected behavior in other environments.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The h5py.File is being constructed from a remfile.File object, which may or may not behave like a standard file object compatible with all h5py and PyNWB versions. This could work in some environments and fail in others, so it's not fully robust nor explained.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The y-axis unit of the voltage-clamp plot is labeled as 'Current (amperes)' which is technically correct, but displayed currents in electrophysiology are often in picoamperes (pA), not the default 'amperes', which could be misleading due to the magnitude of the plotted values.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The histogram of epoch durations shows a highly skewed distribution with most epochs of very short duration, but no log-scale or axis adjustment is made to enable better visualization of the spread, limiting interpretability.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The spike raster uses symmetric y limits of [-1, 1] for line placement, although this is not problematic, a 1D raster (default MATLAB style) or tighter y-axis may improve interpretability.</description>
+<severity>minor</severity>
+</issue>
+</issues>

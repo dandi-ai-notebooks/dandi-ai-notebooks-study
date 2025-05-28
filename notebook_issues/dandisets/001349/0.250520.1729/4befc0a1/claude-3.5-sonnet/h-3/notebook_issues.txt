@@ -1,0 +1,32 @@
+<issues>
+<issue>
+<type>cell_execution_error</type>
+<description>The NWB file is opened using a custom remfile.File object, which returns an object that is not a standard file path or binary file object. While some versions of h5py can handle file-like objects, compatibility may not be universal, possibly causing an error at "h5py.File(remote_file)". This may prevent the notebook from running in some user environments.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The NWB file is opened with pynwb.NWBHDF5IO(file=h5_file), but the recommended usage is to provide a file path or file-like object directly, and the use of h5_file (an h5py File object) as input may cause compatibility issues or errors in some environments, especially when streaming remotely.</description>
+<severity>major</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>Plots use similar colors for different cells, making them difficult to distinguish, especially when plotting multiple traces (e.g., 10 cells).</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>dF/F and calcium event plots lack a legend, which may make it difficult to identify which trace corresponds to which cell if the user wants to look up individual cells.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>No explicit closing of NWB file IO or context manager usage. Not using "with pynwb.NWBHDF5IO(...) as io:" could lead to open file handles and resource leaks, especially if many files are opened in a larger workflow.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>cell_execution_error</type>
+<description>The code assumes the existence of data_interfaces['Fluorescence'] and roi_response_series['dff_chn0'] and ['ca_events_chn0'] without checking if these keys are present, which could cause a KeyError if the file structure changes or if the names differ between datasets or over updates.</description>
+<severity>minor</severity>
+</issue>
+</issues>

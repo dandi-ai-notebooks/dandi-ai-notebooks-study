@@ -1,0 +1,12 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The x-axis of the LFP plot is labeled as "Time (s)", but the time vector appears to be showing sample indices, not seconds. This can lead to confusion regarding the timescale of the LFP traces.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The offset applied to each LFP channel for visualization (i*0.001) is arbitrary and not explained. The y-axis is labeled "Voltage (V)", but the offset may mislead readers regarding the amplitude of the signals.</description>
+<severity>minor</severity>
+</issue>
+</issues>

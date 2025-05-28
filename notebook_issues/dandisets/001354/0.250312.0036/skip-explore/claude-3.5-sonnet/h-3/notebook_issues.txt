@@ -1,0 +1,22 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The plotted units for membrane potential and current are given as Volts (V) and Amperes (A), respectively. This can be confusing given that most electrophysiological data conventionally present membrane potential in millivolts (mV) and current in picoamperes (pA) or nanoamperes (nA). The y-axis labels and values should be rescaled accordingly for improved interpretability.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>The time axis in the plots uses an array indexed by the data length and divided by response.rate, but it assumes a starting time of zero for every sweep. However, according to the later cell, each sweep may have a distinct starting time. This could result in misaligned representations if overlaying or comparing sweeps directly.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>plot_problem</type>
+<description>There are duplicated plot outputs in the plot cell. This may confuse users as to whether the same plot was created and displayed twice intentionally or accidentally.</description>
+<severity>minor</severity>
+</issue>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The "Data Organization" section prints the number of sequential recordings as 1 but does not explain what that means in this context or relate it back to the previously noted multiple sweeps/recordings; this could cause confusion regarding trial organization in the dataset.</description>
+<severity>minor</severity>
+</issue>
+</issues>
