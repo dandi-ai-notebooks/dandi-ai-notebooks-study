@@ -49,11 +49,6 @@ notebooks:
     chat_id: 78e86504e7a8d48d31764b0b585d8bd318a87695
     prompt: h-2
     model: openai/gpt-4.1
-  - dandiset_id: "000690"
-    dandiset_version: "0.250326.0015"
-    chat_id: d8bfae1f2edb4521deb0445376279f1aabe65355
-    prompt: h-2
-    model: openai/gpt-4.1
   - dandiset_id: "001195"
     dandiset_version: "0.250408.1733"
     chat_id: cd3c6c58c8e1bc62f2223e9eed98507c1c3f4d3e
