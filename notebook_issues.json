@@ -1,30 +1,78 @@
 {
   "results": [
     {
-      "dandiset_id": "001349",
-      "version": "0.250520.1729",
-      "chat_id": "90f7cc7c",
-      "model": "gpt-4.1",
+      "dandiset_id": "000690",
+      "version": "0.250326.0015",
+      "chat_id": "d8bfae1f2edb4521deb0445376279f1aabe65355",
+      "model": "openai/gpt-4.1",
       "prompt": "h-2",
-      "comparisons": [
+      "issues": [
         {
           "type": "plot_problem",
-          "description": "The spatial footprint (mask) plot for ROI 0 appears to be highly sparse, with the ROI located at the upper-right corner and much of the mask empty. This may indicate that either the inferred mask shape is too large or the pixel mask coordinates are not being mapped properly for visualization. This could confuse users or obscure the real extent/location of the ROI.",
-          "severity": "minor"
+          "description": "The LFP plot in Section 2 has a mislabeled x-axis: the units displayed are very large (in the tens or hundreds of thousands) and cannot represent seconds as labeled (\"Time (s)\"). It appears that either the `timestamp_segment` does not have seconds or the wrong array was used for the x-axis. This could confuse interpretation of the data.",
+          "severity": "major"
+        },
+        {
+          "type": "unsupported_conclusion",
+          "description": "In Section 3, the code comments and markdown instruct to use `units.spike_times_index[i]` and state \"do not use units.spike_times\". However, `spike_times_index` is an index into the concatenated `spike_times` array, not the times themselves. Proper extraction of spike times per unit requires slicing `units['spike_times']` appropriately using `spike_times_index` boundaries, not using `spike_times_index` as the spike times. As coded, the raster plot does not display true spike times and thus the plot and its conclusion are unreliable.",
+          "severity": "critical"
         },
         {
           "type": "plot_problem",
-          "description": "The mask plotting infers shape as (max(y)+1, max(x)+1), while typically ROI masks are overlaid on the parent image shape or full field of view. As a result, the mask visualization may not represent the actual ROI location relative to the field of view, and multiple ROIs plotted separately may appear inconsistent or have different reference frames.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The fluorescence and \u0394F/F traces are plotted for ROI 0 without verifying if ROI 0 actually has nontrivial data or providing summary statistics (such as label of number of ROIs, or if ROI 0 is typical). If ROI 0 is empty or low quality, users might misinterpret the trace and results.",
+          "description": "The spike raster plot (Section 3) shows a range of spike times that are quite limited and clustered, and y-axis ticks do not clearly denote which unit is which, making it less interpretable. This is partly a result of the data extraction error described above, but also the plotting could be more clearly labeled.",
           "severity": "minor"
         },
         {
           "type": "unsupported_conclusion",
-          "description": "The statement \"no behavioral or stimulus-related TimeSeries are present outside the ophys processing module\" is based on inspection, but no code is shown to demonstrate that inspection of `nwb.acquisition` or other processing modules actually occurs. This could be misleading if behavioral or stimulus timeseries exist in other modules/types.",
+          "description": "Section 3's observation \u2013 that the raster \"illustrates single-unit and multi-unit spiking dynamics\" \u2013 is not supported by the data as plotted since the spike times shown are not correct (because spike_times_index is misused).",
+          "severity": "major"
+        }
+      ]
+    },
+    {
+      "dandiset_id": "001195",
+      "version": "0.250408.1733",
+      "chat_id": "ae31fe05a7d09bd0797b31a0d7cae5a835a0959d",
+      "model": "openai/gpt-4.1",
+      "prompt": "h-2",
+      "issues": [
+        {
+          "type": "plot_problem",
+          "description": "In the current clamp sweep plot (Section 4), the y-axis for injected current shows values on the order of 1e-10 A, suggesting either an unexpectedly small current or potential unit mismatch with the stimulus conversion factor. Typically, patch clamp protocols use injected currents in the picoampere to nanoampere range (1e-12 to 1e-9 A). This may confuse users regarding the magnitude of stimulation applied.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "In the voltage clamp sweep plot (Section 5), the command voltage is essentially a flat line at zero, with y-axis range approximately -0.05 to 0.05 V. The lack of visible step or protocol structure may be a true feature of the protocol, but the plot's interpretability is limited: users may wonder if the sweep or stimulus was chosen appropriately, or if different stimulus/protocols should be plotted for clearer illustration.",
+          "severity": "minor"
+        },
+        {
+          "type": "unsupported_conclusion",
+          "description": "Section 5 Observation states \"In some voltage clamp protocols, the command waveform may be flat (no voltage step), depending on the experimental design.\" This interpretation is plausible but not cross-validated in the notebook\u2014without showing a contrasting example or explicitly noting that this protocol is designed to have a flat command, readers may be left uncertain if this is an error or intentional.",
+          "severity": "minor"
+        }
+      ]
+    },
+    {
+      "dandiset_id": "000617",
+      "version": "0.250311.1615",
+      "chat_id": "ca0caac9e3959f2601d73837a00ffb76968f780a",
+      "model": "openai/gpt-4.1",
+      "prompt": "h-2",
+      "issues": [
+        {
+          "type": "plot_problem",
+          "description": "The \u0394F/F (dff) traces plotted in section 2 for the first 10 cells display highly sparse and spiky activity, which may be expected for calcium imaging but the magnitude of the peaks (up to 5) seems unusually high and baseline values appear close to zero or slightly negative. There is no check for NaNs or extremely sparse traces, and no baseline adjustment/normalization is described, which may make the example less informative for a new user.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The running speed plot (section 4) includes negative values, which is possible for bidirectional wheel data but is neither described nor justified in the text. For unidirectional running, negative speed may not make sense, and clarification is needed. A naive user could misinterpret the meaning or quality of the speed data.",
+          "severity": "minor"
+        },
+        {
+          "type": "plot_problem",
+          "description": "The overlay of ROI masks on the average image (section 3) may obscure underlying cell structures due to the fixed transparency (alpha=0.5 for both gray and color overlays). For denser or overlapping masks, this could result in low contrast or misleading visualization. Adjusting the overlay method or adding ROI outlines could improve interpretability.",
           "severity": "minor"
         }
       ]
@@ -33,9 +81,9 @@
       "dandiset_id": "001349",
       "version": "0.250520.1729",
       "chat_id": "skip-explore",
-      "model": "gpt-4.1",
+      "model": "openai/gpt-4.1",
       "prompt": "h-2",
-      "comparisons": [
+      "issues": [
         {
           "type": "plot_problem",
           "description": "The plot in Section 5 (\"Spatial distribution of segmented ROIs (cells)\") is blank; the axes span only a tiny range (likely [0, 0] for both axes), showing no ROI pixel coordinates. This suggests that the ROI pixel_mask coordinate data is either empty or not processed correctly for plotting.",
@@ -51,49 +99,10 @@
     {
       "dandiset_id": "001354",
       "version": "0.250312.0036",
-      "chat_id": "4fba179c",
-      "model": "gpt-4.1",
-      "prompt": "h-2",
-      "comparisons": [
-        {
-          "type": "plot_problem",
-          "description": "The units for the voltage trace in the plot are shown as \"V\" (Volts) on the y-axis, but intracellular electrophysiology is almost always displayed in millivolts (mV) for interpretability. Plotting in volts makes the values appear small and may confuse users, especially in the context of neuroscience.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The injected current trace is shown in nanoamperes (nA), but the code multiplies by 1e9, which is only appropriate if the units stored in NWB are in amperes. If the .conversion or .data already return nA, this could make the actual plotted values incorrect (e.g., too large by repeatedly applying the scale). This should be clarified to avoid misinterpretation or erroneous scaling.",
-          "severity": "minor"
-        },
-        {
-          "type": "unsupported_conclusion",
-          "description": "The interpretation section draws explicit conclusions about action potentials and subthreshold activity in the neuron. However, because voltage is plotted in volts and its scale is not converted to a standard neurophysiological unit (mV), it may be unclear (without inspection in mV and review of the axis scale) whether the spiking truly represents action potentials or if the scale is misrepresented.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The plot overlays two signals with very different y-axis scales (voltage in volts, current in nA), which can confuse interpretation. While dual y-axes are commonly used, clearer labeling and appropriate tick marks or a more neurophysiologically standard presentation (mV, pA) would improve readability.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "No legend is included in the plot, making it harder to visually identify which line corresponds to voltage or current without examining the axis labels in detail. This is a best-practice issue for clarity.",
-          "severity": "minor"
-        },
-        {
-          "type": "cell_execution_error",
-          "description": "The NWB subject printout uses vars(nwbfile.subject), which in practice may produce a verbose and non-informative output that includes non-user-facing internal NWB structures. For concise metadata reporting, subject-specific attributes (age, species, genotype, etc.) should be extracted directly if present. Also, if nwbfile.subject is None, this will raise an error.",
-          "severity": "minor"
-        }
-      ]
-    },
-    {
-      "dandiset_id": "001354",
-      "version": "0.250312.0036",
       "chat_id": "skip-explore",
-      "model": "gpt-4.1",
+      "model": "openai/gpt-4.1",
       "prompt": "h-2",
-      "comparisons": [
+      "issues": [
         {
           "type": "plot_problem",
           "description": "The time axis in the multi-trial plot (Section 5) appears to increase for each subsequent trial, implying concatenated rather than trial-aligned time bases. This results in misleading visualizations, since each trial generally starts at t=0 but the plots show progressively increasing x-axes. This may make it difficult to compare trials directly and could confuse interpretation.",
@@ -105,9 +114,9 @@
       "dandiset_id": "001433",
       "version": "0.250507.2356",
       "chat_id": "skip-explore",
-      "model": "gpt-4.1",
+      "model": "openai/gpt-4.1",
       "prompt": "h-2",
-      "comparisons": [
+      "issues": [
         {
           "type": "plot_problem",
           "description": "The Y-axis label for the sniff signal plots indicates \"Thermistor (V)\", but the plotted values reach extremely large and negative values (down to -10,000), which is unusual for voltages from a thermistor. This may confuse users about the physical units or data preprocessing, and could indicate a metadata or scaling issue.",
@@ -136,85 +145,12 @@
       ]
     },
     {
-      "dandiset_id": "001433",
-      "version": "0.250507.2356",
-      "chat_id": "daf6f524",
-      "model": "gpt-4.1",
-      "prompt": "h-2",
-      "comparisons": [
-        {
-          "type": "plot_problem",
-          "description": "The y-axis label for both the LFP and sniffing plots uses \"Voltage (V)\", but the values shown (e.g., in the sniff signal) are several thousand units, which suggests the data might not be in volts but in microvolts or another unit. This could mislead users regarding the scale of the data.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The sniff signal plot (section 3 and 4) shows discontinuities or artifacts (e.g., sharp jumps or flatlines) that likely reflect recording issues, missing data, or artifacts. While not a notebook bug, this should be highlighted in the notebook to prevent misinterpretation by users.",
-          "severity": "minor"
-        },
-        {
-          "type": "unsupported_conclusion",
-          "description": "In step 4, the notebook assumes event times (inhalation/exhalation) are in milliseconds and performs a conversion to seconds. However, the time format should be confirmed directly from the NWB metadata (TimeSeries 'timestamps' unit), since not all NWB files guarantee milliseconds by convention. Making assumptions here could cause errors for users if the data changes.",
-          "severity": "minor"
-        },
-        {
-          "type": "unsupported_conclusion",
-          "description": "The summary claims \"This structure is typical for all files in this Dandiset,\" but this generalization may not be valid unless programmatically confirmed (not shown in the notebook). Users should be cautioned that file structure could differ across sessions or future versions.",
-          "severity": "minor"
-        }
-      ]
-    },
-    {
-      "dandiset_id": "000563",
-      "version": "0.250311.2145",
-      "chat_id": "75ecdb7b",
-      "model": "gpt-4.1",
-      "prompt": "h-2",
-      "comparisons": [
-        {
-          "type": "plot_problem",
-          "description": "The spike raster plot code uses `units.spike_times_index[i]`, which does not return spike times. In PyNWB, `units.spike_times_index[i]` gives the index in the flat spike times array where the spikes for unit i end, not the spike times themselves. The actual spike times should be extracted from the underlying `spike_times` vector using the indices. As written, the code will not display the correct spike raster, resulting in a misleading or empty plot if the arrays are not as expected.",
-          "severity": "major"
-        },
-        {
-          "type": "plot_problem",
-          "description": "In section 5, pupil area is plotted for \"the first 30 seconds of recording,\" but the x-axis time does not start at 0. Instead, it uses the first available timestamp, which may be much greater than zero. The markdown text should clarify that the window is the first 30 seconds of available eye tracking data, not the session.",
-          "severity": "minor"
-        },
-        {
-          "type": "unsupported_conclusion",
-          "description": "In the summary table for unit quality metrics, the statistical summary for \"isolation_distance\" shows extremely large and potentially invalid values (e.g. max in trillions). This result likely reflects a data quality or metadata issue. The notebook does not address or warn about this, and presenting these statistics without comment may be misleading.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The LFP data plot multiplies the signal by 1e3, assuming a conversion from V to mV, but it is not verified from metadata that the units are volts; some NWB files provide data already in microvolts or millivolts. This assumption may lead to incorrect scaling on the plot. The code should check or clarify the physical units.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The stimulus event raster extracts timestamps from `processing['stimulus'].data_interfaces['timestamps'].data[:]`. Stimulus timing can vary by session/dataset and may not always be stored in this manner/layout in all NWB or DANDI datasets. The code assumes a specific structure and does not check or explain alternatives. This may confuse users if the structure differs.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The raster plot for spikes lacks unit labels or IDs on the y-axis (just numbers 1 to 10). This makes it more difficult to interpret which specific units are being plotted and to cross-reference with metadata like firing rate or quality.",
-          "severity": "minor"
-        },
-        {
-          "type": "cell_execution_error",
-          "description": "Remote file handles opened with RemFile and NWBHDF5IO in previous cells are not explicitly closed after reading. While not strictly an execution-blocking error, this can lead to resource warnings, especially when accessing multiple files in production scripts.",
-          "severity": "minor"
-        }
-      ]
-    },
-    {
       "dandiset_id": "000563",
       "version": "0.250311.2145",
       "chat_id": "skip-explore",
-      "model": "gpt-4.1",
+      "model": "openai/gpt-4.1",
       "prompt": "h-2",
-      "comparisons": [
+      "issues": [
         {
           "type": "plot_problem",
           "description": "The x-axis on the LFP plot is labeled \"Time (s)\", but the tick values appear to go up to ~14000, which suggests that the variable used is sample index or not properly converted to seconds. This could confuse users interpreting the plot's timescale.",
@@ -250,34 +186,10 @@
     {
       "dandiset_id": "001361",
       "version": "0.250406.0045",
-      "chat_id": "5c7338bf",
-      "model": "gpt-4.1",
-      "prompt": "h-2",
-      "comparisons": [
-        {
-          "type": "code_efficiency",
-          "description": "Redundant import: The cell for segmentation masks starts with 'from dandi.dandiapi import DandiAPIClient' even though DandiAPIClient is not actually used in the code block.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The y-axis labels on the deconvolved activity traces plot (\"Deconvolved Activity Traces for 10 Example Cells\") are removed (empty) for 'clarity', but this may make it unclear to some users which trace corresponds to which neuron, especially as lines overlap due to high event density. Using offset values or line labels alongside the plot would help guide interpretation.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The mouse position plot includes large negative values at the session start, potentially reflecting artifacts or setup values. Not filtering these or at least optionally excluding them in the demonstration code might be confusing or misleading to some users and might obscure the main features of the behavioral data.",
-          "severity": "minor"
-        }
-      ]
-    },
-    {
-      "dandiset_id": "001361",
-      "version": "0.250406.0045",
       "chat_id": "skip-explore",
-      "model": "gpt-4.1",
+      "model": "openai/gpt-4.1",
       "prompt": "h-2",
-      "comparisons": [
+      "issues": [
         {
           "type": "plot_problem",
           "description": "The y-axis label for the \"Lick Count\" subplot in the behavioral visualization is misleading. The plotted data appears to be raw lick signal per frame, but the label implies it is a cumulative lick count.",
@@ -308,39 +220,10 @@
     {
       "dandiset_id": "001366",
       "version": "0.250324.1603",
-      "chat_id": "cbe62122",
-      "model": "gpt-4.1",
-      "prompt": "h-2",
-      "comparisons": [
-        {
-          "type": "plot_problem",
-          "description": "The FWHM-based vessel diameter extraction (Section 6) does not account for pixel size or physical calibration, so the reported diameter is in pixels without a physical unit. It may be misleading for users expecting micrometers or another real-world unit.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The variable naming (`frame0`, `frame`, `frames`) may cause confusion because in some cases it is re-used for different images/frames, reducing code clarity and possibly leading a reader to plot or analyze the wrong frame.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "There is no check to ensure that the row selected for diameter measurement actually passes through the vessel of interest; if the vessel is not centered or highly angled, the measurement could be inaccurate or meaningless.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The color contrast in some plots (especially in the FWHM extraction) may be suboptimal for color vision deficiencies, such as using orange on blue and red. This could affect accessibility.",
-          "severity": "minor"
-        }
-      ]
-    },
-    {
-      "dandiset_id": "001366",
-      "version": "0.250324.1603",
       "chat_id": "skip-explore",
-      "model": "gpt-4.1",
+      "model": "openai/gpt-4.1",
       "prompt": "h-2",
-      "comparisons": [
+      "issues": [
         {
           "type": "unsupported_conclusion",
           "description": "The notebook states that changes in mean pixel intensity over time can be used as a \"proxy for vessel area\" or \"proxy for vessel dynamics,\" which is likely inaccurate or misleading for the type of data shown. Mean pixel intensity does not reliably represent vessel diameter or area in most vessel imaging settings, where vessels are typically darker/lighter than background and changes arise from motion, photobleaching, or global illumination changes rather than true diameter changes. More robust vessel segmentation or edge-detection is required to estimate diameter/pulsatility.",
@@ -376,39 +259,10 @@
     {
       "dandiset_id": "001359",
       "version": "0.250401.1603",
-      "chat_id": "28668318",
-      "model": "gpt-4.1",
-      "prompt": "h-2",
-      "comparisons": [
-        {
-          "type": "plot_problem",
-          "description": "The spike times are plotted with an ad-hoc +0.25s offset (\"spike_times_rel = spike_ts.data[:] + 0.25\") for alignment with trace data, but this shift is not properly justified or explained in the text. This introduces potential confusion or misinterpretation regarding true spike timing and alignment.",
-          "severity": "major"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The y-axis label for the spike visualization plot (Section 5) is \"volts\", but the acquisition trace is often current or voltage depending on clamp configuration. The unit is taken directly from \"acq.unit\", but the key used refers to \"AD0\" which can be either VoltageClampSeries (current, usually \"amperes\") or CurrentClampSeries (\"volts\"). This may mislead or confuse users about the signal type in the plot.",
-          "severity": "minor"
-        },
-        {
-          "type": "minor_incorrect_code",
-          "description": "Section 5 uses a simplistic method to map spike interface names (e.g., \"Sweep_19\") to acquisition series names by extracting digits and assuming a one-to-one correspondence with data_XXXXX_AD0. This may not always be correct if the sweep numbering/naming or sweep_table mappings are more complex (e.g., multiple series per sweep, nonmatching indices).",
-          "severity": "minor"
-        },
-        {
-          "type": "unsupported_conclusion",
-          "description": "The claim that \"Sweep metadata provide robust data management and cross-referencing for larger analyses\" may overstate the robustness given the simplistic mapping and potential ambiguities demonstrated in the spike/acquisition series analysis. The limitations (such as possible ambiguities with mapping sweep numbers/names) are not clearly acknowledged.",
-          "severity": "minor"
-        }
-      ]
-    },
-    {
-      "dandiset_id": "001359",
-      "version": "0.250401.1603",
       "chat_id": "skip-explore",
-      "model": "gpt-4.1",
+      "model": "openai/gpt-4.1",
       "prompt": "h-2",
-      "comparisons": [
+      "issues": [
         {
           "type": "plot_problem",
           "description": "The units for the plotted traces in the voltage clamp and current clamp sweep plots are not user-friendly: the current is displayed in amperes (A), and the voltage in volts (V), which is not typical for this data type (usually plotted in pA and mV, respectively). This may confuse users unfamiliar with the scale, and the traces may appear flat or uninterpretable due to small amplitudes in those units.",
@@ -434,24 +288,10 @@
     {
       "dandiset_id": "001375",
       "version": "0.250406.1855",
-      "chat_id": "5fe912e3",
-      "model": "gpt-4.1",
-      "prompt": "h-2",
-      "comparisons": [
-        {
-          "type": "plot_problem",
-          "description": "The spike raster plot is produced using nwb.units.spike_times_index[i], which is incorrect. This returns indices into the spike_times array, not the actual spike times. The correct access is nwb.units['spike_times'][i] for each unit i, or nwb.units.spike_times[i]. The current plot may show meaningless values on the time axis.",
-          "severity": "major"
-        }
-      ]
-    },
-    {
-      "dandiset_id": "001375",
-      "version": "0.250406.1855",
       "chat_id": "skip-explore",
-      "model": "gpt-4.1",
+      "model": "openai/gpt-4.1",
       "prompt": "h-2",
-      "comparisons": [
+      "issues": [
         {
           "type": "plot_problem",
           "description": "The raster plot for spike times uses nwbfile.units.spike_times_index[i], but this is the spike time index (end index for the ith unit in the spike_times vector), not the spike times themselves. This will lead to incorrect plotting of spike rasters, potentially drawing nothing or a meaningless pattern.",
@@ -467,24 +307,10 @@
     {
       "dandiset_id": "001174",
       "version": "0.250331.2218",
-      "chat_id": "8b5d2333",
-      "model": "gpt-4.1",
-      "prompt": "h-2",
-      "comparisons": [
-        {
-          "type": "plot_problem",
-          "description": "Section 3.3 (\"Fluorescence Trace Example: First ROI, First 5 Timepoints\") outputs all zeros for the first 5 points in ROI 0, suggesting that initial transient data is missing, incorrectly aligned, or the ROI does not contain signal at the start. This could confuse users, as it may suggest a data issue or improper slicing.",
-          "severity": "minor"
-        }
-      ]
-    },
-    {
-      "dandiset_id": "001174",
-      "version": "0.250331.2218",
       "chat_id": "skip-explore",
-      "model": "gpt-4.1",
+      "model": "openai/gpt-4.1",
       "prompt": "h-2",
-      "comparisons": [
+      "issues": [
         {
           "type": "plot_problem",
           "description": "The labeling in the figure legend for ROI masks overlays only the first ROI (ROI 0); all others are unlabeled, which may cause confusion when visually inspecting overlays, especially if there are more than a few ROIs or when ROI 0 isn't representative.",
@@ -535,39 +361,10 @@
     {
       "dandiset_id": "000690",
       "version": "0.250326.0015",
-      "chat_id": "d8bfae1f",
-      "model": "gpt-4.1",
-      "prompt": "h-2",
-      "comparisons": [
-        {
-          "type": "plot_problem",
-          "description": "The LFP plot in Section 2 has a mislabeled x-axis: the units displayed are very large (in the tens or hundreds of thousands) and cannot represent seconds as labeled (\"Time (s)\"). It appears that either the `timestamp_segment` does not have seconds or the wrong array was used for the x-axis. This could confuse interpretation of the data.",
-          "severity": "major"
-        },
-        {
-          "type": "unsupported_conclusion",
-          "description": "In Section 3, the code comments and markdown instruct to use `units.spike_times_index[i]` and state \"do not use units.spike_times\". However, `spike_times_index` is an index into the concatenated `spike_times` array, not the times themselves. Proper extraction of spike times per unit requires slicing `units['spike_times']` appropriately using `spike_times_index` boundaries, not using `spike_times_index` as the spike times. As coded, the raster plot does not display true spike times and thus the plot and its conclusion are unreliable.",
-          "severity": "critical"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The spike raster plot (Section 3) shows a range of spike times that are quite limited and clustered, and y-axis ticks do not clearly denote which unit is which, making it less interpretable. This is partly a result of the data extraction error described above, but also the plotting could be more clearly labeled.",
-          "severity": "minor"
-        },
-        {
-          "type": "unsupported_conclusion",
-          "description": "Section 3's observation \u2013 that the raster \"illustrates single-unit and multi-unit spiking dynamics\" \u2013 is not supported by the data as plotted since the spike times shown are not correct (because spike_times_index is misused).",
-          "severity": "major"
-        }
-      ]
-    },
-    {
-      "dandiset_id": "000690",
-      "version": "0.250326.0015",
       "chat_id": "skip-explore",
-      "model": "gpt-4.1",
+      "model": "openai/gpt-4.1",
       "prompt": "h-2",
-      "comparisons": [
+      "issues": [
         {
           "type": "plot_problem",
           "description": "The x-axis for the LFP trace plot is labeled as \"Time (s)\", but the values used are taken directly from `lfp_es.timestamps[:num_samples]`, which appear to be in seconds. However, the range of the x-axis extends to around 30000, which does not match the expected 2 seconds given a sampling rate of 625 Hz (should be approximately 0 to 2). This suggests either the wrong variable is being used for the x-axis, or there is a misinterpretation in how time/fancy indexing is being handled. This may confuse users regarding the true time scale of the plotted data.",
@@ -578,34 +375,10 @@
     {
       "dandiset_id": "001195",
       "version": "0.250408.1733",
-      "chat_id": "ae31fe05",
-      "model": "gpt-4.1",
-      "prompt": "h-2",
-      "comparisons": [
-        {
-          "type": "plot_problem",
-          "description": "In the current clamp sweep plot (Section 4), the y-axis for injected current shows values on the order of 1e-10 A, suggesting either an unexpectedly small current or potential unit mismatch with the stimulus conversion factor. Typically, patch clamp protocols use injected currents in the picoampere to nanoampere range (1e-12 to 1e-9 A). This may confuse users regarding the magnitude of stimulation applied.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "In the voltage clamp sweep plot (Section 5), the command voltage is essentially a flat line at zero, with y-axis range approximately -0.05 to 0.05 V. The lack of visible step or protocol structure may be a true feature of the protocol, but the plot's interpretability is limited: users may wonder if the sweep or stimulus was chosen appropriately, or if different stimulus/protocols should be plotted for clearer illustration.",
-          "severity": "minor"
-        },
-        {
-          "type": "unsupported_conclusion",
-          "description": "Section 5 Observation states \"In some voltage clamp protocols, the command waveform may be flat (no voltage step), depending on the experimental design.\" This interpretation is plausible but not cross-validated in the notebook\u2014without showing a contrasting example or explicitly noting that this protocol is designed to have a flat command, readers may be left uncertain if this is an error or intentional.",
-          "severity": "minor"
-        }
-      ]
-    },
-    {
-      "dandiset_id": "001195",
-      "version": "0.250408.1733",
       "chat_id": "skip-explore",
-      "model": "gpt-4.1",
+      "model": "openai/gpt-4.1",
       "prompt": "h-2",
-      "comparisons": [
+      "issues": [
         {
           "type": "plot_problem",
           "description": "The mean injected current values in Section 7 (\"Stimulus protocol: Current clamp steps across sweeps\") are displayed at extremely large values (~1e13 to 1e14 pA), which is many orders of magnitude above physiologically reasonable current clamp injection values (typically -200 to 1000 pA). This likely indicates incorrect units or a misinterpretation of the data field in the NWB file (e.g., units might not be A, or the 'conversion' factor or digitizer scaling may be missing).",
@@ -641,34 +414,10 @@
     {
       "dandiset_id": "000617",
       "version": "0.250311.1615",
-      "chat_id": "ca0caac9",
-      "model": "gpt-4.1",
-      "prompt": "h-2",
-      "comparisons": [
-        {
-          "type": "plot_problem",
-          "description": "The \u0394F/F (dff) traces plotted in section 2 for the first 10 cells display highly sparse and spiky activity, which may be expected for calcium imaging but the magnitude of the peaks (up to 5) seems unusually high and baseline values appear close to zero or slightly negative. There is no check for NaNs or extremely sparse traces, and no baseline adjustment/normalization is described, which may make the example less informative for a new user.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The running speed plot (section 4) includes negative values, which is possible for bidirectional wheel data but is neither described nor justified in the text. For unidirectional running, negative speed may not make sense, and clarification is needed. A naive user could misinterpret the meaning or quality of the speed data.",
-          "severity": "minor"
-        },
-        {
-          "type": "plot_problem",
-          "description": "The overlay of ROI masks on the average image (section 3) may obscure underlying cell structures due to the fixed transparency (alpha=0.5 for both gray and color overlays). For denser or overlapping masks, this could result in low contrast or misleading visualization. Adjusting the overlay method or adding ROI outlines could improve interpretability.",
-          "severity": "minor"
-        }
-      ]
-    },
-    {
-      "dandiset_id": "000617",
-      "version": "0.250311.1615",
       "chat_id": "skip-explore",
-      "model": "gpt-4.1",
+      "model": "openai/gpt-4.1",
       "prompt": "h-2",
-      "comparisons": [
+      "issues": [
         {
           "type": "plot_problem",
           "description": "In the \"Distribution of ROI Widths and Heights\" plot, the histograms for 'width' and 'height' are overlaid without transparency, making it hard to distinguish the two distributions where they overlap. The use of color alone (without alpha blending) and absence of clear legends/labels can make the plot difficult to interpret, especially with small sample sizes.",

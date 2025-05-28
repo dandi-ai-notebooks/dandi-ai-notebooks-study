@@ -1,0 +1,125 @@
+<comparison>
+<question>1</question>
+<question_shortened>Understanding purpose and content of the Dandiset</question_shortened>
+<rationale>
+Both notebooks introduce Dandiset 001361, giving the title, experimental focus, and core methods (calcium imaging in CA1, virtual navigation with shifting reward locations). Notebook 1 offers a detailed bullet-point list of data types and describes the experiment and NWB ecosystem, while Notebook 2 gives an explicit summary section ("Getting Started: Dandiset Summary") with counts of subjects, sessions, and files, which provides very practical orientation. Overall, both are effective, but Notebook 2’s explicit summary of dataset scope (11 mice, 152 files, size) provides a slightly clearer bird's eye view up front.
+</rationale>
+<preference>2</preference>
+</comparison>
+
+<comparison>
+<question>2</question>
+<question_shortened>Confidence accessing different types of data</question_shortened>
+<rationale>
+Both notebooks show how to use the DANDI API to list and access data files, stream NWB files remotely, and select files for a specific subject/session. Notebook 1 gives slightly more attention to asset selection for a single subject and a clearer printed asset path list. Notebook 2 gives overall Dandiset statistics and shows file size info in a DataFrame, which is helpful for assessing download/streaming feasibility. However, both demonstrate equivalent methods for opening and streaming NWB data. Slight edge to Notebook 2 for presenting overall file organization and selection in table form, but this is a minor difference.
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>3</question>
+<question_shortened>Understanding NWB file structure and usage</question_shortened>
+<rationale>
+Notebook 1 systematically explores NWB file structure: session/subject metadata, acquisition and processing module listing, and detailed navigation of behavioral and ophys modules. It explicitly prints out available acquisition/processing modules, guides the user through behavioral data extraction, and explicitly lists the structure and sources for fluorescence/segmentation/metadata. Notebook 2 summarizes modalities and shows example code, but the sense of the internal structure (modules, hierarchy, keys) is more thoroughly covered in Notebook 1. Thus, Notebook 1 better demystifies and documents the NWB file organization for new users.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>4</question>
+<question_shortened>Visualizations helping with data understanding</question_shortened>
+<rationale>
+Both notebooks create helpful summary plots of behavioral variables and imaging data. Notebook 1 creates a comprehensive 4-panel behavioral plot, summary histograms, and multi-cell activity snapshots; it also visualizes both the mean and max projection Suite2p images together. Notebook 2 provides more panels (5-panel behavioral stack, plus a summary table) and visualizes three putative cells’ traces alongside a population mean. Both are strong, but Notebook 1’s behavioral panel explicitly marks reward events (vertical lines), clarifying the relationship between rewards and behavior, while Notebook 2 better integrates deconvolved and raw traces. Neither has poor/unclear visualizations; overall, differences are minor, but for direct behavioral alignment, Notebook 1 is slightly stronger.
+</rationale>
+<preference>1</preference>
+</comparison>
+
+<comparison>
+<question>5</question>
+<question_shortened>Visualizations making data harder to understand</question_shortened>
+<rationale>
+Both notebooks use clear, labeled axes and legends, with well-chosen colors and concise titles. All displayed panels are interpretable. Notebook 1’s behavioral plot is visually dense but well-labeled, and Notebook 2’s behavioral stack could be considered slightly busy, yet both are clear and not misleading. No misleading, poorly formatted, or confusing plots are present in either. Hence, no meaningful difference for this criterion.
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>6</question>
+<question_shortened>Confidence creating your own visualizations</question_shortened>
+<rationale>
+Both notebooks provide clear, modular code for extracting signals from the NWB structure and creating visualizations. Notebook 1 offers examples of extracting various data arrays and plotting with customization (offset traces, histograms, matplotlib options). Notebook 2 also walks through extraction and plotting, with a focus on step-by-step axes and population means. The amount of practical, reusable code is about the same; both empower the user to build their own visualizations with the tools and examples shown.
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>7</question>
+<question_shortened>Visualizations showing structure/complexity of data</question_shortened>
+<rationale>
+Notebook 1 shows the array shapes, cell counts, and segmentation statistics, as well as population activity for randomly chosen cells. Notebook 2 presents both individual and mean fluorescence traces alongside trial/behavioral structure and summary statistics for behavioral variables. Both successfully communicate data dimensionality, the variety of behavioral and neural streams, and the presence of hundreds of cells per session. Neither gives a comprehensive population heatmap or broader statistics, but each conveys data complexity within the scope. This is again about equal.
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>8</question>
+<question_shortened>Clarity/support for interpretations or conclusions</question_shortened>
+<rationale>
+Both notebooks provide minimal interpretation beyond descriptive statements. Notebook 1 notes relationships between events and traces ("Observe licking and speeds relative to rewards..."), and Notebook 2 gives similar guidance ("Position and trial number show... lap-based... behavior."). Neither notebook asserts unsupported conclusions or overinterprets; both keep narrative tied to visuals and data. So, both are adequate and comparable on this front.
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>9</question>
+<question_shortened>Plots/examples feeling repetitive or redundant</question_shortened>
+<rationale>
+Neither notebook generates redundant or repetitive plots. Each visualization shows a distinct signal or modality, and code for one type (e.g., behavioral summary, fluorescence traces) leads logically to the next step (ROI stats, segmentation). Some similar panels exist across notebooks due to shared aim, but not within either. Hence, neither is guilty of unnecessary repetition.
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>10</question>
+<question_shortened>Help with what analyses/questions to attempt next</question_shortened>
+<rationale>
+Notebook 1 explicitly lists ideas for next steps ("exploring...hippocampal population codes...", "linking cell activity to behavior or position", "event-triggered averaging", etc.), and points users to the published analysis code. Notebook 2 provides an explicit "How to Go Further" section with practical advice and specific suggestions (repeat for other animals, align to events, use segmentation masks, see public code). Both are strong, but Notebook 2 presents the information in a more accessible, actionable checklist form for new users.
+</rationale>
+<preference>2</preference>
+</comparison>
+
+<comparison>
+<question>11</question>
+<question_shortened>Clarity and ease of following the notebook</question_shortened>
+<rationale>
+Both notebooks are well-structured, moving logically from dataset overview to data access, file inspection, visual summaries, and next steps. Notebook 2 uses more headings, clear code-comment separations, explicit sectioning, and regular summaries in markdown between code blocks. Its code output tables (e.g., file list, behavioral statistics) make results especially readable. Notebook 1 is clear as well, but is a bit denser, and occasionally less explicit about transitions. Slight edge to Notebook 2 for structure and readability.
+</rationale>
+<preference>2</preference>
+</comparison>
+
+<comparison>
+<question>12</question>
+<question_shortened>Reuse/adaptability of code for exploring Dandiset</question_shortened>
+<rationale>
+Both notebooks demonstrate reusable workflows: file listing, NWB streaming, behavioral/extraction, ROI stats, and plotting. Each code cell stands well alone for modification. Notebook 2 sometimes uses modular functions (for image plotting), and prints all key outputs as Pandas DataFrames or labeled output, easing quick adaptation. Both are well-designed for copying and reuse; differences are minimal in this regard.
+</rationale>
+<preference>0</preference>
+</comparison>
+
+<comparison>
+<question>13</question>
+<question_shortened>Understanding what analyses to do next</question_shortened>
+<rationale>
+This question is similar to #10. Notebook 1 ends with "Summary and Next Steps", describing future analyses and linking to published code. Notebook 2 features a more clearly delineated "How to Go Further" section, giving step-by-step next moves and specifically suggesting public analysis code, event-aligned analysis, and further ROI exploration. The presentation and actionable detail in Notebook 2's section is somewhat more specific and motivating for follow-up.
+</rationale>
+<preference>2</preference>
+</comparison>
+
+<comparison>
+<question>14</question>
+<question_shortened>Overall helpfulness for getting started</question_shortened>
+<rationale>
+Both notebooks are highly useful introductions, with enough code and orientation for new users to begin exploring the Dandiset. Notebook 1 is slightly more technical in its NWB navigation, while Notebook 2 provides more "hand-holding" in its explanations, output summaries, file listing via table, and ending actionable checklist. For new users especially, Notebook 2 is marginally more approachable and confidence-inspiring without skimping on technical detail, making it overall a slightly better starting point.
+</rationale>
+<preference>2</preference>
+</comparison>

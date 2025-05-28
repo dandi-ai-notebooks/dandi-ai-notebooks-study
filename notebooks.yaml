@@ -1,47 +1,47 @@
 notebooks:
   - dandiset_id: "001349"
     dandiset_version: "0.250520.1729"
-    chat_id: 90f7cc7c8af637c7bbef0bb8d031d904c6367e79
+    chat_id: 4befc0a18914642a190ce4e68047fc8c0b7321d1
     prompt: h-2
     model: openai/gpt-4.1
   - dandiset_id: "001354"
     dandiset_version: "0.250312.0036"
-    chat_id: 4fba179c5e91d523298cbec78993c2448eb15e1e
+    chat_id: 1b55f1ffc7caac28284d1914869055ee48e2ff2e
     prompt: h-2
     model: openai/gpt-4.1
   - dandiset_id: "001433"
     dandiset_version: "0.250507.2356"
-    chat_id: daf6f524d0a0c520ac0c3e856d5162ae0dcf7dd2
+    chat_id: 6e10365d8ae3a08f0b42b768b49f27e4867111ee
     prompt: h-2
     model: openai/gpt-4.1
   - dandiset_id: "000563"
     dandiset_version: "0.250311.2145"
-    chat_id: 08a695fc39a7a3cf001c3872ddfa141eb02ed21a
+    chat_id: 57dc3608c92c02a718fce268d39f51a012286ded
     prompt: h-2
     model: openai/gpt-4.1
   - dandiset_id: "001361"
     dandiset_version: "0.250406.0045"
-    chat_id: 7dc08b4fc7fcb4b5a32f8d403fbbccaeb39d6a85
+    chat_id: d36c45846a750d0a5c3b85d4f6e0f95f91a2d922
     prompt: h-2
     model: openai/gpt-4.1
   - dandiset_id: "001366"
     dandiset_version: "0.250324.1603"
-    chat_id: cbe62122b7755e61a489a61c72ede7dbcfd63b48
+    chat_id: e83e5f1045ccfe5f278935fc866d4de2cf23adcd
     prompt: h-2
     model: openai/gpt-4.1
   - dandiset_id: "001359"
     dandiset_version: "0.250401.1603"
-    chat_id: 28668318a5283680bb2c5e48db13ae2b4031c10a
+    chat_id: 089d1d0671e9f725987e1ad7662aa29b0df3b669
     prompt: h-2
     model: openai/gpt-4.1
   - dandiset_id: "001375"
     dandiset_version: "0.250406.1855"
-    chat_id: 5fe912e30a4a72bcc811998379756261432889bc
+    chat_id: 665309455341f30d186380db2d6de399e184dcd1
     prompt: h-2
     model: openai/gpt-4.1
   - dandiset_id: "001174"
     dandiset_version: "0.250331.2218"
-    chat_id: 8b5d2333dbafc85c105768f2773ed87b01466150
+    chat_id: eb57b440c9f46681d5f1a3f70854e0caf46ac32e
     prompt: h-2
     model: openai/gpt-4.1
   - dandiset_id: "000690"
@@ -51,12 +51,12 @@ notebooks:
     model: openai/gpt-4.1
   - dandiset_id: "001195"
     dandiset_version: "0.250408.1733"
-    chat_id: ae31fe05a7d09bd0797b31a0d7cae5a835a0959d
+    chat_id: cd3c6c58c8e1bc62f2223e9eed98507c1c3f4d3e
     prompt: h-2
     model: openai/gpt-4.1
   - dandiset_id: "000617"
     dandiset_version: "0.250311.1615"
-    chat_id: ca0caac9e3959f2601d73837a00ffb76968f780a
+    chat_id: d69e75e79b89a61c03d814ece9f55e4bfc45ed56
     prompt: h-2
     model: openai/gpt-4.1
 

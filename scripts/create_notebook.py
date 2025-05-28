@@ -65,10 +65,12 @@ def execute_notebook(py_path: str) -> tuple[bool, str]:
 
     print(f"Executing notebook {ipynb_path}...")
     try:
-        subprocess.run(['jupyter', 'execute', '--inplace', ipynb_path], check=True, capture_output=True, text=True)
+        subprocess.run(['jupyter', 'execute', '--inplace', ipynb_path], check=True, capture_output=True, text=True, timeout=600)
         return True, ""
     except subprocess.CalledProcessError as e:
         return False, f"Notebook execution failed: {e.stderr}"
+    except subprocess.TimeoutExpired:
+        return False, "Notebook execution timed out after 600 seconds"
 
 
 def main():

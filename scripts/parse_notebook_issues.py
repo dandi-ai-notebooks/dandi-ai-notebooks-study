@@ -3,6 +3,7 @@
 import os
 import json
 import re
+import yaml
 from pathlib import Path
 from typing import Dict, List, Any
 
@@ -47,50 +48,72 @@ def parse_notebook_issues_file(file_path: str) -> List[Dict[str, Any]]:
 
     return issues
 
-def extract_info_from_path(file_path: str) -> Dict[str, str]:
-    """Extract metadata from the comparison file path."""
-    # Expected path format: notebook_issues/dandisets/{dandiset_id}/{version}/{chat_id}/{model}/{prompt}/notebook_issues.txt
-    parts = Path(file_path).parts
-    if len(parts) < 8:
-        raise ValueError(f"Invalid path structure: {file_path}")
+def get_issues_path(notebook_config: Dict[str, Any]) -> str:
+    """Construct issues file path from notebook configuration."""
+    dandiset_id = notebook_config['dandiset_id']
+    version = notebook_config['dandiset_version']
+    chat_id = notebook_config.get('chat_id')
+    model_name = notebook_config['model'].split('/')[-1]  # Extract part after '/'
+    prompt = notebook_config['prompt']
+    is_skip_explore = notebook_config.get('skip_explore', False)
 
-    return {
-        'dandiset_id': parts[2],
-        'version': parts[3],
-        'chat_id': parts[4],
-        'model': parts[5],
-        'prompt': parts[6]
-    }
+    if is_skip_explore:
+        chat_id_part = 'skip-explore'
+    else:
+        chat_id_part = chat_id[:8] if chat_id else 'unknown'
+
+    return str(Path('notebook_issues') / 'dandisets' / dandiset_id / version /
+              chat_id_part / model_name / prompt / 'notebook_issues.txt')
+
+def load_notebooks_config() -> List[Dict[str, Any]]:
+    """Load notebook configurations from notebooks.yaml."""
+    try:
+        with open('notebooks.yaml', 'r') as f:
+            config = yaml.safe_load(f)
+            if not config or 'notebooks' not in config:
+                raise ValueError("No notebooks found in configuration")
+            return config['notebooks']
+    except (yaml.YAMLError, FileNotFoundError) as e:
+        print(f"Error loading notebooks.yaml: {e}")
+        return []
 
 def main():
-    # Find all issues files
-    notebook_issues_files = []
-    root_dir = Path('notebook_issues')
-    if not root_dir.exists():
-        print("No notebook_issues directory found")
+    # Load notebook configurations
+    notebooks = load_notebooks_config()
+    if not notebooks:
+        print("No notebooks found in configuration")
         return
 
-    for file_path in root_dir.rglob('notebook_issues.txt'):
-        notebook_issues_files.append(str(file_path))
-
-    print(f"Found {len(notebook_issues_files)} issues files")
-
-    # Parse each file and collect results
+    # Parse each notebook's issues file
     results = []
-    for file_path in notebook_issues_files:
+    unique_paths = set()  # Track unique paths to avoid duplicates
+
+    for notebook in notebooks:
+        issues_path = get_issues_path(notebook)
+        if issues_path in unique_paths:
+            continue
+        unique_paths.add(issues_path)
+
         try:
-            print(f"Processing {file_path}...")
-            metadata = extract_info_from_path(file_path)
-            comparisons = parse_notebook_issues_file(file_path)
+            if not os.path.exists(issues_path):
+                print(f"Issues file not found: {issues_path}")
+                continue
+
+            print(f"Processing {issues_path}...")
+            issues = parse_notebook_issues_file(issues_path)
 
             result = {
-                **metadata,
-                'comparisons': comparisons
+                'dandiset_id': notebook['dandiset_id'],
+                'version': notebook['dandiset_version'],
+                'chat_id': notebook.get('chat_id', 'skip-explore'),
+                'model': notebook['model'],
+                'prompt': notebook['prompt'],
+                'issues': issues
             }
             results.append(result)
 
         except Exception as e:
-            print(f"Error processing {file_path}: {str(e)}")
+            print(f"Error processing {issues_path}: {str(e)}")
             continue
 
     # Write results to JSON file

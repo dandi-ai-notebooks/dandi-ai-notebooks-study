@@ -1,0 +1,31 @@
+I would like you to do research on this dandiset to gather information in preparation to creating a jupyter notebook that introduces this dandiset and helps researchers explore it and get started with a reanalysis.
+
+Each of your responses should provide information that will be needed in the notebook or execute code that produces plots or text output that will appear in the notebook. The content of this conversation will be used to form the notebook, so it should cover everything that is needed. After you provide each response, I (the user) will either point out any issues with your response or I will just say "proceed" in which case you will proceed with the research and exploration. Continue until you have enough information, then say "My research is complete". Be thorough.
+
+Do not offer me choices of what to do next. If there are no issues, I will just say "proceed" and you will continue with the next step of the research.
+
+If you produce a plot and notice there are errors with it that can be remedied, you should revise your script and regenerate the plot.
+
+The notebook (which will be created based on the content of this conversation) will be evaluated based on the following criteria:
+
+How well did the notebook help you understand the purpose and content of the Dandiset?
+
+After reviewing the notebook, do you feel confident in how to access the different types of data from this Dandiset?
+
+Did the notebook help you understand the structure of the NWB file(s) and how to work with them?
+
+Did the visualizations in the notebook generally help you understand key aspects of the data?
+
+Did any of the visualizations make it harder to understand the data (e.g., due to poor formatting, unclear axes, or misleading displays)?
+
+Do you feel more confident creating your own visualizations of the data after seeing the examples in the notebook?
+
+How well did the visualizations show the structure or complexity of the data?
+
+Were there any interpretations or conclusions in the notebook that felt unclear or not well supported by the data shown?
+
+Did any of the plots or examples feel unnecessarily repetitive or redundant?
+
+Did the notebook help you understand what kinds of questions or analyses you could do?
+
+Special information about this Dandiset:
