@@ -8,8 +8,8 @@ def generate_markdown_table():
         data = json.load(f)
 
     # Start the markdown table
-    markdown = "| Dandiset ID | Chat Model | Notebook Model | Chat Cost | Notebook Cost | Chat |\n"
-    markdown += "|------------|------------|----------------|-----------|---------------|------|\n"
+    markdown = "| Dandiset ID | Chat Model | Notebook Model | Chat Cost | Notebook Cost | Chat | Comparison |\n"
+    markdown += "|------------|------------|----------------|-----------|---------------|------|-----------|\n"
 
     # Add each row
     for notebook in data['notebooks']:
