@@ -116,7 +116,7 @@ notebooks:
     prompt: h-3
     model: anthropic/claude-3.5-sonnet
   - dandiset_id: "000617"
-    dandiset_version: "0.250311.1615"
+    dandiset_version: "0.250312.0130"
     skip_explore: True
     prompt: h-3
     model: anthropic/claude-3.5-sonnet

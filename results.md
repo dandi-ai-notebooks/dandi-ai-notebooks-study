@@ -23,4 +23,4 @@
 | [001174](https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001174/0.250331.2218/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb) | skip-explore | claude-3.5-sonnet | N/A | $0.10 | N/A | N/A |
 | [000690](https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/000690/0.250326.0015/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb) | skip-explore | claude-3.5-sonnet | N/A | $0.05 | N/A | N/A |
 | [001195](https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001195/0.250408.1733/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb) | skip-explore | claude-3.5-sonnet | N/A | $0.15 | N/A | N/A |
-| [000617](https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/000617/0.250311.1615/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb) | skip-explore | claude-3.5-sonnet | N/A | $0.33 | N/A | N/A |
+| [000617](https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/000617/0.250312.0130/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb) | skip-explore | claude-3.5-sonnet | N/A | $0.10 | N/A | N/A |

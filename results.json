@@ -421,14 +421,14 @@
     },
     {
       "dandisetId": "000617",
-      "dandisetVersion": "0.250311.1615",
+      "dandisetVersion": "0.250312.0130",
       "notebook": {
         "notebookModel": "anthropic/claude-3.5-sonnet",
         "notebookPrompt": "h-3",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/000617/0.250311.1615/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb",
-        "promptTokens": 85421,
-        "completionTokens": 5208,
-        "estimatedCost": 0.334383
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/000617/0.250312.0130/skip-explore/claude-3.5-sonnet/h-3/notebook.ipynb",
+        "promptTokens": 25380,
+        "completionTokens": 1756,
+        "estimatedCost": 0.10248
       },
       "skip_explore": true
     }
