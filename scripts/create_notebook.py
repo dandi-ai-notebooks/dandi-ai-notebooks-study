@@ -195,7 +195,7 @@ def main():
             print(f"\nError: {error}")
             print("Adding error message and retrying...")
             messages.append({
-                "role": "system",
+                "role": "user",
                 "content": f"Error: {error}. Please provide the notebook content between <notebook> tags."
             })
             attempt += 1
@@ -215,7 +215,7 @@ def main():
         print(f"\nError: {error}")
         print("Adding error message and retrying...")
         messages.append({
-            "role": "system",
+            "role": "user",
             "content": f"The notebook execution failed with the following error:\n\n{error}\n\nPlease provide a corrected version of the notebook."
         })
 
