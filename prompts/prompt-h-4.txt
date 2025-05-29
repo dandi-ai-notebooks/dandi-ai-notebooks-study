@@ -12,7 +12,15 @@ Summarize what the notebook covers. This should be internally consistent with th
 
 List the packages that are required to run the notebook. Assume that these are already installed on the user's system. Do not include any pip install commands in the notebook.
 
-Show how to use the DANDI API to information about the dandiset and the files it includes.
+Show how to use the DANDI Python API to information about the dandiset. Here's an example of how to do this:
+
+client = DandiAPIClient()
+dandiset = client.get_dandiset("001333", "0.250327.2220")
+metadata = dandiset.get_raw_metadata()
+print(f"Dandiset name: {metadata['name']}")
+print(f"Dandiset URL: {metadata['url']}")
+
+Show how to use the DANDI Python API to explore the .nwb files in the dandiset.
 
 Show how to load and visualize data from the dandiset based on the above {{ CHAT_OR_INFORMATION }}. Feel free to organize things differently from how they are in the above {{ CHAT_OR_INFORMATION }}, but do not make up new information.
 
