@@ -1,0 +1,19 @@
+<issues>
+<issue>
+<type>unsupported_conclusion</type>
+<description>The notebook incorrectly states that "approximately 70% of ROIs are classified as putative cells" when the output shows that 189 out of 358 (52.8%) ROIs are classified as cells.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The population mean fluorescence plot title states "Population Mean Fluorescence (First 3 Cells)" which might be misleading as it's showing the mean across 3 specific cells rather than the first 3 cells in the dataset.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The notebook creates confusion by first showing statistical summary of behavioral data for all cells but then only visualizing the first 3 cell traces, making it difficult to understand the overall population dynamics.</description>
+<severity>minor</severity>
+</issue>
+</issues>

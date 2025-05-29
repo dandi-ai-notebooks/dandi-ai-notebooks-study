@@ -431,6 +431,19 @@
         "estimatedCost": 0.19226100000000002
       },
       "skip_explore": true
+    },
+    {
+      "dandisetId": "001174",
+      "dandisetVersion": "0.250331.2218",
+      "notebook": {
+        "notebookModel": "deepseek/deepseek-r1-0528",
+        "notebookPrompt": "h-4",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001174/0.250331.2218/skip-explore/deepseek-r1-0528/h-4/notebook.ipynb",
+        "promptTokens": 28912,
+        "completionTokens": 9937,
+        "estimatedCost": null
+      },
+      "skip_explore": true
     }
   ]
 }

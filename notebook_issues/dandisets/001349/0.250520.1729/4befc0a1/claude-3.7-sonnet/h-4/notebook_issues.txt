@@ -1,0 +1,19 @@
+<issues>
+<issue>
+<type>cell_execution_error</type>
+<description>The synchronization signals access code doesn't find any LED_trigger signals. The absence of synchronization data prevents access to a key feature mentioned in the dataset description.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The dF/F plot shows extremely small values (around 0.007 maximum) which is unusual for dF/F traces that typically range between 0-1 or higher. This suggests potential scaling issues with the data.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>cell_execution_error</type>
+<description>The notebook attempts to extract behavioral synchronization data but fails to find it, suggesting the data is either missing, stored differently than expected, or requires additional processing to access.</description>
+<severity>major</severity>
+</issue>
+</issues>

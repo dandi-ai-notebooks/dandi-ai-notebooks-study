@@ -1,0 +1,19 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The visualization of multiple response sweeps uses a high transparency level (alpha=0.3) and thin linewidth (0.6) which makes individual sweeps difficult to distinguish. Additionally, the mean response line (in black) is partially obscured by the overlaid sweeps, making it hard to see the representative pattern.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The current units in the stimulus plots are shown as Amperes (A), but the values (~400-500 A) are unrealistically large for intracellular recordings. These are likely in pA or nA and the conversion factor is not being applied correctly.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>cell_execution_error</type>
+<description>When accessing the NWB file, a warning is displayed about namespace version conflicts ("Ignoring cached namespace 'core' version 2.8.0 because version 2.7.0 is already loaded"), which might cause compatibility issues for users with different pynwb versions.</description>
+<severity>minor</severity>
+</issue>
+</issues>

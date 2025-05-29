@@ -1,0 +1,19 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The spike raster plot title doesn't match the actual plot content. The title says "Spike Raster (Unit 1) Aligned to Trial Start" but the output shows "Spike Raster (Unit 0) Aligned to Trial Start" based on the code execution.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The raw voltage traces plot shows values in microvolts (μV) but the time series metadata indicates the unit is millivolts (mV). This inconsistency could lead to misinterpretation of signal amplitudes.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The electrode information shows location as "unknown" in the electrodes dataframe, but when printing electrode group information, locations are specified as "ventral hippocampus, visual cortex". This inconsistency in location information makes it difficult to understand the precise recording locations.</description>
+<severity>minor</severity>
+</issue>
+</issues>

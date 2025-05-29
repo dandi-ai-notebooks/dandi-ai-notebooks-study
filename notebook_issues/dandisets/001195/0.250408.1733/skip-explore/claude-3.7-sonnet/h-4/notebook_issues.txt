@@ -1,0 +1,31 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The spike raster plot shows no spikes detected despite the I-V curve showing clear action potential firing (peak responses above 0.1V). The spike detection algorithm parameters likely need adjustment.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The F-I curve shows only a single data point at 280 pA with 0 Hz firing rate, contradicting both the I-V curve which shows action potentials and missing expected data points across current injections.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The response metrics in the I-V relationship show no steady-state values despite code to calculate them, likely due to incorrect indices in the extract_response_metrics function.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>cell_execution_error</type>
+<description>The extract_response_metrics function produces runtime warnings about "Mean of empty slice" and "invalid value encountered in scalar divide", suggesting incorrect array indexing.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The membrane potential comparison plot shows an unexpected spike artifact at the beginning for Episode 13 (120 pA) that reaches +0.04V, which appears to be a data anomaly rather than a physiological response.</description>
+<severity>minor</severity>
+</issue>
+</issues>

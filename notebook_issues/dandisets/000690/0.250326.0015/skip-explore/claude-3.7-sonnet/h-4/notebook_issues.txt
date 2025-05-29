@@ -1,0 +1,25 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The x-axis in the LFP traces plot shows time in seconds but actually displays sample indices (0-70000) rather than properly converted time values.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The heatmap visualization of LFP activity has the same x-axis issue, showing sample indices (0-70000) instead of properly converted time in seconds.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The 3D electrode positions visualization is difficult to interpret because the viewing angle doesn't clearly show the separation between brain regions, and the legend is crowded with overlapping text.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>unsupported_conclusion</type>
+<description>The pie chart showing "Proportion of Valid Electrodes" indicates 100% valid electrodes with 0% invalid, which seems suspiciously perfect and may warrant further investigation to confirm accuracy.</description>
+<severity>minor</severity>
+</issue>
+</issues>

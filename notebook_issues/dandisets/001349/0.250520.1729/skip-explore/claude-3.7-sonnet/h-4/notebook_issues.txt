@@ -1,0 +1,27 @@
+<issues>
+
+<issue>
+<type>plot_problem</type>
+<description>The first visualization of calcium traces (comparison of ΔF/F, Z-score, Ca events) only shows Z-score traces for all three neurons. The ΔF/F and Ca events traces are either not properly displayed or are overwhelmed by the Z-score data range.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The heatmap of calcium activity (using dff.data) shows extremely low values (maximum of ~0.008) which suggests potential scaling issues in the data visualization. The small values make it difficult to interpret meaningful patterns.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The data visualization for mean, max, and standard deviation of ΔF/F shows unusually small values (in the order of 10^-4), raising questions about whether the data is properly normalized or if there's a scaling issue.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>cell_execution_error</type>
+<description>The cell examining the NWB file structure shows an incomplete output when accessing the file metadata ("Examining file: sub-C57-C2-2-AL/sub-C57-C2-2-AL_ses-2_ophys.nwb") followed by a separate output with the actual metadata, suggesting a potential cell execution issue.</description>
+<severity>minor</severity>
+</issue>
+
+</issues>

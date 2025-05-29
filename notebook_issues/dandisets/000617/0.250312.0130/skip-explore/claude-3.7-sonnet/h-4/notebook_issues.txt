@@ -1,0 +1,33 @@
+<issues>
+
+<issue>
+<type>plot_problem</type>
+<description>The trial-averaged response plots (ROI responses to different stimuli) show flat lines at zero for all stimuli and all ROIs, indicating no visible neural responses. This suggests an issue with the extraction or visualization of trial-averaged responses.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The correlation values between neural activity and running speed are extremely low (maximum around 0.013), indicating essentially no correlation, yet the analysis proceeds as if these correlations are meaningful.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The eye tracking data timestamps show a duration of "nan seconds" when printed, indicating a potential issue with the timestamp data.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>cell_execution_error</type>
+<description>There appears to be a logical issue with the extract_trial_responses function. It creates a fixed-length array for trial responses but then only extracts data if the exact number of timepoints is available, which may cause it to skip trials and return zeros.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>unsupported_conclusion</type>
+<description>The notebook suggests that it demonstrated "neural responses to different movie stimuli" and "correlate neural activity with behavioral measurements" in the summary, but the actual analysis shows virtually no responses or correlations.</description>
+<severity>minor</severity>
+</issue>
+
+</issues>

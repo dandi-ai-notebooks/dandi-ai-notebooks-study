@@ -31,7 +31,8 @@ def generate_markdown_table():
             chat_url = None
             comparison_url = None
         notebook_model = notebook['notebook']['notebookModel'].split('/')[-1]
-        notebook_cost = f"${notebook['notebook']['estimatedCost']:.2f}"
+        estimated_cost = notebook['notebook']['estimatedCost']
+        notebook_cost = f"${estimated_cost:.2f}" if estimated_cost is not None else 'N/A'
 
         notebook_url = notebook['notebook']['notebookUrl']
 

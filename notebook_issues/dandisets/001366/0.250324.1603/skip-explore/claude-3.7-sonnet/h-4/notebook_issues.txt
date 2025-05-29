@@ -1,0 +1,25 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The animation of vessel pulsations only shows the final frame instead of an actual animation. The FuncAnimation was converted to HTML but the notebook environment doesn't show the animation, only displaying a static image.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The vessel cross-section plot takes the middle row of the image, but the vessel is diagonal across the frame, making the intensity profile less representative of the actual vessel diameter.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The pixel intensity time series analysis selects arbitrary points that may not be optimally positioned for observing vessel pulsatility, as the vessel is diagonal in the frame.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The kymograph (space-time plot) shows the vessel but doesn't include any analysis or quantification of diameter changes, which would be helpful given the dataset's focus on vessel diameter and pulsatility measurement.</description>
+<severity>minor</severity>
+</issue>
+</issues>

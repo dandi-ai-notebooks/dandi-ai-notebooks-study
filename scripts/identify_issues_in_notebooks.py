@@ -69,7 +69,7 @@ def main():
                 'identify_issues_in_notebook.py',
                 '--notebook-path', notebook_path,
                 '--output-path', notebook_issues_path,
-                '--model', 'openai/gpt-4.1'
+                '--model', 'anthropic/claude-3.7-sonnet'
             ]
             identify_issues_in_notebook_main()
             sys.argv = old_argv

@@ -1,0 +1,25 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The reward event visualization in the "Licking and Reward Data" figure shows all rewards at almost the same y-value (around 0.0004 mL), with a very compressed y-axis scale that makes it difficult to see variation in reward magnitude if any exists.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The positional tuning curves for all three selected neurons show an artifact with extremely low fluorescence values at negative positions (below approximately -450 cm), suggesting either a data issue or an area where the animal rarely visited creating unreliable measurements.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>In the neural activity visualization section, trace plots show drastic drops to baseline fluorescence that appear to be scanning artifacts rather than biological signals (periods where the microscope stops/resets), but these artifacts are not explained in the notebook.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>cell_execution_error</type>
+<description>The contributor information is not properly displayed. When printing metadata['contributor'] information, the output shows "Contributors:" but no actual names are listed.</description>
+<severity>minor</severity>
+</issue>
+</issues>

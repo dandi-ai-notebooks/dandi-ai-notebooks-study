@@ -1,0 +1,37 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The distribution of breathing cycle durations in the 2nd plot of section 8 appears empty with no histogram bars visible, despite the calculation showing an average cycle duration of about 196 seconds.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>unsupported_conclusion</type>
+<description>The breathing statistics (average cycle duration of ~196s, breathing frequency of ~0.006 Hz) suggest extremely slow breathing that is physiologically implausible for mice, which typically breathe at 2-4 Hz. This suggests a calculation error in the breathing analysis.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>cell_execution_error</type>
+<description>The NWB file loading cell was interrupted and didn't complete properly, showing only a partial URL with no full file information output.</description>
+<severity>critical</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>In section 7, the sniff signal with detected inhalation and exhalation events plot shows almost no markers for these events (only one red triangle is visible), despite the text indicating there are over 10,000 events detected.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>unsupported_conclusion</type>
+<description>The notebook states in the metadata that it's exploring data from 2025, which is in the future, indicating incorrect date information in the dataset or synthetic data being presented as real.</description>
+<severity>critical</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The power spectral density ratio plot in section 10 has a y-axis scale that makes the differences difficult to interpret, and the analysis is based on very few samples (shown by the warning about nperseg).</description>
+<severity>minor</severity>
+</issue>
+</issues>

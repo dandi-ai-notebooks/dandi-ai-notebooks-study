@@ -121,3 +121,8 @@ notebooks:
     prompt: h-4
     model: anthropic/claude-3.7-sonnet
 
+  - dandiset_id: "001174"
+    dandiset_version: "0.250331.2218"
+    skip_explore: True
+    prompt: h-4
+    model: deepseek/deepseek-r1-0528

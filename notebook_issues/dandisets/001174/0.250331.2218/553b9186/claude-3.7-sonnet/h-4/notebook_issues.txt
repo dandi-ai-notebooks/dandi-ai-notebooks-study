@@ -1,0 +1,19 @@
+<issues>
+<issue>
+<type>cell_execution_error</type>
+<description>The nwb.subject.age attribute appears to be incomplete in the output of the cell examining the NWB file structure. The output only shows "P5Y" without completing the line.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The plot of event amplitude trace shows sparse events with vertical lines that appear disconnected from the time axis. It would be more informative to use stem plots or markers to clearly show when events occurred.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>In the bar chart showing event rate distribution across cells, the x-axis labels (Cell ID) start from 0.0 instead of cell indices (0, 1, 2...), which could be confusing since they're displayed with decimal points.</description>
+<severity>minor</severity>
+</issue>
+</issues>

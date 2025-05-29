@@ -1,0 +1,19 @@
+<issues>
+<issue>
+<type>cell_execution_error</type>
+<description>The first example sweep visualization has misaligned stimulus with the response. The stimulus appears as a single vertical line at the beginning of the sweep rather than showing the full stimulus waveform that should correspond to the membrane potential trace.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The time axis in the full current clamp sweep visualization starts at approximately 788 seconds rather than 0 or a more meaningful start time, making it difficult to understand the context of the recording within the experiment.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>In the spike detection visualization, the 0.25s offset correction is hardcoded rather than determined programmatically, which could lead to misalignment if applied to other datasets or if the timing structure changes.</description>
+<severity>minor</severity>
+</issue>
+</issues>

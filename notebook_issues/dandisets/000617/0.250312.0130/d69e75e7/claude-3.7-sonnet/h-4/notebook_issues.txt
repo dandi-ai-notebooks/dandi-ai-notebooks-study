@@ -1,0 +1,19 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The ROI outlines do not align with the cells visible in the mean projection image. The cell outlines are plotted below the image rather than overlaid on the cells in the image.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>cell_execution_error</type>
+<description>The stimulus presentation plot (First 100 Stimulus Intervals) shows only a very small time window (approximately 25-38 seconds) rather than providing a representative view of the stimulus sequence structure throughout the session.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The running speed plot shows negative values for running speed, which doesn't make physical sense for speed measurements (speed should be a magnitude and thus non-negative).</description>
+<severity>minor</severity>
+</issue>
+</issues>

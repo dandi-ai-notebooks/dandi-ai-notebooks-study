@@ -1,0 +1,19 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The neural recording voltage responses in multiple figures have units displayed in "volts" but are shown at values around -0.07V to -0.1V, which would be unusually low for neuronal membrane potentials (typically around -70mV). This suggests the units might be incorrectly labeled or the values incorrectly scaled.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The stimulus currents shown in the figures appear to have extremely small magnitudes (e.g., 2e-11 A or 20 pA) for the larger values, when the protocol description mentions steps from -120pA to 260pA. This suggests possible unit conversion or scaling issues.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>unsupported_conclusion</type>
+<description>The notebook states the file creation date as 2025-04-03, which is in the future, indicating a metadata error in the NWB file.</description>
+<severity>minor</severity>
+</issue>
+</issues>

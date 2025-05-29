@@ -1,0 +1,19 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The intensity trace across time shows variations but does not clearly demonstrate vessel diameter/pulsation dynamics. The current approach uses a simple line profile at a fixed location without proper vessel segmentation or tracking. This may not accurately capture vessel dynamics as vessels can move laterally or change shape.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The example frames from the movie don't include any measurement overlay or identification of the vessel boundaries, which would help users understand how vessel diameter is actually quantified.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>cell_execution_error</type>
+<description>There are warning messages displayed when loading the NWB files about ignoring cached namespaces. While these are only warnings and don't prevent execution, they could be confusing to users who are new to NWB files.</description>
+<severity>minor</severity>
+</issue>
+</issues>

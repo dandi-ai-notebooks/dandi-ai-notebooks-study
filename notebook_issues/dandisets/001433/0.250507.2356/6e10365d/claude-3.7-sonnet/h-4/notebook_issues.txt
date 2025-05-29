@@ -1,0 +1,19 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The histogram of breathing intervals (Distribution of Breathing Intervals) shows issues with the exhalation intervals, with a mean of -0.0 and huge standard deviation of 355222.2. The plot shows all exhalation intervals concentrated at zero, suggesting a problem with the exhalation timestamp data or its processing.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>unsupported_conclusion</type>
+<description>The notebook states "In this session, all breathing intervals are nearly identical" for the breathing intervals histogram, but the statistics show highly problematic exhalation data (negative mean, extremely large std). This is more likely a data error than a biological phenomenon.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>unsupported_conclusion</type>
+<description>The notebook overview states "Inhalation and exhalation times in this dataset are stored in milliseconds, not seconds" but later divides these values by 1000 to convert from ms to seconds. This inconsistency suggests mishandling of the timestamp units.</description>
+<severity>major</severity>
+</issue>
+</issues>

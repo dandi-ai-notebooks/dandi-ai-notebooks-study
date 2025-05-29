@@ -1,0 +1,25 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The spike timing visualization appears to be spread out with limited data points for Sweep_19, making it difficult to compare firing patterns across all sweeps. A more informative visualization that shows spike rate or a zoomed in segment with more detail would be better.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>cell_execution_error</type>
+<description>The code for examining the sweep table doesn't properly handle the conversion of sweep_table to a DataFrame, resulting in the 'series' column containing objects rather than useful information. This makes it difficult to understand the sweep organization.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The current clamp stimulus and recording plots use a small sample size that truncates the data, making it difficult to see the complete response pattern. The temporal relationship between stimulus and response would be clearer if more data were shown.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The voltage and current units in the plots are displayed with unusual ranges (e.g., voltage in -58 to -63 volts rather than millivolts, current in amperes rather than pico/nanoamperes), suggesting there might be a unit conversion issue making the plots harder to interpret physiologically.</description>
+<severity>major</severity>
+</issue>
+</issues>

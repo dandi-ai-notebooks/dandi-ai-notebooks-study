@@ -1,0 +1,25 @@
+<issues>
+<issue>
+<type>cell_execution_error</type>
+<description>The import statement includes 're' module which is not used anywhere in the notebook</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The pupil position values in the eye tracking plot are shown in meters with values around 300-360m, which is clearly incorrect and should likely be in pixels or millimeters</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The stimulus frame visualization shows a very noisy/speckled image that makes it difficult to understand what the stimulus actually represents</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>cell_execution_error</type>
+<description>When aligning spikes with stimuli, there's an error in accessing spike times. The code uses "spike_times_index[0]" rather than accessing by the unit ID</description>
+<severity>major</severity>
+</issue>
+</issues>

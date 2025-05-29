@@ -1,0 +1,25 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The spike raster plot shows solid lines instead of individual spikes, likely due to the high density of spikes and/or improper visualization settings. This makes it impossible to see individual spike timing patterns.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The spike waveform visualization doesn't show clear spike shapes, but rather appears to be extracting arbitrary data segments around the supposed spike times. No clear spike waveform pattern is visible in the mean waveform (red line).</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>cell_execution_error</type>
+<description>When accessing nwb.units.spike_times_index, the code does not properly check if this specific accessor exists, which could cause errors if the units data is stored differently in other NWB files from this dataset.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>Channel 128 in the raw electrophysiology plot shows an abnormal signal pattern (large DC offset with decay) compared to other channels, indicating a potential recording artifact that should be noted.</description>
+<severity>minor</severity>
+</issue>
+</issues>

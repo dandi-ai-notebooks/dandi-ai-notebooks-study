@@ -1,0 +1,25 @@
+<issues>
+<issue>
+<type>plot_problem</type>
+<description>The event amplitude plot for ROI 1 shows no detected events (all zeros) in comparison to the fluorescence trace which shows clear activity. This indicates a potential issue with the event detection or visualization.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The "Fluorescence trace with detected events for ROI 1" plot shows a line for every time there's an event above the threshold, but no red events are marked, suggesting the event detection threshold may be too high or the event data contains all zeros.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>unsupported_conclusion</type>
+<description>The notebook states it will "Analyze fluorescence traces and event amplitudes" but the event amplitude data appears to contain all zeros or no significant events for the examined ROI, making the event amplitude analysis inconclusive.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The correlation matrix visualization shows gridlines but the actual correlation values aren't clearly visible in the heatmap, making it difficult to interpret the relationships between ROIs.</description>
+<severity>minor</severity>
+</issue>
+</issues>

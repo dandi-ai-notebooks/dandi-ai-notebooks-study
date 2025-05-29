@@ -1,0 +1,27 @@
+<issues>
+
+<issue>
+<type>plot_problem</type>
+<description>The plot "Mean LFP Activity by Brain Region" is empty with no data displayed and shows a warning that no artists with labels were found to put in legend.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The plot "LFP Signals from Different Brain Regions" is also empty with no data displayed and shows a warning that no artists with labels were found to put in legend.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>cell_execution_error</type>
+<description>The recording duration calculation shows an unrealistic value of 244,275,168 seconds (or 4,071,252.8 minutes), which is approximately 7.75 years. This suggests an error in the timestamps data or calculation.</description>
+<severity>major</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>In the LFP signal visualization plots, the x-axis timestamps display values in the 1.5e6 range, which is inconsistent with the expected timescale and makes the plot difficult to interpret.</description>
+<severity>major</severity>
+</issue>
+
+</issues>

@@ -1,0 +1,19 @@
+<issues>
+<issue>
+<type>cell_execution_error</type>
+<description>The get_response_data function attempts to close the NWB file but doesn't properly close the remfile.File or h5py.File objects, which could lead to resource leaks. Each time the function is called, it opens new file handles without closing them.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>plot_problem</type>
+<description>The comparison plot of responses across different cells shows very different response patterns between cells, but there is no discussion or explanation of these differences. The first cell shows a much deeper hyperpolarization and different firing pattern than the other cells.</description>
+<severity>minor</severity>
+</issue>
+
+<issue>
+<type>unsupported_conclusion</type>
+<description>The notebook claims to demonstrate how PAGERs affect neuronal responses, but it does not clearly identify which recordings show PAGER activation effects versus control conditions. There's no explicit comparison between DCZ alone vs DCZ + soluble mCherry conditions as mentioned in the introduction.</description>
+<severity>major</severity>
+</issue>
+</issues>
