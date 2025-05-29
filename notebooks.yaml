@@ -123,6 +123,11 @@ notebooks:
 
   - dandiset_id: "001174"
     dandiset_version: "0.250331.2218"
+    chat_id: 553b9186b1844d6fa99166d5aa46c55c9346f070
+    prompt: h-4
+    model: deepseek/deepseek-r1-0528
+  - dandiset_id: "001174"
+    dandiset_version: "0.250331.2218"
     skip_explore: True
     prompt: h-4
     model: deepseek/deepseek-r1-0528

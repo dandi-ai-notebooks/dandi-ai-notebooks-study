@@ -1,0 +1,11 @@
+{
+  "model": "deepseek/deepseek-r1-0528",
+  "dandiset_id": "001174",
+  "version": "0.250331.2218",
+  "prompt": "prompts/prompt-h-4.txt",
+  "skip_explore": false,
+  "chat_url": "https://neurosift.org/dandiset-explorer-chats/001174/0.250331.2218/chats/55/553b9186b1844d6fa99166d5aa46c55c9346f070/chat.json",
+  "prompt_tokens": 32413,
+  "completion_tokens": 5965,
+  "estimated_cost": null
+}
