@@ -1,0 +1,82 @@
+On the basis of the above chat, please create a jupytext notebook that introduces dandiset 001195 using the format described below.
+
+The purpose of the notebook is to help researchers explore the dandiset and get started with a reanalysis.
+
+Start with an appropriate title for the notebook, such as "Exploring Dandiset 001195: ..." (that should be a markdown heading).
+
+Inform the user that the notebook was generated with the assistance of AI, and that they should be cautious when interpreting the code or results.
+
+Provide an overview of the Dandiset. Include a link to the Dandiset of the form https://dandiarchive.org/dandiset/001195/0.250408.1733.
+
+Summarize what the notebook covers. This should be internally consistent with the notebook you are creating, even if it differs from what is specified in the above chat.
+
+List the packages that are required to run the notebook. Assume that these are already installed on the user's system. Do not include any pip install commands in the notebook.
+
+Show how to use the DANDI Python API to information about the dandiset using code similar to the following:
+
+client = DandiAPIClient()
+dandiset = client.get_dandiset("001333", "0.250327.2220")
+metadata = dandiset.get_raw_metadata()
+print(f"Dandiset name: {metadata['name']}")
+print(f"Dandiset URL: {metadata['url']}")
+
+Show how to use the DANDI Python API to explore the .nwb files in the dandiset.
+
+Show how to load and visualize data from the dandiset based on the above chat. Feel free to organize things differently from how they are in the above chat, but do not make up new information.
+
+Generate good quality plots (without being redundant).
+
+Load NWB data by streaming the remote file (as done in the above chat) rather than downloading it.
+
+Do not use any functionality of pynwb or dandi that is not covered in the above chat.
+
+You should stick to material that is covered in the above chat and do not hallucinate.
+
+Throughout the notebook, include explanatory markdown cells that guide the user through the process.
+
+The notebook should be well-documented, and follow best practices Include comments in code cells to explain what each step does.
+
+The Jupytext should use `# %% [markdown]` for markdown cells and `# %%` delimiters for the code cells.
+
+If any NWB files have units objects, you should know the following:
+units.spike_times_index[i] provides the vector of spike times for the i^th unit. It is actually not an index. Do not use units.spike_times.
+
+Do not render or display the nwb object obtained from NWBHDF5IO directly in the notebook as the output could be very large.
+
+Use concise scientific language.
+
+Prioritize correctness and accuracy over verbosity and complexity.
+
+Do not speculate about things that are not supported by the above chat.
+
+STRICT RULE: If a chat conversation is provided above, do not include new analyses that are not covered in that conversation.
+
+STRICT RULE: If a chat conversation is provided above, you should learn from any feedback in the conversation to avoid pitfalls in plots.
+
+Do not be verbose in your summary or wrap up of the notebook, although you may briefly suggest some general ideas for future exploration.
+
+There is no need to close files or clean up resources at the end of the notebook.
+
+Your notebook will be evaluated based on the following criteria:
+1. How well did the notebook help you understand the purpose and content of the Dandiset?
+2. After reviewing the notebook, do you feel confident in how to access the different types of data from this Dandiset?
+3. Did the notebook help you understand the structure of the NWB file(s) and how to work with them?
+4. Did the visualizations in the notebook generally help you understand key aspects of the data?
+5. Did any of the visualizations make it harder to understand the data (e.g., due to poor formatting, unclear axes, or misleading displays)?
+6. Do you feel more confident creating your own visualizations of the data after seeing the examples in the notebook?
+7. How well did the visualizations show the structure or complexity of the data?
+8. Were there any interpretations or conclusions in the notebook that felt unclear or not well supported by the data shown?
+9. Did any of the plots or examples feel unnecessarily repetitive or redundant?
+10. Did the notebook help you understand what kinds of questions or analyses you could do next with this Dandiset?
+11. How clear and easy was the notebook to follow?
+12. Did the notebook provide code you could easily reuse or adapt to explore the Dandiset yourself?
+13. Did the notebook help you understand what kinds of questions or analyses you could do next with this Dandiset?
+14. Overall, how helpful was this notebook for getting started with this Dandiset?
+
+Your output must be in the format:
+
+<notebook>
+The text of the jupytext notebook should appear here.
+</notebook>
+
+No other text should be included in the response.

@@ -12,7 +12,7 @@ Summarize what the notebook covers. This should be internally consistent with th
 
 List the packages that are required to run the notebook. Assume that these are already installed on the user's system. Do not include any pip install commands in the notebook.
 
-Show how to use the DANDI Python API to information about the dandiset. Here's an example of how to do this:
+Show how to use the DANDI Python API to information about the dandiset using code similar to the following:
 
 client = DandiAPIClient()
 dandiset = client.get_dandiset("001333", "0.250327.2220")
@@ -46,6 +46,16 @@ Do not render or display the nwb object obtained from NWBHDF5IO directly in the 
 Use concise scientific language.
 
 Prioritize correctness and accuracy over verbosity and complexity.
+
+Do not speculate about things that are not supported by the above {{ CHAT_OR_INFORMATION }}.
+
+STRICT RULE: If a chat conversation is provided above, do not include new analyses that are not covered in that conversation.
+
+STRICT RULE: If a chat conversation is provided above, you should learn from any feedback in the conversation to avoid pitfalls in plots.
+
+Do not be verbose in your summary or wrap up of the notebook, although you may briefly suggest some general ideas for future exploration.
+
+There is no need to close files or clean up resources at the end of the notebook.
 
 Your notebook will be evaluated based on the following criteria:
 1. How well did the notebook help you understand the purpose and content of the Dandiset?
