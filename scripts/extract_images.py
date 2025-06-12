@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import yaml
 import json
 import base64
@@ -27,6 +29,13 @@ def process_notebook(notebook_path, output_dir, notebook_info, markdown_entries)
 
     # Create images directory for this notebook
     images_dir = ensure_dir(output_dir / 'images')
+
+    # Delete existing images in the directory
+    for img_file in images_dir.glob('*.png'):
+        try:
+            img_file.unlink()
+        except Exception as e:
+            print(f"Error deleting file {img_file}: {e}")
 
     for cell_idx, cell in enumerate(nb.get('cells', [])):
         if 'outputs' not in cell:

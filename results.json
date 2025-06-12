@@ -50,12 +50,12 @@
       "dandisetId": "001433",
       "dandisetVersion": "0.250507.2356",
       "notebook": {
-        "notebookModel": "anthropic/claude-3.7-sonnet",
-        "notebookPrompt": "h-4",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001433/0.250507.2356/6e10365d/claude-3.7-sonnet/h-4/notebook.ipynb",
+        "notebookModel": "anthropic/claude-sonnet-4",
+        "notebookPrompt": "h-5",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001433/0.250507.2356/6e10365d/claude-sonnet-4/h-5/notebook.ipynb",
         "promptTokens": 17996,
-        "completionTokens": 5598,
-        "estimatedCost": 0.137958
+        "completionTokens": 4255,
+        "estimatedCost": null
       },
       "skip_explore": false,
       "chatId": "6e10365d8ae3a08f0b42b768b49f27e4867111ee",
@@ -293,12 +293,12 @@
       "dandisetId": "001354",
       "dandisetVersion": "0.250312.0036",
       "notebook": {
-        "notebookModel": "anthropic/claude-3.7-sonnet",
+        "notebookModel": "anthropic/claude-sonnet-4",
         "notebookPrompt": "h-4",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001354/0.250312.0036/skip-explore/claude-3.7-sonnet/h-4/notebook.ipynb",
-        "promptTokens": 13121,
-        "completionTokens": 5578,
-        "estimatedCost": 0.123033
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001354/0.250312.0036/skip-explore/claude-sonnet-4/h-4/notebook.ipynb",
+        "promptTokens": 44476,
+        "completionTokens": 5221,
+        "estimatedCost": null
       },
       "skip_explore": true
     },
@@ -307,11 +307,11 @@
       "dandisetVersion": "0.250507.2356",
       "notebook": {
         "notebookModel": "anthropic/claude-3.7-sonnet",
-        "notebookPrompt": "h-4",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001433/0.250507.2356/skip-explore/claude-3.7-sonnet/h-4/notebook.ipynb",
-        "promptTokens": 18118,
-        "completionTokens": 11437,
-        "estimatedCost": 0.22590900000000003
+        "notebookPrompt": "h-5",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001433/0.250507.2356/skip-explore/claude-3.7-sonnet/h-5/notebook.ipynb",
+        "promptTokens": 5214,
+        "completionTokens": 3832,
+        "estimatedCost": 0.073122
       },
       "skip_explore": true
     },
@@ -429,42 +429,6 @@
         "promptTokens": 25667,
         "completionTokens": 7684,
         "estimatedCost": 0.19226100000000002
-      },
-      "skip_explore": true
-    },
-    {
-      "dandisetId": "001174",
-      "dandisetVersion": "0.250331.2218",
-      "notebook": {
-        "notebookModel": "deepseek/deepseek-r1-0528",
-        "notebookPrompt": "h-4",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001174/0.250331.2218/553b9186/deepseek-r1-0528/h-4/notebook.ipynb",
-        "promptTokens": 32413,
-        "completionTokens": 5965,
-        "estimatedCost": null
-      },
-      "skip_explore": false,
-      "chatId": "553b9186b1844d6fa99166d5aa46c55c9346f070",
-      "chat": {
-        "chatUrl": "https://dandi-ai-notebooks.github.io/dandiset-explorer/chat?dandisetId=001174&dandisetVersion=0.250331.2218&chatId=553b9186b1844d6fa99166d5aa46c55c9346f070",
-        "chatModel": "openai/gpt-4.1",
-        "timestampCreated": 1748451488521,
-        "timestampUpdated": 1748452510626,
-        "promptTokens": 169392,
-        "completionTokens": 7313,
-        "estimatedCost": 0.397288
-      }
-    },
-    {
-      "dandisetId": "001174",
-      "dandisetVersion": "0.250331.2218",
-      "notebook": {
-        "notebookModel": "deepseek/deepseek-r1-0528",
-        "notebookPrompt": "h-4",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001174/0.250331.2218/skip-explore/deepseek-r1-0528/h-4/notebook.ipynb",
-        "promptTokens": 28912,
-        "completionTokens": 9937,
-        "estimatedCost": null
       },
       "skip_explore": true
     }

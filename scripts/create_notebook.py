@@ -6,6 +6,7 @@ import json
 import subprocess
 import re
 import requests
+from jinja2 import Template
 from helpers.run_completion import run_completion
 
 
@@ -28,16 +29,21 @@ def read_prompt(path: str) -> str:
         return f.read()
 
 
-def replace_template_vars(text: str, dandiset_id: str, version: str, chat_or_information_str: str) -> str:
-    """Replace template variables in text."""
+def process_prompt(prompt_text: str, dandiset_id: str, version: str, is_chat: bool) -> str:
+    """Replace template variables using jinja2."""
     print("Replacing template variables...")
-    text = text.replace("{{ DANDISET_ID }}", dandiset_id)
-    text = text.replace("{{ DANDISET_VERSION }}", version)
-    text = text.replace("{{ CHAT_OR_INFORMATION }}", chat_or_information_str)
-    # check to see if there are are {{ or }} left in the text that we didn't replace
-    if '{{' in text or '}}' in text:
+    chat_or_information_str = 'chat' if is_chat else 'information'
+    template = Template(prompt_text)
+    rendered = template.render(
+        DANDISET_ID=dandiset_id,
+        DANDISET_VERSION=version,
+        CHAT_OR_INFORMATION=chat_or_information_str,
+        is_chat=is_chat
+    )
+    # Still check for any unreplaced variables as a safety check
+    if '{{' in rendered or '}}' in rendered:
         raise ValueError("Template variables not replaced correctly. Please check the prompt.")
-    return text
+    return rendered
 
 
 def write_notebook(content: str, path: str) -> str:
@@ -89,11 +95,6 @@ def main():
     if os.path.exists(args.output):
         print(f"Output directory {args.output} already exists. Skipping notebook creation.")
         return
-
-    if args.skip_explore:
-        chat_or_information_str = "information"
-    else:
-        chat_or_information_str = "chat"
 
     messages = []
     if not args.skip_explore:
@@ -164,7 +165,17 @@ def main():
 
     # Read and process prompt
     prompt = read_prompt(args.prompt)
-    prompt = replace_template_vars(text=prompt, dandiset_id=args.dandiset, version=args.version, chat_or_information_str=chat_or_information_str)
+    prompt = process_prompt(
+        prompt_text=prompt,
+        dandiset_id=args.dandiset,
+        version=args.version,
+        is_chat=not args.skip_explore
+    )
+    print("================================= PROMPT =================================")
+    print(prompt)
+    print("==========================================================================")
+    print("")
+
     # chat_messages_metadata = chat['messageMetadata']  # type: ignore
     messages.append({"role": "user", "content": prompt})
 
@@ -334,6 +345,8 @@ def get_model_cost(model: str):
     elif model == 'anthropic/claude-3.7-sonnet':
         return [3, 15]
     elif model == 'anthropic/claude-3.7-sonnet:thinking':
+        return [3, 15]
+    elif model == 'anthropic/claude-sonnet-4':
         return [3, 15]
     elif model == 'deepseek/deepseek-r1':
         return [0.55, 2.19]

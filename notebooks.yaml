@@ -7,13 +7,13 @@ notebooks:
   - dandiset_id: "001354"
     dandiset_version: "0.250312.0036"
     chat_id: 1b55f1ffc7caac28284d1914869055ee48e2ff2e
-    prompt: h-4
-    model: anthropic/claude-3.7-sonnet
+    prompt: h-5
+    model: anthropic/claude-sonnet-4
   - dandiset_id: "001433"
     dandiset_version: "0.250507.2356"
     chat_id: 6e10365d8ae3a08f0b42b768b49f27e4867111ee
-    prompt: h-4
-    model: anthropic/claude-3.7-sonnet
+    prompt: h-5
+    model: anthropic/claude-sonnet-4
   - dandiset_id: "000563"
     dandiset_version: "0.250311.2145"
     chat_id: 57dc3608c92c02a718fce268d39f51a012286ded
@@ -57,8 +57,8 @@ notebooks:
   - dandiset_id: "000617"
     dandiset_version: "0.250312.0130"
     chat_id: d69e75e79b89a61c03d814ece9f55e4bfc45ed56
-    prompt: h-4
-    model: anthropic/claude-3.7-sonnet
+    prompt: h-5
+    model: anthropic/claude-sonnet-4
 
   - dandiset_id: "001349"
     dandiset_version: "0.250520.1729"
@@ -68,13 +68,13 @@ notebooks:
   - dandiset_id: "001354"
     dandiset_version: "0.250312.0036"
     skip_explore: True
-    prompt: h-4
-    model: anthropic/claude-3.7-sonnet
+    prompt: h-5
+    model: anthropic/claude-sonnet-4
   - dandiset_id: "001433"
     dandiset_version: "0.250507.2356"
     skip_explore: True
-    prompt: h-4
-    model: anthropic/claude-3.7-sonnet
+    prompt: h-5
+    model: anthropic/claude-sonnet-4
   - dandiset_id: "000563"
     dandiset_version: "0.250311.2145"
     skip_explore: True
@@ -118,16 +118,5 @@ notebooks:
   - dandiset_id: "000617"
     dandiset_version: "0.250312.0130"
     skip_explore: True
-    prompt: h-4
-    model: anthropic/claude-3.7-sonnet
-
-  - dandiset_id: "001174"
-    dandiset_version: "0.250331.2218"
-    chat_id: 553b9186b1844d6fa99166d5aa46c55c9346f070
-    prompt: h-4
-    model: deepseek/deepseek-r1-0528
-  - dandiset_id: "001174"
-    dandiset_version: "0.250331.2218"
-    skip_explore: True
-    prompt: h-4
-    model: deepseek/deepseek-r1-0528
+    prompt: h-5
+    model: anthropic/claude-sonnet-4

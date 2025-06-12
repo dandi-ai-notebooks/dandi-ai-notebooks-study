@@ -7,3 +7,7 @@ set -ex
 ./scripts/generate_results_table.py
 ./scripts/compare_notebooks.py
 ./scripts/parse_comparisons.py
+
+./scripts/extract_images.py
+
+python scripts/print_user_messages.py > user_message.md
