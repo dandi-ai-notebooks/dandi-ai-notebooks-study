@@ -8,8 +8,10 @@ def generate_markdown_table():
         data = json.load(f)
 
     # Start the markdown table
-    markdown = "| Dandiset ID | Chat Model | Notebook Model | Chat Cost | Notebook Cost | Chat | Comparison |\n"
-    markdown += "|------------|------------|----------------|-----------|---------------|------|-----------|\n"
+    # markdown = "| Dandiset ID | Chat Model | Notebook Model | Chat Cost | Notebook Cost | Chat | Comparison |\n"
+    # markdown += "|------------|------------|----------------|-----------|---------------|------|-----------|\n"
+    markdown = "| Dandiset ID | Chat Model | Notebook Model | Chat Cost | Notebook Cost | Chat |\n"
+    markdown += "|-------------|------------|----------------|-----------|---------------|------|\n"
 
     # Add each row
     for notebook in data['notebooks']:
@@ -37,7 +39,8 @@ def generate_markdown_table():
         notebook_url = notebook['notebook']['notebookUrl']
 
         # Format the row with the dandiset ID linking to the notebook URL
-        row = f"| [{dandiset_id}]({notebook_url}) | {chat_model} | {notebook_model} | {chat_cost} | {notebook_cost} | {'[chat](' + chat_url + ')' if chat_url else 'N/A'} | {'[comparison](' + comparison_url + ')' if comparison_url else 'N/A'} |\n"
+        # row = f"| [{dandiset_id}]({notebook_url}) | {chat_model} | {notebook_model} | {chat_cost} | {notebook_cost} | {'[chat](' + chat_url + ')' if chat_url else 'N/A'} | {'[comparison](' + comparison_url + ')' if comparison_url else 'N/A'} |\n"
+        row = f"| [{dandiset_id}]({notebook_url}) | {chat_model} | {notebook_model} | {chat_cost} | {notebook_cost} | {'[chat](' + chat_url + ')' if chat_url else 'N/A'} |\n"
         markdown += row
 
     # Write to results.md
