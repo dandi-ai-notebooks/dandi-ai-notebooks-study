@@ -1,0 +1,11 @@
+{
+  "model": "anthropic/claude-sonnet-4",
+  "dandiset_id": "001195",
+  "version": "0.250408.1733",
+  "prompt": "prompts/prompt-h-5.txt",
+  "skip_explore": false,
+  "chat_url": "https://neurosift.org/dandiset-explorer-chats/001195/0.250408.1733/chats/cd/cd3c6c58c8e1bc62f2223e9eed98507c1c3f4d3e/chat.json",
+  "prompt_tokens": 35739,
+  "completion_tokens": 4311,
+  "estimated_cost": 0.171882
+}
