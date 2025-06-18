@@ -1,5 +1,7 @@
 # Notebook Review Instructions
 
+**Important:** Use Chrome, Brave, or Safari browsers for reviewing notebooks. Firefox may not render the notebooks properly.
+
 1. Open the [notebook review table](./to_review.md) in a separate tab.
 2. Click on one of the "notebook review" links.
 3. Log in using your API token (available from an admin).
