@@ -113,7 +113,7 @@ def main():
             'notebook': {
                 'notebookModel': model,
                 'notebookPrompt': prompt,
-                'notebookUrl': f"https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/{dandiset_id}/{version}/{chat_id_8_or_skip_explore}/{model_name}/{prompt}/notebook.ipynb",
+                'notebookUrl': f"https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-6/blob/main/notebooks/dandisets/{dandiset_id}/{version}/{chat_id_8_or_skip_explore}/{model_name}/{prompt}/notebook.ipynb",
                 'promptTokens': info_data.get('promptTokens'),
                 'completionTokens': info_data.get('completionTokens'),
                 'estimatedCost': info_data.get('estimatedCost')

@@ -28,8 +28,8 @@ def generate_markdown_table():
             chat_cost = f"${notebook['chat']['estimatedCost']:.2f}"
             chat_url = notebook['chat']['chatUrl']
             # chat_id_first_8 = notebook['chatId'][:8]
-            # https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebook_comparisons/dandisets/001349/0.250520.1729/4befc0a1/gpt-4.1/h-2/comparison_with_skip_explore.txt
-            # comparison_url = f'https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebook_comparisons/dandisets/{dandiset_id}/{dandiset_version}/{chat_id_first_8}/{notebook_model_second_part}/{prompt_name}/comparison_with_skip_explore.txt'
+            # https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-6/blob/main/notebook_comparisons/dandisets/001349/0.250520.1729/4befc0a1/gpt-4.1/h-2/comparison_with_skip_explore.txt
+            # comparison_url = f'https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-6/blob/main/notebook_comparisons/dandisets/{dandiset_id}/{dandiset_version}/{chat_id_first_8}/{notebook_model_second_part}/{prompt_name}/comparison_with_skip_explore.txt'
         else:
             chat_model = 'skip-explore'
             chat_cost = 'N/A'

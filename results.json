@@ -6,7 +6,7 @@
       "notebook": {
         "notebookModel": "anthropic/claude-sonnet-4",
         "notebookPrompt": "h-5",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001349/0.250520.1729/4befc0a1/claude-sonnet-4/h-5/notebook.ipynb",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-6/blob/main/notebooks/dandisets/001349/0.250520.1729/4befc0a1/claude-sonnet-4/h-5/notebook.ipynb",
         "promptTokens": 29945,
         "completionTokens": 2732,
         "estimatedCost": 0.13081500000000001
@@ -29,7 +29,7 @@
       "notebook": {
         "notebookModel": "anthropic/claude-sonnet-4",
         "notebookPrompt": "h-5",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001354/0.250312.0036/1b55f1ff/claude-sonnet-4/h-5/notebook.ipynb",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-6/blob/main/notebooks/dandisets/001354/0.250312.0036/1b55f1ff/claude-sonnet-4/h-5/notebook.ipynb",
         "promptTokens": 119047,
         "completionTokens": 6877,
         "estimatedCost": 0.460296
@@ -52,7 +52,7 @@
       "notebook": {
         "notebookModel": "anthropic/claude-sonnet-4",
         "notebookPrompt": "h-5",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001433/0.250507.2356/6e10365d/claude-sonnet-4/h-5/notebook.ipynb",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-6/blob/main/notebooks/dandisets/001433/0.250507.2356/6e10365d/claude-sonnet-4/h-5/notebook.ipynb",
         "promptTokens": 17996,
         "completionTokens": 4255,
         "estimatedCost": null
@@ -75,7 +75,7 @@
       "notebook": {
         "notebookModel": "anthropic/claude-sonnet-4",
         "notebookPrompt": "h-5",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/000563/0.250311.2145/57dc3608/claude-sonnet-4/h-5/notebook.ipynb",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-6/blob/main/notebooks/dandisets/000563/0.250311.2145/57dc3608/claude-sonnet-4/h-5/notebook.ipynb",
         "promptTokens": 45912,
         "completionTokens": 3760,
         "estimatedCost": 0.194136
@@ -98,7 +98,7 @@
       "notebook": {
         "notebookModel": "anthropic/claude-sonnet-4",
         "notebookPrompt": "h-5",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001361/0.250406.0045/d36c4584/claude-sonnet-4/h-5/notebook.ipynb",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-6/blob/main/notebooks/dandisets/001361/0.250406.0045/d36c4584/claude-sonnet-4/h-5/notebook.ipynb",
         "promptTokens": 27269,
         "completionTokens": 4123,
         "estimatedCost": 0.143652
@@ -121,7 +121,7 @@
       "notebook": {
         "notebookModel": "anthropic/claude-sonnet-4",
         "notebookPrompt": "h-5",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001366/0.250324.1603/e83e5f10/claude-sonnet-4/h-5/notebook.ipynb",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-6/blob/main/notebooks/dandisets/001366/0.250324.1603/e83e5f10/claude-sonnet-4/h-5/notebook.ipynb",
         "promptTokens": 15078,
         "completionTokens": 3227,
         "estimatedCost": 0.093639
@@ -144,7 +144,7 @@
       "notebook": {
         "notebookModel": "anthropic/claude-sonnet-4",
         "notebookPrompt": "h-5",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001359/0.250401.1603/38566171/claude-sonnet-4/h-5/notebook.ipynb",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-6/blob/main/notebooks/dandisets/001359/0.250401.1603/38566171/claude-sonnet-4/h-5/notebook.ipynb",
         "promptTokens": 48684,
         "completionTokens": 2862,
         "estimatedCost": 0.18898199999999998
@@ -167,7 +167,7 @@
       "notebook": {
         "notebookModel": "anthropic/claude-sonnet-4",
         "notebookPrompt": "h-5",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001375/0.250406.1855/b9d830b7/claude-sonnet-4/h-5/notebook.ipynb",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-6/blob/main/notebooks/dandisets/001375/0.250406.1855/b9d830b7/claude-sonnet-4/h-5/notebook.ipynb",
         "promptTokens": 15537,
         "completionTokens": 3061,
         "estimatedCost": 0.092526
@@ -190,7 +190,7 @@
       "notebook": {
         "notebookModel": "anthropic/claude-sonnet-4",
         "notebookPrompt": "h-5",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001174/0.250331.2218/553b9186/claude-sonnet-4/h-5/notebook.ipynb",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-6/blob/main/notebooks/dandisets/001174/0.250331.2218/553b9186/claude-sonnet-4/h-5/notebook.ipynb",
         "promptTokens": 19652,
         "completionTokens": 3481,
         "estimatedCost": 0.11117099999999999
@@ -213,7 +213,7 @@
       "notebook": {
         "notebookModel": "anthropic/claude-sonnet-4",
         "notebookPrompt": "h-5",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/000690/0.250326.0015/78e86504/claude-sonnet-4/h-5/notebook.ipynb",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-6/blob/main/notebooks/dandisets/000690/0.250326.0015/78e86504/claude-sonnet-4/h-5/notebook.ipynb",
         "promptTokens": 60109,
         "completionTokens": 2967,
         "estimatedCost": 0.22483199999999998
@@ -236,7 +236,7 @@
       "notebook": {
         "notebookModel": "anthropic/claude-sonnet-4",
         "notebookPrompt": "h-5",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/001195/0.250408.1733/cd3c6c58/claude-sonnet-4/h-5/notebook.ipynb",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-6/blob/main/notebooks/dandisets/001195/0.250408.1733/cd3c6c58/claude-sonnet-4/h-5/notebook.ipynb",
         "promptTokens": 35739,
         "completionTokens": 4311,
         "estimatedCost": 0.171882
@@ -259,7 +259,7 @@
       "notebook": {
         "notebookModel": "anthropic/claude-sonnet-4",
         "notebookPrompt": "h-5",
-        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-5/blob/main/notebooks/dandisets/000617/0.250312.0130/d69e75e7/claude-sonnet-4/h-5/notebook.ipynb",
+        "notebookUrl": "https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-6/blob/main/notebooks/dandisets/000617/0.250312.0130/d69e75e7/claude-sonnet-4/h-5/notebook.ipynb",
         "promptTokens": 40330,
         "completionTokens": 3919,
         "estimatedCost": 0.179775
