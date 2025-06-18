@@ -5,6 +5,7 @@ import json
 import base64
 import os
 from pathlib import Path
+from create_montage import create_montage_packed as create_montage
 
 def ensure_dir(path):
     path.mkdir(parents=True, exist_ok=True)
@@ -19,10 +20,10 @@ def process_notebook(notebook_path, output_dir, notebook_info, markdown_entries)
             nb = json.load(f)
     except FileNotFoundError:
         print(f"Notebook not found: {notebook_path}")
-        return
+        return []
     except json.JSONDecodeError:
         print(f"Invalid JSON in notebook: {notebook_path}")
-        return
+        return []
 
     image_count = 0
     image_paths = []
@@ -68,12 +69,15 @@ def process_notebook(notebook_path, output_dir, notebook_info, markdown_entries)
             entry += f"![Image {idx}]({rel_path})\n\n"
         markdown_entries.append(entry)
 
+    return image_paths
+
 def main():
     # Read the YAML file
     with open('notebooks.yaml', 'r') as f:
         data = yaml.safe_load(f)
 
     markdown_entries = []
+    all_image_paths = []
 
     # Process each notebook
     for notebook in data['notebooks']:
@@ -87,12 +91,21 @@ def main():
         notebook_path = Path('notebooks') / 'dandisets' / dandiset_id / version / chat_id / model / prompt / 'notebook.ipynb'
         output_dir = ensure_dir(Path('images') / 'dandisets' / dandiset_id / version / chat_id / model / prompt)
 
-        process_notebook(notebook_path, output_dir, notebook, markdown_entries)
+        image_paths = process_notebook(notebook_path, output_dir, notebook, markdown_entries)
+        all_image_paths.extend(image_paths)
 
     # Write markdown file
     markdown_content = "# Notebook Images\n\n" + "\n".join(markdown_entries)
     with open('images/images.md', 'w') as f:
         f.write(markdown_content)
+
+    # Create montage of all images
+    if all_image_paths:
+        montage_path = Path('images') / 'montage.png'
+        create_montage(all_image_paths, montage_path, max_width=3000)
+        print(f"\nMontage created with {len(all_image_paths)} images")
+    else:
+        print("No images found to create montage")
 
 if __name__ == '__main__':
     main()
