@@ -47,7 +47,7 @@ def generate_markdown_table():
         markdown += row
 
         to_review_url = f'https://dandi-ai-notebooks.github.io/dandi-notebook-review/review?url={notebook_url}'
-        row_to_review = f"| {dandiset_id} | [review]({to_review_url}) |\n"
+        row_to_review = f"| {dandiset_id} | [notebook review]({to_review_url}) |\n"
         markdown_to_review += row_to_review
 
     # Write to results.md
