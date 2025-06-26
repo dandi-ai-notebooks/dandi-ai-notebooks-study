@@ -6,7 +6,7 @@ The review session will focus on 12 AI-generated notebooks. We have allocated an
 
 How to Review:
 
-* Important: Use Chrome, Brave, or Safari. Firefox may not render notebooks correctly. *
+Important: Use Chrome, Brave, or Safari. Firefox may not render notebooks correctly.
 
 1. Open the [review table](https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-6/blob/main/to_review.md).
 2. Click a "notebook review" link.
