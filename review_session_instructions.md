@@ -17,3 +17,5 @@ Important: Use Chrome, Brave, or Safari. Firefox may not render notebooks correc
 Repeat for the remaining notebooks.
 
 Thanks again for your time and input. It is critical to the success of this project.
+
+Note: Some of the questions ask you to open Neurosift links to NWB files in order to inspect what data are available. You can find those links at the bottom of the [review table page](https://github.com/dandi-ai-notebooks/dandi-ai-notebooks-6/blob/main/to_review.md). Not all objects will render in Neurosift, but remember that you are reviewing the notebook, not Neurosift.
