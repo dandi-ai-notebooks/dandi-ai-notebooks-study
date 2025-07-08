@@ -31,13 +31,18 @@ for idx, col in enumerate(valid_ordered_cols):
     ax = axes[idx]
     data = df[col].dropna()
     min_val = data.min()
+    max_val = data.max()
 
     if min_val < 0:
         bins = standard_bins["negative"]
         ticks = [-2, -1, 0]
-    else:
+    elif max_val > 0:
         bins = standard_bins["positive"]
         ticks = [0, 1, 2]
+    else:
+        # all responses were 0... this only happens for the redundant visualizations questions. Hard-code it as negative
+        bins = standard_bins["negative"]
+        ticks = [-2, -1, 0]
 
     ax.hist(data, bins=bins, align='mid', rwidth=0.6)
     ax.set_title(col, fontsize=10)

@@ -14,6 +14,11 @@ def extract_dandiset_id(notebook_uri):
         return match.group(1).zfill(6)
     return None
 
+def _is_author_email(email):
+    x = ['jmagland@', 'oruebel@', 'rly@', 'ben.dichter@']
+    # Check if the email belongs to the author
+    return any(email.startswith(prefix) for prefix in x)
+
 def main():
     # Read the JSON file
     with open('reviews-export-2025-07-02.json', 'r') as f:
@@ -26,7 +31,7 @@ def main():
     processed_reviews = []
     for review in reviews:
         if (review['review']['status'] == 'completed' and
-            review['reviewer_email'] != 'jmagland@flatironinstitute.org'):
+            not _is_author_email(review['reviewer_email'])):
             # Extract responses
             responses_dict = {}
             for response in review['review']['responses']:
