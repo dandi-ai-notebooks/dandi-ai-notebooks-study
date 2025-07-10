@@ -2,3 +2,4 @@ __pycache__
 .env
 .ipynb_checkpoints
 core.*
+reviews-export*.json
