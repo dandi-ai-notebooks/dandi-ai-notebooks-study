@@ -11,7 +11,8 @@ def get_reviewer_id(email, email_to_id=None):
         email_to_id = {}
     if email not in email_to_id:
         reviewer_num = len(email_to_id) + 1
-        email_to_id[email] = f'R{reviewer_num}'
+        #  email_to_id[email] = f'R{reviewer_num}'
+        email_to_id[email] = email
     return email_to_id[email]
 
 def extract_dandiset_id(notebook_uri):
@@ -30,7 +31,7 @@ def _is_author_email(email):
 
 def main():
     # Read the JSON file
-    with open('reviews-export-2025-07-02.json', 'r') as f:
+    with open('reviews-export-2025-07-14.json', 'r') as f:
         reviews = json.load(f)
 
     # Track all unique question IDs to create CSV headers
